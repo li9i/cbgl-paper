@@ -1,0 +1,125 @@
+% Colors:
+% Blue-ish: 8FC2FF
+% Yellow-ish: FFE599
+% Red-ish: FF9999
+% Brown-ish: E5C07B
+% Blue/Green-ish: 397880
+
+\setcounter{secnumdepth}{3}
+\usepackage{listings}
+\usepackage{color}
+\usepackage[hidelinks]{hyperref}
+\let\proof\relax
+\let\endproof\relax
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{subfig}
+\usepackage{balance}
+\usepackage{stfloats}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{bm}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{stfloats}
+\usepackage{pdflscape}
+\usepackage{pgfplots}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{setspace}
+\usepackage{tikz}
+
+%\usepackage[noadjust]{cite}
+\usepackage{cite}
+
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+\renewcommand\thealgorithm{\Roman{algorithm}}
+
+% Italics for theorems
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\renewcommand\thetheorem{\Roman{theorem}}
+
+% Normal for all the rest
+\newtheorem{lemma}{Lemma}
+\renewcommand\thelemma{\Roman{lemma}}
+\newtheorem{corollary}{Corollary}
+\renewcommand\thecorollary{\Roman{corollary}}
+\theoremstyle{definition}
+\newtheorem{problem}{Problem}
+\renewcommand\theproblem{\Roman{problem}}
+
+% https://tex.stackexchange.com/questions/53978/custom-theorem-numbering
+\newtheorem{innercustomprb}{Problem}
+\newenvironment{customprb}[1]
+  {\renewcommand\theinnercustomprb{#1}\innercustomprb}
+  {\endinnercustomprb}
+
+\newtheorem{innercustomhpt}{Hypothesis}
+\newenvironment{customhpt}[1]
+  {\renewcommand\theinnercustomhpt{#1}\innercustomhpt}
+  {\endinnercustomhpt}
+
+\newtheorem{definition}{Definition}
+\renewcommand\thedefinition{\Roman{definition}}
+\newtheorem{remark}{Remark}
+\renewcommand\theremark{\Roman{remark}}
+\newtheorem{proposition}{Proposition}
+\renewcommand\theproposition{\Roman{proposition}}
+\newtheorem{objective}{Objective}
+\renewcommand\theobjective{\Roman{objective}}
+\newtheorem{operation}{Operation}
+\renewcommand\theoperation{\Roman{operation}}
+
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{keyword}{rgb}{0.5,0.5,0.5}
+\definecolor{greenCode}{rgb}{0, 0.6, 0}
+
+\lstdefinelanguage{HTTP}{
+  keywords={GET},
+  ndkeywords={PUT},
+  comment=[s]{PO}{T},
+  morecomment=[s]{D}{LETE}
+}
+
+\lstdefinestyle{customc}{
+  belowcaptionskip=1\baselineskip,
+  language={HTTP},
+  breaklines=true,
+  frame=tb,
+  captionpos=b,
+  keywordstyle=\bfseries\color{greenCode},
+  ndkeywordstyle=\bfseries\color{red},
+  commentstyle=\bfseries\color{magenta},
+  stringstyle=\bfseries\color{black},
+  xleftmargin={0.75cm},
+  showstringspaces=false,
+  basicstyle=\footnotesize\ttfamily,
+  numbers=left,
+  numberstyle=\small\color{black},
+}
+
+\lstset{escapechar=@,style=customc}
+
+%\ifCLASSINFOpdf
+   %\usepackage[pdftex]{graphicx}
+%\else
+%\fi
+
+\usepackage{flushend} % Equalize last page
+\usepackage[colorinlistoftodos]{todonotes}
+
+\usepackage{framed}
+
+% Manipulate vspace for algorithm
+\makeatletter
+\newcommand\fs@spaceruled{\def\@fs@cfont{\bfseries}\let\@fs@capt\floatc@ruled
+  \def\@fs@pre{\vspace{0.5\baselineskip}\hrule height.8pt depth0pt \kern2pt}%
+  \def\@fs@post{\kern2pt\hrule\relax}%
+  \def\@fs@mid{\kern2pt\hrule\kern2pt}%
+  \let\@fs@iftopcapt\iftrue}
+\makeatother

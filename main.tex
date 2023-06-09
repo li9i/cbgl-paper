@@ -1,0 +1,83 @@
+\documentclass[letterpaper, 10 pt, conference]{ieeeconf}
+\IEEEoverridecommandlockouts
+\overrideIEEEmargins
+\pdfminorversion=4
+\input{./sections/pre_document.tex}
+
+\begin{document}
+
+\title{\LARGE \bf CAER-based Monte Carlo Passive Global Localisation: Fast}
+
+
+\author{Alexandros Filotheou% <-this % stops a space
+  \thanks{}
+}
+
+\maketitle
+\thispagestyle{empty}
+\pagestyle{empty}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{abstract}
+  \input{./sections/00.abstract/abstract.tex}
+\end{abstract}
+
+\begin{keywords}
+Scan-matching, localisation, panoramic LIDAR
+\end{keywords}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+  \input{sections/01.introduction/01.introduction.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Definitions and Problem Formulation}
+  \label{section:definitions_and_problem_formulation}
+  \input{sections/02.definitions_and_problem_formulation/01.defs_prob.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Prior Work}
+  \label{section:sota}
+  \input{sections/03.current_solutions/01.current_solutions.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Approach}
+  \label{section:the_proposed_method}
+  \input{sections/04.the_method/00.the_method.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Results}
+  \label{section:results}
+  \input{sections/05.results/00.results.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Characterisation}
+  \label{section:characterisation}
+  \input{sections/06.characterisation/00.characterisation.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Conclusions and Future Steps}
+  \label{section:finale}
+  \input{sections/07.finale/00.finale.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{thebibliography}{99}
+  %\input{./sections/bibliography_ieee.bib}
+%\end{thebibliography}
+
+\bibliographystyle{ieeetran}
+\bibliography{./sections/bibliography_ieee}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This command serves to balance the column lengths
+% on the last page of the document manually. It shortens
+% the textheight of the last page by a suitable amount.
+% This command does not take effect until the next page
+% so it should come on the page before the last. Make
+% sure that you do not shorten the textheight too much.
+%\addtolength{\textheight}{-1cm}
+
+\balance
+
+\end{document}
