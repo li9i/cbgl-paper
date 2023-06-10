@@ -1,0 +1,45 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{customhpt}{H}
+  \label{hpt:hypothesis_h}
+  Let the unknown pose of a 2D range sensor measuring range scan $\mathcal{S}_R$
+  (def. \ref{def:definition_1}) be $\bm{p}(x,y,\theta)$ with respect to the
+  reference frame of map $\bm{M}$.  Let $\mathcal{H}$ be a set of pose
+  hypotheses within the free (i.e. traversable) space of $\bm{M}$:
+  $\mathcal{H} = \{\hat{\bm{p}}_i(\hat{x}_i,\hat{y}_i,\hat{\theta}_i)\} \subseteq \texttt{free}(\bm{M})$, $i=0,1,\dots,|\mathcal{H}|-1$; $\mathbb{S}$
+  be the set of map-scans (def. \ref{def:definition_2}) of $\bm{M}$ from pose
+  hypotheses $\mathcal{H}$:
+  $\mathbb{S} = \{\mathcal{S}_V^{\bm{M}}(\hat{\bm{p}}_i)\}$; and $\Psi$ be the
+  set of CAERs (def. \ref{def:definition_3}) between $\mathcal{S}_R$ and the
+  elements of $\mathbb{S}$:
+  $\Psi = \{\psi(\mathcal{S}_R, \mathcal{S}_V^{\bm{M}}(\hat{\bm{p}}_i))\}$.
+  Then there exist $\delta_0,\psi_0 \in \mathbb{R}_{> 0}$ which define a set of
+  pose estimates $\mathcal{V} \subseteq \mathcal{H}$ such that
+  \begin{align}
+    \|\bm{p}-\hat{\bm{p}}_\mathcal{V}\|_2 &< \delta_0 \nonumber \text{ and}\\
+    \psi(\mathcal{S}_R,\mathcal{S}_V^{\bm{M}}(\hat{\bm{p}}_\mathcal{V})) &< \psi_0 \nonumber
+  \end{align}
+  for all $\hat{\bm{p}}_\mathcal{V} \in \mathcal{V}$, for which
+  \begin{align}
+    \psi(\bm{p}, \hat{\bm{p}}_\mathcal{V}) &< \psi(\bm{p}, \hat{\bm{p}}_{\mathcal{H} \backslash \mathcal{V}}) \ \ \ \Rightarrow \nonumber \\
+    \|\bm{p}-\hat{\bm{p}}_\mathcal{V}\|_2 &< \|\bm{p}-\hat{\bm{p}}_{\mathcal{H} \backslash \mathcal{V}}\|_2 \nonumber
+  \end{align}
+  for any $\hat{\bm{p}}_{\mathcal{H} \backslash \mathcal{V}} \in {\mathcal{H} \backslash \mathcal{V}}: \|\bm{p}-\hat{\bm{p}}_{\mathcal{H} \backslash \mathcal{V}}\|_2 \geq \delta_0$.
+\end{customhpt}
+
+
+
+
+
+\begin{figure}[]\centering
+  \input{./figures/cbgl_system.tikz}
+  \caption{\small }
+  \label{fig:cbgl}
+\end{figure}
+
+
+\begin{figure}[]\centering
+  \input{./figures/inner_ranking_system.tikz}
+  \caption{\small }
+  \label{fig:cbgl}
+\end{figure}

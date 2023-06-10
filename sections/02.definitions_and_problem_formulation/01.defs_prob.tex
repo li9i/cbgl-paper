@@ -1,8 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{definition}
   \label{def:definition_1}
-  \textit{Definition of a range scan captured from a conventional 2D LIDAR
-  sensor}. A conventional 2D LIDAR sensor provides a finite number of ranges,
+  A conventional 2D LIDAR sensor provides a finite number of ranges,
   i.e. distances to objects within its range, on a horizontal cross-section of
   its environment, at regular angular and temporal intervals, over a defined
   angular range \cite{Cooper2018b}. A range scan $\mathcal{S}$, consisting
@@ -11,14 +10,12 @@
   \{\theta_n \in [-\frac{\lambda}{2}, +\frac{\lambda}{2}) : \theta_n =
   -\frac{\lambda}{2} + \lambda \frac{n}{N_s}$, $n = 0,1,\dots, N_s$$-$$1$$\}$.
   Angles $\theta_n$ are expressed relative to the sensor's heading, in the
-  sensor's frame of reference. The angular distance between two consecutive
-  rays is the sensor's angle increment $\gamma \triangleq \lambda/N_s$.
+  sensor's frame of reference.
 \end{definition}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{definition}
   \label{def:definition_2}
-  \textit{Definition of a map-scan}.
   A map-scan is a virtual scan that encapsulates the same pieces of information
   as a scan derived from a physical sensor. Only their underlying operating
   principle is different due to the fact the map-scan refers to distances to
@@ -32,11 +29,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{definition}
   \label{def:definition_3}
-  \textit{The Cumulative Absolute Error per Ray (CAER) metric}.
   Let $\mathcal{S}_p$ and $\mathcal{S}_q$ be two range scans, equal in angular
   range $\lambda$ and size $N_s$. The value of the Cumulative Absolute Error
-  per Ray metric $\psi \in \mathbb{R}_{\geq 0}$ between $\mathcal{S}_p$ and
-  $\mathcal{S}_q$ is given by
+  per Ray (CAER) metric $\psi \in \mathbb{R}_{\geq 0}$ between $\mathcal{S}_p$
+  and $\mathcal{S}_q$ is given by
   \begin{align}
     \psi(\mathcal{S}_p,\mathcal{S}_q) \triangleq \sum\limits_{n=0}^{N_s-1} \Big| \mathcal{S}_p[n]-\mathcal{S}_q[n]\Big| \nonumber
   \end{align}
@@ -51,33 +47,3 @@
   objective is the estimation of $\bm{p}$ given $\bm{M}$, $\lambda$, and
   $\mathcal{S}_R$.
 \end{customprb}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{customhpt}{H}
-  \label{hpt:hypothesis_h1}
-  Let the unknown pose of an 2D range sensor measuring range scan
-  $\mathcal{S}_R$ be $\bm{p}(x,y,\theta)$ with respect to the reference frame
-  of map $\bm{M}$.  Let $\mathcal{H}$ be a set of pose hypotheses within the
-  free (i.e. traversable) space of $\bm{M}$:
-  $\mathcal{H} = \{\hat{\bm{p}}_i\} \subseteq \texttt{free}(\bm{M})$, $i=0,1,\dots,|\mathcal{H}|-1$; $\mathbb{S}$
-  be the set of map-scans (def. \ref{def:definition_2}) of $\bm{M}$ from pose
-  hypotheses $\mathcal{H}$:
-  $\mathbb{S} = \{\mathcal{S}_V^{\bm{M}}(\hat{\bm{p}}_i)\}$; and $\Psi$ be the
-  set of CAERs (def. \ref{def:definition_3}) between $\mathcal{S}_R$ and the
-  elements of $\mathbb{S}$:
-  $\Psi = \{\psi(\mathcal{S}_R, \mathcal{S}_V^{\bm{M}}(\hat{\bm{p}}_i))\}$.
-  Then there exist $\delta_0,\psi_0 \in \mathbb{R}_{> 0}$ which define a set of
-  pose estimates $\mathcal{V} \subseteq \mathcal{H}$ such that
-  \begin{align}
-    \|\bm{p}-\hat{\bm{p}}_\mathcal{V}\|_2 &< \delta_0 \nonumber \text{ and}\\
-    \psi(\mathcal{S}_R,\mathcal{S}_V^{\bm{M}}(\hat{\bm{p}}_\mathcal{V})) &< \psi_0 \nonumber
-  \end{align}
-  for all $\hat{\bm{p}}_\mathcal{V} \in \mathcal{V}$, for which
-  \begin{align}
-    \psi(\bm{p}, \hat{\bm{p}}_\mathcal{V}) &< \psi(\bm{p}, \hat{\bm{p}}_{\mathcal{H} \backslash \mathcal{V}}) \nonumber \\
-    &\Rightarrow \nonumber \\
-    \|\bm{p}-\hat{\bm{p}}_\mathcal{V}\|_2 &< \|\bm{p}-\hat{\bm{p}}_{\mathcal{H} \backslash \mathcal{V}}\|_2 \nonumber
-  \end{align}
-  for any $\hat{\bm{p}}_{\mathcal{H} \backslash \mathcal{V}} \in {\mathcal{H} \backslash \mathcal{V}}: \|\bm{p}-\hat{\bm{p}}_{\mathcal{H} \backslash \mathcal{V}}\|_2 \geq \delta_0$.
-
-\end{customhpt}
