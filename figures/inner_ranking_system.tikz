@@ -44,7 +44,7 @@
 \draw    (212.75,119.33) -- (338.75,119.33) -- (338.75,144.33) -- (212.75,144.33) -- cycle  ;
 \draw (275.75,134) node   [align=left] {\texttt{scan\_map}};
 % Text Node
-\draw (304.75,156.83) node   [align=left] {$\mathcal{S}_V$};
+\draw (293.75,158.83) node   [align=left] {$\mathcal{S}_V$};
 % Text Node
 \draw    (219.75,172.67) -- (331.75,172.67) -- (331.75,197.67) -- (219.75,197.67) -- cycle  ;
 \draw (275.75,185.17) node   [align=left] {$\psi$};
@@ -52,14 +52,15 @@
 \draw    (230.25,227) -- (321.25,227) -- (321.25,252) -- (230.25,252) -- cycle  ;
 \draw (275.75,240) node   [align=left] {\texttt{sort}($\Psi$, asc)};
 % Text Node
-\draw (299.75,209.83) node   [align=left] {$\Psi$};
+\draw (288.75,211.83) node   [align=left] {$\Psi$};
 % Text Node
-\draw (276.75,366.5) node   [align=left] {$\mathcal{P}^\prime \subseteq \mathcal{P}$: $|\mathcal{P}^\prime| = n$};
+\draw (276.75,366.5) node   [align=left] {$\mathcal{Q} \subseteq \mathcal{P}$:};
+\draw (276.75,386.5) node   [align=left] {$\mathcal{Q} = \mathcal{P}(\texttt{sid})[1$:$N]$, $|\mathcal{Q}| = N$};
 % Text Node
-\draw (145,289) node [anchor=north west][inner sep=0.75pt]   [align=left] {$n$};
+\draw (145,289) node [anchor=north west][inner sep=0.75pt]   [align=left] {$N$};
 % Text Node
 \draw    (237.75,282) -- (313.75,282) -- (313.75,307) -- (237.75,307) -- cycle  ;
-\draw (275.75,294.5) node   [align=left] {$\mathcal{P}(\texttt{sid})[1$:$n]$};
+\draw (275.75,294.5) node   [align=left] {$\mathcal{P}(\texttt{sid})[1$:$N]$};
 % Text Node
 \draw (280.75,266.83) node   [align=left] {$\overrightarrow{\Psi},\{\texttt{sid}\}: \ \ \ \Psi(\texttt{sid}) = \overrightarrow{\Psi}$};
 

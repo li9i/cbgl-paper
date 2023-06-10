@@ -66,14 +66,14 @@
 \draw (241,257) node   [align=left] {\texttt{sm2}};
 % Text Node
 \draw  [fill={rgb, 255:red, 255; green, 254; blue, 247 }  ,fill opacity=1 ]  (136.5,189.5) -- (347.5,189.5) -- (347.5,214.5) -- (136.5,214.5) -- cycle  ;
-\draw (242,204) node   [align=left] {Estimate Pose Error Hierarchy};
+\draw (242,203) node   [align=left] {Estimate Pose Error Hierarchy};
 % Text Node
-\draw (397,194.71) node [anchor=north west][inner sep=0.75pt]   [align=left] {$n_1 \ll |\mathcal{H}|$};
+\draw (397,194.71) node [anchor=north west][inner sep=0.75pt]   [align=left] {$N_1 \ll |\mathcal{H}|$};
 % Text Node
-\draw  [fill={rgb, 255:red, 255; green, 254; blue, 247 }  ,fill opacity=1 ]  (134.5,297.5) -- (345.5,297.5) -- (345.5,322.5) -- (134.5,322.5) -- cycle  ;
-\draw (240,311) node   [align=left] {Estimate Pose Error Hierarchy};
+\draw  [fill={rgb, 255:red, 255; green, 254; blue, 247 }  ,fill opacity=1 ]  (136.5,297.5) -- (347.5,297.5) -- (347.5,322.5) -- (136.5,322.5) -- cycle  ;
+\draw (242,312) node   [align=left] {Estimate Pose Error Hierarchy};
 % Text Node
-\draw (397,302.71) node [anchor=north west][inner sep=0.75pt]   [align=left] {$n_2 = 1$};
+\draw (397,302.71) node [anchor=north west][inner sep=0.75pt]   [align=left] {$N_2 = 1$};
 % Text Node
 \draw (270,228) node   [align=left] {$\mathcal{H}_1 \subseteq \mathcal{H}$};
 % Text Node
