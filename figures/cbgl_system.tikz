@@ -54,7 +54,7 @@
 \draw (179,95) node   [align=left] {$\mathcal{S}_R$};
 % Text Node
 \draw    (227,133.5) -- (381,133.5) -- (381,158.5) -- (227,158.5) -- cycle  ;
-\draw (304,148) node   [align=left] {Generate Hypotheses};
+\draw (304,147) node   [align=left] {Generate Hypotheses};
 % Text Node
 \draw (318,172) node   [align=left] {$\mathcal{H}$};
 % Text Node

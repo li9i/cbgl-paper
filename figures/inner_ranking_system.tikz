@@ -54,8 +54,8 @@
 % Text Node
 \draw (288.75,211.83) node   [align=left] {$\Psi$};
 % Text Node
-\draw (276.75,366.5) node   [align=left] {$\mathcal{Q} \subseteq \mathcal{P}$:};
-\draw (276.75,386.5) node   [align=left] {$\mathcal{Q} = \mathcal{P}(\texttt{sid})[1$:$N]$, $|\mathcal{Q}| = N$};
+\draw (276.75,366.5) node   [align=left] {$\mathcal{Q} \subseteq \mathcal{P}$: $\mathcal{Q} = \mathcal{P}(\texttt{sid})[1$:$N]$, $|\mathcal{Q}| = N$};
+%\draw (276.75,386.5) node   [align=left] {$\mathcal{Q} = \mathcal{P}(\texttt{sid})[1$:$N]$, $|\mathcal{Q}| = N$};
 % Text Node
 \draw (145,289) node [anchor=north west][inner sep=0.75pt]   [align=left] {$N$};
 % Text Node

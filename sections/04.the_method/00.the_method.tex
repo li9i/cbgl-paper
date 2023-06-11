@@ -21,23 +21,30 @@
   \end{align}
   for all $\hat{\bm{p}}_\mathcal{V} \in \mathcal{V}$, for which
   \begin{align}
-    \psi(\bm{p}, \hat{\bm{p}}_\mathcal{V}) &< \psi(\bm{p}, \hat{\bm{p}}_{\mathcal{H} \backslash \mathcal{V}}) \ \ \ \Rightarrow \nonumber \\
-    \|\bm{p}-\hat{\bm{p}}_\mathcal{V}\|_2 &< \|\bm{p}-\hat{\bm{p}}_{\mathcal{H} \backslash \mathcal{V}}\|_2 \nonumber
+    \psi(\bm{p}, \hat{\bm{p}}_\mathcal{V}) &< \psi(\bm{p}, \hat{\bm{p}}_{}) \ \ \ \Leftrightarrow \nonumber \\
+    \|\bm{p}-\hat{\bm{p}}_\mathcal{V}\|_2 &< \|\bm{p}-\hat{\bm{p}}_{}\|_2 \nonumber
   \end{align}
-  for any $\hat{\bm{p}}_{\mathcal{H} \backslash \mathcal{V}} \in {\mathcal{H} \backslash \mathcal{V}}: \|\bm{p}-\hat{\bm{p}}_{\mathcal{H} \backslash \mathcal{V}}\|_2 \geq \delta_0$.
+  for any $\hat{\bm{p}}_{} \in {\mathcal{H} \setminus  \mathcal{V}}: \|\bm{p}-\hat{\bm{p}}_{}\|_2 \geq \delta_0$.
 \end{customhpt}
 
-\begin{figure}[]\centering
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{remark}
+  \label{rem:remark_1}
+  The composition of
+  $\mathcal{H} = \mathcal{V} \cup \mathcal{X} \cup \mathcal{W}$, where
+  $\mathcal{X} = \hat{\bm{p}} \in {\mathcal{H} \setminus \mathcal{V}}: \|\bm{p}-\hat{\bm{p}}\|_2 \geq \delta_0$ and
+  $\mathcal{W} = \hat{\bm{p}} \in {\mathcal{H} \setminus \mathcal{V}}: \|\bm{p}-\hat{\bm{p}}\|_2 < \delta_0$.
+  With respect to set $\mathcal{W}$ ... ??
+
+\end{remark}
+
+\begin{figure}\hspace{0.7cm}
   \input{./figures/h_fig.tex}
+  \vspace{1cm}
   \caption{\small }
   \label{fig:}
 \end{figure}
 
-\begin{figure}[]\centering
-  \input{./figures/h_fig.tex}
-  \caption{\small }
-  \label{fig:}
-\end{figure}
 
 \begin{figure}[]\centering
   \input{./figures/cbgl_system.tikz}
