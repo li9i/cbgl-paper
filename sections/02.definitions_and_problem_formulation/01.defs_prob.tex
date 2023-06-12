@@ -28,14 +28,36 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{definition}
-  \label{def:definition_3}
-  Let $\mathcal{S}_p$ and $\mathcal{S}_q$ be two range scans, equal in angular
+  \label{def:definition_3} \textit{CAER as metric}.---Let
+  $\mathcal{S}_p$ and $\mathcal{S}_q$ be two range scans, equal in angular
   range $\lambda$ and size $N_s$. The value of the Cumulative Absolute Error
   per Ray (CAER) metric $\psi \in \mathbb{R}_{\geq 0}$ between $\mathcal{S}_p$
   and $\mathcal{S}_q$ is given by
   \begin{align}
     \psi(\mathcal{S}_p,\mathcal{S}_q) \triangleq \sum\limits_{n=0}^{N_s-1} \Big| \mathcal{S}_p[n]-\mathcal{S}_q[n]\Big| \nonumber
   \end{align}
+\end{definition}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{definition}
+  \label{def:definition_4} \textit{CAER as field}.---We define a $\psi$-field
+  $f$ to be a map of 3D pose configurations to CAER values (def.
+  \ref{def:definition_3}), i.e.
+  $f: \mathbb{R}^2 \times [-\pi, +\pi) \rightarrow \mathbb{R}_{\geq 0}$.
+  A $\psi$-field is produced by computing the value of the CAER metric between
+  a range scan $\mathcal{S}_R$ (def. \ref{def:definition_1}) and a map-scan
+  $\mathcal{S}_V^{\bm{M}}(\hat{\bm{p}})$ (def. \ref{def:definition_2}) captured from pose configuration
+  $\hat{\bm{p}}$ within map $\bm{M}$.
+  If $\psi(\mathcal{S}_R,\mathcal{S}_V^{\bm{M}}(\hat{\bm{p}})) = c$, then
+  $f(\hat{\bm{p}}) = c$.
+\end{definition}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{definition}
+  \label{def:definition_5} \textit{Field densities}.---
+  angular density
+  locational density
 \end{definition}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
