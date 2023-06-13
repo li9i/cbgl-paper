@@ -1,4 +1,4 @@
-Let $\mathcal{A} = \{\alpha_i\}$,
+Let $\mathcal{A} = \{\alpha_i: \alpha_i \in \mathbb{R}\}$,
 $i \in \texttt{I} = \langle 0,1,\dots,n-1 \rangle$, denote a set of $n$ elements,
 $\langle\cdot\rangle$ denote an ordered set, $\mathcal{A}_{\uparrow}$ the
 set $\mathcal{A}$ ordered in ascending order, and the bracket notation
@@ -61,15 +61,7 @@ $\mathcal{A}[\texttt{I}] = \mathcal{A}$ denote indexing.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{definition}
-  \label{def:definition_5} \textit{Field densities}.---
-  angular density
-  locational density ??
-\end{definition}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{definition}
-  \label{def:definition_6} \textit{Rank field}.---Let $f_{\psi}^{\bm{M}}$ be
+  \label{def:definition_5} \textit{Rank field}.---Let $f_{\psi}^{\bm{M}}$ be
   a $\psi$-field on map $\bm{M}$ and $\mathcal{P} = \{\hat{\bm{p}}_i\}$,
   $i \in \texttt{I} = \langle 0,1,\dots,|\mathcal{P}|-1 \rangle$, be a set of 3D pose
   configurations within map $\bm{M}$, such that
@@ -85,6 +77,14 @@ $\mathcal{A}[\texttt{I}] = \mathcal{A}$ denote indexing.
   In other words a rank field maps the elements of pose estimate set $\{\hat{\bm{p}}_i\}$
   to the ranks $\texttt{I}^\ast$ of their corresponding CAER values in
   hierarchy $\Psi_\uparrow$.
+\end{definition}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{definition}
+  \label{def:definition_6} \textit{Field densities}.---The locational and
+  angular density, $d_l$ and $d_{\alpha}$ respectively, of a
+  $\psi$- or $r$-field express, correspondingly, the number of pose estimates
+  per unit area of space and $2\pi$ rad.
 \end{definition}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
