@@ -30,8 +30,8 @@
 \draw    (275.75,197.83) -- (275.75,222.83) ;
 \draw [shift={(275.75,224.83)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
 %Straight Lines [id:da4366145475662475]
-\draw    (159.52,294.07) -- (231.67,294.39) ;
-\draw [shift={(233.67,294.39)}, rotate = 180.25] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (159.52,293.83) -- (231.67,293.83) ;
+\draw [shift={(233.67,293.83)}, rotate = 180.25] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
 %Straight Lines [id:da01419967829423241]
 \draw    (275.75,251.83) -- (275.75,276.83) ;
 \draw [shift={(275.75,278.83)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
@@ -44,7 +44,7 @@
 \draw    (212.75,119.33) -- (338.75,119.33) -- (338.75,144.33) -- (212.75,144.33) -- cycle  ;
 \draw (275.75,134) node   [align=left] {\texttt{scan\_map}};
 % Text Node
-\draw (293.75,158.83) node   [align=left] {$\mathcal{S}_V$};
+\draw (293.83,158.83) node   [align=left] {$\mathcal{S}_V$};
 % Text Node
 \draw    (219.75,172.67) -- (331.75,172.67) -- (331.75,197.67) -- (219.75,197.67) -- cycle  ;
 \draw (275.75,185.17) node   [align=left] {$\psi$};
@@ -54,15 +54,14 @@
 % Text Node
 \draw (288.75,211.83) node   [align=left] {$\Psi$};
 % Text Node
-\draw (276.75,366.5) node   [align=left] {$\mathcal{Q} \subseteq \mathcal{P}$: $\mathcal{Q} = \mathcal{P}(\texttt{sid})[1$:$N]$, $|\mathcal{Q}| = N$};
-%\draw (276.75,386.5) node   [align=left] {$\mathcal{Q} = \mathcal{P}(\texttt{sid})[1$:$N]$, $|\mathcal{Q}| = N$};
 % Text Node
-\draw (145,289) node [anchor=north west][inner sep=0.75pt]   [align=left] {$N$};
+\draw (145,287.75) node [anchor=north west][inner sep=0.75pt]   [align=left] {$N$};
 % Text Node
 \draw    (237.75,282) -- (313.75,282) -- (313.75,307) -- (237.75,307) -- cycle  ;
-\draw (275.75,294.5) node   [align=left] {$\mathcal{P}(\texttt{sid})[1$:$N]$};
+\draw (287.75,266.83) node   [align=left] {$\texttt{I}^{\ast},\Psi_{\uparrow}: \ \ \ \Psi[\texttt{I}^{\ast}] = \Psi_{\uparrow}$};
+\draw (275.75,295) node   [align=left] {$\mathcal{P}[\texttt{I}^{\ast}]_{1:N}$};
 % Text Node
-\draw (280.75,266.83) node   [align=left] {$\Psi_{\uparrow},\{\texttt{sid}\}: \ \ \ \Psi(\texttt{sid}) = \Psi_{\uparrow}$};
+\draw (276.75,366.5) node   [align=left] {$\mathcal{Q} \subseteq \mathcal{P}$: $\mathcal{Q} = \mathcal{P}[\texttt{I}^{\ast}]_{1:N}$, $|\mathcal{Q}| = N$};
 
 
 \end{tikzpicture}
