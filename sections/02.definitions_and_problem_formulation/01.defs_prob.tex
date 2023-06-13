@@ -75,13 +75,13 @@
   A $\texttt{r}$-field on map $\bm{M}$
   $f_{\texttt{r}}^{\bm{M}} : \mathbb{R}^2 \times [-\pi, +\pi) \rightarrow \mathbb{Z}_{\geq 0}$
   is a mapping of 3D pose configurations $\mathcal{P}$ to non-negative integers
-  such that if $f_{\psi}^{\bm{M}}(\mathcal{P}[\texttt{I}]) = \mathcal{C}$ then
-  $f_{\texttt{r}}^{\bm{M}}(\mathcal{P}[\mathcal{I}_\uparrow]) = \texttt{I}$, or,
-  equivalently,
-  $f_{\texttt{r}}^{\bm{M}}(\mathcal{P}) = \mathcal{I}_\uparrow$.
+  such that if $f_{\psi}^{\bm{M}}(\mathcal{P}) = \mathcal{C}$ then
+  $f_{\texttt{r}}^{\bm{M}}(\mathcal{P}) = \mathcal{I}_\uparrow$
+  (equivalently:
+  $f_{\texttt{r}}^{\bm{M}}(\mathcal{P}[\mathcal{I}_\uparrow]) = \texttt{I}$).
   In other words a rank field maps the elements of pose estimate set $\{\hat{\bm{p}}_i\}$
-  to their corresponding ranks $\mathcal{I}_\uparrow$ in the hierarchy of
-  ascending CAER values $\mathcal{C}_\uparrow = \texttt{sort}(\mathcal{C}, \text{asc})$.
+  to the ranks $\mathcal{I}_\uparrow$ of their corresponding CAER values in
+  hierarchy $\mathcal{C}_\uparrow$.
 \end{definition}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
