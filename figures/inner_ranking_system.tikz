@@ -62,7 +62,7 @@
 \draw    (237.75,282) -- (313.75,282) -- (313.75,307) -- (237.75,307) -- cycle  ;
 \draw (275.75,294.5) node   [align=left] {$\mathcal{P}(\texttt{sid})[1$:$N]$};
 % Text Node
-\draw (280.75,266.83) node   [align=left] {$\overrightarrow{\Psi},\{\texttt{sid}\}: \ \ \ \Psi(\texttt{sid}) = \overrightarrow{\Psi}$};
+\draw (280.75,266.83) node   [align=left] {$\Psi_{\uparrow},\{\texttt{sid}\}: \ \ \ \Psi(\texttt{sid}) = \Psi_{\uparrow}$};
 
 
 \end{tikzpicture}

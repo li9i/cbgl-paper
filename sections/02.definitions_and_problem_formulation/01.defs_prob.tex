@@ -1,29 +1,28 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{definition}
-  \label{def:definition_1}
-  A conventional 2D LIDAR sensor provides a finite number of ranges,
-  i.e. distances to objects within its range, on a horizontal cross-section of
-  its environment, at regular angular and temporal intervals, over a defined
-  angular range \cite{Cooper2018b}. A range scan $\mathcal{S}$, consisting
-  of $N_s$ rays over an angular range $\lambda$, is an ordered map
-  $\mathcal{S} : \Theta \rightarrow \mathbb{R}_{\geq 0}$, $\Theta =
-  \{\theta_n \in [-\frac{\lambda}{2}, +\frac{\lambda}{2}) : \theta_n =
-  -\frac{\lambda}{2} + \lambda \frac{n}{N_s}$, $n = 0,1,\dots, N_s$$-$$1$$\}$.
-  Angles $\theta_n$ are expressed relative to the sensor's heading, in the
-  sensor's frame of reference.
+  \label{def:definition_1} \textit{Range scan captured from a 2D LIDAR
+  sensor}.---A conventional 2D LIDAR sensor provides a finite number of
+  ranges, i.e. distances to objects within its range, on a horizontal
+  cross-section of its environment, at regular angular and temporal intervals,
+  over a defined angular range \cite{Cooper2018b}. A range scan $\mathcal{S}$,
+  consisting of $N_s$ rays over an angular range $\lambda$, is an ordered map
+  $\mathcal{S} : \Theta \rightarrow \mathbb{R}_{\geq 0}$,
+  $\Theta = \{\theta_n \in [-\frac{\lambda}{2}, +\frac{\lambda}{2}) : \theta_n = -\frac{\lambda}{2}
+  + \lambda \frac{n}{N_s}$, $n = 0,1,\dots, N_s$$-$$1$$\}$. Angles $\theta_n$
+  are expressed relative to the sensor's heading, in the sensor's frame of
+  reference.
 \end{definition}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{definition}
-  \label{def:definition_2}
-  A map-scan is a virtual scan that encapsulates the same pieces of information
-  as a scan derived from a physical sensor. Only their underlying operating
-  principle is different due to the fact the map-scan refers to distances to
-  the boundaries of a point-set, referred to as the map, rather than within a
-  real environment. A map-scan $\mathcal{S}_V^{\bm{M}}(\hat{\bm{p}})$ is
-  derived by means of locating intersections of rays emanating from the
-  estimate of the sensor's pose estimate $\hat{\bm{p}}$ and the boundaries of
-  the map $\bm{M}$.
+  \label{def:definition_2} \textit{Map-scan}.---A map-scan is a virtual scan
+  that encapsulates the same pieces of information as a scan derived from a
+  physical sensor. Only their underlying operating principle is different due
+  to the fact the map-scan refers to distances to the boundaries of a
+  point-set, referred to as the map, rather than within a real environment. A
+  map-scan $\mathcal{S}_V^{\bm{M}}(\hat{\bm{p}})$ is derived by means of
+  locating intersections of rays emanating from the estimate of the sensor's
+  pose estimate $\hat{\bm{p}}$ and the boundaries of the map $\bm{M}$.
 \end{definition}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -47,7 +46,7 @@
   $\hat{\bm{p}}(\hat{x},\hat{y},\hat{\theta})$ to CAER values (def.
   \ref{def:definition_3}) such that if
   $\psi(\mathcal{S}_R,\mathcal{S}_V^{\bm{M}}(\hat{\bm{p}})) = c$ then
-  $f_{\psi}^{\bm{M}}(\hat{\bm{p}}) = c$. In other words a $\psi$-field is
+  $f_{\psi}^{\bm{M}}(\hat{\bm{p}}) = c$. In other words a CAER field is
   produced by computing the value of the CAER metric between a range scan
   $\mathcal{S}_R$ (def. \ref{def:definition_1}) and a map-scan
   $\mathcal{S}_V^{\bm{M}}(\hat{\bm{p}})$ captured from pose configuration
@@ -66,10 +65,10 @@
 \begin{definition}
   \label{def:definition_6} \textit{Rank field}.---Let $f_{\psi}^{\bm{M}}$ be
   a $\psi$-field on map $\bm{M}$ and $\mathcal{P} = \{\hat{\bm{p}}_i\}$,
-  $i \in \texttt{I} = \langle 0,1,\dots,|\mathcal{P}|-1 \rangle$, be a set of
-  3D pose configurations within map $\bm{M}$, such that
-  $f_{\psi}^{\bm{M}}(\mathcal{P}) = \mathcal{C}$, where the notation
-  $\langle\cdot\rangle$ denotes an ordered set. Let $\mathcal{C}_\uparrow$
+  $i \in \texttt{I} = \langle 0,1,\dots,|\mathcal{P}|-1 \rangle$, where the
+  notation $\langle\cdot\rangle$ denotes an ordered set, be a set of 3D pose
+  configurations within map $\bm{M}$, such that
+  $f_{\psi}^{\bm{M}}(\mathcal{P}) = \mathcal{C}$. Let $\mathcal{C}_\uparrow$
   denote set $\mathcal{C}$ ordered in ascending order and $\mathcal{I}_{\uparrow}$
   be the set of indices such that $\mathcal{C}[\mathcal{I}_{\uparrow}] = \mathcal{C}_\uparrow$
   (where the bracket notation $\mathcal{C}[\texttt{I}] = \mathcal{C}$).
@@ -77,7 +76,12 @@
   $f_{\texttt{r}}^{\bm{M}} : \mathbb{R}^2 \times [-\pi, +\pi) \rightarrow \mathbb{Z}_{\geq 0}$
   is a mapping of 3D pose configurations $\mathcal{P}$ to non-negative integers
   such that if $f_{\psi}^{\bm{M}}(\mathcal{P}[\texttt{I}]) = \mathcal{C}$ then
-  $f_{\texttt{r}}^{\bm{M}}(\mathcal{P}[\mathcal{I}_\uparrow]) = \texttt{I}$.
+  $f_{\texttt{r}}^{\bm{M}}(\mathcal{P}[\mathcal{I}_\uparrow]) = \texttt{I}$, or,
+  equivalently,
+  $f_{\texttt{r}}^{\bm{M}}(\mathcal{P}[\texttt{I}]) = \mathcal{I}_\uparrow$.
+  In other words a rank field maps the elements of pose estimate set $\{\hat{\bm{p}}_i\}$
+  to their corresponding ranks $\mathcal{I}_\uparrow$ in the hierarchy of
+  ascending CAER values $\mathcal{C}_\uparrow = \texttt{sort}(\mathcal{C}, \text{asc})$.
 \end{definition}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

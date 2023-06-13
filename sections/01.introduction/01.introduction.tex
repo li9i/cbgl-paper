@@ -23,9 +23,20 @@ and more recently with desktop publishing software like Aldus PageMaker
 including versions of Lorem Ipsum.
 
 \begin{figure}
-  \subfloat{\input{./figures/face_top.tex}    \label{fig:a}} \vspace{-2cm}\\
+  \subfloat{\input{./figures/face_top.tex}    \label{fig:a}} \vspace{-1.7cm}\\
   \subfloat{\hspace{-0.3cm}\input{./figures/face_bottom.tex} \label{fig:b}}
-  \caption{\small }
+  \caption{\small Top: a map of an environment, the pose of a panoramic 2D
+           LIDAR sensor (magenta), and the corresponding \texttt{r}-field below
+           them.  Bottom: the corresponding $\psi$-field between all sensor
+           estimates and its true pose for estimate distances up to $2.0$ m.
+           CBGL leverages the relationship of proportionality between the pose
+           estimate error and the value of the CAER metric for pose errors
+           close to the origin: pose hypotheses dispersed within the map and
+           ranked according to that value may be used to identify quickly and
+           uniquely a pose estimate of the sensor with error inversely
+           proportional to the dispersed hypotheses' density.?? write about exec
+           time here: for 30000x32 it takes 8.4 sec
+           }
   \vspace{-0.75cm}
   \label{fig:AB}
 \end{figure}
