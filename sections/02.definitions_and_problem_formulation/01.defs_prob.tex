@@ -1,3 +1,9 @@
+Let $\mathcal{A} = \{\alpha_i\}$,
+$i \in \texttt{I} = \langle 0,1,\dots,n-1 \rangle$, denote a set of $n$ elements,
+$\langle\cdot\rangle$ denote an ordered set, $\mathcal{A}_{\uparrow}$ the
+set $\mathcal{A}$ ordered in ascending order, and the bracket notation
+$\mathcal{A}[\texttt{I}] = \mathcal{A}$ denote indexing.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{definition}
   \label{def:definition_1} \textit{Range scan captured from a 2D LIDAR
@@ -65,13 +71,10 @@
 \begin{definition}
   \label{def:definition_6} \textit{Rank field}.---Let $f_{\psi}^{\bm{M}}$ be
   a $\psi$-field on map $\bm{M}$ and $\mathcal{P} = \{\hat{\bm{p}}_i\}$,
-  $i \in \texttt{I} = \langle 0,1,\dots,|\mathcal{P}|-1 \rangle$, where the
-  notation $\langle\cdot\rangle$ denotes an ordered set, be a set of 3D pose
+  $i \in \texttt{I} = \langle 0,1,\dots,|\mathcal{P}|-1 \rangle$, be a set of 3D pose
   configurations within map $\bm{M}$, such that
-  $f_{\psi}^{\bm{M}}(\mathcal{P}) = \Psi$. Let $\Psi_\uparrow$
-  denote set $\Psi$ ordered in ascending order and $\texttt{I}^{\ast}$
-  be the set of indices such that $\Psi[\texttt{I}^{\ast}] = \Psi_\uparrow$
-  (where the bracket notation $\Psi[\texttt{I}] = \Psi$).
+  $f_{\psi}^{\bm{M}}(\mathcal{P}) = \Psi$. Let $\texttt{I}^{\ast}$
+  be the set of indices such that $\Psi[\texttt{I}^{\ast}] = \Psi_\uparrow$.
   A $\texttt{r}$-field on map $\bm{M}$
   $f_{\texttt{r}}^{\bm{M}} : \mathbb{R}^2 \times [-\pi, +\pi) \rightarrow \mathbb{Z}_{\geq 0}$
   is a mapping of 3D pose configurations $\mathcal{P}$ to non-negative integers
