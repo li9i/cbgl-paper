@@ -73,3 +73,20 @@ Figure \ref{fig:h_fig1} depicts a configuration where
 
 
 \lipsum[0-8]
+
+
+
+\floatstyle{spaceruled}% Select new float style
+\restylefloat{algorithm}% Apply spaceruled float style to algorithm
+\begin{algorithm}
+  \caption{\texttt{CBGL}}
+  \begin{spacing}{1.2}
+  \begin{algorithmic}[1]
+    \REQUIRE input
+    \ENSURE output
+    \STATE statement
+    \RETURN pose estimate
+  \end{algorithmic}
+  \end{spacing}
+  \label{alg:algorithm_cbgl}
+\end{algorithm}

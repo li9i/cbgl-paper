@@ -6,14 +6,14 @@
 %uncomment if require: \path (0,561); %set diagram left start at 0, and has height of 561
 
 %Shape: Rectangle [id:dp5322819707523847]
-\draw  [fill={rgb, 255:red, 255; green, 254; blue, 247 }  ,fill opacity=1 ] (149.5,52) -- (400.5,52) -- (400.5,336) -- (149.5,336) -- cycle ;
+\draw  [draw opacity=0][fill={rgb, 255:red, 255; green, 254; blue, 229 }  ,fill opacity=1 ] (149.5,52) -- (400.5,52) -- (400.5,336) -- (149.5,336) -- cycle ;
 %Shape: Rectangle [id:dp7467881383910988]
-\draw  [fill={rgb, 255:red, 255; green, 255; blue, 227 }  ,fill opacity=1 ][dash pattern={on 4.5pt off 4.5pt}] (168,76) -- (380.5,76) -- (380.5,270) -- (168,270) -- cycle ;
+\draw  [draw opacity=0][fill={rgb, 255:red, 217; green, 240; blue, 163 }  ,fill opacity=1 ][dash pattern={on 4.5pt off 4.5pt}] (168,76) -- (380.5,76) -- (380.5,270) -- (168,270) -- cycle ;
 %Shape: Rectangle [id:dp8406662160759257]
-\draw  [fill={rgb, 255:red, 255; green, 255; blue, 207 }  ,fill opacity=1 ][dash pattern={on 0.84pt off 2.51pt}] (190.5,96) -- (360.5,96) -- (360.5,210) -- (190.5,210) -- cycle ;
+\draw  [draw opacity=0][fill={rgb, 255:red, 173; green, 221; blue, 142 }  ,fill opacity=1 ][dash pattern={on 0.84pt off 2.51pt}] (190.5,96) -- (360.5,96) -- (360.5,210) -- (190.5,210) -- cycle ;
 %Straight Lines [id:da7895938434263794]
-\draw    (135.5,37.83) -- (135.5,185.83) -- (212,186) ;
-\draw [shift={(214,186)}, rotate = 180.12] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (135.5,37.83) -- (135.5,185.83) -- (212,185.83) ;
+\draw [shift={(214,185.83)}, rotate = 180.12] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
 %Straight Lines [id:da7692323493003017]
 \draw    (275.5,36.83) -- (275.5,114.83) ;
 \draw [shift={(275.5,116.83)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
@@ -21,8 +21,8 @@
 \draw    (275.5,143.83) -- (275.5,168.83) ;
 \draw [shift={(275.5,170.83)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
 %Straight Lines [id:da7271584666245074]
-\draw    (275.75,326.83) -- (275.75,361.83) ;
-\draw [shift={(275.75,363.83)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (275.5,326.83) -- (275.5,361.83) ;
+\draw [shift={(275.5,363.83)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
 %Straight Lines [id:da28696405299112593]
 \draw    (414.5,38.83) -- (414.5,131.83) -- (345.5,131.83) ;
 \draw [shift={(343.5,131.83)}, rotate = 360] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
@@ -33,20 +33,20 @@
 \draw    (275.5,197.83) -- (275.5,232.83) ;
 \draw [shift={(275.5,234.83)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
 %Straight Lines [id:da4366145475662475]
-\draw    (136.52,314.07) -- (228.67,314.39) ;
-\draw [shift={(230.67,314.39)}, rotate = 180.19] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (136.52,314) -- (228.67,314) ;
+\draw [shift={(230.67,314)}, rotate = 180.19] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
 %Straight Lines [id:da01419967829423241]
 \draw    (275.5,261.83) -- (275.5,295.83) ;
 \draw [shift={(275.5,297.83)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
 
 % Text Node
-\draw (299,77) node [anchor=north west][inner sep=0.75pt]   [align=left] {\small compute \texttt{r}-field};
-\draw (279,98) node [anchor=north west][inner sep=0.75pt]   [align=left] {\small compute \texttt{r}-field};
-\draw (221,53) node [anchor=north west][inner sep=0.75pt]   [align=left] {\small Estimate top-$N$ of pose errors' rank};
+\draw (235,54) node [anchor=north west][inner sep=0.75pt]   [align=left] {\footnotesize Estimate top-$N$ of pose errors rank};
+\draw (305,79) node [anchor=north west][inner sep=0.75pt]   [align=left] {\footnotesize compute \texttt{r}-field};
+\draw (284,99) node [anchor=north west][inner sep=0.75pt]   [align=left] {\footnotesize compute $\psi$-field};
 % Text Node
 \draw (137,27) node     [align=left] {$\mathcal{S}_R$};
 \draw (276.5,27) node   [align=left] {$\bm{M}$};
-\draw (416,27) node  [align=left] {$\{\mathcal{P}\}$};
+\draw (416,27) node  [align=left] {$\mathcal{P}$};
 % Text Node
 \draw    (212.5,119.33) -- (338.5,119.33) -- (338.5,144.33) -- (212.5,144.33) -- cycle  ;
 \draw (275.5,133) node   [align=left] { \ \ \ \ \ \texttt{scan\_map} \ \ \ \ \ };
@@ -59,7 +59,7 @@
 \draw    (229.5,237) -- (319.5,237) -- (319.5,262) -- (229.5,262) -- cycle  ;
 \draw (274.5,249.5) node   [align=left] {$\texttt{sort}(\Psi,\text{asc})$};
 % Text Node
-\draw (300,221.83) node   [align=left] {$\Psi$};
+\draw (288,224) node   [align=left] {$\Psi$};
 % Text Node
 % Text Node
 % Text Node
@@ -69,9 +69,10 @@
 \draw (251,285) node   [align=left] {$\texttt{I}^{\ast}, \Psi_{\uparrow}$: };
 \draw (316,285) node   [align=left] {$\Psi[\texttt{I}^{\ast}] = \Psi_{\uparrow}$};
 
-\draw (276.75,314.5) node   [align=left] { $\mathcal{P}[\texttt{I}^{\ast}]_{1:N} $};
+\draw (276.75,315) node   [align=left] { $\mathcal{P}[\texttt{I}^{\ast}]_{1:N} $};
 \draw (121,307) node [anchor=north west][inner sep=0.75pt]   [align=left] {$N$};
-\draw (275.75,376.5) node   [align=left] {$\mathcal{Q} \subseteq \mathcal{P}$: $f_{\texttt{r}}(\mathcal{P}[\texttt{I}^{\ast}]_{1:N}) = 1$:$N$};
+\draw (275.5,376.5) node   [align=left] {$\mathcal{Q} = \mathcal{P}[\texttt{I}^{\ast}]_{1:N} \subseteq \mathcal{P}$:
+  $f_{\texttt{r}}(\mathcal{Q}) = \langle 0,1,\dots,N$--$1 \rangle$};
 
 \end{tikzpicture}
 

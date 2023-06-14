@@ -65,12 +65,12 @@
 \draw    (223,244.5) -- (259,244.5) -- (259,269.5) -- (223,269.5) -- cycle  ;
 \draw (241,257) node   [align=left] {\texttt{sm2}};
 % Text Node
-\draw  [fill={rgb, 255:red, 255; green, 254; blue, 247 }  ,fill opacity=1 ]  (146.5,189.5) -- (347.5,189.5) -- (347.5,214.5) -- (146.5,214.5) -- cycle  ;
+\draw  [fill={rgb, 255:red, 255; green, 254; blue, 229 }  ,fill opacity=1 ]  (146.5,189.5) -- (347.5,189.5) -- (347.5,214.5) -- (146.5,214.5) -- cycle  ;
 \draw (247,203) node   [align=left] {Estimate Pose Error Hierarchy};
 % Text Node
 \draw (397,194.71) node [anchor=north west][inner sep=0.75pt]   [align=left] {$N \ll |\mathcal{H}|$};
 % Text Node
-\draw  [fill={rgb, 255:red, 255; green, 254; blue, 247 }  ,fill opacity=1 ]  (146.5,297.5) -- (347.5,297.5) -- (347.5,322.5) -- (146.5,322.5) -- cycle  ;
+\draw  [fill={rgb, 255:red, 255; green, 254; blue, 229 }  ,fill opacity=1 ]  (146.5,297.5) -- (347.5,297.5) -- (347.5,322.5) -- (146.5,322.5) -- cycle  ;
 \draw (247,312) node   [align=left] {Estimate Pose Error Hierarchy};
 % Text Node
 \draw (397,302.71) node [anchor=north west][inner sep=0.75pt]   [align=left] {$N = 1$};
