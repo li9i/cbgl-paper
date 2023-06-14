@@ -15,7 +15,7 @@
 \draw    (135.5,37.83) -- (135.5,185.83) -- (212,185.83) ;
 \draw [shift={(214,185.83)}, rotate = 180.12] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
 %Straight Lines [id:da7692323493003017]
-\draw    (275.5,36.83) -- (275.5,114.83) ;
+\draw    (275.5,36.83) -- (275.5,114.83) [line width=0.5];
 \draw [shift={(275.5,116.83)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
 %Straight Lines [id:da7299087017419263]
 \draw    (275.5,143.83) -- (275.5,168.83) ;
@@ -40,9 +40,9 @@
 \draw [shift={(275.5,297.83)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
 
 % Text Node
-\draw (235,54) node [anchor=north west][inner sep=0.75pt]   [align=left] {\footnotesize Estimate top-$N$ of pose errors rank};
-\draw (305,79) node [anchor=north west][inner sep=0.75pt]   [align=left] {\footnotesize compute \texttt{r}-field};
-\draw (284,99) node [anchor=north west][inner sep=0.75pt]   [align=left] {\footnotesize compute $\psi$-field};
+\draw (235,54) node [anchor=north west][inner sep=0.75pt]   [align=left] {\footnotesize Estimate bottom-$N$ of pose errors};
+\draw (305,77) node [anchor=north west][inner sep=0.75pt]   [align=left] {\footnotesize compute \texttt{r}-field};
+\draw (284,97) node [anchor=north west][inner sep=0.75pt]   [align=left] {\footnotesize compute $\psi$-field};
 % Text Node
 \draw (137,27) node     [align=left] {$\mathcal{S}_R$};
 \draw (276.5,27) node   [align=left] {$\bm{M}$};
