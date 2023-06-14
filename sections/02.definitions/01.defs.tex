@@ -1,8 +1,10 @@
 Let $\mathcal{A} = \{\alpha_i: \alpha_i \in \mathbb{R}\}$,
 $i \in \texttt{I} = \langle 0,1,\dots,n-1 \rangle$, denote a set of $n$ elements,
 $\langle\cdot\rangle$ denote an ordered set, $\mathcal{A}_{\uparrow}$ the
-set $\mathcal{A}$ ordered in ascending order, and the bracket notation
-$\mathcal{A}[\texttt{I}] = \mathcal{A}$ denote indexing.
+set $\mathcal{A}$ ordered in ascending order, the bracket notation
+$\mathcal{A}[\texttt{I}] = \mathcal{A}$ denote indexing, and
+$\mathcal{A}_{k:l}$, $0 \leq k \leq l$, denote set
+$\{\mathcal{A}[k], \mathcal{A}[k+1], \dots, \mathcal{A}[l]\}$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{definition}
@@ -86,13 +88,3 @@ $\mathcal{A}[\texttt{I}] = \mathcal{A}$ denote indexing.
   $\psi$- or $r$-field express, correspondingly, the number of pose estimates
   per unit area of space and $2\pi$ rad.
 \end{definition}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{customprb}{P}
-  \label{prob:the_problem}
-  Let the unknown pose of an immobile 2D range sensor whose angular range is
-  $\lambda$ be $\bm{p}(x,y,\theta)$ with respect to the reference frame of map
-  $\bm{M}$. Let the range sensor measure range scan $\mathcal{S}_R$. The
-  objective is the estimation of $\bm{p}$ given $\bm{M}$, $\lambda$, and
-  $\mathcal{S}_R$.
-\end{customprb}

@@ -1,19 +1,31 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{customprb}{P}
+  \label{prob:the_problem}
+  Let the unknown pose of an immobile 2D range sensor whose angular range is
+  $\lambda$ be $\bm{p}(x,y,\theta)$ with respect to the reference frame of map
+  $\bm{M}$. Let the range sensor measure range scan $\mathcal{S}_R$. The
+  objective is the estimation of $\bm{p}$ given $\bm{M}$, $\lambda$, and
+  $\mathcal{S}_R$.
+\end{customprb}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{figure}\vspace{0.4em}
   \subfloat{\input{./figures/face_top.tex}    \label{fig:a}} \vspace{-1.7cm}\\
   \subfloat{\hspace{-0.3cm}\input{./figures/face_bottom.tex} \label{fig:b}}
   \caption{\small
            Top: a map of an environment, the pose of a panoramic 2D LIDAR
-           sensor (magenta), and the corresponding rank field below them.
+           sensor (magenta), and the corresponding CAER rank field below them.
            Bottom: distribution of CAER values by location and orientation
            error of all sensor pose estimates corresponding to the
            rank field above, for estimate distances up to $2.0$ m.
            CBGL leverages the relationships of (a) proportionality between the
            pose estimate error and the value of the CAER metric for pose
-           estimates in a neighbourhood of the origin, and (b) indifference
-           outside of that neighbourhood: pose hypotheses dispersed within the
-           map and ranked ascendingly according to the value of that metric
-           produce a \texttt{r}(ank)-field, which may be used to identify
-           quickly and uniquely a pose estimate of the sensor%, with error
+           estimates in a neighbourhood of the origin, and (b) lack of
+           disproportionality outside of that neighbourhood: pose hypotheses
+           dispersed within the map and ranked ascendingly according to the
+           value of that metric produce a \texttt{r}(ank)-field, which may be
+           used to identify quickly and uniquely a pose estimate of the
+           sensor%, with error
            %inversely proportional to the dispersed hypotheses' density
            }
   \vspace{-0.75cm}

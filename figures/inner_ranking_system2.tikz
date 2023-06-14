@@ -1,0 +1,81 @@
+
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,561); %set diagram left start at 0, and has height of 561
+
+%Shape: Rectangle [id:dp5322819707523847]
+\draw  [fill={rgb, 255:red, 255; green, 254; blue, 247 }  ,fill opacity=1 ] (149.5,52) -- (400.5,52) -- (400.5,336) -- (149.5,336) -- cycle ;
+%Shape: Rectangle [id:dp7467881383910988]
+\draw  [fill={rgb, 255:red, 255; green, 255; blue, 227 }  ,fill opacity=1 ][dash pattern={on 4.5pt off 4.5pt}] (168,76) -- (380.5,76) -- (380.5,270) -- (168,270) -- cycle ;
+%Shape: Rectangle [id:dp8406662160759257]
+\draw  [fill={rgb, 255:red, 255; green, 255; blue, 207 }  ,fill opacity=1 ][dash pattern={on 0.84pt off 2.51pt}] (190.5,96) -- (360.5,96) -- (360.5,210) -- (190.5,210) -- cycle ;
+%Straight Lines [id:da7895938434263794]
+\draw    (135.5,37.83) -- (135.5,185.83) -- (212,186) ;
+\draw [shift={(214,186)}, rotate = 180.12] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da7692323493003017]
+\draw    (275.5,36.83) -- (275.5,114.83) ;
+\draw [shift={(275.5,116.83)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da7299087017419263]
+\draw    (275.5,143.83) -- (275.5,168.83) ;
+\draw [shift={(275.5,170.83)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da7271584666245074]
+\draw    (275.75,326.83) -- (275.75,361.83) ;
+\draw [shift={(275.75,363.83)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da28696405299112593]
+\draw    (414.5,38.83) -- (414.5,131.83) -- (345.5,131.83) ;
+\draw [shift={(343.5,131.83)}, rotate = 360] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da6509243873520767]
+\draw    (414.5,113.83) -- (414.5,315.83) -- (325.5,315.83) ;
+\draw [shift={(323.5,315.83)}, rotate = 360] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da2836399375619547]
+\draw    (275.5,197.83) -- (275.5,232.83) ;
+\draw [shift={(275.5,234.83)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da4366145475662475]
+\draw    (136.52,314.07) -- (228.67,314.39) ;
+\draw [shift={(230.67,314.39)}, rotate = 180.19] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da01419967829423241]
+\draw    (275.5,261.83) -- (275.5,295.83) ;
+\draw [shift={(275.5,297.83)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+
+% Text Node
+\draw (299,77) node [anchor=north west][inner sep=0.75pt]   [align=left] {\small compute \texttt{r}-field};
+\draw (279,98) node [anchor=north west][inner sep=0.75pt]   [align=left] {\small compute \texttt{r}-field};
+\draw (221,53) node [anchor=north west][inner sep=0.75pt]   [align=left] {\small Estimate top-$N$ of pose errors' rank};
+% Text Node
+\draw (137,27) node     [align=left] {$\mathcal{S}_R$};
+\draw (276.5,27) node   [align=left] {$\bm{M}$};
+\draw (416,27) node  [align=left] {$\{\mathcal{P}\}$};
+% Text Node
+\draw    (212.5,119.33) -- (338.5,119.33) -- (338.5,144.33) -- (212.5,144.33) -- cycle  ;
+\draw (275.5,133) node   [align=left] { \ \ \ \ \ \texttt{scan\_map} \ \ \ \ \ };
+% Text Node
+\draw (300,156.83) node   [align=left] {$\{\mathcal{S}_V\}$};
+% Text Node
+\draw    (219.5,172.67) -- (331.5,172.67) -- (331.5,197.67) -- (219.5,197.67) -- cycle  ;
+\draw (275.5,185.17) node   [align=left] { \ \ \ \ \ \ \ $\psi$ \ \ \ \ \ \ };
+% Text Node
+\draw    (229.5,237) -- (319.5,237) -- (319.5,262) -- (229.5,262) -- cycle  ;
+\draw (274.5,249.5) node   [align=left] {$\texttt{sort}(\Psi,\text{asc})$};
+% Text Node
+\draw (300,221.83) node   [align=left] {$\Psi$};
+% Text Node
+% Text Node
+% Text Node
+% Text Node
+\draw    (233.25,302) -- (318.25,302) -- (318.25,327) -- (233.25,327) -- cycle  ;
+% Text Node
+\draw (251,285) node   [align=left] {$\texttt{I}^{\ast}, \Psi_{\uparrow}$: };
+\draw (316,285) node   [align=left] {$\Psi[\texttt{I}^{\ast}] = \Psi_{\uparrow}$};
+
+\draw (276.75,314.5) node   [align=left] { $\mathcal{P}[\texttt{I}^{\ast}]_{1:N} $};
+\draw (121,307) node [anchor=north west][inner sep=0.75pt]   [align=left] {$N$};
+\draw (275.75,376.5) node   [align=left] {$\mathcal{Q} \subseteq \mathcal{P}$: $f_{\texttt{r}}(\mathcal{P}[\texttt{I}^{\ast}]_{1:N}) = 1$:$N$};
+
+\end{tikzpicture}
+
+
+
+
+

@@ -66,6 +66,11 @@
   {\renewcommand\theinnercustomhpt{#1}\innercustomhpt}
   {\endinnercustomhpt}
 
+\newtheorem{innercustomobs}{Observation}
+\newenvironment{customobs}[1]
+  {\renewcommand\theinnercustomobs{#1}\innercustomobs}
+  {\endinnercustomobs}
+
 \newtheorem{definition}{Definition}
 \renewcommand\thedefinition{\Roman{definition}}
 \newtheorem{remark}{Remark}
