@@ -66,14 +66,14 @@
 \draw (241,257) node   [align=left] {\texttt{sm2}};
 % Text Node
 \draw  [fill={rgb, 255:red, 255; green, 254; blue, 229 }  ,fill opacity=1 ]  (146.5,189.5) -- (347.5,189.5) -- (347.5,214.5) -- (146.5,214.5) -- cycle  ;
-\draw (247,202) node   [align=left] {Estimate Bottom-$N$ of Pose Errors};
+\draw (247,202) node   [align=left] {Estimate Bottom-$\nabla$ of Pose Errors};
 % Text Node
-\draw (397,194.71) node [anchor=north west][inner sep=0.75pt]   [align=left] {$N \ll |\mathcal{H}|$};
+\draw (397,194.71) node [anchor=north west][inner sep=0.75pt]   [align=left] {$\nabla \ll |\mathcal{H}|$};
 % Text Node
 \draw  [fill={rgb, 255:red, 255; green, 254; blue, 229 }  ,fill opacity=1 ]  (146.5,297.5) -- (347.5,297.5) -- (347.5,322.5) -- (146.5,322.5) -- cycle  ;
-\draw (247,310) node   [align=left] {Estimate Bottom-$N$ of Pose Errors};
+\draw (247,310) node   [align=left] {Estimate Bottom-$\nabla$ of Pose Errors};
 % Text Node
-\draw (397,302.71) node [anchor=north west][inner sep=0.75pt]   [align=left] {$N = 1$};
+\draw (397,302.71) node [anchor=north west][inner sep=0.75pt]   [align=left] {$\nabla = 1$};
 % Text Node
 \draw (270,228) node   [align=left] {$\mathcal{H}_1 \subseteq \mathcal{H}$};
 % Text Node

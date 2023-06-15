@@ -71,8 +71,8 @@ is true.
 \begin{figure}
   \input{./figures/h_not_fig.tex}
   \vspace{1cm}
-  \caption{\small }
-  \label{fig:h_fig1}
+  \caption{\small This figure shall reside under section \textit{Limitations} ??}
+  \label{fig:h_not_fig1}
 \end{figure}
 
 
@@ -92,21 +92,80 @@ is true.
 
 
 
-\lipsum[0-8]
+\lipsum[0-6]
 
-
-
-\floatstyle{spaceruled}% Select new float style
-\restylefloat{algorithm}% Apply spaceruled float style to algorithm
+%% CBGL %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\floatstyle{spaceruled}
+\restylefloat{algorithm}
 \begin{algorithm}
   \caption{\texttt{CBGL}}
   \begin{spacing}{1.2}
   \begin{algorithmic}[1]
-    \REQUIRE input
-    \ENSURE output
-    \STATE statement
-    \RETURN pose estimate
+    \REQUIRE $\mathcal{S}_R$, $\bm{M}$, $|\mathcal{H}|$, $\nabla$
+    \ENSURE $\hat{\bm{p}}$
+    \STATE $\mathcal{H} \leftarrow \{\ \}$
+    \FOR {$i \leftarrow 0,1,\dots,|\mathcal{H}|-1$}
+      \STATE $\hat{\bm{p}}_i \leftarrow \texttt{rand}(\hat{x},\hat{y},\hat{\theta}): (x,y) \in \texttt{free}(\bm{M})$
+      \STATE $\mathcal{H} \leftarrow \{\mathcal{H}, \hat{\bm{p}}_i\}$
+    \ENDFOR
+    \STATE $\mathcal{H}_1 \leftarrow$ \texttt{bottom}$\_n\_\texttt{poses}(\mathcal{S}_R, \bm{M}, \mathcal{H}, \nabla)$ \hfill (Alg. \ref{alg:algorithm_bottom_n})
+    \STATE $\mathcal{H}_2 \leftarrow \{ \}$
+    \FOR {$k \leftarrow 0,1,\dots,|\mathcal{H}_1|-1$}
+      \STATE $\hat{\bm{h}}^\prime \leftarrow \texttt{sm2}(\mathcal{S}_R, \bm{M}, \mathcal{H}_1[k])$ \hfill \small (Alg. \ref{alg:algorithm_sm2} or e.g. \texttt{x1} \cite{FILOTHEOU2023100288})
+      \STATE $\mathcal{H}_2 \leftarrow \{\mathcal{H}_2, \hat{\bm{h}}^\prime\}$
+    \ENDFOR
+    \STATE $\hat{\bm{p}} \leftarrow$ \texttt{bottom}$\_n\_\texttt{poses}(\mathcal{S}_R, \bm{M}, \mathcal{H}, 1)$
+    \RETURN $\hat{\bm{p}}$
   \end{algorithmic}
   \end{spacing}
   \label{alg:algorithm_cbgl}
 \end{algorithm}
+
+%% Bottom-n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\floatstyle{spaceruled}
+\restylefloat{algorithm}
+\begin{algorithm}
+  \caption{\texttt{bottom}\_$n$\_\texttt{poses}}
+  \begin{spacing}{1.2}
+  \begin{algorithmic}[1]
+    \REQUIRE $\mathcal{S}_R$, $\bm{M}$, $\mathcal{H}$, $\nabla$
+    \ENSURE $\mathcal{H}_{\triangledown}$
+    \STATE $\Psi \leftarrow \{\ \}$
+    \FOR {$h \leftarrow 0,1,\dots,|\mathcal{H}|-1$}
+      \STATE $\mathcal{S}_V^{\hspace{1pt} h} \leftarrow \texttt{scan\_map}(\bm{M}, \mathcal{H}[h])$
+      \STATE $\psi \leftarrow 0$
+      \FOR {$n \leftarrow 0,1,\dots,|\mathcal{S}_R|-1$}
+        \STATE $\psi \leftarrow \psi + \big|\mathcal{S}_R[n]-\mathcal{S}_V^{\hspace{1pt} h}[n]\big|$ \hfill \small (Eq. (\ref{eq:caer}))
+      \ENDFOR
+      \STATE $\Psi \leftarrow \{\Psi, \psi\}$
+    \ENDFOR
+    \STATE $[\Psi_{\uparrow}, \texttt{I}^{\ast}] \leftarrow \texttt{sort}(\Psi, \texttt{asc})$
+    \STATE $\mathcal{H}_{\triangledown} \leftarrow \{\ \}$
+    \FOR {$h \leftarrow 0,1,\dots,\nabla-1$}
+      \STATE $\mathcal{H}_{\triangledown} \leftarrow \{\mathcal{H}_{\triangledown}, \mathcal{H}[\texttt{I}^{\ast}[h]]\}$
+    \ENDFOR
+    \RETURN $\mathcal{H}_{\triangledown}$
+  \end{algorithmic}
+  \end{spacing}
+  \label{alg:algorithm_bottom_n}
+\end{algorithm}
+
+
+%% sm2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\floatstyle{spaceruled}
+\restylefloat{algorithm}
+\begin{algorithm}
+  \caption{\texttt{sm2}}
+  \begin{spacing}{1.2}
+  \begin{algorithmic}[1]
+    \REQUIRE $\mathcal{S}_R$, $\bm{M}$, $\hat{\bm{p}}$
+    \ENSURE $\hat{\bm{p}}^\prime$
+    \STATE $\mathcal{S}_V \leftarrow \texttt{scan\_map}(\bm{M}, \hat{\bm{p}})$
+    \STATE $\bm{\Delta p} \leftarrow \texttt{scan-match}(\mathcal{S}_R,\mathcal{S}_V)$ \hfill \small (e.g. \texttt{ICP}\cite{kissicp}, \texttt{FSM}\cite{fsm})
+    \STATE $\hat{\bm{p}}^\prime \leftarrow \hat{\bm{p}} + \bm{\Delta p}$
+    \RETURN $\hat{\bm{p}}^\prime$
+  \end{algorithmic}
+  \end{spacing}
+  \label{alg:algorithm_sm2}
+\end{algorithm}
+

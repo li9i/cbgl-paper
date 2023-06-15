@@ -25,4 +25,24 @@
 M.~Cooper, J.~Raquet, and R.~Patton, ``{Range Information Characterization of
   the Hokuyo UST-20LX LIDAR Sensor},'' \emph{Photonics}, 2018.
 
+\bibitem{kissicp}
+I.~Vizzo, T.~Guadagnino, B.~Mersch, L.~Wiesmann, J.~Behley, and C.~Stachniss,
+  ``Kiss-icp: In defense of point-to-point icp – simple, accurate, and robust
+  registration if done the right way,'' \emph{IEEE Robotics and Automation
+  Letters}, vol.~8, no.~2, pp. 1029--1036, 2023.
+
+\bibitem{fsm}
+A.~Filotheou, G.~D. Sergiadis, and A.~G. Dimitriou, ``Fsm: Correspondenceless
+  scan-matching of panoramic 2d range scans,'' in \emph{2022 IEEE/RSJ
+  International Conference on Intelligent Robots and Systems (IROS)}, 2022, pp.
+  6968--6975.
+
+\bibitem{FILOTHEOU2023100288}
+\BIBentryALTinterwordspacing
+A.~Filotheou, A.~L. Symeonidis, G.~D. Sergiadis, and A.~G. Dimitriou,
+  ``Correspondenceless scan-to-map-scan matching of 2d panoramic range scans,''
+  \emph{Array}, vol.~18, p. 100288, 2023. [Online]. Available:
+  \url{https://www.sciencedirect.com/science/article/pii/S2590005623000139}
+\BIBentrySTDinterwordspacing
+
 \end{thebibliography}
