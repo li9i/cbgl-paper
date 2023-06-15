@@ -1,11 +1,18 @@
+This paper addresses the problem of Passive Global Localisation of a 2D LIDAR
+sensor, i.e. the estimation of its location and orientation within a given map,
+under complete locational and orientational uncertainty, without prescribing
+motion commands (to the mobile robot that the sensor is assumed mounted to) for
+further knowledge acquisition. Specifically the problem is formalised in
+Problem \ref{prob:the_problem}:
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{customprb}{P}
   \label{prob:the_problem}
   Let the unknown pose of an immobile 2D range sensor whose angular range is
-  $\lambda$ be $\bm{p}(x,y,\theta)$ with respect to the reference frame of map
-  $\bm{M}$. Let the range sensor measure range scan $\mathcal{S}_R$. The
-  objective is the estimation of $\bm{p}$ given $\bm{M}$, $\lambda$, and
-  $\mathcal{S}_R$.
+  $\lambda$ be $\bm{p}(\bm{l},\theta)$, $\bm{l} = (x,y)$, with respect to the
+  reference frame of map $\bm{M}$. Let the range sensor measure range scan
+  $\mathcal{S}_R$. The objective is the estimation of $\bm{p}$ given $\bm{M}$,
+  $\lambda$, and $\mathcal{S}_R$.
 \end{customprb}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -23,9 +30,10 @@
            Bottom: distribution of CAER values by location and orientation
            error of all sensor pose hypotheses corresponding to the rank field
            above, for estimate distances up to $2.0$ m.
-           In this example $10^6$ hypotheses were dispersed randomly $100$ times
-           over the map's $800$ m$^2$; CBGL's maximum location error and maximum
-           execution time were, respectively, $0.062$ m and $8.8$ sec.
+           In this example the map's area is $800$ m$^2$, and $10^6$ hypotheses
+           were dispersed randomly in its free space for $100$ times; CBGL's
+           maximum location error and maximum execution time were,
+           respectively, $0.062$ m and $8.8$ sec
            }
   \vspace{-0.75cm}
   \label{fig:AB}
