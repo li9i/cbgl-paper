@@ -71,6 +71,11 @@
   {\renewcommand\theinnercustomobs{#1}\innercustomobs}
   {\endinnercustomobs}
 
+\newtheorem{innercustomcnj}{Conjecture}
+\newenvironment{customcnj}[1]
+  {\renewcommand\theinnercustomcnj{#1}\innercustomcnj}
+  {\endinnercustomcnj}
+
 \newtheorem{definition}{Definition}
 \renewcommand\thedefinition{\Roman{definition}}
 \newtheorem{remark}{Remark}

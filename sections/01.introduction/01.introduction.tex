@@ -13,20 +13,19 @@
   \subfloat{\input{./figures/face_top.tex}    \label{fig:a}} \vspace{-1.7cm}\\
   \subfloat{\hspace{-0.3cm}\input{./figures/face_bottom.tex} \label{fig:b}}
   \caption{\small
-           Top: a map of an environment, the pose of a panoramic 2D LIDAR
-           sensor (magenta), and the corresponding CAER rank field below them.
-           Bottom: distribution of CAER values by location and orientation
-           error of all sensor pose estimates corresponding to the
-           rank field above, for estimate distances up to $2.0$ m.
            CBGL leverages the relationships of (a) proportionality between the
            pose estimate error and the value of the CAER metric for pose
            estimates in a neighbourhood of the origin, and (b) lack of
            disproportionality outside of that neighbourhood: pose hypotheses
            dispersed within the map and ranked ascendingly according to the
            value of that metric produce a \texttt{r}(ank)-field, which may be
-           used to identify quickly and uniquely a pose estimate of the
-           sensor%, with error
-           %inversely proportional to the dispersed hypotheses' density
+           used to estimate the pose of a 2D LIDAR sensor accurately, and
+           quickly due to the low complexity of the CAER metric.
+           Top: a map of an environment, the pose of a panoramic 2D LIDAR
+           sensor (magenta), and the corresponding CAER rank field below them.
+           Bottom: distribution of CAER values by location and orientation
+           error of all sensor pose hypotheses corresponding to the
+           rank field above, for estimate distances up to $2.0$ m
            }
   \vspace{-0.75cm}
   \label{fig:AB}

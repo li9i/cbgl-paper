@@ -3,12 +3,20 @@ The proposed method's foundations rest on observation \ref{obs:observation_o}:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{customobs}{O}
   \label{obs:observation_o} It may be observed that there are conditions such
-  that hypothesis \ref{hpt:hypothesis_h} yields true.
+  that hypothesis \ref{hpt:hypothesis_h} stands true.
 \end{customobs}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{customhpt}{H}
   \label{hpt:hypothesis_h}
+  There exists $\overline{\delta} \in \mathbb{R}_{> 0}$ such that conjecture
+
+\end{customhpt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{customcnj}{C}
+  %\label{hpt:hypothesis_h}
+  \label{cnj:conjecture_c}
   Let the unknown pose of a 2D range sensor measuring range scan $\mathcal{S}_R$
   (def. \ref{def:definition_1}) be $\bm{p}(x,y,\theta)$ with respect to the
   reference frame of map $\bm{M}$.  Let $\mathcal{H}$ be a set of pose
@@ -20,19 +28,22 @@ The proposed method's foundations rest on observation \ref{obs:observation_o}:
   set of CAERs (def. \ref{def:definition_3}) between $\mathcal{S}_R$ and the
   elements of $\mathbb{S}$:
   $\Psi = \{\psi(\mathcal{S}_R, \mathcal{S}_V^{\bm{M}}(\hat{\bm{p}}_i))\}$.
-  Then there exist $\delta_0,\psi_0 \in \mathbb{R}_{> 0}$ which define a set of
-  pose estimates $\mathcal{V} \subseteq \mathcal{H}$ such that
+  Let $\mathcal{V} = \{\hat{\bm{p}}_i \in \mathcal{H}: \|\bm{p}-\hat{\bm{p}}_i\|_2 < \delta_0 \text{ and } \psi(\mathcal{S}_R,\mathcal{S}_V^{\bm{M}}(\hat{\bm{p}}_i)) < \psi_0\}$.
+  Without loss of generality there exist $\delta_0$, $\overline{\delta}$, $\psi_0$ $\in \mathbb{R}_{> 0}$
+  such that inequalities
   \begin{align}
-    \|\bm{p}-\hat{\bm{p}}_\mathcal{V}\|_2 &< \delta_0 \nonumber \text{ and}\\
+    \delta_0 &< \overline{\delta} \nonumber \\
+    \|\bm{p}-\hat{\bm{p}}_\mathcal{V}\|_2 &< \delta_0 \nonumber \\
     \psi(\mathcal{S}_R,\mathcal{S}_V^{\bm{M}}(\hat{\bm{p}}_\mathcal{V})) &< \psi_0 \nonumber
   \end{align}
-  for all $\hat{\bm{p}}_\mathcal{V} \in \mathcal{V}$, for which
+  are simultaneously true for all $\hat{\bm{p}}_\mathcal{V} \in \mathcal{V}$,
+  for which
   \begin{align}
     \psi(\bm{p}, \hat{\bm{p}}_\mathcal{V}) &< \psi(\bm{p}, \hat{\bm{p}}_{}) \ \ \ \Leftrightarrow \nonumber \\
     \|\bm{p}-\hat{\bm{p}}_\mathcal{V}\|_2 &< \|\bm{p}-\hat{\bm{p}}_{}\|_2 \nonumber
   \end{align}
   for any $\hat{\bm{p}}_{} \in {\mathcal{H} \setminus  \mathcal{V}}: \|\bm{p}-\hat{\bm{p}}_{}\|_2 \geq \delta_0$.
-\end{customhpt}
+\end{customcnj}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{remark}
@@ -45,11 +56,20 @@ The proposed method's foundations rest on observation \ref{obs:observation_o}:
 \end{remark}
 
 
-Figure \ref{fig:h_fig1} depicts a configuration where
+Figure \ref{fig:h_fig1} depicts a configuration which yields observation
+\ref{obs:observation_o}, and where therefore hypothesis \ref{hpt:hypothesis_h}
+is true.
 
 
-\begin{figure}\hspace{0.7cm}
+\begin{figure}
   \input{./figures/h_fig.tex}
+  \vspace{1cm}
+  \caption{\small }
+  \label{fig:h_fig1}
+\end{figure}
+
+\begin{figure}
+  \input{./figures/h_not_fig.tex}
   \vspace{1cm}
   \caption{\small }
   \label{fig:h_fig1}
