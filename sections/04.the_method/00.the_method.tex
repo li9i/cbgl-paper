@@ -68,14 +68,6 @@ is true.
   \label{fig:h_fig1}
 \end{figure}
 
-\begin{figure}
-  \input{./figures/h_not_fig.tex}
-  \vspace{1cm}
-  \caption{\small This figure shall reside under section \textit{Limitations} ??}
-  \label{fig:h_not_fig1}
-\end{figure}
-
-
 \begin{figure}[]\centering
   \input{./figures/cbgl_system.tikz}
   \caption{\small }
@@ -92,7 +84,6 @@ is true.
 
 
 
-\lipsum[0-6]
 
 %% CBGL %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \floatstyle{spaceruled}
@@ -103,13 +94,13 @@ is true.
   \begin{algorithmic}[1]
     \REQUIRE $\mathcal{S}_R$, $\bm{M}$, $|\mathcal{H}|$, $\nabla$
     \ENSURE $\hat{\bm{p}}$
-    \STATE $\mathcal{H} \leftarrow \{\ \}$
+    \STATE $\mathcal{H} \leftarrow \{\varnothing\}$
     \FOR {$i \leftarrow 0,1,\dots,|\mathcal{H}|-1$}
       \STATE $\hat{\bm{p}}_i \leftarrow \texttt{rand}(\hat{x},\hat{y},\hat{\theta}): (x,y) \in \texttt{free}(\bm{M})$
       \STATE $\mathcal{H} \leftarrow \{\mathcal{H}, \hat{\bm{p}}_i\}$
     \ENDFOR
     \STATE $\mathcal{H}_1 \leftarrow$ \texttt{bottom}$\_n\_\texttt{poses}(\mathcal{S}_R, \bm{M}, \mathcal{H}, \nabla)$ \hfill (Alg. \ref{alg:algorithm_bottom_n})
-    \STATE $\mathcal{H}_2 \leftarrow \{ \}$
+    \STATE $\mathcal{H}_2 \leftarrow \{\varnothing \}$
     \FOR {$k \leftarrow 0,1,\dots,|\mathcal{H}_1|-1$}
       \STATE $\hat{\bm{h}}^\prime \leftarrow \texttt{sm2}(\mathcal{S}_R, \bm{M}, \mathcal{H}_1[k])$ \hfill \small (Alg. \ref{alg:algorithm_sm2} or e.g. \texttt{x1} \cite{FILOTHEOU2023100288})
       \STATE $\mathcal{H}_2 \leftarrow \{\mathcal{H}_2, \hat{\bm{h}}^\prime\}$
@@ -130,7 +121,7 @@ is true.
   \begin{algorithmic}[1]
     \REQUIRE $\mathcal{S}_R$, $\bm{M}$, $\mathcal{H}$, $\nabla$
     \ENSURE $\mathcal{H}_{\triangledown}$
-    \STATE $\Psi \leftarrow \{\ \}$
+    \STATE $\Psi \leftarrow \{\varnothing \}$
     \FOR {$h \leftarrow 0,1,\dots,|\mathcal{H}|-1$}
       \STATE $\mathcal{S}_V^{\hspace{1pt} h} \leftarrow \texttt{scan\_map}(\bm{M}, \mathcal{H}[h])$
       \STATE $\psi \leftarrow 0$
@@ -140,7 +131,7 @@ is true.
       \STATE $\Psi \leftarrow \{\Psi, \psi\}$
     \ENDFOR
     \STATE $[\Psi_{\uparrow}, \texttt{I}^{\ast}] \leftarrow \texttt{sort}(\Psi, \texttt{asc})$
-    \STATE $\mathcal{H}_{\triangledown} \leftarrow \{\ \}$
+    \STATE $\mathcal{H}_{\triangledown} \leftarrow \{\varnothing \}$
     \FOR {$h \leftarrow 0,1,\dots,\nabla-1$}
       \STATE $\mathcal{H}_{\triangledown} \leftarrow \{\mathcal{H}_{\triangledown}, \mathcal{H}[\texttt{I}^{\ast}[h]]\}$
     \ENDFOR

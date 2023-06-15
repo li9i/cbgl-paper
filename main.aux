@@ -28,11 +28,14 @@
 \newlabel{sub@fig:a}{{(a)}{a}{Subfigure 1a\relax }{subfigure.1.1}{}}
 \newlabel{fig:b}{{1b}{1}{Subfigure 1b}{subfigure.1.2}{}}
 \newlabel{sub@fig:b}{{(b)}{b}{Subfigure 1b\relax }{subfigure.1.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces \relax \fontsize  {9}{10pt}\selectfont  CBGL disperses pose hypotheses within the map and ranks them ascendingly according to the value of the CAER metric, producing a \texttt  {r}(ank)-field which may be used to estimate the pose of a 2D LIDAR sensor accurately, and quickly due to the low complexity of the CAER metric. Top: a map of an environment, the pose of a panoramic 2D LIDAR sensor (magenta), and the corresponding CAER rank field below them. Bottom: distribution of CAER values by location and orientation error of all sensor pose hypotheses corresponding to the rank field above, for estimate distances up to $2.0$ m. CBGL leverages the relationships of (a) proportionality between the pose estimate error and the value of the CAER metric for pose estimates in a neighbourhood of the origin, and (b) lack of disproportionality outside of that neighbourhood \relax }}{1}{figure.caption.1}}
-\newlabel{fig:AB}{{1}{1}{\small CBGL disperses pose hypotheses within the map and ranks them ascendingly according to the value of the CAER metric, producing a \texttt {r}(ank)-field which may be used to estimate the pose of a 2D LIDAR sensor accurately, and quickly due to the low complexity of the CAER metric. Top: a map of an environment, the pose of a panoramic 2D LIDAR sensor (magenta), and the corresponding CAER rank field below them. Bottom: distribution of CAER values by location and orientation error of all sensor pose hypotheses corresponding to the rank field above, for estimate distances up to $2.0$ m. CBGL leverages the relationships of (a) proportionality between the pose estimate error and the value of the CAER metric for pose estimates in a neighbourhood of the origin, and (b) lack of disproportionality outside of that neighbourhood \relax }{figure.caption.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces \relax \fontsize  {9}{10pt}\selectfont  Given a 2D LIDAR sensor's measurement, at its core, CBGL disperses pose hypotheses within the map and ranks them ascendingly according to the value of the CAER metric, producing a \texttt  {r}(ank)-field which may be used to estimate the pose of the sensor quickly due to the low complexity of the CAER metric. Top: a map of an environment, the pose of a panoramic 2D LIDAR sensor (magenta), and the corresponding CAER rank field below them. Bottom: distribution of CAER values by location and orientation error of all sensor pose hypotheses corresponding to the rank field above, for estimate distances up to $2.0$ m. In this example $10^6$ hypotheses were dispersed randomly $100$ times over the map's $800$ m$^2$; CBGL's maximum location error and maximum execution time were, respectively, $0.062$ m and $8.8$ sec. \relax }}{1}{figure.caption.1}}
+\newlabel{fig:AB}{{1}{1}{\small Given a 2D LIDAR sensor's measurement, at its core, CBGL disperses pose hypotheses within the map and ranks them ascendingly according to the value of the CAER metric, producing a \texttt {r}(ank)-field which may be used to estimate the pose of the sensor quickly due to the low complexity of the CAER metric. Top: a map of an environment, the pose of a panoramic 2D LIDAR sensor (magenta), and the corresponding CAER rank field below them. Bottom: distribution of CAER values by location and orientation error of all sensor pose hypotheses corresponding to the rank field above, for estimate distances up to $2.0$ m. In this example $10^6$ hypotheses were dispersed randomly $100$ times over the map's $800$ m$^2$; CBGL's maximum location error and maximum execution time were, respectively, $0.062$ m and $8.8$ sec. \relax }{figure.caption.1}{}}
 \newlabel{def:definition_3}{{III}{1}{}{definition.3}{}}
 \newlabel{eq:caer}{{1}{1}{}{equation.2.1}{}}
 \newlabel{def:definition_4}{{IV}{1}{}{definition.4}{}}
+\citation{FILOTHEOU2023100288}
+\citation{kissicp}
+\citation{fsm}
 \newlabel{def:definition_5}{{V}{2}{}{definition.5}{}}
 \newlabel{def:definition_6}{{VI}{2}{}{definition.6}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {III}Related Work}{2}{section.3}}
@@ -43,33 +46,30 @@
 \newlabel{hpt:hypothesis_h}{{H}{2}{}{innercustomhpt.1}{}}
 \newlabel{cnj:conjecture_c}{{C}{2}{}{innercustomcnj.1}{}}
 \newlabel{rem:remark_1}{{I}{2}{}{remark.1}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces \relax \fontsize  {9}{10pt}\selectfont  \relax }}{2}{figure.caption.2}}
-\newlabel{fig:h_fig1}{{2}{2}{\small \relax }{figure.caption.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces \relax \fontsize  {9}{10pt}\selectfont  This figure shall reside under section \textit  {Limitations} ??\relax }}{2}{figure.caption.3}}
-\newlabel{fig:h_not_fig1}{{3}{2}{\small This figure shall reside under section \textit {Limitations} ??\relax }{figure.caption.3}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces \relax \fontsize  {9}{10pt}\selectfont  \relax }}{2}{figure.caption.4}}
-\newlabel{fig:cbgl}{{4}{2}{\small \relax }{figure.caption.4}{}}
-\citation{FILOTHEOU2023100288}
-\citation{kissicp}
-\citation{fsm}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {I}{\ignorespaces \texttt  {CBGL}\relax }}{2}{algorithm.1}}
+\newlabel{alg:algorithm_cbgl}{{I}{2}{\texttt {CBGL}\relax }{ALC@unique.13}{}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {II}{\ignorespaces \texttt  {bottom}\_$n$\_\texttt  {poses}\relax }}{2}{algorithm.2}}
+\newlabel{alg:algorithm_bottom_n}{{II}{2}{\texttt {bottom}\_$n$\_\texttt {poses}\relax }{ALC@unique.28}{}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {III}{\ignorespaces \texttt  {sm2}\relax }}{2}{algorithm.3}}
+\newlabel{alg:algorithm_sm2}{{III}{2}{\texttt {sm2}\relax }{ALC@unique.32}{}}
 \bibstyle{ieeetran}
 \bibdata{./sections/bibliography_ieee}
 \bibcite{Cooper2018b}{1}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces \relax \fontsize  {9}{10pt}\selectfont  \relax }}{3}{figure.caption.5}}
-\newlabel{fig:cbgl}{{5}{3}{\small \relax }{figure.caption.5}{}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {I}{\ignorespaces \texttt  {CBGL}\relax }}{3}{algorithm.1}}
-\newlabel{alg:algorithm_cbgl}{{I}{3}{\texttt {CBGL}\relax }{ALC@unique.13}{}}
-\bibcite{kissicp}{2}
-\bibcite{fsm}{3}
-\bibcite{FILOTHEOU2023100288}{4}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {II}{\ignorespaces \texttt  {bottom}\_$n$\_\texttt  {poses}\relax }}{4}{algorithm.2}}
-\newlabel{alg:algorithm_bottom_n}{{II}{4}{\texttt {bottom}\_$n$\_\texttt {poses}\relax }{ALC@unique.28}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {V}Experimental Evaluation}{4}{section.5}}
-\newlabel{section:results}{{V}{4}{Experimental Evaluation}{section.5}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {VI}Characterisation \& Limitations}{4}{section.6}}
-\newlabel{section:characterisation}{{VI}{4}{Characterisation \& Limitations}{section.6}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {VII}Conclusion}{4}{section.7}}
-\newlabel{section:finale}{{VII}{4}{Conclusion}{section.7}{}}
-\@writefile{toc}{\contentsline {section}{References}{4}{section*.6}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {III}{\ignorespaces \texttt  {sm2}\relax }}{4}{algorithm.3}}
-\newlabel{alg:algorithm_sm2}{{III}{4}{\texttt {sm2}\relax }{ALC@unique.32}{}}
+\bibcite{FILOTHEOU2023100288}{2}
+\bibcite{kissicp}{3}
+\bibcite{fsm}{4}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces \relax \fontsize  {9}{10pt}\selectfont  \relax }}{3}{figure.caption.2}}
+\newlabel{fig:h_fig1}{{2}{3}{\small \relax }{figure.caption.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces \relax \fontsize  {9}{10pt}\selectfont  \relax }}{3}{figure.caption.3}}
+\newlabel{fig:cbgl}{{3}{3}{\small \relax }{figure.caption.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {V}Experimental Evaluation}{3}{section.5}}
+\newlabel{section:results}{{V}{3}{Experimental Evaluation}{section.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {VI}Characterisation \& Limitations}{3}{section.6}}
+\newlabel{section:characterisation}{{VI}{3}{Characterisation \& Limitations}{section.6}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {VII}Conclusion}{3}{section.7}}
+\newlabel{section:finale}{{VII}{3}{Conclusion}{section.7}{}}
+\@writefile{toc}{\contentsline {section}{References}{3}{section*.6}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces \relax \fontsize  {9}{10pt}\selectfont  \relax }}{3}{figure.caption.4}}
+\newlabel{fig:cbgl}{{4}{3}{\small \relax }{figure.caption.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces \relax \fontsize  {9}{10pt}\selectfont  This figure shall reside under section \textit  {Limitations} ??\relax }}{3}{figure.caption.5}}
+\newlabel{fig:h_not_fig1}{{5}{3}{\small This figure shall reside under section \textit {Limitations} ??\relax }{figure.caption.5}{}}
