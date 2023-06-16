@@ -1,11 +1,20 @@
+% No mention of r-fields here. r-fields are part of the solution
 \subsection{Motivation}
 
-The proposed method's foundations rest on observation \ref{obs:observation_o}:
+The proposed method's motivation lies in the simple but powerful fact that, in
+general, is exhibited through figure \ref{fig:face}: Assume a pose estimate
+residing in a neighbourhood of the pose of a 2D LIDAR sensor within a given
+map; then the CAER metric between the scan measured by the sensor and the
+map-scan captured from the estimate within the map---the CAER metric is
+proportional to both the estimate's location error and orientation error.
+
+Formally the proposed method's foundations rest on Observation
+\ref{obs:observation_o}:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{customobs}{O}
   \label{obs:observation_o} It may be observed that there are conditions such
-  that hypothesis \ref{hpt:hypothesis_h} stands true.
+  that Hypothesis \ref{hpt:hypothesis_h} stands true.
 \end{customobs}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -15,7 +24,7 @@ The proposed method's foundations rest on observation \ref{obs:observation_o}:
   \begin{itemize}
     \item $\hat{\bm{p}}: \|\bm{p}-\hat{\bm{p}}\|_2 \leq \delta_0$ is an
           admissible pose estimate solution to Problem \ref{prob:the_problem}
-    \item set $\mathcal{V}$, as defined in conjecture \ref{cnj:conjecture_c},
+    \item set $\mathcal{V}$, as defined in Conjecture \ref{cnj:conjecture_c},
           is non-empty
   \end{itemize}
 \end{customhpt}
@@ -31,38 +40,50 @@ The proposed method's foundations rest on observation \ref{obs:observation_o}:
   $\mathcal{H} = \{\hat{\bm{p}}_i(\hat{x}_i,\hat{y}_i,\hat{\theta}_i)\} \subseteq \texttt{free}(\bm{M})$,
   $i \in \texttt{I} = \langle 0,1,\dots,|\mathcal{H}|-1\rangle$.
   Let $f_{\psi}^{\bm{M}}$ be the $\psi$-field on $\bm{M}$
-  (def. \ref{def:definition_4}) and
-  $f_{\texttt{r}}^{\bm{M}}$ be the corresponding $\texttt{r}$-field
-  (def. \ref{def:definition_5}) such that
-  $f_{\psi}^{\bm{M}}(\mathcal{H})= \Psi$,
-  $\Psi[\texttt{I}^{\ast}] = \Psi_\uparrow$,
-  and
-  $f_{\texttt{r}}^{\bm{M}}(\mathcal{H}[\texttt{I}^{\ast}]) = \texttt{I}$.
+  (def. \ref{def:definition_4})
+  %and
+  %$f_{\texttt{r}}^{\bm{M}}$ be the corresponding $\texttt{r}$-field (def. \ref{def:definition_5})
+  such that $f_{\psi}^{\bm{M}}(\mathcal{H})= \Psi$.
+  %$\Psi[\texttt{I}^{\ast}] = \Psi_\uparrow$,
+  %and
+  %$f_{\texttt{r}}^{\bm{M}}(\mathcal{H}[\texttt{I}^{\ast}]) = \texttt{I}$.
+  Let the field's locational and orientational densities be
+  $d_{l}$ and $d_{\alpha}$.
   Let $\hat{\bm{p}}_\omega \in \mathcal{H}$ and $\psi_0,\delta_0 \in \mathbb{R}_{>0}$
   such that $f_{\psi}^{\bm{M}}(\hat{\bm{p}}_\omega ) = \psi_0$ and
   $\|\bm{p}-\hat{\bm{p}}_j\|_2 \leq \delta_0$ for all
   $\hat{\bm{p}}_j \in \mathcal{H}: f_{\psi}^{\bm{M}}(\hat{\bm{p}}_j) \leq \psi_0$.
   Let now $\mathcal{V} = \{\hat{\bm{p}}_i \in \mathcal{H}: f_{\psi}^{\bm{M}}(\hat{\bm{p}}_i) \leq \psi_0,
   \|\bm{p}-\hat{\bm{p}}_i\|_2 \leq \delta_0\}$.
-  Without loss of generality there exist $\psi_0,\delta_0$ such that for all
+  Without loss of generality there exist $d_{l}, d_{\alpha}$, and
+  $\psi_0,\delta_0$ such that for all
   $\hat{\bm{p}}_\mathcal{V} \in \mathcal{V}$:
   \begin{align}
     f_{\psi}^{\bm{M}}(\hat{\bm{p}}_\mathcal{V}) &< f_{\psi}^{\bm{M}}(\hat{\bm{p}}) \ \ \ \Leftrightarrow \nonumber \\
-    f_{\texttt{r}}^{\bm{M}}(\hat{\bm{p}}_\mathcal{V}) &< f_{\texttt{r}}^{\bm{M}}(\hat{\bm{p}}) \ \ \ \Leftrightarrow \nonumber \\
+    %f_{\texttt{r}}^{\bm{M}}(\hat{\bm{p}}_\mathcal{V}) &< f_{\texttt{r}}^{\bm{M}}(\hat{\bm{p}}) \ \ \ \Leftrightarrow \nonumber \\
     \|\bm{p}-\hat{\bm{p}}_\mathcal{V}\|_2 &< \|\bm{p}-\hat{\bm{p}}_{}\|_2 \nonumber
   \end{align}
-  for any $\hat{\bm{p}}_{} \in {\mathcal{H} \setminus  \mathcal{V}}: \|\bm{p}-\hat{\bm{p}}_{}\|_2 > \delta_0$.
+  for any $\hat{\bm{p}}_{} \in \mathcal{X} = \mathcal{H} \setminus  \mathcal{V}: \|\bm{p}-\hat{\bm{p}}_{}\|_2 > \delta_0$.
 \end{customcnj}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\begin{remark}
-  %\label{rem:remark_1}
-  %The composition of
-  %$\mathcal{H} = \mathcal{V} \cup \mathcal{X} \cup \mathcal{W}$, where
-  %$\mathcal{X} = \hat{\bm{p}} \in {\mathcal{H} \setminus \mathcal{V}}: \|\bm{p}-\hat{\bm{p}}\|_2 \geq \delta_0$ and
-  %$\mathcal{W} = \hat{\bm{p}} \in {\mathcal{H} \setminus \mathcal{V}}: \|\bm{p}-\hat{\bm{p}}\|_2 < \delta_0$.
-  %With respect to set $\mathcal{W}$ ... ??
-%\end{remark}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{remark}
+  \label{rem:remark_1}
+  The composition of
+  $\mathcal{H} = \mathcal{V} \cup \mathcal{X} \cup \mathcal{W}$, where
+  $\mathcal{W} = \hat{\bm{p}} \in {\mathcal{H} \setminus \mathcal{V}}: \|\bm{p}-\hat{\bm{p}}\|_2 \leq \delta_0$.
+\end{remark}
+
+In simple terms Conjecture \ref{cnj:conjecture_c} states that, in general,
+given a dense enough set of pose hypotheses $\mathcal{H}$ over a map $\bm{M}$,
+it is possible to partition them into (non-empty) sets $\mathcal{V}$,
+$\mathcal{X}$, and $\mathcal{W}$, such that the pose error of pose estimates in
+set $\mathcal{V}$ and corresponding CAER values %$f_{\texttt{r}}^{\bm{M}}(\mathcal{V})$
+are simultaneously lower than those of estimates in set $\mathcal{X}$.
+%$f_{\psi}^{\bm{M}}(\mathcal{V} \cup \mathcal{W}) < f_{\psi}^{\bm{M}}(\mathcal{X})$ and
+%$f_{\texttt{r}}^{\bm{M}}(\mathcal{V}) < f_{\texttt{r}}^{\bm{M}}(\mathcal{X} \cup \mathcal{W})$.
+%$f_{\psi}^{\bm{M}}(\mathcal{V}) < f_{\psi}^{\bm{M}}(\mathcal{X})$ and
+%$\|\bm{p}-\hat{\bm{p}}_{\mathcal{V}}\|_2 < \|\bm{p}-\hat{\bm{p}}_{\mathcal{X}}\|_2$.
 
 
 \begin{figure}
@@ -161,3 +182,5 @@ The proposed method's foundations rest on observation \ref{obs:observation_o}:
   \end{spacing}
   \label{alg:algorithm_sm2}
 \end{algorithm}
+
+\lipsum[0-1]
