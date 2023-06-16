@@ -21,24 +21,25 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
-\bibitem{Cooper2018b}
+\bibitem{Cooper2018c}
 M.~Cooper, J.~Raquet, and R.~Patton, ``{Range Information Characterization of
   the Hokuyo UST-20LX LIDAR Sensor},'' \emph{Photonics}, 2018.
 
-\bibitem{FILOTHEOU2023100288}
+\bibitem{Filotheou2023a}
 A.~Filotheou, A.~L. Symeonidis, G.~D. Sergiadis, and A.~G. Dimitriou,
-  ``Correspondenceless scan-to-map-scan matching of 2d panoramic range scans,''
-  \emph{Array}, vol.~18, 2023.
+  ``{Correspondenceless scan-to-map-scan matching of 2D panoramic range
+  scans},'' \emph{Array}, 2023.
 
-\bibitem{kissicp}
+\bibitem{Vizzo2023}
 I.~Vizzo, T.~Guadagnino, B.~Mersch, L.~Wiesmann, J.~Behley, and C.~Stachniss,
-  ``Kiss-icp: In defense of point-to-point icp – simple, accurate, and robust
-  registration if done the right way,'' \emph{IEEE Robotics and Automation
-  Letters}, 2023.
+  ``{KISS-ICP: In Defense of Point-to-Point ICP – Simple, Accurate, and
+  Robust Registration If Done the Right Way},'' \emph{IEEE Robotics and
+  Automation Letters}, 2023.
 
-\bibitem{fsm}
-A.~Filotheou, G.~D. Sergiadis, and A.~G. Dimitriou, ``Fsm: Correspondenceless
-  scan-matching of panoramic 2d range scans,'' in \emph{2022 IEEE/RSJ
-  International Conference on Intelligent Robots and Systems (IROS)}, 2022.
+\bibitem{Filotheou2022f}
+A.~Filotheou, G.~D. Sergiadis, and A.~G. Dimitriou, ``{FSM: Correspondenceless
+  scan-matching of panoramic 2D range scans},'' in \emph{2022 IEEE/RSJ
+  International Conference on Intelligent Robots and Systems (IROS)}.\hskip 1em
+  plus 0.5em minus 0.4em\relax IEEE, 2022.
 
 \end{thebibliography}

@@ -3,10 +3,10 @@
 
 The proposed method's motivation lies in the simple but powerful fact that, in
 general, is exhibited through figure \ref{fig:face}: Assume a pose estimate
-residing in a neighbourhood of the pose of a 2D LIDAR sensor within a given
-map; then the CAER metric between the scan measured by the sensor and the
-map-scan captured from the estimate within the map---the CAER metric is
-proportional to both the estimate's location error and orientation error.
+residing in a neighbourhood of a 2D LIDAR sensor's pose within a given map;
+then the CAER metric between the scan measured by the sensor and the map-scan
+captured from the estimate within the map---the CAER metric is proportional to
+both the estimate's location error and orientation error.
 
 Formally the proposed method's foundations rest on Observation
 \ref{obs:observation_o}:
@@ -76,9 +76,9 @@ Formally the proposed method's foundations rest on Observation
 
 In simple terms Conjecture \ref{cnj:conjecture_c} states that, in general,
 given a dense enough set of pose hypotheses $\mathcal{H}$ over a map $\bm{M}$,
-it is possible to partition them into (non-empty) sets $\mathcal{V}$,
-$\mathcal{X}$, and $\mathcal{W}$, such that the pose error of pose estimates in
-set $\mathcal{V}$ and corresponding CAER values %$f_{\texttt{r}}^{\bm{M}}(\mathcal{V})$
+it is possible to partition $\mathcal{H}$ into (non-empty) sets $\mathcal{V}$,
+$\mathcal{X}$, and $\mathcal{W}$ such that the error of pose estimates in
+set $\mathcal{V}$ and their corresponding CAER values %$f_{\texttt{r}}^{\bm{M}}(\mathcal{V})$
 are simultaneously lower than those of estimates in set $\mathcal{X}$.
 %$f_{\psi}^{\bm{M}}(\mathcal{V} \cup \mathcal{W}) < f_{\psi}^{\bm{M}}(\mathcal{X})$ and
 %$f_{\texttt{r}}^{\bm{M}}(\mathcal{V}) < f_{\texttt{r}}^{\bm{M}}(\mathcal{X} \cup \mathcal{W})$.
@@ -88,10 +88,13 @@ are simultaneously lower than those of estimates in set $\mathcal{X}$.
 
 \begin{figure}
   \input{./figures/h_fig.tex}
-  \vspace{1cm}
+  \vspace{0.8cm}
   \caption{\small }
   \label{fig:h_fig1}
 \end{figure}
+
+
+\subsection{The CBGL System}
 
 \begin{figure}[]\centering
   \input{./figures/cbgl_system.tikz}
@@ -126,7 +129,7 @@ are simultaneously lower than those of estimates in set $\mathcal{X}$.
     \STATE $\mathcal{H}_1 \leftarrow$ \texttt{bottom}$\_n\_\texttt{poses}(\mathcal{S}_R, \bm{M}, \mathcal{H}, \nabla)$ \hfill {\small (Alg. \ref{alg:algorithm_bottom_n}})
     \STATE $\mathcal{H}_2 \leftarrow \{\varnothing \}$
     \FOR {$k \leftarrow 0,1,\dots,|\mathcal{H}_1|-1$}
-      \STATE $\hat{\bm{h}}^\prime \leftarrow \texttt{sm2}(\mathcal{S}_R, \bm{M}, \mathcal{H}_1[k])$ \hfill {\small (Alg. \ref{alg:algorithm_sm2} or e.g. \texttt{x1} \cite{FILOTHEOU2023100288}})
+      \STATE $\hat{\bm{h}}^\prime \leftarrow \texttt{sm2}(\mathcal{S}_R, \bm{M}, \mathcal{H}_1[k])$ \hfill {\small (Alg. \ref{alg:algorithm_sm2} or e.g. \texttt{x1} \cite{Filotheou2023a}})
       \STATE $\mathcal{H}_2 \leftarrow \{\mathcal{H}_2, \hat{\bm{h}}^\prime\}$
     \ENDFOR
     \STATE $\hat{\bm{p}} \leftarrow$ \texttt{bottom}$\_n\_\texttt{poses}(\mathcal{S}_R, \bm{M}, \mathcal{H}_2, 1)$
@@ -175,7 +178,7 @@ are simultaneously lower than those of estimates in set $\mathcal{X}$.
     \REQUIRE $\mathcal{S}_R$, $\bm{M}$, $\hat{\bm{p}}$
     \ENSURE $\hat{\bm{p}}^\prime$
     \STATE $\mathcal{S}_V \leftarrow \texttt{scan\_map}(\bm{M}, \hat{\bm{p}})$
-    \STATE $\bm{\Delta p} \leftarrow \texttt{scan-match}(\mathcal{S}_R,\mathcal{S}_V)$ \hfill {\small (e.g. \texttt{ICP}\cite{kissicp}, \texttt{FSM}\cite{fsm}})
+    \STATE $\bm{\Delta p} \leftarrow \texttt{scan-match}(\mathcal{S}_R,\mathcal{S}_V)$ \hfill {\small (e.g. \texttt{ICP}\cite{Vizzo2023}, \texttt{FSM}\cite{Filotheou2022f}})
     \STATE $\hat{\bm{p}}^\prime \leftarrow \hat{\bm{p}} + \bm{\Delta p}$
     \RETURN $\hat{\bm{p}}^\prime$
   \end{algorithmic}
@@ -183,4 +186,6 @@ are simultaneously lower than those of estimates in set $\mathcal{X}$.
   \label{alg:algorithm_sm2}
 \end{algorithm}
 
-\lipsum[0-1]
+
+
+\lipsum[0-2]
