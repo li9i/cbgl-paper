@@ -1,3 +1,5 @@
+\subsection{Motivation}
+
 The proposed method's foundations rest on observation \ref{obs:observation_o}:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -9,13 +11,17 @@ The proposed method's foundations rest on observation \ref{obs:observation_o}:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{customhpt}{H}
   \label{hpt:hypothesis_h}
-  There exists $\overline{\delta} \in \mathbb{R}_{> 0}$ such that conjecture
-
+  There exists $\delta_0 \in \mathbb{R}_{> 0}$ such that
+  \begin{itemize}
+    \item $\hat{\bm{p}}: \|\bm{p}-\hat{\bm{p}}\|_2 \leq \delta_0$ is an
+          admissible pose estimate solution to Problem \ref{prob:the_problem}
+    \item set $\mathcal{V}$, as defined in conjecture \ref{cnj:conjecture_c},
+          is non-empty
+  \end{itemize}
 \end{customhpt}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{customcnj}{C}
-  %\label{hpt:hypothesis_h}
   \label{cnj:conjecture_c}
   Let the unknown pose of a 2D range sensor measuring range scan $\mathcal{S}_R$
   (def. \ref{def:definition_1}) be $\bm{p}(x,y,\theta)$ with respect to the
@@ -32,25 +38,31 @@ The proposed method's foundations rest on observation \ref{obs:observation_o}:
   $\Psi[\texttt{I}^{\ast}] = \Psi_\uparrow$,
   and
   $f_{\texttt{r}}^{\bm{M}}(\mathcal{H}[\texttt{I}^{\ast}]) = \texttt{I}$.
-  Let $\mathcal{V} = \{\hat{\bm{p}}_i \in \mathcal{H}: \|\bm{p}-\hat{\bm{p}}_i\|_2 < \delta_0 \text{ and } \psi(\mathcal{S}_R,\mathcal{S}_V^{\bm{M}}(\hat{\bm{p}}_i)) < \psi_0\}$. Without loss of generality there exist $\delta_0$,
-  $\psi_0$ $\in \mathbb{R}_{> 0}$ such that for all $\hat{\bm{p}}_\mathcal{V} \in \mathcal{V}$
+  Let $\hat{\bm{p}}_\omega \in \mathcal{H}$ and $\psi_0,\delta_0 \in \mathbb{R}_{>0}$
+  such that $f_{\psi}^{\bm{M}}(\hat{\bm{p}}_\omega ) = \psi_0$ and
+  $\|\bm{p}-\hat{\bm{p}}_j\|_2 \leq \delta_0$ for all
+  $\hat{\bm{p}}_j \in \mathcal{H}: f_{\psi}^{\bm{M}}(\hat{\bm{p}}_j) \leq \psi_0$.
+  Let now $\mathcal{V} = \{\hat{\bm{p}}_i \in \mathcal{H}: f_{\psi}^{\bm{M}}(\hat{\bm{p}}_i) \leq \psi_0,
+  \|\bm{p}-\hat{\bm{p}}_i\|_2 \leq \delta_0\}$.
+  Without loss of generality there exist $\psi_0,\delta_0$ such that for all
+  $\hat{\bm{p}}_\mathcal{V} \in \mathcal{V}$:
   \begin{align}
     f_{\psi}^{\bm{M}}(\hat{\bm{p}}_\mathcal{V}) &< f_{\psi}^{\bm{M}}(\hat{\bm{p}}) \ \ \ \Leftrightarrow \nonumber \\
     f_{\texttt{r}}^{\bm{M}}(\hat{\bm{p}}_\mathcal{V}) &< f_{\texttt{r}}^{\bm{M}}(\hat{\bm{p}}) \ \ \ \Leftrightarrow \nonumber \\
     \|\bm{p}-\hat{\bm{p}}_\mathcal{V}\|_2 &< \|\bm{p}-\hat{\bm{p}}_{}\|_2 \nonumber
   \end{align}
-  for any $\hat{\bm{p}}_{} \in {\mathcal{H} \setminus  \mathcal{V}}: \|\bm{p}-\hat{\bm{p}}_{}\|_2 \geq \delta_0$.
+  for any $\hat{\bm{p}}_{} \in {\mathcal{H} \setminus  \mathcal{V}}: \|\bm{p}-\hat{\bm{p}}_{}\|_2 > \delta_0$.
 \end{customcnj}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{remark}
-  \label{rem:remark_1}
-  The composition of
-  $\mathcal{H} = \mathcal{V} \cup \mathcal{X} \cup \mathcal{W}$, where
-  $\mathcal{X} = \hat{\bm{p}} \in {\mathcal{H} \setminus \mathcal{V}}: \|\bm{p}-\hat{\bm{p}}\|_2 \geq \delta_0$ and
-  $\mathcal{W} = \hat{\bm{p}} \in {\mathcal{H} \setminus \mathcal{V}}: \|\bm{p}-\hat{\bm{p}}\|_2 < \delta_0$.
-  With respect to set $\mathcal{W}$ ... ??
-\end{remark}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{remark}
+  %\label{rem:remark_1}
+  %The composition of
+  %$\mathcal{H} = \mathcal{V} \cup \mathcal{X} \cup \mathcal{W}$, where
+  %$\mathcal{X} = \hat{\bm{p}} \in {\mathcal{H} \setminus \mathcal{V}}: \|\bm{p}-\hat{\bm{p}}\|_2 \geq \delta_0$ and
+  %$\mathcal{W} = \hat{\bm{p}} \in {\mathcal{H} \setminus \mathcal{V}}: \|\bm{p}-\hat{\bm{p}}\|_2 < \delta_0$.
+  %With respect to set $\mathcal{W}$ ... ??
+%\end{remark}
 
 
 \begin{figure}
