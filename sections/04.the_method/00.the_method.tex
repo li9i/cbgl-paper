@@ -21,10 +21,11 @@ Formally the proposed method's foundations rest on Observation
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{customhpt}{H}
   \label{hpt:hypothesis_h}
-  There exists $\delta_0 \in \mathbb{R}_{> 0}$ such that
+  There exist $\delta,\delta_0 \in \mathbb{R}_{> 0}$ such that
   \begin{itemize}
-    \item $\hat{\bm{p}}: \|\bm{p}-\hat{\bm{p}}\|_2 \leq \delta_0$ is an
-          admissible pose estimate solution to Problem \ref{prob:the_problem}, and
+    \item $\hat{\bm{p}}: \|\bm{p}-\hat{\bm{p}}\|_2 \leq \delta \leq \delta_0$
+          is an admissible pose estimate solution to Problem
+          \ref{prob:the_problem}, and
     \item set $\mathcal{V}$, as defined in Conjecture \ref{cnj:conjecture_c},
           is non-empty
   \end{itemize}
@@ -78,19 +79,20 @@ Formally the proposed method's foundations rest on Observation
 In simple terms Conjecture \ref{cnj:conjecture_c} states that, in general,
 given a dense enough set of pose hypotheses $\mathcal{H}$ over a map $\bm{M}$,
 it is possible to partition $\mathcal{H}$ into (non-empty) sets $\mathcal{V}$,
-$\mathcal{X}$, and $\mathcal{W}$ such that the error of pose estimates in
-set $\mathcal{V}$ and their corresponding CAER values %$f_{\texttt{r}}^{\bm{M}}(\mathcal{V})$
-are simultaneously lower than those of estimates in set $\mathcal{X}$.
-%$f_{\psi}^{\bm{M}}(\mathcal{V} \cup \mathcal{W}) < f_{\psi}^{\bm{M}}(\mathcal{X})$ and
-%$f_{\texttt{r}}^{\bm{M}}(\mathcal{V}) < f_{\texttt{r}}^{\bm{M}}(\mathcal{X} \cup \mathcal{W})$.
-%$f_{\psi}^{\bm{M}}(\mathcal{V}) < f_{\psi}^{\bm{M}}(\mathcal{X})$ and
-%$\|\bm{p}-\hat{\bm{p}}_{\mathcal{V}}\|_2 < \|\bm{p}-\hat{\bm{p}}_{\mathcal{X}}\|_2$.
+$\mathcal{X}$, and $\mathcal{W}$ such that the error of pose estimates in set
+$\mathcal{V}$ and their corresponding CAER values are simultaneously lower than
+those of estimates in set $\mathcal{X}$. Hypothesis \ref{hpt:hypothesis_h}
+restrictively states that $\mathcal{V}$ is populated by a pose estimate
+whose error is such that it is deemed an admissible solution to
+Problem \ref{prob:the_problem}.
+
 
 
 \begin{figure}
   \input{./figures/h_fig.tex}
-  \vspace{0.8cm}
-  \caption{\small }
+  \vspace{0.7cm}
+  \caption{\small The $\psi$-field (left) and \texttt{r}-field (right) of a
+           configuration where Observation \ref{obs:observation_o} can be made}
   \label{fig:h_fig1}
 \end{figure}
 
