@@ -1,3 +1,5 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % No mention of r-fields here. r-fields are part of the solution
 \subsection{Motivation}
 
@@ -7,7 +9,6 @@ residing in a neighbourhood of a 2D LIDAR sensor's pose within a given map;
 then the CAER metric between the scan measured by the sensor and the map-scan
 captured from the estimate within the map---the CAER metric is proportional to
 both the estimate's location error and orientation error.
-
 Formally the proposed method's foundations rest on Observation
 \ref{obs:observation_o}:
 
@@ -23,7 +24,7 @@ Formally the proposed method's foundations rest on Observation
   There exists $\delta_0 \in \mathbb{R}_{> 0}$ such that
   \begin{itemize}
     \item $\hat{\bm{p}}: \|\bm{p}-\hat{\bm{p}}\|_2 \leq \delta_0$ is an
-          admissible pose estimate solution to Problem \ref{prob:the_problem}
+          admissible pose estimate solution to Problem \ref{prob:the_problem}, and
     \item set $\mathcal{V}$, as defined in Conjecture \ref{cnj:conjecture_c},
           is non-empty
   \end{itemize}
@@ -94,18 +95,37 @@ are simultaneously lower than those of estimates in set $\mathcal{X}$.
 \end{figure}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{The CBGL System}
+
+
+
 
 \begin{figure}[]\centering
   \input{./figures/cbgl_system.tikz}
-  \caption{\small }
+  \caption{\small CBGL in block diagram form. Given a LIDAR's 2D measurement
+           $\mathcal{S}_R$ and the map $\bm{M}$ that represents the environment
+           in which the sensor is posed, CBGL generates a set of pose hypotheses
+           $\mathcal{H}$ and invokes the estimation of the $k$ hypotheses with
+           the least pose error (fig. \ref{fig:bottom_k}; alg.
+           \ref{alg:bottom_k}). Then it scan-to-map-scan matches those to the
+           measurement for finer estimation and outlier rejection (alg.
+           \ref{alg:sm2}). CBGL's output pose estimate is that with the least
+           CAER among all similarly matched estimates}
   \label{fig:cbgl}
 \end{figure}
 
 \begin{figure}[]\centering
   \input{./figures/inner_ranking_system2.tikz}
-  \caption{\small }
-  \label{fig:cbgl}
+  \caption{\small CBGL's core method. Given a LIDAR's 2D measurement
+           $\mathcal{S}_R$, the map $\bm{M}$ that represents the environment in
+           which the sensor is posed, and a set of pose hypotheses
+           $\mathcal{H}$, CBGL (a) computes and ranks the CAER values between
+           the measurement and map-scans captured from the hypotheses within
+           the map, and (b) outputs the hypotheses with the $k$ lowest CAER
+           values}
+  \label{fig:bottom_k}
 \end{figure}
 
 
@@ -119,34 +139,34 @@ are simultaneously lower than those of estimates in set $\mathcal{X}$.
   \caption{\texttt{CBGL}}
   \begin{spacing}{1.2}
   \begin{algorithmic}[1]
-    \REQUIRE $\mathcal{S}_R$, $\bm{M}$, $|\mathcal{H}|$, $\nabla$
+    \REQUIRE $\mathcal{S}_R$, $\bm{M}$, $|\mathcal{H}|$, $k$
     \ENSURE $\hat{\bm{p}}$
     \STATE $\mathcal{H} \leftarrow \{\varnothing\}$
     \FOR {$i \leftarrow 0,1,\dots,|\mathcal{H}|-1$}
       \STATE $\hat{\bm{p}}_i \leftarrow \texttt{rand}(\hat{x},\hat{y},\hat{\theta}): (x,y) \in \texttt{free}(\bm{M})$
       \STATE $\mathcal{H} \leftarrow \{\mathcal{H}, \hat{\bm{p}}_i\}$
     \ENDFOR
-    \STATE $\mathcal{H}_1 \leftarrow$ \texttt{bottom}$\_n\_\texttt{poses}(\mathcal{S}_R, \bm{M}, \mathcal{H}, \nabla)$ \hfill {\small (Alg. \ref{alg:algorithm_bottom_n}})
+    \STATE $\mathcal{H}_1 \leftarrow$ \texttt{bottom}$\_k\_\texttt{poses}(\mathcal{S}_R, \bm{M}, \mathcal{H}, k)$ \hfill {\small (Alg. \ref{alg:bottom_k}})
     \STATE $\mathcal{H}_2 \leftarrow \{\varnothing \}$
     \FOR {$k \leftarrow 0,1,\dots,|\mathcal{H}_1|-1$}
-      \STATE $\hat{\bm{h}}^\prime \leftarrow \texttt{sm2}(\mathcal{S}_R, \bm{M}, \mathcal{H}_1[k])$ \hfill {\small (Alg. \ref{alg:algorithm_sm2} or e.g. \texttt{x1} \cite{Filotheou2023a}})
+      \STATE $\hat{\bm{h}}^\prime \leftarrow \texttt{sm2}(\mathcal{S}_R, \bm{M}, \mathcal{H}_1[k])$ \hfill {\small (Alg. \ref{alg:sm2} or e.g. \texttt{x1} \cite{Filotheou2023a}})
       \STATE $\mathcal{H}_2 \leftarrow \{\mathcal{H}_2, \hat{\bm{h}}^\prime\}$
     \ENDFOR
-    \STATE $\hat{\bm{p}} \leftarrow$ \texttt{bottom}$\_n\_\texttt{poses}(\mathcal{S}_R, \bm{M}, \mathcal{H}_2, 1)$
+    \STATE $\hat{\bm{p}} \leftarrow$ \texttt{bottom}$\_k\_\texttt{poses}(\mathcal{S}_R, \bm{M}, \mathcal{H}_2, 1)$
     \RETURN $\hat{\bm{p}}$
   \end{algorithmic}
   \end{spacing}
-  \label{alg:algorithm_cbgl}
+  \label{alg:cbgl}
 \end{algorithm}
 
 %% Bottom-n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \floatstyle{spaceruled}
 \restylefloat{algorithm}
 \begin{algorithm}
-  \caption{\texttt{bottom}\_$n$\_\texttt{poses}}
+  \caption{\texttt{bottom}\_$k$\_\texttt{poses}}
   \begin{spacing}{1.2}
   \begin{algorithmic}[1]
-    \REQUIRE $\mathcal{S}_R$, $\bm{M}$, $\mathcal{H}$, $\nabla$
+    \REQUIRE $\mathcal{S}_R$, $\bm{M}$, $\mathcal{H}$, $k$
     \ENSURE $\mathcal{H}_{\triangledown}$
     \STATE $\Psi \leftarrow \{\varnothing \}$
     \FOR {$h \leftarrow 0,1,\dots,|\mathcal{H}|-1$}
@@ -159,13 +179,13 @@ are simultaneously lower than those of estimates in set $\mathcal{X}$.
     \ENDFOR
     \STATE $[\Psi_{\uparrow}, \texttt{I}^{\ast}] \leftarrow \texttt{sort}(\Psi, \texttt{asc})$
     \STATE $\mathcal{H}_{\triangledown} \leftarrow \{\varnothing \}$
-    \FOR {$h \leftarrow 0,1,\dots,\nabla-1$}
+    \FOR {$h \leftarrow 0,1,\dots,k-1$}
       \STATE $\mathcal{H}_{\triangledown} \leftarrow \{\mathcal{H}_{\triangledown}, \mathcal{H}[\texttt{I}^{\ast}[h]]\}$
     \ENDFOR
     \RETURN $\mathcal{H}_{\triangledown}$
   \end{algorithmic}
   \end{spacing}
-  \label{alg:algorithm_bottom_n}
+  \label{alg:bottom_k}
 \end{algorithm}
 
 %% sm2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -183,7 +203,7 @@ are simultaneously lower than those of estimates in set $\mathcal{X}$.
     \RETURN $\hat{\bm{p}}^\prime$
   \end{algorithmic}
   \end{spacing}
-  \label{alg:algorithm_sm2}
+  \label{alg:sm2}
 \end{algorithm}
 
 

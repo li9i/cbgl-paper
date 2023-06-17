@@ -23,8 +23,9 @@ Problem \ref{prob:the_problem}:
            Given a 2D LIDAR sensor's measurement, at its core, CBGL disperses
            pose hypotheses within the map and ranks them ascendingly according
            to the value of the CAER metric, producing a \texttt{r}(ank)-field
-           which may be used to estimate the pose of the sensor quickly due to
-           the low complexity of the CAER metric.
+           which may be used to estimate the pose of the sensor (a) accurately
+           due to the proportionality of estimate error and CAER, and (b)
+           quickly due to the metric's low computational complexity.
            Top: a map of an environment, the pose of a panoramic 2D LIDAR sensor
            (magenta), and the corresponding CAER rank field below them.
            Bottom: distribution of CAER values by location and orientation

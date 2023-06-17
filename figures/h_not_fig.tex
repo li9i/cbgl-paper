@@ -1,3 +1,8 @@
+\definecolor{v}{RGB}{131, 186, 109}
+\definecolor{x}{RGB}{217, 33, 32}
+\definecolor{w}{RGB}{120, 28, 130}
+
+
 % GNUPLOT: LaTeX picture with Postscript
 \begingroup
   \makeatletter
@@ -102,7 +107,8 @@
     }%
     \gplgaddtomacro\gplfronttext{%
       \colorrgb{0.15,0.15,0.15}%
-      \put(-160,1499){\rotatebox{90}{\makebox(0,0){\strut{}\small CAER [m]}}}%
+      %\put(-160,1499){\rotatebox{90}{\makebox(0,0){\strut{}\small CAER [m]}}}%
+      \put(-160,1499){\rotatebox{90}{\makebox(0,0){\strut{}\small $f_{\psi}$ [m]}}}%
       \colorrgb{0.15,0.15,0.15}%
       %\put(1253,-250){\makebox(0,0){\strut{}\small estimate error \footnotesize [(m$^2$ + rad$^2$)$^{1/2}$]}}%
     }%
@@ -135,9 +141,12 @@
     \gplgaddtomacro\gplfronttext{%
       \colorrgb{0.15,0.15,0.15}%
       %\put(2400,1499){\rotatebox{90}{\makebox(0,0){\strut{}\small rank in ascending CAER hierarchy}}}%
-      \put(2400,1499){\rotatebox{90}{\makebox(0,0){\strut{}\small hypothesis' rank in CAER hierarchy}}}%
+      \put(2400,1499){\rotatebox{90}{\makebox(0,0){\strut{}\small $f_{\texttt{r}}$}}}%
       \colorrgb{0.15,0.15,0.15}%
       \put(2300,-250){\makebox(0,0){\strut{}\small estimate error \footnotesize [(m$^2$ + rad$^2$)$^{1/2}$]}}%
+      \put(1300,3000){\makebox(0,0){\makebox(0,0){\strut{}{\color{v}{\rule[0.6mm]{0.5cm}{0.75mm}}} $\mathcal{V}$}}}%
+      \put(2300,3000){\makebox(0,0){\makebox(0,0){\strut{}{\color{x}{\rule[0.6mm]{0.5cm}{0.75mm}}} $\mathcal{X}$}}}%
+      \put(3300,3000){\makebox(0,0){\makebox(0,0){\strut{}{\color{w}{\rule[0.6mm]{0.5cm}{0.75mm}}} $\mathcal{W}$}}}%
     }%
     \put(0,0){\includegraphics{./figures/h_not_fig}}%
     \gplfronttext

@@ -7,7 +7,7 @@
 %uncomment if require: \path (0,412); %set diagram left start at 0, and has height of 412
 
 %Shape: Rectangle [id:dp9638758944798029]
-\draw  [fill={rgb, 255:red, 255; green, 254; blue, 253 }  ,fill opacity=1 ][dash pattern={on 0.84pt off 2.51pt}] (132,113) -- (386.5,113) -- (386.5,329) -- (132,329) -- cycle ;
+\draw  [dash pattern={on 0.84pt off 2.51pt}] (132,113) -- (386.5,113) -- (386.5,329) -- (132,329) -- cycle ;
 %Straight Lines [id:da7180108526379969]
 \draw    (178.5,106) -- (178.5,183) ;
 \draw [shift={(178.5,183)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
@@ -66,14 +66,14 @@
 \draw (241,257) node   [align=left] {\texttt{sm2}};
 % Text Node
 \draw  [fill={rgb, 255:red, 255; green, 254; blue, 229 }  ,fill opacity=1 ]  (146.5,189.5) -- (347.5,189.5) -- (347.5,214.5) -- (146.5,214.5) -- cycle  ;
-\draw (247,202) node   [align=left] {Estimate Bottom-$\nabla$ of Pose Errors};
+\draw (247,203) node   [align=left] {Estimate Bottom-$k$ of Pose Errors};
 % Text Node
-\draw (397,194.71) node [anchor=north west][inner sep=0.75pt]   [align=left] {$\nabla \ll |\mathcal{H}|$};
+\draw (397,194.71) node [anchor=north west][inner sep=0.75pt]   [align=left] {$k \ll |\mathcal{H}|$};
 % Text Node
 \draw  [fill={rgb, 255:red, 255; green, 254; blue, 229 }  ,fill opacity=1 ]  (146.5,297.5) -- (347.5,297.5) -- (347.5,322.5) -- (146.5,322.5) -- cycle  ;
-\draw (247,310) node   [align=left] {Estimate Bottom-$\nabla$ of Pose Errors};
+\draw (247,310) node   [align=left] {Estimate Bottom-$k$ of Pose Errors};
 % Text Node
-\draw (397,302.71) node [anchor=north west][inner sep=0.75pt]   [align=left] {$\nabla = 1$};
+\draw (397,302.71) node [anchor=north west][inner sep=0.75pt]   [align=left] {$k = 1$};
 % Text Node
 \draw (270,228) node   [align=left] {$\mathcal{H}_1 \subseteq \mathcal{H}$};
 % Text Node
