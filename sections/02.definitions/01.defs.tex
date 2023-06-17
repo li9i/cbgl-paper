@@ -6,6 +6,8 @@ $\mathcal{A}[\texttt{I}] = \mathcal{A}$ denote indexing, and notation
 $\mathcal{A}_{k:l}$, $0 \leq k \leq l$, denote limited indexing:
 $\mathcal{A}_{k:l}= \{\mathcal{A}[k], \mathcal{A}[k+1], \dots, \mathcal{A}[l]\}$.
 
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{definition}
   \label{def:definition_1} \textit{Range scan captured from a 2D LIDAR
@@ -87,4 +89,15 @@ $\mathcal{A}_{k:l}= \{\mathcal{A}[k], \mathcal{A}[k+1], \dots, \mathcal{A}[l]\}$
   angular density, $d_l$ and $d_{\alpha}$ respectively, of a
   $\psi$- or $r$-field express, correspondingly, the number of pose estimates
   per unit area of space and per angular unit.
+\end{definition}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{definition}
+  \label{def:definition_7} \textit{Admissibility of solution}.---A pose estimate
+  $\hat{\bm{p}}(\hat{x},\hat{y},\hat{\theta}) \in \mathbb{R}^2 \times [-\pi,+\pi)$
+  may be deemed an admissible solution to Problem \ref{prob:the_problem} iff
+  $\|\bm{l}-\hat{\bm{l}}\|_2 \leq \delta_{\bm{l}}$ and
+  $|\theta-\hat{\theta}| \leq \delta_\theta$, where
+  $\delta_{\bm{l}}, \delta_\theta \in \mathbb{R}_{> 0}$ and
+  $\delta^2 = \delta_{\bm{l}}^2 + \delta_{\theta}^2$.
 \end{definition}

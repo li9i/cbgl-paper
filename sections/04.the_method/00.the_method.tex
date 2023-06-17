@@ -21,14 +21,11 @@ Formally the proposed method's foundations rest on Observation
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{customhpt}{H}
   \label{hpt:hypothesis_h}
-  There exist $\delta,\delta_0 \in \mathbb{R}_{> 0}$ such that
-  \begin{itemize}
-    \item $\hat{\bm{p}}: \|\bm{p}-\hat{\bm{p}}\|_2 \leq \delta \leq \delta_0$
-          is an admissible pose estimate solution to Problem
-          \ref{prob:the_problem}, and
-    \item set $\mathcal{V}$, as defined in Conjecture \ref{cnj:conjecture_c},
-          is non-empty
-  \end{itemize}
+  There exists $\hat{\bm{p}} \in  \mathbb{R}^2 \times [-\pi,+\pi)$ such that
+  $\hat{\bm{p}} \in \mathcal{V}: \|\bm{p}-\hat{\bm{p}}\|_2 \leq \delta \leq \delta_0$
+  is an admissible pose estimate solution to Problem \ref{prob:the_problem},
+  where set $\mathcal{V}$ and $\delta_0$ are defined by Conjecture
+  \ref{cnj:conjecture_c}.
 \end{customhpt}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -43,12 +40,7 @@ Formally the proposed method's foundations rest on Observation
   $i \in \texttt{I} = \langle 0,1,\dots,|\mathcal{H}|-1\rangle$.
   Let $f_{\psi}^{\bm{M}}$ be the $\psi$-field on $\bm{M}$
   (def. \ref{def:definition_4})
-  %and
-  %$f_{\texttt{r}}^{\bm{M}}$ be the corresponding $\texttt{r}$-field (def. \ref{def:definition_5})
   such that $f_{\psi}^{\bm{M}}(\mathcal{H})= \Psi$.
-  %$\Psi[\texttt{I}^{\ast}] = \Psi_\uparrow$,
-  %and
-  %$f_{\texttt{r}}^{\bm{M}}(\mathcal{H}[\texttt{I}^{\ast}]) = \texttt{I}$.
   Let the field's locational and orientational densities be
   $d_{l}$ and $d_{\alpha}$.
   Let $\hat{\bm{p}}_\omega \in \mathcal{H}$ and $\psi_0,\delta_0 \in \mathbb{R}_{>0}$
@@ -62,7 +54,6 @@ Formally the proposed method's foundations rest on Observation
   $\hat{\bm{p}}_\mathcal{V} \in \mathcal{V}$:
   \begin{align}
     f_{\psi}^{\bm{M}}(\hat{\bm{p}}_\mathcal{V}) &< f_{\psi}^{\bm{M}}(\hat{\bm{p}}) \ \ \ \Leftrightarrow \nonumber \\
-    %f_{\texttt{r}}^{\bm{M}}(\hat{\bm{p}}_\mathcal{V}) &< f_{\texttt{r}}^{\bm{M}}(\hat{\bm{p}}) \ \ \ \Leftrightarrow \nonumber \\
     \|\bm{p}-\hat{\bm{p}}_\mathcal{V}\|_2 &< \|\bm{p}-\hat{\bm{p}}_{}\|_2 \nonumber
   \end{align}
   for any $\hat{\bm{p}}_{} \in \mathcal{X} = \mathcal{H} \setminus  \mathcal{V}: \|\bm{p}-\hat{\bm{p}}_{}\|_2 > \delta_0$.
@@ -82,7 +73,7 @@ it is possible to partition $\mathcal{H}$ into (non-empty) sets $\mathcal{V}$,
 $\mathcal{X}$, and $\mathcal{W}$ such that the error of pose estimates in set
 $\mathcal{V}$ and their corresponding CAER values are simultaneously lower than
 those of estimates in set $\mathcal{X}$. Hypothesis \ref{hpt:hypothesis_h}
-restrictively states that $\mathcal{V}$ is populated by a pose estimate
+restrictingly states that $\mathcal{V}$ is populated by a pose estimate
 whose error is such that it is deemed an admissible solution to
 Problem \ref{prob:the_problem}.
 
