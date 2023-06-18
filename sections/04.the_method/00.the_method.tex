@@ -105,7 +105,7 @@ $f_{\texttt{r}}^{\bm{M}}(\mathcal{H})$ corresponding to the $\psi$-field
 $f_{\psi}^{\bm{M}}(\mathcal{H})$ on a given map $\bm{M}$ (def.
 \ref{def:definition_5}) such that $\Psi[\texttt{I}^{\ast}] = \Psi_\uparrow$,
 and $f_{\texttt{r}}^{\bm{M}}(\mathcal{H}[\texttt{I}^{\ast}]) = \texttt{I}$.
-The top $k \ll |\mathcal{H}|$ ranked pose hypotheses
+Then the top $k \ll |\mathcal{H}|$ ranked pose hypotheses
 $\mathcal{H}[\texttt{I}^{\ast}]_{0:k-1}$ define set $\mathcal{V}$ such that
 $\psi_0 = \max f_{\psi}^{\bm{M}}(\mathcal{H}[\texttt{I}^{\ast}]_{0:k-1})$,
 and for all $\hat{\bm{p}}_\mathcal{V} \in \mathcal{V}$
@@ -113,15 +113,37 @@ and any $\hat{\bm{p}}_{\mathcal{X}} \in \mathcal{X}$:
 $ f_{\texttt{r}}^{\bm{M}}(\hat{\bm{p}}_\mathcal{V}) < f_{\texttt{r}}^{\bm{M}}(\hat{\bm{p}}_{\mathcal{X}}) \Leftrightarrow
 f_{\psi}^{\bm{M}}(\hat{\bm{p}}_\mathcal{V}) < f_{\psi}^{\bm{M}}(\hat{\bm{p}}_\mathcal{X}) \Leftrightarrow
 \|\bm{p}-\hat{\bm{p}}_\mathcal{V}\|_2 < \|\bm{p}-\hat{\bm{p}}_{\mathcal{X}}\|_2$.
-Deprived of external limiting factors, the challenge here is constructing
-field $f_{\texttt{r}}^{\bm{M}}(\mathcal{H})$ with densities $d_{\bm{l}}$ and
-$d_\alpha$ such that Observation \ref{obs:observation_o} may be performed.
+By identifying the pose estimates that correspond to the bottom $k$ CAER
+values, this rationale attempts to recover the identity of the pose hypotheses
+with the bottom $k$ pose errors across $\mathcal{H}$. It constitutes the core
+of the proposed passive global localisation method, termed CBGL, and is
+described in block diagram form in figure \ref{fig:bottom_k} and in pseudocode
+in algorithm \ref{alg:bottom_k}.
 
-In fact CBGL
+Assuming the satisfaction of Observation \ref{obs:observation_o}, the challenge
+is choosing such $k$, $d_{\bm{l}}$, and $d_\alpha$ that, given pose estimate
+error requirement $\delta$ (def.  \ref{def:definition_7}; hyp.
+\ref{hpt:hypothesis_h}), CBGL produces admissible pose estimates while being
+executed in timely manner.  Given the rank field's Monte Carlo nature,
+optimistically, the only option for increasing the accuracy of the final pose
+estimate by a factor of two is doubling the densities of the \texttt{r}-field;
+instead of doing that, and thereby doubling the method's execution time,
+subsequent to the estimation of the pose estimates with the $k$ lowest CAER
+values, CBGL utilises scan--to--map-scan matching
+\cite{Vasiljevic2016c,Filotheou2023a}, followed by the estimation of the one
+pose estimate with the lowest CAER value within the group of matched estimates.
 
-
-
-
+Matching allows for (a) the correction of the pose of true positive estimates
+by scan-matching the map-scan captured within the map from the pose of a pose
+estimate against the range scan measured by the real sensor, (b) by the same
+token the potential divergence of spurious, false positive, pose estimates, and
+hence their elimination as pose estimate candidates, (c) the production of
+finer pose estimates without excessive increase in execution time, and (d) the
+decoupling of the final pose estimate's error from the field's density.
+Selecting among all matched estimates the one with the minimum (updated) CAER
+allows for the system's delivery of one pose estimate response.  Figure
+\ref{fig:cbgl} and algorithm \ref{alg:cbgl} present the proposed method of CBGL
+in block diagram and algorithmic forms respectively.
 
 \begin{figure}[]\centering
   \input{./figures/cbgl_system.tikz}
@@ -148,9 +170,6 @@ In fact CBGL
            values}
   \label{fig:bottom_k}
 \end{figure}
-
-
-
 
 
 %% CBGL %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -231,4 +250,4 @@ In fact CBGL
 
 
 
-%\lipsum[0-2]
+%\lipsum[0-1]

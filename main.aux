@@ -48,18 +48,17 @@
 \newlabel{fig:h_fig1}{{2}{2}{\small The $\psi $-field (left) and \texttt {r}-field (right) of a configuration where Observation \ref {obs:observation_o} can be made for $\delta \leq \delta _0$\relax }{figure.caption.2}{}}
 \newlabel{rem:remark_1}{{I}{2}{}{remark.1}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {IV-B}The CBGL System}{2}{subsection.4.2}}
+\citation{Vasiljevic2016c,Filotheou2023a}
 \citation{Filotheou2023a}
 \citation{Vizzo2023}
 \citation{Filotheou2022f}
 \bibstyle{ieeetran}
 \bibdata{./sections/bibliography_ieee}
 \bibcite{Cooper2018c}{1}
-\bibcite{Filotheou2023a}{2}
-\bibcite{Vizzo2023}{3}
+\bibcite{Vasiljevic2016c}{2}
+\bibcite{Filotheou2023a}{3}
 \@writefile{loa}{\contentsline {algorithm}{\numberline {III}{\ignorespaces \texttt  {sm2}\relax }}{3}{algorithm.3}}
 \newlabel{alg:sm2}{{III}{3}{\texttt {sm2}\relax }{ALC@unique.34}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces \relax \fontsize  {9}{10pt}\selectfont  CBGL in block diagram form. Given a LIDAR's 2D measurement $\mathcal  {S}_R$ and the map $\bm  {M}$ that represents the environment in which the sensor is posed, CBGL generates a set of pose hypotheses $\mathcal  {H}$ and invokes the estimation of the $k$ hypotheses with the least pose error (fig. \ref  {fig:bottom_k}; alg. \ref  {alg:bottom_k}). Then it scan-to-map-scan matches those to the measurement for finer estimation and outlier rejection (alg. \ref  {alg:sm2}). CBGL's output pose estimate is that with the least CAER among matched estimates\relax }}{3}{figure.caption.3}}
-\newlabel{fig:cbgl}{{3}{3}{\small CBGL in block diagram form. Given a LIDAR's 2D measurement $\mathcal {S}_R$ and the map $\bm {M}$ that represents the environment in which the sensor is posed, CBGL generates a set of pose hypotheses $\mathcal {H}$ and invokes the estimation of the $k$ hypotheses with the least pose error (fig. \ref {fig:bottom_k}; alg. \ref {alg:bottom_k}). Then it scan-to-map-scan matches those to the measurement for finer estimation and outlier rejection (alg. \ref {alg:sm2}). CBGL's output pose estimate is that with the least CAER among matched estimates\relax }{figure.caption.3}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {V}Experimental Evaluation}{3}{section.5}}
 \newlabel{section:results}{{V}{3}{Experimental Evaluation}{section.5}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {VI}Characterisation \& Limitations}{3}{section.6}}
@@ -71,7 +70,10 @@
 \newlabel{alg:cbgl}{{I}{3}{\texttt {CBGL}\relax }{ALC@unique.15}{}}
 \@writefile{loa}{\contentsline {algorithm}{\numberline {II}{\ignorespaces \texttt  {bottom}\_$k$\_\texttt  {poses}\relax }}{3}{algorithm.2}}
 \newlabel{alg:bottom_k}{{II}{3}{\texttt {bottom}\_$k$\_\texttt {poses}\relax }{ALC@unique.30}{}}
-\bibcite{Filotheou2022f}{4}
+\bibcite{Vizzo2023}{4}
+\bibcite{Filotheou2022f}{5}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces \relax \fontsize  {9}{10pt}\selectfont  CBGL in block diagram form. Given a LIDAR's 2D measurement $\mathcal  {S}_R$ and the map $\bm  {M}$ that represents the environment in which the sensor is posed, CBGL generates a set of pose hypotheses $\mathcal  {H}$ and invokes the estimation of the $k$ hypotheses with the least pose error (fig. \ref  {fig:bottom_k}; alg. \ref  {alg:bottom_k}). Then it scan-to-map-scan matches those to the measurement for finer estimation and outlier rejection (alg. \ref  {alg:sm2}). CBGL's output pose estimate is that with the least CAER among matched estimates\relax }}{4}{figure.caption.3}}
+\newlabel{fig:cbgl}{{3}{4}{\small CBGL in block diagram form. Given a LIDAR's 2D measurement $\mathcal {S}_R$ and the map $\bm {M}$ that represents the environment in which the sensor is posed, CBGL generates a set of pose hypotheses $\mathcal {H}$ and invokes the estimation of the $k$ hypotheses with the least pose error (fig. \ref {fig:bottom_k}; alg. \ref {alg:bottom_k}). Then it scan-to-map-scan matches those to the measurement for finer estimation and outlier rejection (alg. \ref {alg:sm2}). CBGL's output pose estimate is that with the least CAER among matched estimates\relax }{figure.caption.3}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces \relax \fontsize  {9}{10pt}\selectfont  CBGL's core method. Given a LIDAR's 2D measurement $\mathcal  {S}_R$, the map $\bm  {M}$ that represents the environment in which the sensor is posed, and a set of pose hypotheses $\mathcal  {H}$, CBGL (a) computes and ranks the CAER values between the measurement and map-scans captured from the hypotheses within the map, and (b) outputs the hypotheses with the $k$ lowest CAER values\relax }}{4}{figure.caption.4}}
 \newlabel{fig:bottom_k}{{4}{4}{\small CBGL's core method. Given a LIDAR's 2D measurement $\mathcal {S}_R$, the map $\bm {M}$ that represents the environment in which the sensor is posed, and a set of pose hypotheses $\mathcal {H}$, CBGL (a) computes and ranks the CAER values between the measurement and map-scans captured from the hypotheses within the map, and (b) outputs the hypotheses with the $k$ lowest CAER values\relax }{figure.caption.4}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces \relax \fontsize  {9}{10pt}\selectfont  Contrary to fig. \ref  {fig:h_fig1}: the $\psi $-field (left) and \texttt  {r}-field (right) of a configuration where Observation \ref  {obs:observation_o} cannot be made: set $\mathcal  {V}$ is empty of admissible pose estimates for $\delta < 4.5 \ (\text  {m}^2 + \text  {rad}^2)^{1/2}$. The effect is in fact produced due to the repetition of the immediate environment of the sensor more than once in the given map and its apparent dissimilarity to its corresponding portion of the map\relax }}{4}{figure.caption.5}}
