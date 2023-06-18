@@ -60,7 +60,8 @@
 % Text Node
 \draw (220.33,94.83) node   [align=left] {$\bm{M}$};
 % Text Node
-\draw (314.33,94.83) node   [align=left] {$|\mathcal{H}|$};
+% \draw (314.33,94.83) node   [align=left] {$|\mathcal{H}|$};
+\draw (314.33,94.83) node   [align=left] {$(d_{\bm{l}}, d_{\alpha})$};
 % Text Node
 \draw    (223,244.5) -- (259,244.5) -- (259,269.5) -- (223,269.5) -- cycle  ;
 \draw (241,257) node   [align=left] {\texttt{sm2}};

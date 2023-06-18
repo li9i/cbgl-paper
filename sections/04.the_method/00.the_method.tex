@@ -65,6 +65,15 @@ Formally the proposed method's foundations rest on Observation
   The composition of
   $\mathcal{H} = \mathcal{V} \cup \mathcal{X} \cup \mathcal{W}$, where
   $\mathcal{W} = \hat{\bm{p}} \in {\mathcal{H} \setminus \mathcal{V}}: \|\bm{p}-\hat{\bm{p}}\|_2 \leq \delta_0$.
+  With regard to the elements of set $\mathcal{W}$: if a global localisation
+  system's output was pose
+  $\hat{\bm{p}}_{\mathcal{W}} \in \mathcal{W}$ then, in the language of
+  classification, $\hat{\bm{p}}_{\mathcal{W}}$ would constitute a false
+  negative: it may be that
+  $f_{\psi}^{\bm{M}}(\hat{\bm{p}}_{\mathcal{W}}) > f_{\psi}^{\bm{M}}(\hat{\bm{p}}_{\mathcal{X}})$
+  but with regard to the pose error:
+  $\|\bm{p}-\hat{\bm{p}}_{\mathcal{X}}\|_2 \leq \delta_0$ and
+  $\|\bm{p}-\hat{\bm{p}}_{\mathcal{W}}\|_2 \leq \delta_0$.
 \end{remark}
 
 In simple terms Conjecture \ref{cnj:conjecture_c} states that, in general,
@@ -104,12 +113,11 @@ and any $\hat{\bm{p}}_{\mathcal{X}} \in \mathcal{X}$:
 $ f_{\texttt{r}}^{\bm{M}}(\hat{\bm{p}}_\mathcal{V}) < f_{\texttt{r}}^{\bm{M}}(\hat{\bm{p}}_{\mathcal{X}}) \Leftrightarrow
 f_{\psi}^{\bm{M}}(\hat{\bm{p}}_\mathcal{V}) < f_{\psi}^{\bm{M}}(\hat{\bm{p}}_\mathcal{X}) \Leftrightarrow
 \|\bm{p}-\hat{\bm{p}}_\mathcal{V}\|_2 < \|\bm{p}-\hat{\bm{p}}_{\mathcal{X}}\|_2$.
-Deprived of external limiting factors, the challenge here is constructing set
+Deprived of external limiting factors, the challenge here is constructing
 field $f_{\texttt{r}}^{\bm{M}}(\mathcal{H})$ with densities $d_{\bm{l}}$ and
 $d_\alpha$ such that Observation \ref{obs:observation_o} may be performed.
 
-% TALK ABOUT SET W HERE
-
+In fact CBGL
 
 
 
@@ -152,12 +160,15 @@ $d_\alpha$ such that Observation \ref{obs:observation_o} may be performed.
   \caption{\texttt{CBGL}}
   \begin{spacing}{1.2}
   \begin{algorithmic}[1]
-    \REQUIRE $\mathcal{S}_R$, $\bm{M}$, $|\mathcal{H}|$, $k$
-    \ENSURE $\hat{\bm{p}}$
+    \REQUIRE $\mathcal{S}_R$, $\bm{M}$, $(d_{\bm{l}}, d_\alpha)$, $k$
+    \ENSURE Pose estimate of sensor measuring range scan $\mathcal{S}_R$ %$\hat{\bm{p}}$
+    \STATE $A \leftarrow \texttt{calculate\_area}(\texttt{free}(\bm{M}))$
     \STATE $\mathcal{H} \leftarrow \{\varnothing\}$
-    \FOR {$i \leftarrow 0,1,\dots,|\mathcal{H}|-1$}
-      \STATE $\hat{\bm{p}}_i \leftarrow \texttt{rand}(\hat{x},\hat{y},\hat{\theta}): (x,y) \in \texttt{free}(\bm{M})$
-      \STATE $\mathcal{H} \leftarrow \{\mathcal{H}, \hat{\bm{p}}_i\}$
+    \FOR {$i \leftarrow 0,1,\dots,d_{\bm{l}} \cdot A-1$}
+      \STATE \small $(\hat{x},\hat{y},\hat{\theta}) \leftarrow \texttt{rand()}$: $(x,y) \in \texttt{free}(\bm{M})$, $\hat{\theta} \in [-\pi,+\pi)$
+      \FOR {$j \leftarrow 0,1,\dots, d_{\alpha}-1$}
+        \STATE $\mathcal{H} \leftarrow \{\mathcal{H}, (\hat{x}, \hat{y}, \hat{\theta} + j \cdot 2\pi / d_{\alpha})\}$
+      \ENDFOR
     \ENDFOR
     \STATE $\mathcal{H}_1 \leftarrow$ \texttt{bottom}$\_k\_\texttt{poses}(\mathcal{S}_R, \bm{M}, \mathcal{H}, k)$ \hfill {\small (Alg. \ref{alg:bottom_k}})
     \STATE $\mathcal{H}_2 \leftarrow \{\varnothing \}$
@@ -165,8 +176,7 @@ $d_\alpha$ such that Observation \ref{obs:observation_o} may be performed.
       \STATE $\hat{\bm{h}}^\prime \leftarrow \texttt{sm2}(\mathcal{S}_R, \bm{M}, \mathcal{H}_1[k])$ \hfill {\small (Alg. \ref{alg:sm2} or e.g. \texttt{x1} \cite{Filotheou2023a}})
       \STATE $\mathcal{H}_2 \leftarrow \{\mathcal{H}_2, \hat{\bm{h}}^\prime\}$
     \ENDFOR
-    \STATE $\hat{\bm{p}} \leftarrow$ \texttt{bottom}$\_k\_\texttt{poses}(\mathcal{S}_R, \bm{M}, \mathcal{H}_2, 1)$
-    \RETURN $\hat{\bm{p}}$
+    \RETURN \texttt{bottom}$\_k\_\texttt{poses}(\mathcal{S}_R, \bm{M}, \mathcal{H}_2, 1)$
   \end{algorithmic}
   \end{spacing}
   \label{alg:cbgl}
