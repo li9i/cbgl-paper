@@ -7,8 +7,8 @@ The proposed method's motivation lies in the simple but powerful fact that, in
 general, is exhibited through figure \ref{fig:face}: Assume a pose estimate
 residing in a neighbourhood of a 2D LIDAR sensor's pose within a given map;
 then the CAER metric between the scan measured by the sensor and the map-scan
-captured from the estimate within the map---the CAER metric is proportional to
-both the estimate's location error and orientation error.
+captured from the estimate within the map---the CAER metric is simultaneously
+proportional to both the estimate's location error and orientation error.
 Formally the proposed method's foundations rest on Observation
 \ref{obs:observation_o}:
 
@@ -23,8 +23,9 @@ Formally the proposed method's foundations rest on Observation
   \label{hpt:hypothesis_h}
   There exists $\hat{\bm{p}} \in  \mathbb{R}^2 \times [-\pi,+\pi)$ such that
   $\hat{\bm{p}} \in \mathcal{V}: \|\bm{p}-\hat{\bm{p}}\|_2 \leq \delta \leq \delta_0$
-  is an admissible pose estimate solution to Problem \ref{prob:the_problem},
-  where set $\mathcal{V}$ and $\delta_0$ are defined by Conjecture
+  is an admissible pose estimate solution to Problem \ref{prob:the_problem}
+  (def. \ref{def:definition_7}), where set $\mathcal{V}$ and $\delta_0$ are
+  defined by Conjecture
   \ref{cnj:conjecture_c}.
 \end{customhpt}
 
@@ -39,8 +40,7 @@ Formally the proposed method's foundations rest on Observation
   $\mathcal{H} = \{\hat{\bm{p}}_i(\hat{x}_i,\hat{y}_i,\hat{\theta}_i)\} \subseteq \texttt{free}(\bm{M})$,
   $i \in \texttt{I} = \langle 0,1,\dots,|\mathcal{H}|-1\rangle$.
   Let $f_{\psi}^{\bm{M}}$ be the $\psi$-field on $\bm{M}$
-  (def. \ref{def:definition_4})
-  such that $f_{\psi}^{\bm{M}}(\mathcal{H})= \Psi$.
+  (def. \ref{def:definition_4}) such that $f_{\psi}^{\bm{M}}(\mathcal{H})= \Psi$.
   Let the field's locational and orientational densities be
   $d_{l}$ and $d_{\alpha}$.
   Let $\hat{\bm{p}}_\omega \in \mathcal{H}$ and $\psi_0,\delta_0 \in \mathbb{R}_{>0}$
@@ -77,13 +77,12 @@ restrictingly states that $\mathcal{V}$ is populated by a pose estimate
 whose error is such that it is deemed an admissible solution to
 Problem \ref{prob:the_problem}.
 
-
-
 \begin{figure}
   \input{./figures/h_fig.tex}
   \vspace{0.7cm}
   \caption{\small The $\psi$-field (left) and \texttt{r}-field (right) of a
-           configuration where Observation \ref{obs:observation_o} can be made}
+           configuration where Observation \ref{obs:observation_o} can be made
+           for $\delta \leq \delta_0$}
   \label{fig:h_fig1}
 \end{figure}
 
@@ -91,6 +90,27 @@ Problem \ref{prob:the_problem}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{The CBGL System}
+
+In the same vein as Hypothesis \ref{hpt:hypothesis_h} assume the \texttt{r}-field
+$f_{\texttt{r}}^{\bm{M}}(\mathcal{H})$ corresponding to the $\psi$-field
+$f_{\psi}^{\bm{M}}(\mathcal{H})$ on a given map $\bm{M}$ (def.
+\ref{def:definition_5}) such that $\Psi[\texttt{I}^{\ast}] = \Psi_\uparrow$,
+and $f_{\texttt{r}}^{\bm{M}}(\mathcal{H}[\texttt{I}^{\ast}]) = \texttt{I}$.
+The top $k \ll |\mathcal{H}|$ ranked pose hypotheses
+$\mathcal{H}[\texttt{I}^{\ast}]_{0:k-1}$ define set $\mathcal{V}$ such that
+$\psi_0 = \max f_{\psi}^{\bm{M}}(\mathcal{H}[\texttt{I}^{\ast}]_{0:k-1})$,
+and for all $\hat{\bm{p}}_\mathcal{V} \in \mathcal{V}$
+and any $\hat{\bm{p}}_{\mathcal{X}} \in \mathcal{X}$:
+$ f_{\texttt{r}}^{\bm{M}}(\hat{\bm{p}}_\mathcal{V}) < f_{\texttt{r}}^{\bm{M}}(\hat{\bm{p}}_{\mathcal{X}}) \Leftrightarrow
+f_{\psi}^{\bm{M}}(\hat{\bm{p}}_\mathcal{V}) < f_{\psi}^{\bm{M}}(\hat{\bm{p}}_\mathcal{X}) \Leftrightarrow
+\|\bm{p}-\hat{\bm{p}}_\mathcal{V}\|_2 < \|\bm{p}-\hat{\bm{p}}_{\mathcal{X}}\|_2$.
+Deprived of external limiting factors, the challenge here is constructing set
+field $f_{\texttt{r}}^{\bm{M}}(\mathcal{H})$ with densities $d_{\bm{l}}$ and
+$d_\alpha$ such that Observation \ref{obs:observation_o} may be performed.
+
+% TALK ABOUT SET W HERE
+
+
 
 
 
@@ -105,7 +125,7 @@ Problem \ref{prob:the_problem}.
            \ref{alg:bottom_k}). Then it scan-to-map-scan matches those to the
            measurement for finer estimation and outlier rejection (alg.
            \ref{alg:sm2}). CBGL's output pose estimate is that with the least
-           CAER among all similarly matched estimates}
+           CAER among matched estimates}
   \label{fig:cbgl}
 \end{figure}
 
@@ -201,4 +221,4 @@ Problem \ref{prob:the_problem}.
 
 
 
-\lipsum[0-2]
+%\lipsum[0-2]
