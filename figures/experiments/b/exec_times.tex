@@ -1,3 +1,10 @@
+\definecolor{c1}{RGB}{228,26,28}
+\definecolor{c2}{RGB}{55,126,184}
+\definecolor{c3}{RGB}{255,0,255}
+\definecolor{c4}{RGB}{152,78,163}
+\definecolor{c5}{RGB}{255,127,0}
+\definecolor{c6}{RGB}{77,175,74}
+
 % GNUPLOT: LaTeX picture with Postscript
 \begingroup
   \makeatletter
@@ -79,30 +86,36 @@
     \fi%
     \setlength{\fboxrule}{0.5pt}%
     \setlength{\fboxsep}{1pt}%
-\begin{picture}(4000.00,2000.00)%
+\begin{picture}(5000.00,1500.00)%
     \gplgaddtomacro\gplfronttext{%
       \colorrgb{0.15,0.15,0.15}%
-      \put(268,356){\makebox(0,0)[r]{\strut{}$10^{0}$}}%
+      \put(368,267){\makebox(0,0)[r]{\strut{}\footnotesize $10^{0}$}}%
       \colorrgb{0.15,0.15,0.15}%
-      \put(268,876){\makebox(0,0)[r]{\strut{}$10^{1}$}}%
+      \put(368,657){\makebox(0,0)[r]{\strut{}\footnotesize $10^{1}$}}%
       \colorrgb{0.15,0.15,0.15}%
-      \put(268,1395){\makebox(0,0)[r]{\strut{}$10^{2}$}}%
-      \colorrgb{0.15,0.15,0.15}%
-      \put(1774,-20){\makebox(0,0){\strut{}6}}%
-    }%
-    \gplgaddtomacro\gplfronttext{%
+      \put(368,1046){\makebox(0,0)[r]{\strut{}\footnotesize $10^{2}$}}%
     }%
     \gplgaddtomacro\gplfronttext{%
       \colorrgb{0.15,0.15,0.15}%
-      \put(1968,356){\makebox(0,0)[r]{\strut{}$10^{0}$}}%
-      \colorrgb{0.15,0.15,0.15}%
-      \put(1968,876){\makebox(0,0)[r]{\strut{}$10^{1}$}}%
-      \colorrgb{0.15,0.15,0.15}%
-      \put(1968,1395){\makebox(0,0)[r]{\strut{}$10^{2}$}}%
-      \colorrgb{0.15,0.15,0.15}%
-      \put(3474,-20){\makebox(0,0){\strut{}6}}%
+      \put(1474,-70){\makebox(0,0){\strut{}\footnotesize WAREHOUSE}}%
+      \put( 400,1500){\makebox(0,0){\strut{}{\color{c1}{\rule[0.6mm]{0.3cm}{0.5mm}}} \scriptsize MCL}}
+      \put(1000,1500){\makebox(0,0){\strut{}{\color{c2}{\rule[0.6mm]{0.3cm}{0.5mm}}} \scriptsize ALS}}
+      \put(1650,1500){\makebox(0,0){\strut{}{\color{c3}{\rule[0.6mm]{0.3cm}{0.5mm}}} \scriptsize GMCL}}
+      \put(2500,1500){\makebox(0,0){\strut{}{\color{c4}{\rule[0.6mm]{0.3cm}{0.5mm}}} \scriptsize PGL-FMIC}}
+      \put(3500,1500){\makebox(0,0){\strut{}{\color{c5}{\rule[0.6mm]{0.3cm}{0.5mm}}} \scriptsize PGL-PLICP}}
+      \put(4450,1500){\makebox(0,0){\strut{}{\color{c6}{\rule[0.6mm]{0.3cm}{0.5mm}}} \scriptsize CBGL}}
     }%
     \gplgaddtomacro\gplfronttext{%
+      \colorrgb{0.15,0.15,0.15}%
+      \put(4868,267){\makebox(0,0)[r]{\strut{}\footnotesize $10^{0}$}}%
+      \colorrgb{0.15,0.15,0.15}%
+      \put(4868,657){\makebox(0,0)[r]{\strut{}\footnotesize $10^{1}$}}%
+      \colorrgb{0.15,0.15,0.15}%
+      \put(4868,1046){\makebox(0,0)[r]{\strut{}\footnotesize $10^{2}$}}%
+    }%
+    \gplgaddtomacro\gplfronttext{%
+      \colorrgb{0.15,0.15,0.15}%
+      \put(3524,-70){\makebox(0,0){\strut{}\footnotesize WILLOWGARAGE}}%
     }%
     \put(0,0){\includegraphics{./figures/experiments/b/exec_times}}%
     \gplfronttext
