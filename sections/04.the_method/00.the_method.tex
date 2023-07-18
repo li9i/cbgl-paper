@@ -42,14 +42,14 @@ Formally the proposed method's foundations rest on Observation
   Let $f_{\psi}^{\bm{M}}$ be the $\psi$-field on $\bm{M}$
   (def. \ref{def:definition_4}) such that $f_{\psi}^{\bm{M}}(\mathcal{H})= \Psi$.
   Let the field's locational and orientational densities be
-  $d_{l}$ and $d_{\alpha}$.
+  $d_{\bm{l}}$ and $d_{\alpha}$.
   Let $\hat{\bm{p}}_\omega \in \mathcal{H}$ and $\psi_0,\delta_0 \in \mathbb{R}_{>0}$
   such that $f_{\psi}^{\bm{M}}(\hat{\bm{p}}_\omega ) = \psi_0$ and
   $\|\bm{p}-\hat{\bm{p}}_j\|_2 \leq \delta_0$ for all
   $\hat{\bm{p}}_j \in \mathcal{H}: f_{\psi}^{\bm{M}}(\hat{\bm{p}}_j) \leq \psi_0$.
   Let now $\mathcal{V} = \{\hat{\bm{p}}_i \in \mathcal{H}: f_{\psi}^{\bm{M}}(\hat{\bm{p}}_i) \leq \psi_0,
   \|\bm{p}-\hat{\bm{p}}_i\|_2 \leq \delta_0\}$.
-  Without loss of generality there exist $d_{l}, d_{\alpha}$, and
+  Without loss of generality there exist $d_{\bm{l}}, d_{\alpha}$, and
   $\psi_0,\delta_0$ such that for all
   $\hat{\bm{p}}_\mathcal{V} \in \mathcal{V}$:
   \begin{align}
@@ -78,12 +78,12 @@ Formally the proposed method's foundations rest on Observation
 
 In simple terms Conjecture \ref{cnj:conjecture_c} states that, in general,
 given a dense enough set of pose hypotheses $\mathcal{H}$ over a map $\bm{M}$,
-it is possible to partition $\mathcal{H}$ into (non-empty) sets $\mathcal{V}$,
-$\mathcal{X}$, and $\mathcal{W}$ such that the error of pose estimates in set
-$\mathcal{V}$ and their corresponding CAER values are simultaneously lower than
-those of estimates in set $\mathcal{X}$. Hypothesis \ref{hpt:hypothesis_h}
-restrictingly states that $\mathcal{V}$ is populated by a pose estimate
-whose error is such that it is deemed an admissible solution to
+it is possible to partition $\mathcal{H}$ into such (non-empty) sets
+$\mathcal{V}$, $\mathcal{X}$, and $\mathcal{W}$ that the error of pose
+estimates in set $\mathcal{V}$ and their corresponding CAER values are
+simultaneously lower than those of estimates in set $\mathcal{X}$. Hypothesis
+\ref{hpt:hypothesis_h} restrictingly states that $\mathcal{V}$ is populated by
+a pose estimate whose error is such that it is deemed an admissible solution to
 Problem \ref{prob:the_problem}.
 
 \begin{figure}
@@ -122,14 +122,14 @@ in algorithm \ref{alg:bottom_k}.
 
 Assuming the satisfaction of Observation \ref{obs:observation_o}, the challenge
 is choosing such $k$, $d_{\bm{l}}$, and $d_\alpha$ that, given pose estimate
-error requirement $\delta$ (def.  \ref{def:definition_7}; hyp.
-\ref{hpt:hypothesis_h}), CBGL produces admissible pose estimates while being
-executed in timely manner.  Given the rank field's Monte Carlo nature,
-optimistically, the only option for increasing the accuracy of the final pose
-estimate by a factor of two is doubling the densities of the \texttt{r}-field;
-instead of doing that, and thereby doubling the method's execution time,
-subsequent to the estimation of the pose estimates with the $k$ lowest CAER
-values, CBGL utilises scan--to--map-scan matching
+error requirements $\delta_{\bm{l}}$, $\delta_{\theta}$ (def.
+\ref{def:definition_7}; hyp.  \ref{hpt:hypothesis_h}), CBGL produces admissible
+pose estimates while being executed in timely manner.  Given the rank field's
+Monte Carlo nature, optimistically, the only option for increasing the accuracy
+of the final pose estimate by a factor of two is doubling the densities of the
+\texttt{r}-field; instead of doing that---and thereby doubling the method's
+execution time---subsequent to the estimation of the pose estimates with the
+$k$ lowest CAER values, CBGL utilises scan--to--map-scan matching
 \cite{Vasiljevic2016c,Filotheou2023a}, followed by the estimation of the one
 pose estimate with the lowest CAER value within the group of matched estimates.
 
@@ -175,7 +175,7 @@ in block diagram and algorithmic forms respectively.
 %% CBGL %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \floatstyle{spaceruled}
 \restylefloat{algorithm}
-\begin{algorithm}
+\begin{algorithm}[]
   \caption{\texttt{CBGL}}
   \begin{spacing}{1.2}
   \begin{algorithmic}[1]
@@ -204,7 +204,7 @@ in block diagram and algorithmic forms respectively.
 %% Bottom-n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \floatstyle{spaceruled}
 \restylefloat{algorithm}
-\begin{algorithm}
+\begin{algorithm}[]
   \caption{\texttt{bottom}\_$k$\_\texttt{poses}}
   \begin{spacing}{1.2}
   \begin{algorithmic}[1]
@@ -233,16 +233,18 @@ in block diagram and algorithmic forms respectively.
 %% sm2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \floatstyle{spaceruled}
 \restylefloat{algorithm}
-\begin{algorithm}
+\begin{algorithm}[]
   \caption{\texttt{sm2}}
   \begin{spacing}{1.2}
   \begin{algorithmic}[1]
     \REQUIRE $\mathcal{S}_R$, $\bm{M}$, $\hat{\bm{p}}$
-    \ENSURE $\hat{\bm{p}}^\prime$
+    %\ENSURE $\hat{\bm{p}}^\prime$
+    \ENSURE $\hat{\bm{p}}$ $+$ correction that aligns $\mathcal{S}_V^{\bm{M}}(\hat{\bm{p}})$ to $\mathcal{S}_R$
     \STATE $\mathcal{S}_V \leftarrow \texttt{scan\_map}(\bm{M}, \hat{\bm{p}})$
     \STATE $\bm{\Delta p} \leftarrow \texttt{scan-match}(\mathcal{S}_R,\mathcal{S}_V)$ \hfill {\small (e.g. \texttt{ICP}\cite{Vizzo2023}, \texttt{FSM}\cite{Filotheou2022f}})
-    \STATE $\hat{\bm{p}}^\prime \leftarrow \hat{\bm{p}} + \bm{\Delta p}$
-    \RETURN $\hat{\bm{p}}^\prime$
+    %\STATE $\hat{\bm{p}}^\prime \leftarrow \hat{\bm{p}} + \bm{\Delta p}$
+    %\RETURN $\hat{\bm{p}}^\prime$
+    \RETURN $\hat{\bm{p}} + \bm{\Delta p}$
   \end{algorithmic}
   \end{spacing}
   \label{alg:sm2}

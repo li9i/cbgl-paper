@@ -1,0 +1,116 @@
+This section serves the testing of Hypothesis \ref{hpt:hypothesis_h} under
+state of the global localisation art methods and CBGL, in varying environmental
+conditions and sensor configurations. With regard to CBGL its three required
+parameters were set to $(d_{\bm{l}},d_{\alpha},k) = (40, 2^5, 10)$ after
+preparatory tests with the dataset tested against in subsection
+\ref{subsec:exp_in_re_co}. The rationale of choosing appropriate
+$d_{\bm{l}},d_{\alpha}$ is depicted in figure \ref{fig:a:determine_40_32}, and
+$k$ was chosen as such in order to retain a high-enough true positive discovery
+rate without significant increase in execution time (due to the application of
+scan--to--map-scan matching on $k$ pose estimates).
+
+
+\subsection{Experiments in real conditions}
+\label{subsec:exp_in_re_co}
+
+The first type of tests were conducted with the use of a Hokuyo UTM-30LX
+sensor, whose angular range is $\lambda = 3\pi/2$ rad and maximum range
+$r_{\max} = 30.0$ m, in the  Electrical and Computer Engineering Department's
+Laboratory of Computer Systems Architecture (CSAL), Aristotle University of
+Thessaloniki, Greece, a map of which is depicted in figure
+\ref{fig:a:map_and_trajectory}. The sensor was mounted on a Robotnik RB1 robot,
+which was teleoperated to move within the environment while range scans were
+being captured. This resulted in $N_{S}=6669$ range scans, whose number of rays
+were downsampled by a factor of four before being inputted to CBGL and ALS
+\cite{als_jp}, an algorithm which implements Free-Space Features
+\cite{als_eth}. CBGL's internal scan--to--map-scan matching method was chosen
+to be PLICP \cite{Censi2008c} due to its low execution time and the scans'
+non-panoramic field of view.  Other global localisation methods ?? were not to
+tested for this type of experiment due to their infeasible execution time with
+respect to the range dataset's volume. The top of figure \ref{fig:a:awesomeness}
+depicts the proportion of output pose estimates from each method whose position
+and orientation error was lower than varying values of outlier thresholds
+$\delta_{\bm{l}}$, $\delta_{\theta}$; at the bottom they are depicted
+exclusively with regard to CBGL's output and its internal pose sets. The mean
+and standard deviation of the two methods' execution times were
+$(\overline{\mu}_t^{\text{ALS}}, \sigma_t^{\text{ALS}}) = (6.15, 5.32)$ sec,
+and $(\overline{\mu}_t^{\text{CBGL}}, \sigma_t^{\text{CBGL}}) = (1.61, 0.06)$
+sec. From the experimental evidence it is clear that (a) hypothesis
+\ref{hpt:hypothesis_h} is observed to be true $991$ times out of a thousand for
+an outliers' locational threshold $\delta_{\bm{l}} = 0.5$ m when an angular
+threshold is $\delta_{\theta}$ is not enforced, and (b) CBGL outperforms ALS in
+terms of number of pose estimates within all locational and angular thresholds
+and in terms of execution time.
+
+\begin{figure}
+  \input{./figures/experiments/a/determine_40_32.tex}
+  \caption{\small Top row and right column: histograms of the number of times
+           when exactly $n \in [0,k] = [0,10]$ pose estimates belonging to set
+           $\mathcal{H}_1$ exhibited pose errors lower than $\delta =
+           (\delta_{\bm{l}}^2 + \delta_{\theta}^2)^{1/2} =  (0.3^2 +
+           0.4^2)^{1/2} = 0.5$ (m$^2$ + rad$^2$)$^{1/2}$. For densities
+           $(d_{\bm{l}},d_{\alpha}) = (40, 2^5)$ this number is strictly
+           increasing with $n$. Middle block: percent proportion of pose
+           estimates whose pose error is lower than $\delta$ for varying field
+           densities.  Bottom block: the corresponding execution times}
+  \label{fig:a:determine_40_32}
+\end{figure}
+
+
+\begin{figure}
+  \input{./figures/experiments/a/trajectory.tex}
+  \caption{\small The map of the CSAL environment (black), the trajectory of
+           the sensor (blue), CBGL's estimated positions of the sensor (green),
+           sensor poses for which CBGL estimated positions with error larger
+           than $\delta_{\bm{l}} = 0.5$ m (red), and sources of great range
+           noise (purple, cyan). Estimation is performed for each sensor pose
+           independently of previous estimates or measurements}
+           \label{fig:a:map_and_trajectory}
+\end{figure}
+
+\begin{figure}
+  \input{./figures/experiments/a/awesomeness.tex}
+  \vspace{0.1cm}
+  \caption{\small Proportions of pose estimates whose
+           position and orientation error is lower than corresponding thresholds
+           $\delta_{\bm{l}}$ and $\delta_{\theta}$. Top: ALS vs CBGL. Bottom:
+           CBGL and internal pose estimate sets; the improvement in position
+           and orientation induced by scan--to--map-scan matching is captured
+           by the difference between the output (i.e.
+           $\mathcal{H}_2[\arg \min f_{\psi}^{\bm{M}}(\mathcal{H}_2)]$) and
+           $\mathcal{H}_1[\arg \min f_{\psi}^{\bm{M}}(\mathcal{H}_2)]$}
+  \label{fig:a:awesomeness}
+\end{figure}
+
+
+\subsection{Simulations against sources of uncertainty}
+
+\begin{figure}\hspace{0.5cm}
+  \input{./figures/experiments/b/inliers_per_pose.tex}
+  \caption{\small}
+  \label{fig:}
+\end{figure}
+%\begin{figure}
+  %\input{./figures/experiments/b/outliers.tex}
+  %\caption{\small}
+  %\label{fig:}
+%\end{figure}
+\begin{figure}
+  \input{./figures/experiments/b/exec_times.tex}
+  \caption{\small}
+  \label{fig:}
+\end{figure}
+
+
+\subsection{Simulations against environment disparity and choice of scan--to--map-scan matching methods}
+\begin{figure}
+  \input{./figures/experiments/c/awesome.tex}
+  \caption{\small}
+  \label{fig:}
+\end{figure}
+\begin{figure}
+  \input{./figures/experiments/c/errors.tex}
+  \caption{\small}
+  \label{fig:}
+\end{figure}
+

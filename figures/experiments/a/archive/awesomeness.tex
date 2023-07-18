@@ -1,3 +1,8 @@
+\definecolor{g1}{RGB}{200 200 200}
+\definecolor{g2}{RGB}{162 162 162}
+\definecolor{g3}{RGB}{137 137 137}
+\definecolor{g4}{RGB}{77 175 74}
+
 % GNUPLOT: LaTeX picture with Postscript
 \begingroup
   \makeatletter
@@ -79,44 +84,64 @@
     \fi%
     \setlength{\fboxrule}{0.5pt}%
     \setlength{\fboxsep}{1pt}%
-\begin{picture}(5000.00,3000.00)%
-    \gplgaddtomacro\gplfronttext{%
-    }%
-    \gplgaddtomacro\gplfronttext{%
-    }%
-    \gplgaddtomacro\gplfronttext{%
-    }%
+\begin{picture}(5000.00,2500.00)%
     \gplgaddtomacro\gplfronttext{%
       \colorrgb{0.15,0.15,0.15}%
-      \put(447,1264){\makebox(0,0)[r]{\strut{}\small $0$}}%
+      \put(1000,2600){\makebox(0,0){\strut{}{\color{g4}{\rule[0.6mm]{0.5cm}{0.5mm}}} \footnotesize Output}}
+      \put(2500,2600){\makebox(0,0){\strut{}{\color{g3}{\rule[0.6mm]{0.5cm}{0.5mm}}} \footnotesize $\mathcal{H}_1[\arg \min f_{\psi}^{\bm{M}}(\mathcal{H}_2)]$}}
+      \put(3900,2600){\makebox(0,0){\strut{}{\color{g2}{\rule[0.6mm]{0.5cm}{0.5mm}}} \footnotesize $\mathcal{H}_1$}}
+      \put(4500,2600){\makebox(0,0){\strut{}{\color{g1}{\rule[0.6mm]{0.5cm}{0.5mm}}} \footnotesize $\mathcal{H}$}}
+      \put(468,250){\makebox(0,0)[r]{\strut{}\footnotesize $0.0$}}%
       \colorrgb{0.15,0.15,0.15}%
-      \put(1080,1217){\makebox(0,0)[r]{\strut{}\small $10$}}%
+      \put(468,750){\makebox(0,0)[r]{\strut{}\footnotesize $0.25$}}%
       \colorrgb{0.15,0.15,0.15}%
-      \put(1712,1171){\makebox(0,0)[r]{\strut{}\small $20$}}%
+      \put(468,1250){\makebox(0,0)[r]{\strut{}\footnotesize $0.50$}}%
       \colorrgb{0.15,0.15,0.15}%
-      \put(2345,1125){\makebox(0,0)[r]{\strut{}\small $30$}}%
+      \put(468,1793){\makebox(0,0)[r]{\strut{}\footnotesize $0.772$}}%
       \colorrgb{0.15,0.15,0.15}%
-      \put(2977,1079){\makebox(0,0)[r]{\strut{}\small $40$}}%
+      \put(468,2105){\makebox(0,0)[r]{\strut{}\footnotesize $0.928$}}%
       \colorrgb{0.15,0.15,0.15}%
-      \put(1678,866){\makebox(0,0){\strut{}$x$ [m]}}%
+      \put(468,2231){\makebox(0,0)[r]{\strut{}\footnotesize $0.991$}}%
       \colorrgb{0.15,0.15,0.15}%
-      \put(3552,1234){\makebox(0,0)[l]{\strut{}\small $0$}}%
+      \put(500,30){\makebox(0,0){\strut{}\footnotesize $5$\texttt{e}-$05$}}%
       \colorrgb{0.15,0.15,0.15}%
-      \put(4023,1495){\makebox(0,0)[l]{\strut{}\small $10$}}%
+      \put(970,30){\makebox(0,0){\strut{}\footnotesize $0.01$}}%
       \colorrgb{0.15,0.15,0.15}%
-      \put(4495,1755){\makebox(0,0)[l]{\strut{}\small $20$}}%
+      \put(1576,30){\makebox(0,0){\strut{}\footnotesize $0.50$}}%
       \colorrgb{0.15,0.15,0.15}%
-      \put(4575,1468){\makebox(0,0){\strut{}$y$ [m]}}%
+      %\put(2040,30){\makebox(0,0){\strut{}\footnotesize $10.0$}}%
       \colorrgb{0.15,0.15,0.15}%
-      \put(473,2125){\makebox(0,0)[r]{\strut{}\small $2^0$}}%
-      \colorrgb{0.15,0.15,0.15}%
-      \put(473,1817){\makebox(0,0)[r]{\strut{}\small $2^3$}}%
-      \colorrgb{0.15,0.15,0.15}%
-      \put(546,1509){\makebox(0,0)[r]{\strut{}\small $2^{15}$}}%
-      \colorrgb{0.15,0.15,0.15}%
-      \put(100,1788){\rotatebox{90}{\makebox(0,0){\strut{}\small Hypotheses rank }}}%
+      \put(2199,30){\makebox(0,0){\strut{}\footnotesize $27.86$}}%
     }%
-    \put(0,0){\includegraphics{./figures/face_top}}%
+    \gplgaddtomacro\gplfronttext{%
+      \colorrgb{0.15,0.15,0.15}%
+      \put(1349,-300){\makebox(0,0){\strut{}\footnotesize Outliers locational threshold $\delta_{\bm{l}}$ [m]}}%
+    }%
+    \gplgaddtomacro\gplfronttext{%
+      \colorrgb{0.15,0.15,0.15}%
+      \put(2893,250){\makebox(0,0)[r]{\strut{}\footnotesize $0.0$}}%
+      \colorrgb{0.15,0.15,0.15}%
+      \put(2893,750){\makebox(0,0)[r]{\strut{}\footnotesize $0.25$}}%
+      \colorrgb{0.15,0.15,0.15}%
+      \put(2893,999){\makebox(0,0)[r]{\strut{}\footnotesize $0.375$}}%
+      \colorrgb{0.15,0.15,0.15}%
+      \put(2893,1153){\makebox(0,0)[r]{\strut{}\footnotesize $0.452$}}%
+      \colorrgb{0.15,0.15,0.15}%
+      \put(2893,2137){\makebox(0,0)[r]{\strut{}\footnotesize $0.944$}}%
+      \colorrgb{0.15,0.15,0.15}%
+      \put(2925,30){\makebox(0,0){\strut{}\footnotesize $4$\texttt{e}-$05$}}%
+      \colorrgb{0.15,0.15,0.15}%
+      \put(3740,30){\makebox(0,0){\strut{}\footnotesize $\frac{\pi}{1000}$}}%
+      \colorrgb{0.15,0.15,0.15}%
+      \put(4114,30){\makebox(0,0){\strut{}\footnotesize $\frac{\pi}{100}$}}%
+      \colorrgb{0.15,0.15,0.15}%
+      \put(4749,30){\makebox(0,0){\strut{}\footnotesize $\pi$}}%
+    }%
+    \gplgaddtomacro\gplfronttext{%
+      \colorrgb{0.15,0.15,0.15}%
+      \put(3837,-300){\makebox(0,0){\strut{}\footnotesize Outliers angular threshold $\delta_{\alpha}$ [rad]}}%
+    }%
+    \put(0,0){\includegraphics{./figures/experiments/a/awesomeness}}%
     \gplfronttext
   \end{picture}%
 \endgroup

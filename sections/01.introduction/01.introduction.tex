@@ -2,8 +2,8 @@ This paper addresses the problem of Passive Global Localisation of a 2D LIDAR
 sensor, i.e. the estimation of its location and orientation within a given map,
 under complete locational and orientational uncertainty, without prescribing
 motion commands (to the mobile robot that the sensor is assumed mounted to) for
-further knowledge acquisition. Specifically the problem is formalised in
-Problem \ref{prob:the_problem}:
+further knowledge acquisition. The problem is formalised in Problem
+\ref{prob:the_problem}:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{customprb}{P}
@@ -22,20 +22,21 @@ Problem \ref{prob:the_problem}:
   \caption{\small
            Given a LIDAR sensor's 2D measurement, at its core, CBGL disperses
            pose hypotheses within the map and ranks them ascendingly according
-           to the value of the CAER metric. This produces a
-           \texttt{r}(ank)-field which may be used to estimate the pose of the
-           sensor (a) accurately due to the proportionality of estimate error
-           and CAER, and (b) quickly due to the metric's low computational
-           complexity.  Top: a map of an environment, the pose of a panoramic
-           2D LIDAR sensor (magenta), and the corresponding CAER rank field
-           below them.  Bottom: distribution of CAER values by location and
-           orientation error of all sensor pose hypotheses corresponding to the
-           rank field above, for estimate distances up to $2.0$ m.  In this
-           example the map's area is $735$ m$^2$, and $10^6$ hypotheses are
-           dispersed randomly in its free space for $100$ trials; CBGL's
-           maximum location error and maximum execution time is,
-           respectively, $0.062$ m and $8.8$ sec
-           }
+           to the value of the CAER metric (Eq. (\ref{eq:caer})), whose inputs
+           comprise the input measurement and the map-scan captured from each
+           hypothesis. This produces a \texttt{r}(ank)-field which may be
+           used to estimate the pose of the sensor (a) accurately due to the
+           proportionality of estimate error and CAER, and (b) quickly due to
+           the metric's low computational complexity.  Top: a map of an
+           environment, the pose of a panoramic 2D LIDAR sensor (magenta), and
+           the corresponding CAER rank field below them. Bottom: distribution
+           of CAER values by location $\Delta \hat{\bm{l}}$ and orientation
+           error $\Delta \hat{\theta}$ of all sensor pose hypotheses
+           corresponding to the rank field above, for estimate distances up to
+           $2.0$ m. In this example $10^6$ hypotheses are dispersed randomly in
+           the free space of a map with area $735$ m$^2$, for $100$ independent
+           trials; CBGL's maximum location error and maximum execution time is,
+           respectively, $0.062$ m and $8.8$ sec }
   \vspace{-0.75cm}
   \label{fig:face}
 \end{figure}
