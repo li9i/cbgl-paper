@@ -22,9 +22,9 @@ further knowledge acquisition. The problem is formalised in Problem
   \caption{\small
            Given a LIDAR sensor's 2D measurement, at its core, CBGL disperses
            pose hypotheses within the map and ranks them ascendingly according
-           to the value of the CAER metric (Eq. (\ref{eq:caer})), whose inputs
-           comprise the input measurement and the map-scan captured from each
-           hypothesis. This produces a \texttt{r}(ank)-field which may be
+           to the value of the CAER metric (Eq. (\ref{eq:caer})). The latter's
+           inputs comprise the input measurement and the map-scan captured from
+           each hypothesis. This produces a \texttt{r}(ank)-field which may be
            used to estimate the pose of the sensor (a) accurately due to the
            proportionality of estimate error and CAER, and (b) quickly due to
            the metric's low computational complexity.  Top: a map of an
@@ -32,11 +32,11 @@ further knowledge acquisition. The problem is formalised in Problem
            the corresponding CAER rank field below them. Bottom: distribution
            of CAER values by location $\Delta \hat{\bm{l}}$ and orientation
            error $\Delta \hat{\theta}$ of all sensor pose hypotheses
-           corresponding to the rank field above, for estimate distances up to
-           $2.0$ m. In this example $10^6$ hypotheses are dispersed randomly in
-           the free space of a map with area $735$ m$^2$, for $100$ independent
-           trials; CBGL's maximum location error and maximum execution time is,
-           respectively, $0.062$ m and $8.8$ sec }
+           corresponding to the rank field above, for estimate position errors
+           up to $2.0$ m. In this example $10^6$ hypotheses are dispersed
+           randomly in the free space of a map with area $735$ m$^2$, for $100$
+           independent trials; CBGL's maximum location error and maximum
+           execution time is, respectively, $0.062$ m and $8.8$ sec }
   \vspace{-0.75cm}
   \label{fig:face}
 \end{figure}

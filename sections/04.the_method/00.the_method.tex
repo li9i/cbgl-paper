@@ -86,12 +86,19 @@ simultaneously lower than those of estimates in set $\mathcal{X}$. Hypothesis
 a pose estimate whose error is such that it is deemed an admissible solution to
 Problem \ref{prob:the_problem}.
 
-\begin{figure}
-  \input{./figures/h_fig.tex}
+\begin{figure}\hspace{0.5cm}
+  \input{./figures/h_and_h_not_fig.tex}
   \vspace{0.7cm}
   \caption{\small The $\psi$-field (left) and \texttt{r}-field (right) of a
-           configuration where Observation \ref{obs:observation_o} can be made
-           for $\delta \leq \delta_0$}
+           configuration where Observation \ref{obs:observation_o} can (top)
+           and cannot (bottom) be made for $\delta \leq \delta_0$. Bottom:
+           in contrast to the top row, set $\mathcal{V}$ is empty of admissible
+           pose estimates for $\delta < 4.5 \ (\text{m}^2 +
+           \text{rad}^2)^{1/2}$. The effect is produced in environment
+           WILLOWGARAGE (pose $\bm{p}_{i}^G$; subsection \ref{subsec:exp_b})
+           due to (a) the repetition of the immediate environment of the sensor
+           more than once in the given map, and (b) the non-panoramic angular
+           range of the sensor}
   \label{fig:h_fig1}
 \end{figure}
 

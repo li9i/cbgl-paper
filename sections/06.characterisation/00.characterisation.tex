@@ -1,31 +1,34 @@
-sources of great range error: causing corrupted CAERs: trajectory and map figure,
-purple and cyan regions
+Rank-fields produced by panoramic angular ranges induce fewer pose ambiguities
+than those produced by non-panoramic ones. In the latter case this means that
+(a) given the evidence of subsections \ref{subsec:exp_a} and
+\ref{subsec:exp_c}, where $\lambda = 3\pi/2$ rad, the choice of $k=10$ largely
+inhibits the propagation of ambiguities to the output (fig.
+\ref{fig:c:errors_and_time}), and (b) increasing values for $k$ beyond that
+value may result in increased errors. However,  non-panoramic angular ranges
+coupled with repeated environment structures may give rise to the conditions of
+figure \ref{fig:h_not_fig1}, which are observed in environment WILLOGARAGE,
+during the simulations of subsection \ref{subsec:exp_b} when $\lambda =
+3\pi/2$. Other sources of potential, large pose errors for CBGL are portrayed
+in figure \ref{fig:a:map_and_trajectory}: (a) regions encoded with cyan
+indicate closed glass doors, wherein great discrepancy with respect to
+map-derived virtual ranges may be observed, which is subsequently propagated to
+$\psi$-fields and hence $\texttt{r}$-fields, and (b) regions encoded with
+purple indicate vicinities around doors, wherein the amount of environment and
+map information is restricted.
 
-
-\begin{figure}
-  \input{./figures/experiments/c/time_analysis.tex}
-  \vspace{0.2cm}
-  \caption{\small Left: CBGL's execution time with respect to environment area
-           for two choices of overlying scan--to--map-scan matching
-           (\texttt{sm2}) methods. In rough terms
-           $time \text{ [sec]} = 17\cdot10^{-3}\cdot area \text{ [} \text{m}^2 \text{]}$.
-           Right: Proportion of total execution time
-           spent on (a) all operations up to and except for matching, and (b)
-           computing map-scans, with respect to area}
-  \label{fig:c:time_analysis}
-\end{figure}
-
-
-\begin{figure}%\hspace{0.5cm}
-  \input{./figures/h_not_fig.tex}
-  \vspace{0.7cm}
-  \caption{\small Contrary to fig. \ref{fig:h_fig1}: the $\psi$-field (left)
-           and \texttt{r}-field (right) of a configuration where Observation
-           \ref{obs:observation_o} cannot be made: set $\mathcal{V}$ is
-           empty of admissible pose estimates for $\delta < 4.5 \ (\text{m}^2 + \text{rad}^2)^{1/2}$.
-           The effect is in fact produced due to the repetition of the
-           immediate environment of the sensor more than once in the given map
-           and its apparent dissimilarity to its corresponding portion of the
-           map}
-  \label{fig:h_not_fig1}
-\end{figure}
+%\begin{figure}%\hspace{0.5cm}
+  %\input{./figures/h_not_fig.tex}
+  %\vspace{0.7cm}
+  %\caption{\small Contrary to fig. \ref{fig:h_fig1}: the $\psi$-field (left)
+           %and \texttt{r}-field (right) of a configuration where Observation
+           %\ref{obs:observation_o} cannot be made: set $\mathcal{V}$ is
+           %empty of admissible pose estimates for $\delta < 4.5 \ (\text{m}^2 +
+           %\text{rad}^2)^{1/2}$.  The effect is produced in environment
+           %WILLOWGARAGE (pose $\bm{p}_{i}^G$; subsection \ref{subsec:exp_b})
+           %due to the repetition of the immediate environment of the sensor
+           %more than once in the given map
+           %%and its apparent dissimilarity to its corresponding portion of the
+           %%map}
+           %}
+  %\label{fig:h_not_fig1}
+%\end{figure}
