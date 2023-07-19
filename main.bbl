@@ -52,14 +52,11 @@ N.~Akai, ``Reliable monte carlo localization for mobile robots,''
   \emph{arXiv:2205.04769}, 2022.
 
 \bibitem{als_eth}
-\BIBentryALTinterwordspacing
 A.~Millane, H.~Oleynikova, J.~Nieto, R.~Siegwart, and C.~Cadena, ``{Free-Space
   Features: Global Localization in 2D Laser SLAM Using Distance Function
   Maps},'' in \emph{2019 IEEE/RSJ International Conference on Intelligent
   Robots and Systems (IROS)}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, nov
-  2019, pp. 1271--1277. [Online]. Available:
-  \url{https://ieeexplore.ieee.org/document/8967683/}
-\BIBentrySTDinterwordspacing
+  2019, pp. 1271--1277.
 
 \bibitem{Censi2008c}
 \BIBentryALTinterwordspacing
@@ -76,18 +73,39 @@ A.~Filotheou, A.~Tzitzis, E.~Tsardoulias, A.~Dimitriou, A.~Symeonidis,
   {\&} Robotic Systems}, p.~26, 2022.
 
 \bibitem{mcl}
-\BIBentryALTinterwordspacing
 N.~Akai, L.~Y. Morales, and H.~Murase, ``{Mobile Robot Localization Considering
   Class of Sensor Observations},'' in \emph{2018 IEEE/RSJ International
   Conference on Intelligent Robots and Systems (IROS)}.\hskip 1em plus 0.5em
-  minus 0.4em\relax IEEE, oct 2018, pp. 3159--3166. [Online]. Available:
-  \url{https://ieeexplore.ieee.org/document/8594146/}
-\BIBentrySTDinterwordspacing
+  minus 0.4em\relax IEEE, oct 2018, pp. 3159--3166.
 
 \bibitem{gmcl}
 M.~A. Alshikh~Khalil and I.~Hatem, ``Development of a new technique in ros for
   mobile robots localization in known-based 2d environments,'' \emph{Tishreen
   University Journal of Research and Scientific Studies - Engineering Sciences
-  Series}, pp. 119--137.
+  Series}, pp. 119--137, 2021.
+
+\bibitem{datasets_link}
+\BIBentryALTinterwordspacing
+``Datasets used in the experimental procedure.'' [Online]. Available:
+  \url{http://ais.informatik.uni-freiburg.de/slamevaluation/datasets.php}
+\BIBentrySTDinterwordspacing
+
+\bibitem{ndt}
+P.~Biber and W.~Strasser, ``{The normal distributions transform: a new approach
+  to laser scan matching},'' in \emph{Proceedings 2003 IEEE/RSJ International
+  Conference on Intelligent Robots and Systems (IROS 2003) (Cat.
+  No.03CH37453)}, vol.~3.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, 2003,
+  pp. 2743--2748.
+
+\bibitem{fgi}
+A.~Segal, D.~Haehnel, and S.~Thrun, ``{Generalized-ICP},'' in \emph{Robotics:
+  Science and Systems V}.\hskip 1em plus 0.5em minus 0.4em\relax Robotics:
+  Science and Systems Foundation, jun 2009.
+
+\bibitem{fvg}
+K.~Koide, M.~Yokozuka, S.~Oishi, and A.~Banno, ``{Voxelized GICP for Fast and
+  Accurate 3D Point Cloud Registration},'' in \emph{2021 IEEE International
+  Conference on Robotics and Automation (ICRA)}.\hskip 1em plus 0.5em minus
+  0.4em\relax IEEE, may 2021, pp. 11\,054--11\,059.
 
 \end{thebibliography}
