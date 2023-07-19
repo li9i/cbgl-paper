@@ -9,7 +9,7 @@ Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: ./sections/bibliography_ieee.bib
 Warning--entry type for "datasets_link" isn't style-file defined
---line 131 of file ./sections/bibliography_ieee.bib
+--line 130 of file ./sections/bibliography_ieee.bib
 -- IEEEtran.bst version 1.12 (2007/01/11) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
@@ -17,15 +17,15 @@ Warning--entry type for "datasets_link" isn't style-file defined
 Done.
 You've used 15 entries,
             4024 wiz_defined-function locations,
-            893 strings with 10445 characters,
-and the built_in function-call counts, 10275 in all, are:
-= -- 754
+            892 strings with 10401 characters,
+and the built_in function-call counts, 10236 in all, are:
+= -- 748
 > -- 264
 < -- 63
 + -- 147
 - -- 55
-* -- 493
-:= -- 1504
+* -- 488
+:= -- 1490
 add.period$ -- 37
 call.type$ -- 15
 change.case$ -- 15
@@ -34,20 +34,20 @@ cite$ -- 15
 duplicate$ -- 785
 empty$ -- 926
 format.name$ -- 61
-if$ -- 2353
+if$ -- 2347
 int.to.chr$ -- 0
 int.to.str$ -- 15
 missing$ -- 145
-newline$ -- 72
+newline$ -- 70
 num.names$ -- 14
-pop$ -- 400
+pop$ -- 401
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 755
+skip$ -- 752
 stack$ -- 0
 substring$ -- 420
-swap$ -- 563
+swap$ -- 562
 text.length$ -- 8
 text.prefix$ -- 0
 top$ -- 5
@@ -55,5 +55,5 @@ type$ -- 15
 warning$ -- 0
 while$ -- 38
 width$ -- 17
-write$ -- 153
+write$ -- 150
 (There was 1 warning)

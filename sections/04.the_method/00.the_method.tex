@@ -53,8 +53,8 @@ Formally the proposed method's foundations rest on Observation
   $\psi_0,\delta_0$ such that for all
   $\hat{\bm{p}}_\mathcal{V} \in \mathcal{V}$:
   \begin{align}
-    f_{\psi}^{\bm{M}}(\hat{\bm{p}}_\mathcal{V}) &< f_{\psi}^{\bm{M}}(\hat{\bm{p}}) \ \ \ \Leftrightarrow \nonumber \\
-    \|\bm{p}-\hat{\bm{p}}_\mathcal{V}\|_2 &< \|\bm{p}-\hat{\bm{p}}_{}\|_2 \nonumber
+    f_{\psi}^{\bm{M}}(\hat{\bm{p}}_\mathcal{V}) < f_{\psi}^{\bm{M}}(\hat{\bm{p}}) \ \ \Leftrightarrow \ \
+    \|\bm{p}-\hat{\bm{p}}_\mathcal{V}\|_2 < \|\bm{p}-\hat{\bm{p}}_{}\|_2 \nonumber
   \end{align}
   for any $\hat{\bm{p}}_{} \in \mathcal{X} = \mathcal{H} \setminus  \mathcal{V}: \|\bm{p}-\hat{\bm{p}}_{}\|_2 > \delta_0$.
 \end{customcnj}
@@ -101,6 +101,7 @@ stands true for $ \delta_0 \in [0.10, 0.50] \ (\text{m}^2 + \text{rad}^2)^{1/2}$
            due to (a) the repetition of the immediate environment of the sensor
            more than once in the given map, and (b) the non-panoramic angular
            range of the sensor}
+  \vspace{-0.5cm}
   \label{fig:h_and_h_not_fig}
 \end{figure}
 
@@ -126,8 +127,9 @@ By identifying the pose estimates that correspond to the bottom $k$ CAER
 values, this rationale attempts to recover the identity of the pose hypotheses
 with the bottom $k$ pose errors across $\mathcal{H}$. It constitutes the core
 of the proposed passive global localisation method, termed CBGL, and is
-described in block diagram form in figure \ref{fig:bottom_k} and in pseudocode
-in algorithm \ref{alg:bottom_k}.
+described
+%in block diagram form in figure \ref{fig:bottom_k} and
+in pseudocode in Algorithm \ref{alg:bottom_k}.
 
 Assuming the satisfaction of Observation \ref{obs:observation_o}, the challenge
 is choosing such $k$, $d_{\bm{l}}$, and $d_\alpha$ that, given pose estimate
@@ -150,35 +152,36 @@ hence their elimination as pose estimate candidates, (c) the production of
 finer pose estimates without excessive increase in execution time, and (d) the
 decoupling of the final pose estimate's error from the field's density.
 Selecting among all matched estimates the one with the minimum (updated) CAER
-allows for the system's delivery of one pose estimate response.  Figure
-\ref{fig:cbgl} and algorithm \ref{alg:cbgl} present the proposed method of CBGL
-in block diagram and algorithmic forms respectively.
+allows for the system's delivery of one pose estimate response.
+%Figure \ref{fig:cbgl} and
+Algorithms \ref{alg:cbgl}, \ref{alg:bottom_k}, and \ref{alg:sm2} present the
+proposed method of CBGL in block diagram and algorithmic forms respectively.
 
-\begin{figure}[]\centering
-  \input{./figures/cbgl_system.tikz}
-  \caption{\small CBGL in block diagram form. Given a LIDAR's 2D measurement
-           $\mathcal{S}_R$ and the map $\bm{M}$ that represents the environment
-           in which the sensor is posed, CBGL generates a set of pose hypotheses
-           $\mathcal{H}$ and invokes the estimation of the $k$ hypotheses with
-           the least pose error (fig. \ref{fig:bottom_k}; alg.
-           \ref{alg:bottom_k}). Then it scan-to-map-scan matches those to the
-           measurement for finer estimation and outlier rejection (alg.
-           \ref{alg:sm2}). CBGL's output pose estimate is that with the least
-           CAER among matched estimates}
-  \label{fig:cbgl}
-\end{figure}
+%\begin{figure}[]\centering
+  %\input{./figures/cbgl_system.tikz}
+  %\caption{\small CBGL in block diagram form. Given a LIDAR's 2D measurement
+           %$\mathcal{S}_R$ and the map $\bm{M}$ that represents the environment
+           %in which the sensor is posed, CBGL generates a set of pose hypotheses
+           %$\mathcal{H}$ and invokes the estimation of the $k$ hypotheses with
+           %the least pose error (fig. \ref{fig:bottom_k}; alg.
+           %\ref{alg:bottom_k}). Then it scan-to-map-scan matches those to the
+           %measurement for finer estimation and outlier rejection (alg.
+           %\ref{alg:sm2}). CBGL's output pose estimate is that with the least
+           %CAER among matched estimates}
+  %\label{fig:cbgl}
+%\end{figure}
 
-\begin{figure}[]\centering
-  \input{./figures/inner_ranking_system2.tikz}
-  \caption{\small CBGL's core method. Given a LIDAR's 2D measurement
-           $\mathcal{S}_R$, the map $\bm{M}$ that represents the environment in
-           which the sensor is posed, and a set of pose hypotheses
-           $\mathcal{H}$, CBGL (a) computes and ranks the CAER values between
-           the measurement and map-scans captured from the hypotheses within
-           the map, and (b) outputs the hypotheses with the $k$ lowest CAER
-           values}
-  \label{fig:bottom_k}
-\end{figure}
+%\begin{figure}[]\centering
+  %\input{./figures/inner_ranking_system2.tikz}
+  %\caption{\small CBGL's core method. Given a LIDAR's 2D measurement
+           %$\mathcal{S}_R$, the map $\bm{M}$ that represents the environment in
+           %which the sensor is posed, and a set of pose hypotheses
+           %$\mathcal{H}$, CBGL (a) computes and ranks the CAER values between
+           %the measurement and map-scans captured from the hypotheses within
+           %the map, and (b) outputs the hypotheses with the $k$ lowest CAER
+           %values}
+  %\label{fig:bottom_k}
+%\end{figure}
 
 
 %% CBGL %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -186,7 +189,7 @@ in block diagram and algorithmic forms respectively.
 \restylefloat{algorithm}
 \begin{algorithm}[]
   \caption{\texttt{CBGL}}
-  \begin{spacing}{1.2}
+  \begin{spacing}{1.0}
   \begin{algorithmic}[1]
     \REQUIRE $\mathcal{S}_R$, $\bm{M}$, $(d_{\bm{l}}, d_\alpha)$, $k$
     \ENSURE Pose estimate of sensor measuring range scan $\mathcal{S}_R$ %$\hat{\bm{p}}$
@@ -215,7 +218,7 @@ in block diagram and algorithmic forms respectively.
 \restylefloat{algorithm}
 \begin{algorithm}[]
   \caption{\texttt{bottom}\_$k$\_\texttt{poses}}
-  \begin{spacing}{1.2}
+  \begin{spacing}{1.0}
   \begin{algorithmic}[1]
     \REQUIRE $\mathcal{S}_R$, $\bm{M}$, $\mathcal{H}$, $k$
     \ENSURE $\mathcal{H}_{\triangledown}$
@@ -244,7 +247,7 @@ in block diagram and algorithmic forms respectively.
 \restylefloat{algorithm}
 \begin{algorithm}[]
   \caption{\texttt{sm2}}
-  \begin{spacing}{1.2}
+  \begin{spacing}{1.0}
   \begin{algorithmic}[1]
     \REQUIRE $\mathcal{S}_R$, $\bm{M}$, $\hat{\bm{p}}$
     %\ENSURE $\hat{\bm{p}}^\prime$
@@ -258,7 +261,3 @@ in block diagram and algorithmic forms respectively.
   \end{spacing}
   \label{alg:sm2}
 \end{algorithm}
-
-
-
-%\lipsum[0-1]
