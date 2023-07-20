@@ -86,14 +86,14 @@ simultaneously lower than those of estimates in set $\mathcal{X}$. Hypothesis
 a pose estimate whose error is such that it is deemed an admissible solution to
 Problem \ref{prob:the_problem}. Figure \ref{fig:h_and_h_not_fig} (top) shows
 an example configuration where Hypothesis \ref{hpt:hypothesis_h}
-stands true for $ \delta_0 \in [0.10, 0.50] \ (\text{m}^2 + \text{rad}^2)^{1/2}$.
+stands true for some $ \delta \leq \delta_0 = 0.50 \ (\text{m}^2 + \text{rad}^2)^{1/2}$.
 
-\begin{figure}\hspace{0.5cm}
+\begin{figure}\vspace{-0.2cm}
   \input{./figures/h_and_h_not_fig.tex}
-  \vspace{0.7cm}
+  \vspace{0.5cm}
   \caption{\small The $\psi$-field (left) and \texttt{r}-field (right) of a
-           configuration where Observation \ref{obs:observation_o} can (top)
-           and cannot (bottom) be made for $\delta \leq \delta_0$. Bottom:
+           configuration where Observation \ref{obs:observation_o} may (top)
+           and may not (bottom) be made for $\delta \leq \delta_0$. Bottom:
            in contrast to the top row, set $\mathcal{V}$ is empty of admissible
            pose estimates for $\delta < 4.5 \ (\text{m}^2 +
            \text{rad}^2)^{1/2}$. The effect is produced in environment
@@ -156,6 +156,7 @@ allows for the system's delivery of one pose estimate response.
 %Figure \ref{fig:cbgl} and
 Algorithms \ref{alg:cbgl}, \ref{alg:bottom_k}, and \ref{alg:sm2} present the
 proposed method of CBGL in block diagram and algorithmic forms respectively.
+\vspace{-0.3cm}
 
 %\begin{figure}[]\centering
   %\input{./figures/cbgl_system.tikz}
@@ -211,7 +212,7 @@ proposed method of CBGL in block diagram and algorithmic forms respectively.
   \end{algorithmic}
   \end{spacing}
   \label{alg:cbgl}
-\end{algorithm}
+\end{algorithm}\vspace{-0.5cm}
 
 %% Bottom-n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \floatstyle{spaceruled}
