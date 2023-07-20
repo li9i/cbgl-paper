@@ -127,7 +127,7 @@ result in complete sampling of its surroundings, but the sensor is purposefully
 posed in such conditions as to challenge the localisation methods' ability to
 perform fine distinctions between similar surroundings. Figure
 \ref{fig:b:inliers_per_pose} depicts the percentage of outputs whose position
-error is lower than $\delta_{\bm{l}} = 1.0$ m per tested pose, and figure
+error is lower than $\delta_{\bm{l}} = 0.5$ m per tested pose, and figure
 \ref{fig:b:execution_times} depicts the overall distribution of execution times
 per tested environment and algorithm. CBGL's mean execution time in environment
 WAREHOUSE is $\mu_t^W = 7.98$ sec and in WILLOWGARAGE $\mu_t^{G} = 3.59$ sec.
@@ -135,14 +135,13 @@ Although the cardinality of set $\mathcal{H}$ is equal for both environments
 CBGL's execution times are uneven due to \texttt{x1}'s increased execution
 time when dealing with scans with missing range information. Notwithstanding
 the aforementioned sources of uncertainty, CBGL manages to exhibit the highest
-inlier rate for each pose in WAREHOUSE, and the highest number of inliers in
-WILLOWGARAGE.
+number of inliers in each environment tested.
 
 
 \begin{figure}
   \input{./figures/experiments/b/inliers_per_pose.tex}
   \caption{\small Percent proportions of pose outputs whose position error is
-           lower than $\delta_{\bm{l}} = 1.0$ m per tested environment, pose,
+           lower than $\delta_{\bm{l}} = 0.5$ m per tested environment, pose,
            and method. Overall CBGL features the highest number of inlier poses}
   \label{fig:b:inliers_per_pose}
 \end{figure}
@@ -165,8 +164,8 @@ WILLOWGARAGE.
 The third type of test aims to inquire how the performance of CBGL scales with
 respect to increasing environment area (and therefore to increased number of
 hypotheses), environment diversity, sensor angular range, and choice of
-overlying scan--to--map-scan matching method. CBGL is tested against $N_E =
-45402$ environments, generated via the experimental procedure of
+overlying scan--to--map-scan matching method. CBGL is tested against $N_E \simeq
+4.5$\texttt{e}+$04$ environments, generated via the experimental procedure of
 \cite{Filotheou2023a}, which utilises five established and publicly available
 benchmark datasets provided courtesy of the Department of Computer Science,
 University of Freiburg \cite{datasets_link}. The coordinates of every map
