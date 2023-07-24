@@ -1,0 +1,16 @@
+This article has presented a Monte Carlo approach to the solution of the
+passive version of the global localisation problem with the use of a 2D LIDAR
+sensor, titled CBGL. CBGL allows for the fast estimation of the sensor's pose
+within a metric map by first dispersing hypotheses in it and then leveraging
+the proportionality of values of the Cumulative Absolute Error per Ray (CAER)
+metric to the pose errors of the hypotheses for estimates in a neighbourhood of
+the sensor's pose. CBGL was evaluated in various real and simulated conditions
+and environments, and was found to be superior to Monte Carlo and feature-based
+approaches in terms of number of inlier pose estimates, and equivalent to the
+latter in execution time, which are traditionally executed faster than the
+former. Future steps are designed to aim at the extension of the CAER metric
+for the use with 3D LIDAR sensors in service to a solution of the problem of
+their global localisation in 6DoF.
+
+The C++ ROS code of the proposed method is available at
+\url{https://github.com/li9i/cbgl}.

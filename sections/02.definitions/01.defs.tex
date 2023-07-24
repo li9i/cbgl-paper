@@ -11,7 +11,7 @@ $\mathcal{A}_{k:l}= \{\mathcal{A}[k], \mathcal{A}[k+1], \dots, \mathcal{A}[l]\}$
   \label{def:definition_1} \textit{Range scan captured from a 2D LIDAR
   sensor}.---A conventional 2D LIDAR sensor provides a finite number of
   ranges, i.e. distances to objects within its range, on a horizontal
-  cross-section of its environment, at regular angular and temporal intervals,
+  cross-section of its environment, at regular angular intervals,
   over a defined angular range \cite{Cooper2018c}. A range scan $\mathcal{S}$,
   consisting of $N_s$ rays over an angular range $\lambda$, is an ordered map
   $\mathcal{S} : \Theta \rightarrow \mathbb{R}_{\geq 0}$,
@@ -25,12 +25,12 @@ $\mathcal{A}_{k:l}= \{\mathcal{A}[k], \mathcal{A}[k+1], \dots, \mathcal{A}[l]\}$
 \begin{definition}
   \label{def:definition_2} \textit{Map-scan}.---A map-scan is a virtual scan
   that encapsulates the same pieces of information as a scan derived from a
-  physical sensor. Only their underlying operating principle is different due
-  to the fact the map-scan refers to distances to the boundaries of a
-  point-set, referred to as the map, rather than within a real environment. A
-  map-scan $\mathcal{S}_V^{\bm{M}}(\hat{\bm{p}})$ is derived by means of
-  locating intersections of rays emanating from the estimate of the sensor's
-  pose estimate $\hat{\bm{p}}$ and the boundaries of the map $\bm{M}$.
+  physical sensor (Def. \ref{def:definition_1}). Contrary to the latter, a
+  map-scan refers to distances to the boundaries of a map, rather than to those
+  of a real environment. A map-scan $\mathcal{S}_V^{\bm{M}}(\hat{\bm{p}})$ is
+  derived by means of locating intersections of rays emanating from the
+  estimate of the sensor's pose estimate $\hat{\bm{p}}$ and the boundaries of
+  the map $\bm{M}$.
 \end{definition}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -50,15 +50,16 @@ $\mathcal{A}_{k:l}= \{\mathcal{A}[k], \mathcal{A}[k+1], \dots, \mathcal{A}[l]\}$
   \label{def:definition_4} \textit{CAER as field}.---A $\psi$-field on map
   $\bm{M}$
   $f_{\psi}^{\bm{M}} : \mathbb{R}^2 \times [-\pi, +\pi) \rightarrow \mathbb{R}_{\geq 0}$
-  is a mappping of 3D pose configurations
-  $\hat{\bm{p}}(\hat{x},\hat{y},\hat{\theta})$ to CAER values (def.
+  is a mapping of 3D pose configurations
+  $\hat{\bm{p}}(\hat{x},\hat{y},\hat{\theta})$ to CAER values (Def.
   \ref{def:definition_3}) such that if
   $\psi(\mathcal{S}_R,\mathcal{S}_V^{\bm{M}}(\hat{\bm{p}})) = c$ then
-  $f_{\psi}^{\bm{M}}(\hat{\bm{p}}) = c$. In other words a CAER field is
-  produced by computing the value of the CAER metric between a range scan
-  $\mathcal{S}_R$ (def. \ref{def:definition_1}) and a map-scan
-  $\mathcal{S}_V^{\bm{M}}(\hat{\bm{p}})$ captured from pose configuration
-  $\hat{\bm{p}}$ within map $\bm{M}$ (def. \ref{def:definition_2}).
+  $f_{\psi}^{\bm{M}}(\hat{\bm{p}}) = c$.
+  %In other words a CAER field is
+  %produced by computing the value of the CAER metric between a range scan
+  %$\mathcal{S}_R$ (Def. \ref{def:definition_1}) and a map-scan
+  %$\mathcal{S}_V^{\bm{M}}(\hat{\bm{p}})$ captured from pose configuration
+  %$\hat{\bm{p}}$ within map $\bm{M}$ (Def. \ref{def:definition_2}).
 \end{definition}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -66,7 +67,7 @@ $\mathcal{A}_{k:l}= \{\mathcal{A}[k], \mathcal{A}[k+1], \dots, \mathcal{A}[l]\}$
   \label{def:definition_5} \textit{Rank field}.---Let $f_{\psi}^{\bm{M}}$ be
   a $\psi$-field on map $\bm{M}$ and $\mathcal{P} = \{\hat{\bm{p}}_i\}$,
   $i \in \texttt{I} = \langle 0,1,\dots,|\mathcal{P}|-1 \rangle$, be a set of 3D pose
-  configurations within map $\bm{M}$, such that
+  configurations within $\bm{M}$, such that
   $f_{\psi}^{\bm{M}}(\mathcal{P}) = \Psi$. Let $\texttt{I}^{\ast}$
   be the set of indices such that $\Psi[\texttt{I}^{\ast}] = \Psi_\uparrow$.
   A $\texttt{r}$-field on map $\bm{M}$
@@ -76,7 +77,9 @@ $\mathcal{A}_{k:l}= \{\mathcal{A}[k], \mathcal{A}[k+1], \dots, \mathcal{A}[l]\}$
   $f_{\texttt{r}}^{\bm{M}}(\mathcal{P}[\texttt{I}^\ast]) = \texttt{I}$.
   %(equivalently:
   %$f_{\texttt{r}}^{\bm{M}}(\mathcal{P}) = \texttt{I}^\ast$)
-  In other words a rank field maps the elements of pose estimate set $\{\hat{\bm{p}}_i\}$
+  A rank field maps the elements of
+  %pose estimate
+  set $\{\hat{\bm{p}}_i\}$
   to the ranks $\texttt{I}^\ast$ of their corresponding CAER values in
   hierarchy $\Psi_\uparrow$.
 \end{definition}

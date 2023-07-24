@@ -1,9 +1,22 @@
-This paper addresses the problem of Passive Global Localisation of a 2D LIDAR
-sensor, i.e. the estimation of its location and orientation within a given map,
-under complete locational and orientational uncertainty, without prescribing
-motion commands (to the mobile robot that the sensor is assumed mounted to) for
-further knowledge acquisition. The problem is formalised in Problem
-\ref{prob:the_problem}:
+In tasks involving navigation of a mobile robot the knowledge of its initial
+pose is a prerequisite, especially in contexts where an observer is used for
+pose tracking. However, not in all tasks is the robot's pose predictable or
+settable in advance, and this results in the need for its ad hoc estimation
+without priors. Various sensor and map modalities have been investigated in the
+literature; from 2D and 3D LIDAR sensors \cite{als_eth,Cop2018a}, RGBD
+cameras \cite{Guo2016}, and RFID equipment \cite{Tzitzis2023b}, to
+keyframe-based submaps \cite{Lowry2016} and metric maps \cite{Rosen2021}. The
+latter combined with 2D LIDAR sensors have become the de facto means in mobile
+robot localisation and navigation due to the sensor's high measurement
+precision, high update frequency, almost no need for preprocessing, and low
+cost compared to 3D LIDAR sensors.
+
+This article addresses the problem of Passive Global Localisation of a 2D LIDAR
+sensor in a metric map, i.e. the estimation of its location and orientation
+within the map, under complete locational and orientational uncertainty,
+without prescribing motion commands (to the mobile robot that the sensor is
+assumed mounted to) for further knowledge acquisition. The problem is
+formalised in Problem \ref{prob:the_problem}:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{customprb}{P}
@@ -19,19 +32,55 @@ further knowledge acquisition. The problem is formalised in Problem
 \begin{figure}\vspace{0.4em}
   \subfloat{\input{./figures/face_top.tex}    \label{fig:a}} \vspace{-1.7cm}\\
   \subfloat{\hspace{-0.3cm}\input{./figures/face_bottom.tex} \label{fig:b}}
-  \caption{\small Top: a map of an
+  \caption{\small
+           Given a LIDAR sensor's 2D measurement, at its core, CBGL disperses
+           pose hypotheses within the map and ranks them ascendingly according
+           to the value of the Cumulative Absolute Error per Ray (CAER) metric.
+           %The latter's inputs comprise the input measurement and the map-scan
+           %captured from each hypothesis.
+           This produces a
+           \texttt{r}(ank)-field which may be used to estimate the pose of the
+           sensor (a) quickly due to the metric's low computational complexity,
+           and (b) accurately due to (i) proportionality between the pose
+           estimate error and the value of the metric for pose estimates in a
+           neighbourhood of the sensor's pose, and (ii) lack of
+           disproportionality outside of that neighbourhood.  Top: a map of an
            environment, the pose of a panoramic 2D LIDAR sensor (magenta), and
            the corresponding CAER rank field below them. Bottom: distribution
            of CAER values by location $\Delta \hat{\bm{l}}$ and orientation
            error $\Delta \hat{\theta}$ of all sensor pose hypotheses
            corresponding to the rank field above, for estimate position errors
            up to $2.0$ m. In this example $10^6$ hypotheses are dispersed
-           randomly in the free space of a map with area $735$ m$^2$, for $100$
-           independent trials; CBGL's maximum location error and maximum
+           randomly in the free space of the map whose area is $735$ m$^2$, for
+           $100$ independent trials; CBGL's maximum location error and maximum
            execution time are, respectively, $0.062$ m and $8.8$ sec }
-  \vspace{-0.75cm}
+  \vspace{-0.65cm}
   \label{fig:face}
 \end{figure}
+
+For the solution of Problem \ref{prob:the_problem} this article introduces
+CBGL: a single-shot Monte Carlo method
+(a) which makes no assumptions regarding the structure or the particulars of the
+sensor's environment or the sensor's characteristics,
+(b) whose pose errors exhibit robustness to varying sensor angular range, and
+(c) which operates with three optionally-set and intuitive parameters, which
+trade accuracy for execution time.
+The central contributions of the article are:
+\begin{itemize}
+  \item To the best of the author's knowledge the fastest Monte Carlo global
+        localisation method that employs a 2D LIDAR
+  \item The extension and validation of the CAER metric's ability to infer
+        pose error hierarchies solely from real and virtual range scans,
+        extended from scan--to--map-scan matching (\texttt{sm2}) during
+        pose-tracking, where pose errors are ``small", to the context of
+        global localisation where hypotheses' errors may be arbitrarily large
+  \item The thorough evaluation of the proposed method against (a) established
+        state-of-the-art localisation methods, (b) real and publicly available
+        benchmark conditions, and (c) varying characteristics of environments
+        and sensors, which target real conditions that pose hindrances to global
+        localisation methods
+\end{itemize}
+
 
 The rest of the paper is structured as follows: Section
 \ref{section:definitions} provides necessary definitions and the notation

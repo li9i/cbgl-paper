@@ -6,9 +6,11 @@ initial tests with the dataset used in subsection \ref{subsec:exp_a}.
 The rationale of choosing appropriate $d_{\bm{l}},d_{\alpha}$ is depicted in
 figure \ref{fig:a:determine_40_32}, and $k$ is chosen as such in order to
 retain a high-enough true positive discovery rate without significant increase
-in execution time (due to the application of scan--to--map-scan matching on $k$
-pose estimates). Furthermore references to sets $\mathcal{H}_{\ast}$ are made
-to lines \ref{alg:cbgl:h}, \ref{alg:cbgl:h1}, and \ref{alg:cbgl:h2} of
+in execution time.
+%(due to the application of scan--to--map-scan matching on $k$
+%pose estimates).
+References to sets $\mathcal{H}_{\ast}$ are made to fig. \ref{fig:block_system}
+(left) and lines \ref{alg:cbgl:h}, \ref{alg:cbgl:h1}, and \ref{alg:cbgl:h2} of
 Algorithm \ref{alg:cbgl}. All tests were performed with a processor of 12
 threads and a clock speed of 4.00 GHz.
 
@@ -18,33 +20,33 @@ threads and a clock speed of 4.00 GHz.
 \label{subsec:exp_a}
 
 The first type of test is conducted with the use of a Hokuyo UTM-30LX
-sensor, whose angular range is $\lambda = 3\pi/2$ rad and maximum range
+sensor, whose angular range is $\lambda = 3\pi/2$ rad and radial range
 $r_{\max} = 30.0$ m, in the  Electrical and Computer Engineering Department's
 Laboratory of Computer Systems Architecture (CSAL), Aristotle University of
 Thessaloniki, Greece, a map of which is depicted in figure
 \ref{fig:a:map_and_trajectory}. The sensor was mounted on a Robotnik RB1 robot,
-which was teleoperated to move within the environment while range scans were
-being captured. This resulted in $N_{S}=6669$ range scans, whose number of rays
-are downsampled by a factor of four before being inputted to CBGL and ALS
-\cite{als_jp}, an algorithm which implements Free-Space Features
-\cite{als_eth}. Other global localisation methods were not to tested for this
-type of experiment due to their infeasible execution time with respect to the
-range dataset's volume (see fig. \ref{fig:b:execution_times}).  CBGL's internal
-scan--to--map-scan matching method is chosen to be PLICP \cite{Censi2008c} due
-to its low execution time and the sensor's non-panoramic field of view.  The top
-of figure \ref{fig:a:awesomeness} depicts the proportion of output pose
-estimates from each method whose position and orientation error is lower than
-varying values of outlier thresholds $\delta_{\bm{l}}$, $\delta_{\theta}$; at
-the bottom they are depicted exclusively with regard to CBGL's output and its
-internal pose sets. The mean and standard deviation of the two methods'
-execution times are $(\mu_t^{\text{ALS}}, \sigma_t^{\text{ALS}}) = (6.15,
-5.32)$ sec, and $(\mu_t^{\text{CBGL}}, \sigma_t^{\text{CBGL}}) = (1.61, 0.06)$
-sec. From the experimental evidence it is clear that (a) hypothesis
-\ref{hpt:hypothesis_h} is observed to be true $991$ times out of a thousand for
-an outliers' locational threshold $\delta_{\bm{l}} = 0.5$ m when an angular
-threshold is $\delta_{\theta}$ is not considered, and (b) CBGL outperforms ALS
-in terms of (i) number of pose estimates within all locational and angular
-thresholds and (ii) execution time.
+which was teleoperated within the environment while scans were being recorded.
+This resulted in $N_{S}=6669$ range scans, whose number of rays are downsampled
+by a factor of four before being inputted to CBGL and ALS \cite{als_jp}, an
+algorithm which implements Free-Space Features \cite{als_eth}. Other global
+localisation methods are not to tested for this type of experiment due to
+their infeasible execution time with respect to the range dataset's volume (see
+fig. \ref{fig:b:execution_times}). CBGL's internal \texttt{sm2}
+method is chosen to be PLICP \cite{Censi2008c} due to its low execution time
+and the sensor's non-panoramic field of view. The top of figure
+\ref{fig:a:awesomeness} depicts the proportion of output pose estimates from
+each method whose position and orientation error is lower than outlier
+thresholds $\delta_{\bm{l}}$, $\delta_{\theta}$; at the bottom they are
+depicted exclusively with regard to CBGL's output and its internal pose sets.
+The mean and standard deviation of the two methods' execution times are
+$(\mu_t^{\text{ALS}}, \sigma_t^{\text{ALS}}) = (6.15, 5.32)$ sec, and
+$(\mu_t^{\text{CBGL}}, \sigma_t^{\text{CBGL}}) = (1.61, 0.06)$ sec. From the
+experimental evidence it is clear that (a) hypothesis \ref{hpt:hypothesis_h} is
+observed to be true $991$ times out of a thousand for an outliers' locational
+threshold $\delta_{\bm{l}} = 0.5$ m when an angular threshold is
+$\delta_{\theta}$ is not considered, and (b) CBGL outperforms ALS in terms of
+(i) number of pose estimates within all locational and angular thresholds and
+(ii) execution time.
 
 \begin{figure}
   \vspace{-0.3cm}
@@ -60,6 +62,7 @@ thresholds and (ii) execution time.
            estimates whose pose error is lower than $\delta$ for varying field
            densities. Bottom block: the distribution of corresponding execution
            times}
+  \vspace{-0.5cm}
   \label{fig:a:determine_40_32}
 \end{figure}
 
@@ -75,13 +78,14 @@ thresholds and (ii) execution time.
            purple. A total of $N_S = 6669$ pose estimations take place.
            Estimation is performed for each sensor pose independently of
            previous estimates and measurements}
+  \vspace{-0.5cm}
   \label{fig:a:map_and_trajectory}
 \end{figure}
 
 \begin{figure}
   \vspace{-0.4cm}
   \input{./figures/experiments/a/awesomeness.tex}
-  \vspace{0.1cm}
+  \vspace{0.01cm}
   \caption{\small Proportions of pose estimates whose position and orientation
            error is lower than corresponding thresholds $\delta_{\bm{l}}$ and
            $\delta_{\theta}$. Top: ALS vs CBGL. Bottom: CBGL and internal pose
@@ -95,6 +99,7 @@ thresholds and (ii) execution time.
            the difference between the output (i.e.  $\mathcal{H}_2[\arg \min
            f_{\psi}^{\bm{M}}(\mathcal{H}_2)]$) and $\mathcal{H}_1[\arg \min
            f_{\psi}^{\bm{M}}(\mathcal{H}_2)]$}
+  \vspace{-0.5cm}
   \label{fig:a:awesomeness}
 \end{figure}
 
@@ -115,9 +120,9 @@ range sensor is placed at $16$ different poses for $N = 100$ independent
 attempts at global localisation per tested method. The tests are conducted with
 the use of a sensor whose number of rays $N_s = 360$, maximum range
 $r_{\max} = 10.0$ m, and noise $\mathcal{N}(0, 0.05^2)$ [m,m$^2$]. CBGL's
-internal scan--to--map-scan matching method is chosen to be \texttt{x1}
+internal \texttt{sm2} method is chosen to be \texttt{x1}
 \cite{Filotheou2023a} due to the periodicity of the range signal,
-\texttt{x1}'s improved results over scan--to--map-scan matching state of the
+\texttt{x1}'s improved results over \texttt{sm2} matching state of the
 art methods, and its ability in matching scans captured from greater initial
 locational distances than ICP alternatives. The latter translates to the need
 for smaller initial hypothesis sets: for each environment the locational
@@ -162,17 +167,18 @@ number of inliers in each environment tested.
            at least eighteen times lower than other Monte Carlo approaches in
            WILLOWGARAGE and four times lower in WAREHOUSE}
   \label{fig:b:execution_times}
+  \vspace{-0.5cm}
 \end{figure}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Simulations against environmental and algorithmic disparity }
+\subsection{Simulations against environmental and \texttt{sm2} algorithmic disparity }
 \label{subsec:exp_c}
 
 The third type of test aims to inquire how the performance of CBGL scales with
 respect to increasing environment area (and therefore to increased number of
 hypotheses), environment diversity, sensor angular range, and choice of
-overlying scan--to--map-scan matching method. CBGL is tested once in each of
+overlying \texttt{sm2} method. CBGL is tested once in each of
 $N_E \simeq 4.5$\texttt{e}+$04$ environments, generated via the experimental
 procedure of \cite{Filotheou2023a}, which utilises five established and
 publicly available benchmark datasets provided courtesy of the Department of
@@ -221,10 +227,11 @@ $l = 17$\texttt{e}-$03$.
   \vspace{0.6cm}
   \caption{\small Left: CBGL's execution time with respect to environment area
            for two choices of overlying scan--to--map-scan matching
-           (\texttt{sm2}) methods. In rough terms
-           $time_{CBGL} \text{ [sec]} = 17\cdot10^{-3}\cdot area \text{ [} \text{m}^2 \text{]}$.
-           Right: Proportion of CBGL $\circ$ \texttt{x1}'s total execution time
-           spent on (a) all operations up to and except for matching, and (b)
+           methods. In rough terms $time_{CBGL} \text{ [sec]} =
+           17\cdot10^{-3}\cdot area \text{ [} \text{m}^2 \text{]}$.  Right:
+           Proportion of CBGL $\circ$ \texttt{x1}'s total execution time spent
+           on (a) all operations up to and except for matching, and (b)
            computing map-scans, with respect to area}
+  \vspace{-0.5cm}
   \label{fig:c:time_analysis}
 \end{figure}

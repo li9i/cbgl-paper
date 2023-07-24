@@ -24,7 +24,7 @@ Formally the proposed method's foundations rest on Observation
   There exists $\hat{\bm{p}} \in  \mathbb{R}^2 \times [-\pi,+\pi)$ such that
   $\hat{\bm{p}} \in \mathcal{V}: \|\bm{p}-\hat{\bm{p}}\|_2 \leq \delta \leq \delta_0$
   is an admissible pose estimate solution to Problem \ref{prob:the_problem}
-  (def. \ref{def:definition_7}), where set $\mathcal{V}$ and $\delta_0$ are
+  (Def. \ref{def:definition_7}), where set $\mathcal{V}$ and $\delta_0$ are
   defined by Conjecture
   \ref{cnj:conjecture_c}.
 \end{customhpt}
@@ -33,14 +33,14 @@ Formally the proposed method's foundations rest on Observation
 \begin{customcnj}{C}
   \label{cnj:conjecture_c}
   Let the unknown pose of a 2D range sensor measuring range scan $\mathcal{S}_R$
-  (def. \ref{def:definition_1}) be $\bm{p}(x,y,\theta)$ with respect to the
+  (Def. \ref{def:definition_1}) be $\bm{p}(x,y,\theta)$ with respect to the
   reference frame of map $\bm{M}$.
   Let $\mathcal{H}$ be a set of pose hypotheses within the free (i.e.
   traversable) space of $\bm{M}$:
   $\mathcal{H} = \{\hat{\bm{p}}_i(\hat{x}_i,\hat{y}_i,\hat{\theta}_i)\} \subseteq \texttt{free}(\bm{M})$,
   $i \in \texttt{I} = \langle 0,1,\dots,|\mathcal{H}|-1\rangle$.
   Let $f_{\psi}^{\bm{M}}$ be the $\psi$-field on $\bm{M}$
-  (def. \ref{def:definition_4}) such that $f_{\psi}^{\bm{M}}(\mathcal{H})= \Psi$.
+  (Def. \ref{def:definition_4}) such that $f_{\psi}^{\bm{M}}(\mathcal{H})= \Psi$.
   Let the field's locational and orientational densities be
   $d_{\bm{l}}$ and $d_{\alpha}$.
   Let $\hat{\bm{p}}_\omega \in \mathcal{H}$ and $\psi_0,\delta_0 \in \mathbb{R}_{>0}$
@@ -90,7 +90,7 @@ stands true for some $ \delta \leq \delta_0 = 0.50 \ (\text{m}^2 + \text{rad}^2)
 
 \begin{figure}\vspace{-0.2cm}
   \input{./figures/h_and_h_not_fig.tex}
-  \vspace{0.5cm}
+  \vspace{0.3cm}
   \caption{\small The $\psi$-field (left) and \texttt{r}-field (right) of a
            configuration where Observation \ref{obs:observation_o} may (top)
            and may not (bottom) be made for $\delta \leq \delta_0$. Bottom:
@@ -112,7 +112,7 @@ stands true for some $ \delta \leq \delta_0 = 0.50 \ (\text{m}^2 + \text{rad}^2)
 
 In the same vein as Hypothesis \ref{hpt:hypothesis_h} assume the \texttt{r}-field
 $f_{\texttt{r}}^{\bm{M}}(\mathcal{H})$ corresponding to the $\psi$-field
-$f_{\psi}^{\bm{M}}(\mathcal{H})$ on a given map $\bm{M}$ (def.
+$f_{\psi}^{\bm{M}}(\mathcal{H})$ on a given map $\bm{M}$ (Def.
 \ref{def:definition_5}) such that $\Psi[\texttt{I}^{\ast}] = \Psi_\uparrow$,
 and $f_{\texttt{r}}^{\bm{M}}(\mathcal{H}[\texttt{I}^{\ast}]) = \texttt{I}$.
 Then the top $k \ll |\mathcal{H}|$ ranked pose hypotheses
@@ -128,19 +128,19 @@ values, this rationale attempts to recover the identity of the pose hypotheses
 with the bottom $k$ pose errors across $\mathcal{H}$. It constitutes the core
 of the proposed passive global localisation method, termed CBGL, and is
 described
-%in block diagram form in figure \ref{fig:bottom_k} and
+in block diagram form in figure \ref{fig:block_system} (right) and
 in pseudocode in Algorithm \ref{alg:bottom_k}.
 
 Assuming the satisfaction of Observation \ref{obs:observation_o}, the challenge
 is choosing such $k$, $d_{\bm{l}}$, and $d_\alpha$ that, given pose estimate
-error requirements $\delta_{\bm{l}}$, $\delta_{\theta}$ (def.
+error requirements $\delta_{\bm{l}}$, $\delta_{\theta}$ (Def.
 \ref{def:definition_7}; hyp.  \ref{hpt:hypothesis_h}), CBGL produces admissible
 pose estimates while being executed in timely manner.  Given the rank field's
 Monte Carlo nature, optimistically, the only option for increasing the accuracy
 of the final pose estimate by a factor of two is doubling the densities of the
 \texttt{r}-field; instead of doing that---and thereby doubling the method's
 execution time---subsequent to the estimation of the pose estimates with the
-$k$ lowest CAER values, CBGL utilises scan--to--map-scan matching
+$k$ lowest CAER values, CBGL utilises scan--to--map-scan matching (\texttt{sm2})
 \cite{Vasiljevic2016c,Filotheou2023a}, followed by the estimation of the one
 pose estimate with the lowest CAER value within the group of matched estimates.
 
@@ -152,10 +152,9 @@ hence their elimination as pose estimate candidates, (c) the production of
 finer pose estimates without excessive increase in execution time, and (d) the
 decoupling of the final pose estimate's error from the field's density.
 Selecting among all matched estimates the one with the minimum (updated) CAER
-allows for the system's delivery of one pose estimate response.
-%Figure \ref{fig:cbgl} and
-Algorithms \ref{alg:cbgl}, \ref{alg:bottom_k}, and \ref{alg:sm2} present the
-proposed method of CBGL in block diagram and algorithmic forms respectively.
+allows for the system's delivery of one pose estimate response.  Figure
+\ref{fig:block_system} (left) and algorithm \ref{alg:cbgl} present the proposed
+method of CBGL in block diagram and algorithmic forms respectively.
 
 \begin{figure}\vspace{-0.4cm}
   \hspace{-0.5cm}
@@ -166,7 +165,7 @@ proposed method of CBGL in block diagram and algorithmic forms respectively.
            measurement $\mathcal{S}_R$ and a map $\bm{M}$, CBGL generates a set
            of pose hypotheses $\mathcal{H}$ and estimates the $k$ hypotheses
            with the least pose error (right; alg. \ref{alg:bottom_k}). Then it
-           scan-to-map-scan matches those to $\mathcal{S}_R$ for finer
+           scan--to--map-scan matches those to $\mathcal{S}_R$ for finer
            estimation (\texttt{sm2}; alg. \ref{alg:sm2}). CBGL's output pose
            estimate is that with the least CAER among the $k$ matched
            estimates.  Right: CBGL's core method. Given $\mathcal{S}_R$,
@@ -174,6 +173,8 @@ proposed method of CBGL in block diagram and algorithmic forms respectively.
            ranks the CAER values between $\mathcal{S}_R$ and map-scans captured
            from $\mathcal{P}$ within $\bm{M}$, and (b) outputs the hypotheses
            with the $k$ lowest CAER values}
+\vspace{-0.5cm}
+  \label{fig:block_system}
 \end{figure}
 
 

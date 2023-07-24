@@ -1,10 +1,16 @@
-Given a LIDAR sensor's 2D measurement, at its core, CBGL disperses pose
-hypotheses within the map and ranks them ascendingly according to the value of
-the Cumulative Absolute Error per Ray (CAER) metric. The latter's inputs
-comprise the input measurement and the map-scan captured from each hypothesis.
-This produces a \texttt{r}(ank)-field which may be used to estimate the pose of
-the sensor (a) quickly due to the metric's low computational complexity, and
-(b) accurately due to (i) proportionality between the pose estimate error and
-the value of the metric for pose estimates in a neighbourhood of the sensor's
-pose, and (ii) lack of disproportionality outside of that neighbourhood.  The
-source code is available for download.
+Navigation of a mobile robot is conditioned on the knowledge of its pose. In
+observer-based localisation configurations its initial pose may not be knowable
+in advance, leading to the need of its estimation. The Monte Carlo class of
+solutions---robust against noise---disperse hypotheses in the environment's map
+and gradually converge on an estimate, thus requiring motion and time, which
+may be economised on. Feature-based solutions require minimal estimation time
+but assume environmental structure, may be sensitive to noise, and require
+preprocessing and tuning. The method proposed in this article retains the
+positive qualities of the two main approaches to global localisation and avoids
+their negative ones: it requires a single measurement from a 2D LIDAR sensor,
+assumes no motion, environmental structure, or parameter tuning in a
+per-environment basis, and is robust against noise.  A large number of tests,
+in real and simulated conditions, involving disparate environments and sensor
+properties, illustrate the proposed method's increased pose discovery rate and
+reduced execution time over state-of-the-art methods of both classes.
+The source code is available for download.
