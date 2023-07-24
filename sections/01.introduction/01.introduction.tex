@@ -19,15 +19,7 @@ further knowledge acquisition. The problem is formalised in Problem
 \begin{figure}\vspace{0.4em}
   \subfloat{\input{./figures/face_top.tex}    \label{fig:a}} \vspace{-1.7cm}\\
   \subfloat{\hspace{-0.3cm}\input{./figures/face_bottom.tex} \label{fig:b}}
-  \caption{\small
-           Given a LIDAR sensor's 2D measurement, at its core, CBGL disperses
-           pose hypotheses within the map and ranks them ascendingly according
-           to the value of the CAER metric (Eq. (\ref{eq:caer})). The latter's
-           inputs comprise the input measurement and the map-scan captured from
-           each hypothesis. This produces a \texttt{r}(ank)-field which may be
-           used to estimate the pose of the sensor (a) accurately due to the
-           proportionality of estimate error and CAER, and (b) quickly due to
-           the metric's low computational complexity.  Top: a map of an
+  \caption{\small Top: a map of an
            environment, the pose of a panoramic 2D LIDAR sensor (magenta), and
            the corresponding CAER rank field below them. Bottom: distribution
            of CAER values by location $\Delta \hat{\bm{l}}$ and orientation
@@ -36,18 +28,16 @@ further knowledge acquisition. The problem is formalised in Problem
            up to $2.0$ m. In this example $10^6$ hypotheses are dispersed
            randomly in the free space of a map with area $735$ m$^2$, for $100$
            independent trials; CBGL's maximum location error and maximum
-           execution time is, respectively, $0.062$ m and $8.8$ sec }
+           execution time are, respectively, $0.062$ m and $8.8$ sec }
   \vspace{-0.75cm}
   \label{fig:face}
 \end{figure}
-
-\lipsum[0-2]
 
 The rest of the paper is structured as follows: Section
 \ref{section:definitions} provides necessary definitions and the notation
 employed. Section \ref{section:sota} gives a brief review of the
 literature of solutions to problem \ref{prob:the_problem}, and the relation of
-CBGL to them.  The methodology of CBGL is presented in section
+the proposed method to them.  The latter's methodology is presented in section
 \ref{section:the_proposed_method}, its evaluation in section
 \ref{section:results}, and its limitations in section
 \ref{section:characterisation}. Section \ref{section:finale} concludes this

@@ -3,11 +3,11 @@
 % No mention of r-fields here. r-fields are part of the solution
 \subsection{Motivation}
 
-The proposed method's motivation lies in the simple but powerful fact that, in
-general, is exhibited through figure \ref{fig:face}: Assume a pose estimate
+The proposed method's motivation lies in the simple but powerful fact that is,
+in general, exhibited through figure \ref{fig:face}: Assume a pose estimate
 residing in a neighbourhood of a 2D LIDAR sensor's pose within a given map;
-then the CAER metric between the scan measured by the sensor and the map-scan
-captured from the estimate within the map---the CAER metric is simultaneously
+then the value of the CAER metric between the scan measured by the sensor and
+the map-scan captured from the estimate within the map is simultaneously
 proportional to both the estimate's location error and orientation error.
 Formally the proposed method's foundations rest on Observation
 \ref{obs:observation_o}:
@@ -156,33 +156,25 @@ allows for the system's delivery of one pose estimate response.
 %Figure \ref{fig:cbgl} and
 Algorithms \ref{alg:cbgl}, \ref{alg:bottom_k}, and \ref{alg:sm2} present the
 proposed method of CBGL in block diagram and algorithmic forms respectively.
-\vspace{-0.3cm}
 
-%\begin{figure}[]\centering
-  %\input{./figures/cbgl_system.tikz}
-  %\caption{\small CBGL in block diagram form. Given a LIDAR's 2D measurement
-           %$\mathcal{S}_R$ and the map $\bm{M}$ that represents the environment
-           %in which the sensor is posed, CBGL generates a set of pose hypotheses
-           %$\mathcal{H}$ and invokes the estimation of the $k$ hypotheses with
-           %the least pose error (fig. \ref{fig:bottom_k}; alg.
-           %\ref{alg:bottom_k}). Then it scan-to-map-scan matches those to the
-           %measurement for finer estimation and outlier rejection (alg.
-           %\ref{alg:sm2}). CBGL's output pose estimate is that with the least
-           %CAER among matched estimates}
-  %\label{fig:cbgl}
-%\end{figure}
-
-%\begin{figure}[]\centering
-  %\input{./figures/inner_ranking_system2.tikz}
-  %\caption{\small CBGL's core method. Given a LIDAR's 2D measurement
-           %$\mathcal{S}_R$, the map $\bm{M}$ that represents the environment in
-           %which the sensor is posed, and a set of pose hypotheses
-           %$\mathcal{H}$, CBGL (a) computes and ranks the CAER values between
-           %the measurement and map-scans captured from the hypotheses within
-           %the map, and (b) outputs the hypotheses with the $k$ lowest CAER
-           %values}
-  %\label{fig:bottom_k}
-%\end{figure}
+\begin{figure}\vspace{-0.4cm}
+  \hspace{-0.5cm}
+  \subfloat{\label{fig:cbgl}     \input{./figures/cbgl_system_tiny.tikz}}
+  \hspace{-0.99cm}
+  \subfloat{\label{fig:bottom_k} \input{./figures/inner_ranking_system2_tiny.tikz}}
+  \caption{\small CBGL in block diagram form. Left: Given a LIDAR's 2D
+           measurement $\mathcal{S}_R$ and a map $\bm{M}$, CBGL generates a set
+           of pose hypotheses $\mathcal{H}$ and estimates the $k$ hypotheses
+           with the least pose error (right; alg. \ref{alg:bottom_k}). Then it
+           scan-to-map-scan matches those to $\mathcal{S}_R$ for finer
+           estimation (\texttt{sm2}; alg. \ref{alg:sm2}). CBGL's output pose
+           estimate is that with the least CAER among the $k$ matched
+           estimates.  Right: CBGL's core method. Given $\mathcal{S}_R$,
+           $\bm{M}$, and pose estimates $\mathcal{P}$, CBGL (a) computes and
+           ranks the CAER values between $\mathcal{S}_R$ and map-scans captured
+           from $\mathcal{P}$ within $\bm{M}$, and (b) outputs the hypotheses
+           with the $k$ lowest CAER values}
+\end{figure}
 
 
 %% CBGL %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -212,7 +204,7 @@ proposed method of CBGL in block diagram and algorithmic forms respectively.
   \end{algorithmic}
   \end{spacing}
   \label{alg:cbgl}
-\end{algorithm}\vspace{-0.5cm}
+\end{algorithm}
 
 %% Bottom-n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \floatstyle{spaceruled}

@@ -9,7 +9,8 @@ retain a high-enough true positive discovery rate without significant increase
 in execution time (due to the application of scan--to--map-scan matching on $k$
 pose estimates). Furthermore references to sets $\mathcal{H}_{\ast}$ are made
 to lines \ref{alg:cbgl:h}, \ref{alg:cbgl:h1}, and \ref{alg:cbgl:h2} of
-Algorithm \ref{alg:cbgl}.
+Algorithm \ref{alg:cbgl}. All tests were performed with a processor of 12
+threads and a clock speed of 4.00 GHz.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -71,8 +72,9 @@ thresholds and (ii) execution time.
            (green). Sensor poses for which CBGL's output exhibits position error
            larger than $\delta_{\bm{l}} = 0.5$ m are marked with red, sources
            of great range noise with cyan, and regions around doors with
-           purple. Estimation is performed for each sensor pose independently
-           of previous estimates or measurements}
+           purple. A total of $N_S = 6669$ pose estimations take place.
+           Estimation is performed for each sensor pose independently of
+           previous estimates and measurements}
   \label{fig:a:map_and_trajectory}
 \end{figure}
 
@@ -120,7 +122,8 @@ art methods, and its ability in matching scans captured from greater initial
 locational distances than ICP alternatives. The latter translates to the need
 for smaller initial hypothesis sets: for each environment the locational
 density is set to $3$\texttt{e}+04 divided by the free space area
-of each environment.
+of each environment. For Monte Carlo approaches MCL and GMCL the number of
+initial hypotheses is also set to $3$\texttt{e}+04.
 
 The maximum range of the sensor is such that the geometry of environment
 WAREHOUSE causes (disorderly) extended lack of sampling of the sensor's
@@ -146,7 +149,8 @@ number of inliers in each environment tested.
   \input{./figures/experiments/b/inliers_per_pose.tex}
   \caption{\small Percent proportions of pose outputs whose position error is
            lower than $\delta_{\bm{l}} = 0.5$ m per tested environment, pose,
-           and method. Overall CBGL features the highest number of inlier poses}
+           and method. Overall CBGL (green) features the highest number of
+           inlier poses}
   \label{fig:b:inliers_per_pose}
 \end{figure}
 
@@ -168,12 +172,12 @@ number of inliers in each environment tested.
 The third type of test aims to inquire how the performance of CBGL scales with
 respect to increasing environment area (and therefore to increased number of
 hypotheses), environment diversity, sensor angular range, and choice of
-overlying scan--to--map-scan matching method. CBGL is tested against $N_E \simeq
-4.5$\texttt{e}+$04$ environments, generated via the experimental procedure of
-\cite{Filotheou2023a}, which utilises five established and publicly available
-benchmark datasets provided courtesy of the Department of Computer Science,
-University of Freiburg \cite{datasets_link}. The coordinates of every map
-corresponding to each environment are corrupted by noise
+overlying scan--to--map-scan matching method. CBGL is tested once in each of
+$N_E \simeq 4.5$\texttt{e}+$04$ environments, generated via the experimental
+procedure of \cite{Filotheou2023a}, which utilises five established and
+publicly available benchmark datasets provided courtesy of the Department of
+Computer Science, University of Freiburg \cite{datasets_link}.  The coordinates
+of every map corresponding to each environment are corrupted by noise
 $\mathcal{N}(0,0.05^2)$ [m, m$^2$]. The angular range of the range sensor
 varies according to the overlying scan--to--map-scan matching method used: for
 NDT \cite{ndt}, FastGICP \cite{fgi}, and FastVGICP \cite{fvg}: $\lambda =

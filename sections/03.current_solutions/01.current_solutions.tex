@@ -1,5 +1,50 @@
-% ?? Must pose current solutions in such a way that it is clearly shown that
-% there are no alternatives other than FMI/PLICP + sm2 for lidar-only
-% global localisation (features etc too unstable, only sm2 works (mcl!))
+The literature concerning the solution to the problem of global localisation
+with the use of a 2D LIDAR sensor is rich; a brief overview is given below.
 
-\lipsum[0-4]
+In broad terms global localisation approaches may be divided into two
+categories: (a) approaches that operate in feature space, that is, methods that
+extract features from measurements and the map and then establishing
+correspondences between them, and (b) approaches that directly exploit only raw
+measurements. In the latter category a number of global localisation methods
+solve the problem in an iterative Bayesian Monte Carlo fashion, i.e. by
+dispersing hypotheses within the map and updating the belief of the robot's
+pose by incorporating new measurements as it moves until estimate convergence
+\cite{mcl,Wang2018d,Yilmaz2019a,gmcl,Chen2021a}. However, the requirement of
+motion (a) may give rise to safety concerns (the robot may not even be
+visible), and (b) increases estimation time. The Monte Carlo method proposed in
+this article operates directly in measurement space as well but, in contrast,
+it does not require motion or more than one measurement. As a result CBGL is a
+single-shot global localisation approach that is executable in less time
+compared to previous Monte Carlo approaches.
+
+Research on the former category has been more extensive due to the richness,
+appropriateness, adaptability, and efficacy of methods originated in the
+computer vision field. Relevant methods mainly perform detection of key-points
+in a measurement, followed by the calculation of a distinctive signature,
+which is then matched to similarly- and pre-computed place-signatures
+\cite{Kallasi2016a,Usman2019,Wang2021b,Meng2021,Hendrikx2021,An2022,Nielsen2023}.
+In principle, however, unstructured environments cannot be relied upon for the
+existence of features, due to their complete absence or their sparse and
+fortuitous distribution (although Deep Neural Network approaches have
+demonstrated increased performance in place recognition with the use of 3D
+LIDARs \cite{Xu2021,Yin2022,Komorowski2022}). Structured environments on the
+other hand manifest different features depending on the particularities of the
+environment. In any case, features may be present but not in a sufficiently
+undisturbed state due to sensor noise or map-to-environment mismatch.
+
+The motivation of the proposed method originates from seeking to achieve a
+greater degree of universality, reliability, and portability across multiple
+and disparate environments, by not making a priori assumptions on environment
+structure, and by aiming to minimise requirements on resources (number and
+types of sensors; number of measurements; time). The proposed method is most
+akin to the two tested methods in \cite{Filotheou2022g}: all three are
+single-shot 2D LIDAR-based Monte Carlo approaches, but CBGL computes a measure
+of the alignment of (a) the measurement to (b) the virtual scan captured from
+each hypothesis \textit{before} scan--to--map-scan matching a subset of the
+most-aligned poses to the measurement. As a consequence it is able to process
+more hypotheses in less time, resulting in (a) an improvement over the number
+of correctly estimated locations and, most starkly, (b) execution time, being
+able to compete against (traditionally faster) feature-based approaches.
+
+A recent and comprehensive survey on global localisation may be found in
+\cite{gl_survey_cn}.
