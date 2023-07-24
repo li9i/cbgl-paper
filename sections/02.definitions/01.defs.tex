@@ -9,28 +9,25 @@ $\mathcal{A}_{k:l}= \{\mathcal{A}[k], \mathcal{A}[k+1], \dots, \mathcal{A}[l]\}$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{definition}
   \label{def:definition_1} \textit{Range scan captured from a 2D LIDAR
-  sensor}.---A conventional 2D LIDAR sensor provides a finite number of
-  ranges, i.e. distances to objects within its range, on a horizontal
-  cross-section of its environment, at regular angular intervals,
-  over a defined angular range \cite{Cooper2018c}. A range scan $\mathcal{S}$,
+  sensor}.---A range scan $\mathcal{S}$, measured by a 2D LIDAR sensor,
   consisting of $N_s$ rays over an angular range $\lambda$, is an ordered map
-  $\mathcal{S} : \Theta \rightarrow \mathbb{R}_{\geq 0}$,
-  $\Theta = \{\theta_n \in [-\frac{\lambda}{2}, +\frac{\lambda}{2}) : \theta_n = -\frac{\lambda}{2}
-  + \lambda \frac{n}{N_s}$, $n = 0,1,\dots, N_s$$-$$1$$\}$. Angles $\theta_n$
-  are expressed relative to the sensor's heading, in the sensor's frame of
-  reference.
+  of angles to distances to objects within its range $r_{\max}$: $\mathcal{S} :
+  \Theta \rightarrow \mathbb{R}_{\geq 0}$, $\Theta = \{\theta_n \in
+  [-\frac{\lambda}{2}, +\frac{\lambda}{2}) : \theta_n = -\frac{\lambda}{2} +
+  \lambda \frac{n}{N_s}$, $n = 0,1,\dots, N_s$$-$$1$$\}$. Angles $\theta_n$ are
+  expressed relative to the sensor's heading, in the sensor's frame of
+  reference \cite{Cooper2018c}.
 \end{definition}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{definition}
   \label{def:definition_2} \textit{Map-scan}.---A map-scan is a virtual scan
   that encapsulates the same pieces of information as a scan derived from a
-  physical sensor (Def. \ref{def:definition_1}). Contrary to the latter, a
-  map-scan refers to distances to the boundaries of a map, rather than to those
-  of a real environment. A map-scan $\mathcal{S}_V^{\bm{M}}(\hat{\bm{p}})$ is
-  derived by means of locating intersections of rays emanating from the
-  estimate of the sensor's pose estimate $\hat{\bm{p}}$ and the boundaries of
-  the map $\bm{M}$.
+  physical sensor (Def. \ref{def:definition_1}). Contrary to the latter it
+  refers to distances within a map rather than within a real environment. A
+  map-scan $\mathcal{S}_V^{\bm{M}}(\hat{\bm{p}})$ is derived by locating
+  intersections of rays emanating from the estimate of the sensor's pose
+  estimate $\hat{\bm{p}}$ and the boundaries of map $\bm{M}$.
 \end{definition}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

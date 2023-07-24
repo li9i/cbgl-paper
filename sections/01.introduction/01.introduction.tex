@@ -50,10 +50,12 @@ formalised in Problem \ref{prob:the_problem}:
            of CAER values by location $\Delta \hat{\bm{l}}$ and orientation
            error $\Delta \hat{\theta}$ of all sensor pose hypotheses
            corresponding to the rank field above, for estimate position errors
-           up to $2.0$ m. In this example $10^6$ hypotheses are dispersed
-           randomly in the free space of the map whose area is $735$ m$^2$, for
-           $100$ independent trials; CBGL's maximum location error and maximum
-           execution time are, respectively, $0.062$ m and $8.8$ sec }
+           up to $2.0$ m
+           %In this example $10^6$ hypotheses are dispersed
+           %randomly in the free space of the map whose area is $735$ m$^2$, for
+           %$100$ independent trials; CBGL's maximum location error and maximum
+           %execution time are, respectively, $0.062$ m and $8.8$ sec
+           }
   \vspace{-0.65cm}
   \label{fig:face}
 \end{figure}
@@ -72,8 +74,8 @@ The central contributions of the article are:
   \item The extension and validation of the CAER metric's ability to infer
         pose error hierarchies solely from real and virtual range scans,
         extended from scan--to--map-scan matching (\texttt{sm2}) during
-        pose-tracking, where pose errors are ``small", to the context of
-        global localisation where hypotheses' errors may be arbitrarily large
+        pose-tracking (where pose errors are ``small") to the context of
+        global localisation, where hypotheses' errors may be arbitrarily large
   \item The thorough evaluation of the proposed method against (a) established
         state-of-the-art localisation methods, (b) real and publicly available
         benchmark conditions, and (c) varying characteristics of environments
