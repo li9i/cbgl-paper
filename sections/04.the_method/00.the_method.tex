@@ -142,17 +142,17 @@ of the final pose estimate by a factor of two is doubling the densities of the
 execution time---subsequent to the estimation of the pose estimates with the
 $k$ lowest CAER values, CBGL utilises scan--to--map-scan matching
 \cite{Vasiljevic2016c,Filotheou2023a}, followed by the estimation of the one
-pose estimate with the lowest CAER value within the group of matched estimates.
-
+pose estimate with the lowest CAER value within the group of $k$ matched
+estimates.
 Matching allows for (a) the correction of the pose of true positive estimates
-by scan-matching the map-scan from of a pose
-estimate against the range scan measured by the real sensor, (b) by the same
-token the potential divergence of spurious, false positive, pose estimates, and
-hence their elimination as pose estimate candidates, (c) the production of
-finer pose estimates without excessive increase in execution time, and (d) the
-decoupling of the final pose estimate's error from the field's density.
-%Selecting among all matched estimates the one with the minimum CAER
-%allows for the system's delivery of one pose estimate response.
+by scan-matching the map-scan captured from a pose estimate against the range
+scan measured by the real sensor, (b) by the same token the potential
+divergence of spurious, false positive, pose estimates, and hence their
+elimination as pose estimate candidates, (c) the production of finer pose
+estimates without excessive increase in execution time, and (d) the decoupling
+of the final pose estimate's error from the field's densities.
+%Selecting among all matched estimates the one with the minimum CAER allows for
+%the system's delivery of one pose estimate response.
 Figure \ref{fig:block_system} (left) and algorithm \ref{alg:cbgl} present the
 proposed method of CBGL in block diagram and algorithmic forms respectively.
 

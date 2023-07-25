@@ -1,18 +1,19 @@
-This section serves the testing of Hypothesis \ref{hpt:hypothesis_h} with
-state of the global localisation art methods and CBGL, in varying environmental
-conditions and sensor configurations. With regard to CBGL its three required
-parameters are set to $(d_{\bm{l}},d_{\alpha},k) = (40, 2^5, 10)$ after
-initial tests with the dataset used in subsection \ref{subsec:exp_a}.
-The rationale of choosing appropriate $d_{\bm{l}},d_{\alpha}$ is depicted in
-figure \ref{fig:a:determine_40_32}, and $k$ is chosen as such in order to
-retain a high-enough true positive discovery rate without significant increase
-in execution time.
-%(due to the application of scan--to--map-scan matching on $k$
-%pose estimates).
+This section serves the testing of the performance of state of the global
+localisation art methods and CBGL with regard to solving Problem
+\ref{prob:the_problem}, in varying environmental conditions and sensor
+configurations. With regard to CBGL its three required parameters are set to
+$(d_{\bm{l}},d_{\alpha},k) = (40, 2^5, 10)$ after initial tests with the
+dataset used in subsection \ref{subsec:exp_a}.  The rationale of choosing
+appropriate $d_{\bm{l}},d_{\alpha}$ is depicted in figure
+\ref{fig:a:determine_40_32}, and $k$ is chosen as such in order to retain a
+high-enough true positive discovery rate without significant increase in
+execution time. The locational threshold $\delta_{\bm{l}} = 0.5$ m is used as
+a tighter inlier determinator than that of \cite{Filotheou2022g}.
+%(due to the application of scan--to--map-scan matching on $k$ pose estimates).
 References to sets $\mathcal{H}_{\ast}$ are made to fig. \ref{fig:block_system}
 (left) and lines \ref{alg:cbgl:h}, \ref{alg:cbgl:h1}, and \ref{alg:cbgl:h2} of
-Algorithm \ref{alg:cbgl}. All tests are performed with a processor of 12
-threads and a clock speed of 4.00 GHz.
+Algorithm \ref{alg:cbgl}. All tests are performed with a processor of $12$
+threads and a clock speed of $4.00$ GHz.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -22,7 +23,7 @@ threads and a clock speed of 4.00 GHz.
 The first type of test is conducted using a Hokuyo UTM-30LX sensor, whose
 angular range is $\lambda = 3\pi/2$ rad and radial range $r_{\max} = 30.0$ m,
 in the  Electrical and Computer Engineering Department's Laboratory of Computer
-Systems Architecture (CSAL), Aristotle University of Thessaloniki, a map of
+Systems Architecture (CSAL), of the Aristotle University of Thessaloniki, a map of
 which is depicted in figure \ref{fig:a:map_and_trajectory}. The sensor was
 mounted on a Robotnik RB1 robot, which was teleoperated within the environment
 while scans were being recorded.  This resulted in $N_{S}=6669$ range scans,
@@ -108,23 +109,23 @@ $\delta_{\theta}$ is not considered, and (b) CBGL outperforms ALS in terms of
 \label{subsec:exp_b}
 
 The second type of test concerns the main limiting factor of global
-localisation methods, i.e. uncertainty---:arising e.g. from spurious
-measurements, repeatability of surroundings, missing range information, or
-their combinations. For this reason the experimental procedure of
-\cite{Filotheou2022g} is extended here for the two methods tested therein, i.e.
-PGL-FMIC and PGL-PLICP, and then for CBGL, ALS, MCL \cite{mcl}, and GMCL
+localisation methods, i.e. uncertainty---: arising e.g. from spurious
+measurements, repeatability of surroundings, missing or corrupted range
+information, or their combinations. For this reason the experimental procedure
+of \cite{Filotheou2022g} is extended here for the two methods tested therein,
+i.e.  PGL-FMIC and PGL-PLICP, and then for CBGL, ALS, MCL \cite{mcl}, and GMCL
 \cite{gmcl}.  Specifically these methods are tested against the two most
 challenging environments, i.e. WAREHOUSE and WILLOWGARAGE, in which a panoramic
 range sensor is placed at $16$ different poses, respectively
 $\bm{p}_{\ast}^{W}$ and $\bm{p}_{\ast}^{G}$, for $N = 100$ independent attempts
-at global localisation per pose. The tests are conducted with the use
-of a sensor whose number of rays $N_s = 360$, maximum range $r_{\max} = 10.0$
-m, and noise $\mathcal{N}(0, 0.05^2)$ [m,m$^2$]. CBGL's internal \texttt{sm2}
-method is chosen to be \texttt{x1} \cite{Filotheou2023a} due to the periodicity
-of the range signal, \texttt{x1}'s improved results over \texttt{sm2} matching
-state of the art methods, and its ability in matching scans captured from
-greater initial locational distances than ICP alternatives. The latter
-translates to the need for smaller initial hypothesis sets: for each
+at global localisation per pose. The tests are conducted with the use of a
+sensor whose number of rays $N_s = 360$, maximum range $r_{\max} = 10.0$ m, and
+noise $\sim \mathcal{N}(0, 0.05^2)$ [m,m$^2$]. CBGL's internal \texttt{sm2} method
+is chosen to be \texttt{x1} due to the periodicity of the
+range signal, \texttt{x1}'s robust pose errors compared to \texttt{sm2} state
+of the art methods, and its greater ability in matching scans captured from
+higher initial displacements than ICP alternatives  \cite{Filotheou2023a}. The
+latter translates to the need for smaller initial hypothesis sets: for each
 environment the locational density is set to $3$\texttt{e}+04 divided by the
 free space area of each environment. For Monte Carlo approaches MCL and GMCL
 the number of initial hypotheses is also set to $3$\texttt{e}+04.
@@ -132,22 +133,23 @@ the number of initial hypotheses is also set to $3$\texttt{e}+04.
 The maximum range of the sensor is such that the geometry of environment
 WAREHOUSE causes (disorderly) extended lack of sampling of the sensor's
 surrounding environment, which limits available information and may therefore
-produce spurious measurements and increase ambiguities between candidate
-estimates. In WILLOWGARAGE on the other hand, almost all sensor placements
-result in complete sampling of its surroundings, but the sensor is purposefully
-posed in such conditions as to challenge the localisation methods' ability to
-perform fine distinctions between similar surroundings. Figure
+produce spurious measurements and increase \texttt{r}-field ambiguities between
+candidate estimates. In WILLOWGARAGE, on the other hand, almost all sensor
+placements result in complete sampling of its surroundings, but the sensor is
+purposefully posed in such conditions as to challenge the localisation methods'
+ability to perform fine distinctions between similar surroundings. Figure
 \ref{fig:b:inliers_per_pose} depicts the percentage of outputs whose position
 error is lower than $\delta_{\bm{l}} = 0.5$ m per tested pose, and figure
 \ref{fig:b:execution_times} depicts the overall distribution of execution times
-per tested environment and algorithm. CBGL's mean execution time in environment
-WAREHOUSE is $\mu_t^W = 7.98$ sec and in WILLOWGARAGE $\mu_t^{G} = 3.59$ sec.
-Although the cardinality of set $\mathcal{H}$ is equal for both environments
-CBGL's execution times are uneven due to \texttt{x1}'s increased execution
-time when dealing with scans with missing range information. Notwithstanding
-the aforementioned sources of uncertainty, CBGL manages to exhibit the highest
-number of inliers in each environment tested.
-
+per tested environment and algorithm.
+%CBGL's mean execution time in environment
+%WAREHOUSE is $\mu_t^W = 7.98$ sec and in WILLOWGARAGE $\mu_t^{G} = 3.59$ sec.
+Although the cardinality of set $\mathcal{H}$ is equal in both environments,
+CBGL's execution times are uneven due to \texttt{x1}'s increased execution time
+when dealing with scans with missing range information. Notwithstanding the
+aforementioned sources of uncertainty, CBGL manages to exhibit the overall
+highest number of poses whose position error is below $\delta_{\bm{l}} = 0.5$
+m.
 
 \begin{figure}
   \input{./figures/experiments/b/inliers_per_pose.tex}
@@ -171,7 +173,7 @@ number of inliers in each environment tested.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Simulations against environmental and \texttt{sm2} algorithmic disparity }
+\subsection{Simulations against environmental and \texttt{sm2} algorithmic disparity}
 \label{subsec:exp_c}
 
 The third type of test aims to inquire how the performance of CBGL scales with
@@ -182,25 +184,25 @@ $N_E \simeq 4.5$\texttt{e}+$04$ environments, generated via the evaluation
 procedure of \cite{Filotheou2023a}, which utilises five established and
 publicly available benchmark datasets provided courtesy of the Department of
 Computer Science, University of Freiburg \cite{datasets_link}.  Each coordinate
-of the map corresponding to each environment is corrupted by noise
-$\mathcal{N}(0,0.05^2)$ [m, m$^2$]. The angular range of the range sensor
+of the map of each environment is corrupted by noise
+$\sim\mathcal{N}(0,0.05^2)$ [m, m$^2$]. The angular range of the range sensor
 varies according to the overlying \texttt{sm2} method used: for
 NDT \cite{ndt}, FastGICP \cite{fgi}, and FastVGICP \cite{fvg}: $\lambda =
 3\pi/2$ rad; for \texttt{x1}: $\lambda = 2\pi$ rad. Measurement noise is
-$\mathcal{N}(0,0.03^2)$ [m,m$^2$]. As in subsection \ref{subsec:exp_a} the
+$\sim \mathcal{N}(0,0.03^2)$ [m,m$^2$]. As in subsection \ref{subsec:exp_a} the
 choice of field densities and $k$ is $(d_{\bm{l}},d_{\alpha},k) = (40, 2^5,
 10)$.
 
 Figure \ref{fig:c:errors_and_time} illustrates that, with the exception of NDT,
 all versions of CBGL exhibit mean positional errors less than $1.0$ m; its
 combination with \texttt{x1} exhibits a mean error of approximately $0.5$ m.
-The evidence support the claim that CBGL is robust to sensor angular range, as
-the distributions of errors are indistinguishable between bottom-$k$
-($\mathcal{H}_1$) sets for $k=10$. Figure \ref{fig:c:time_analysis} shows the
-execution time of CBGL combined with FastVGICP and \texttt{x1} as a function of
-environmental area, and that with \texttt{x1}'s timing breakdown with respect
-to (a) CBGL's total time minus scan--to--map-scan matching time and (b)
-computing map-scans, as proportions of total execution time.
+The evidence illustrate that CBGL is robust to sensor angular range, as the
+distributions of errors between bottom-$k$ ($\mathcal{H}_1$) sets are
+virtually indistinguishable for $k=10$. Figure \ref{fig:c:time_analysis} shows
+the execution time of CBGL combined with FastVGICP and \texttt{x1} as a
+function of environmental area, and that with \texttt{x1}'s timing breakdown
+with respect to (a) CBGL's total time minus \texttt{sm2} time and (b) computing
+map-scans, as proportions of total execution time.
 
 \begin{figure}
   \input{./figures/experiments/c/errors.tex}
@@ -221,7 +223,7 @@ computing map-scans, as proportions of total execution time.
   \vspace{0.6cm}
   \caption{\small Left: CBGL's execution time with respect to environment area
            for two choices of overlying scan--to--map-scan matching methods. In
-           rough terms $time_{CBGL} \text{ [sec]} = 10^{-3}\cdot area
+           rough terms $\mu_t^{\text{CBGL}} \text{ [sec]} \simeq 10^{-3}\cdot area
            \text{ [} \text{m}^2 \text{]}$ for areas larger than 200 m$^2$.
            Right: Proportion of CBGL $\circ$ \texttt{x1}'s total execution time
            spent on (a) all operations up to and except for matching, and (b)

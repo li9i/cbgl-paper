@@ -21,19 +21,19 @@ process more hypotheses in less time, resulting in an improvement in the number
 of correctly estimated locations, and making it able to compete against
 (traditionally faster) feature-based approaches in terms of execution time.
 
-Research on the latter has been more extensive due to the richness,
-adaptability, and efficacy of methods originated in the computer vision field,
-and their low execution time. Relevant methods mainly perform detection of
-key-points in a measurement, followed by the calculation of a distinctive
-signature, which is then matched to similarly- and pre-computed
+Research on the feature-based approaches has been more extensive due to the
+richness, adaptability, and efficacy of methods originated in the computer
+vision field, and their low execution time. Relevant methods mainly perform
+detection of key-points in a measurement, followed by the calculation of a
+distinctive signature, which is then matched to similarly- and pre-computed
 place-signatures
 \cite{Kallasi2016a,als_eth,Usman2019,Wang2021b,Meng2021,Hendrikx2021,An2022,Nielsen2023}.
 In principle, however, unstructured environments cannot be relied upon for the
 existence of features due to their absence or their sparse and fortuitous
 distribution (although Deep Neural Network approaches have demonstrated
 increased performance in place recognition with the use of 3D LIDARs
-\cite{Xu2021,Yin2022,Komorowski2022}). Structured environments on the other
-hand manifest different features depending on the particularities of the
+\cite{Xu2021,Yin2022,Komorowski2022}). Structured environments, on the other
+hand, manifest different features depending on the particularities of the
 environment, where features may be present but not in a sufficiently
 undisturbed state by sensor noise or map-to-environment mismatch. Furthermore,
 feature-based methods require the tuning of parameters in a per-environment
@@ -42,22 +42,22 @@ In contrast CBGL (a) makes no assumptions on- and exploits no environmental
 structure and (b) uses three parameters, whose setting is optional and
 intuitive.
 
-In sum CBGL retains the positive qualities of the two main approaches to global
+In sum the proposed method retains the positive qualities of the two main approaches to global
 localisation and avoids their pitfalls: it uses multiple hypotheses for
 robustness against uncertainty, assumes no motion, environmental structure, or
 parameter tuning in a per-environment or sensor basis, and is robust against
 noise.
-The motivation of the proposed method originates from seeking to achieve a
+The motivation of CBGL originates from seeking to achieve a
 greater degree of universality, reliability, and portability across multiple
 and disparate environments, by aiming to economise on the use of resources
 (environmental assumptions; number, type, and cost of sensors; number of
 measurements; time). The proposed method is most akin to the two tested
 methods in \cite{Filotheou2022g}: all three are single-shot 2D LIDAR-based
-Monte Carlo approaches, but CBGL computes a measure of the alignment of (a) the
-measurement to (b) the virtual scan captured from each hypothesis
+Monte Carlo approaches, but CBGL computes a measure of the alignment of the
+measurement to the virtual scan captured from each hypothesis
 \textit{before} scan--to--map-scan matching, which occurs subsequently and only
-for a small subset of the most-aligned poses to the measurement. So far this
-alignment measure (Def. \ref{def:definition_3}) has only been tested against
-the context of \texttt{sm2} in pose tracking, i.e. for pose hypotheses in a
-neighbourhood of the sensor's true pose \cite{Filotheou2022f,Filotheou2023a},
-and its computational complexity is low.
+for a small subset of the most-aligned virtual scans to the measurement. So far
+this alignment measure (Def. \ref{def:definition_3}) has only been tested
+against the context of \texttt{sm2} in pose tracking, i.e. for pose hypotheses
+in a neighbourhood of the sensor's true pose%, and its computational complexity is low
+\cite{Filotheou2022f,Filotheou2023a}.
