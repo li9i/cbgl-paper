@@ -16,45 +16,45 @@ Warning--entry type for "datasets_link" isn't style-file defined
 Warning--empty journal in Xu2021
 
 Done.
-You've used 34 entries,
+You've used 33 entries,
             4024 wiz_defined-function locations,
-            1007 strings with 14735 characters,
-and the built_in function-call counts, 28117 in all, are:
-= -- 2184
-> -- 764
+            1003 strings with 14487 characters,
+and the built_in function-call counts, 27590 in all, are:
+= -- 2148
+> -- 739
 < -- 239
-+ -- 433
-- -- 153
-* -- 1384
-:= -- 3995
-add.period$ -- 79
-call.type$ -- 34
-change.case$ -- 34
++ -- 421
+- -- 147
+* -- 1359
+:= -- 3911
+add.period$ -- 77
+call.type$ -- 33
+change.case$ -- 33
 chr.to.int$ -- 579
-cite$ -- 35
-duplicate$ -- 2034
-empty$ -- 2258
-format.name$ -- 165
-if$ -- 6490
+cite$ -- 34
+duplicate$ -- 1990
+empty$ -- 2213
+format.name$ -- 158
+if$ -- 6373
 int.to.chr$ -- 0
-int.to.str$ -- 34
-missing$ -- 361
-newline$ -- 129
-num.names$ -- 33
-pop$ -- 884
+int.to.str$ -- 33
+missing$ -- 351
+newline$ -- 126
+num.names$ -- 32
+pop$ -- 855
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 2086
+skip$ -- 2048
 stack$ -- 0
-substring$ -- 1447
-swap$ -- 1694
+substring$ -- 1446
+swap$ -- 1667
 text.length$ -- 46
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 34
+type$ -- 33
 warning$ -- 1
-while$ -- 122
-width$ -- 36
-write$ -- 342
+while$ -- 121
+width$ -- 35
+write$ -- 334
 (There were 2 warnings)
