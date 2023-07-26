@@ -178,80 +178,80 @@ proposed method of CBGL in block diagram and algorithmic forms respectively.
 \end{figure}
 
 
-%%% CBGL %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\floatstyle{spaceruled}
-%\restylefloat{algorithm}
-%\begin{algorithm}[]
-  %\caption{\texttt{CBGL}}
-  %\begin{spacing}{1.0}
-  %\begin{algorithmic}[1]
-    %\REQUIRE $\mathcal{S}_R$, $\bm{M}$, $(d_{\bm{l}}, d_\alpha)$, $k$
-    %\ENSURE Pose estimate of sensor measuring range scan $\mathcal{S}_R$ %$\hat{\bm{p}}$
-    %\STATE $A \leftarrow \texttt{calculate\_area}(\texttt{free}(\bm{M}))$
-    %\STATE $\mathcal{H} \leftarrow \{\varnothing\}$
-    %\FOR {$i \leftarrow 0,1,\dots,d_{\bm{l}} \cdot A-1$}
-      %\STATE \small $(\hat{x},\hat{y},\hat{\theta}) \leftarrow \texttt{rand()}$: $(x,y) \in \texttt{free}(\bm{M})$, $\hat{\theta} \in [-\pi,+\pi)$
-      %\FOR {$j \leftarrow 0,1,\dots, d_{\alpha}-1$}
-        %\STATE $\mathcal{H} \leftarrow \{\mathcal{H}, (\hat{x}, \hat{y}, \hat{\theta} + j \cdot 2\pi / d_{\alpha})\}$     \label{alg:cbgl:h}
-      %\ENDFOR
-    %\ENDFOR
-    %\STATE $\mathcal{H}_1 \leftarrow$ \texttt{bottom}$\_k\_\texttt{poses}(\mathcal{S}_R, \bm{M}, \mathcal{H}, k)$ \hfill {\small (Alg. \ref{alg:bottom_k}}) \label{alg:cbgl:h1}
-    %\STATE $\mathcal{H}_2 \leftarrow \{\varnothing \}$
-    %\FOR {$k \leftarrow 0,1,\dots,|\mathcal{H}_1|-1$}
-      %\STATE $\hat{\bm{h}}^\prime \leftarrow \texttt{sm2}(\mathcal{S}_R, \bm{M}, \mathcal{H}_1[k])$ \hfill {\small (Alg. \ref{alg:sm2} or e.g. \texttt{x1} \cite{Filotheou2023a}})
-      %\STATE $\mathcal{H}_2 \leftarrow \{\mathcal{H}_2, \hat{\bm{h}}^\prime\}$  \label{alg:cbgl:h2}
-    %\ENDFOR
-    %\RETURN \texttt{bottom}$\_k\_\texttt{poses}(\mathcal{S}_R, \bm{M}, \mathcal{H}_2, 1)$
-  %\end{algorithmic}
-  %\end{spacing}
-  %\label{alg:cbgl}
-%\end{algorithm}
+%% CBGL %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\floatstyle{spaceruled}
+\restylefloat{algorithm}
+\begin{algorithm}[]
+  \caption{\texttt{CBGL}}
+  \begin{spacing}{1.0}
+  \begin{algorithmic}[1]
+    \REQUIRE $\mathcal{S}_R$, $\bm{M}$, $(d_{\bm{l}}, d_\alpha)$, $k$
+    \ENSURE Pose estimate of sensor measuring range scan $\mathcal{S}_R$ %$\hat{\bm{p}}$
+    \STATE $A \leftarrow \texttt{calculate\_area}(\texttt{free}(\bm{M}))$
+    \STATE $\mathcal{H} \leftarrow \{\varnothing\}$
+    \FOR {$i \leftarrow 0,1,\dots,d_{\bm{l}} \cdot A-1$}
+      \STATE \small $(\hat{x},\hat{y},\hat{\theta}) \leftarrow \texttt{rand()}$: $(x,y) \in \texttt{free}(\bm{M})$, $\hat{\theta} \in [-\pi,+\pi)$
+      \FOR {$j \leftarrow 0,1,\dots, d_{\alpha}-1$}
+        \STATE $\mathcal{H} \leftarrow \{\mathcal{H}, (\hat{x}, \hat{y}, \hat{\theta} + j \cdot 2\pi / d_{\alpha})\}$     \label{alg:cbgl:h}
+      \ENDFOR
+    \ENDFOR
+    \STATE $\mathcal{H}_1 \leftarrow$ \texttt{bottom}$\_k\_\texttt{poses}(\mathcal{S}_R, \bm{M}, \mathcal{H}, k)$ \hfill {\small (Alg. \ref{alg:bottom_k}}) \label{alg:cbgl:h1}
+    \STATE $\mathcal{H}_2 \leftarrow \{\varnothing \}$
+    \FOR {$k \leftarrow 0,1,\dots,|\mathcal{H}_1|-1$}
+      \STATE $\hat{\bm{h}}^\prime \leftarrow \texttt{sm2}(\mathcal{S}_R, \bm{M}, \mathcal{H}_1[k])$ \hfill {\small (Alg. \ref{alg:sm2} or e.g. \texttt{x1} \cite{Filotheou2023a}})
+      \STATE $\mathcal{H}_2 \leftarrow \{\mathcal{H}_2, \hat{\bm{h}}^\prime\}$  \label{alg:cbgl:h2}
+    \ENDFOR
+    \RETURN \texttt{bottom}$\_k\_\texttt{poses}(\mathcal{S}_R, \bm{M}, \mathcal{H}_2, 1)$
+  \end{algorithmic}
+  \end{spacing}
+  \label{alg:cbgl}
+\end{algorithm}
 
-%%% Bottom-n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\floatstyle{spaceruled}
-%\restylefloat{algorithm}
-%\begin{algorithm}[]
-  %\caption{\texttt{bottom}\_$k$\_\texttt{poses}}
-  %\begin{spacing}{1.0}
-  %\begin{algorithmic}[1]
-    %\REQUIRE $\mathcal{S}_R$, $\bm{M}$, $\mathcal{H}$, $k$
-    %\ENSURE $\mathcal{H}_{\triangledown}$
-    %\STATE $\Psi \leftarrow \{\varnothing \}$
-    %\FOR {$h \leftarrow 0,1,\dots,|\mathcal{H}|-1$}
-      %\STATE $\mathcal{S}_V^{\hspace{1pt} h} \leftarrow \texttt{scan\_map}(\bm{M}, \mathcal{H}[h])$
-      %\STATE $\psi \leftarrow 0$
-      %\FOR {$n \leftarrow 0,1,\dots,|\mathcal{S}_R|-1$}
-        %\STATE $\psi \leftarrow \psi + \big|\mathcal{S}_R[n]-\mathcal{S}_V^{\hspace{1pt} h}[n]\big|$ \hfill {\small (Eq. (\ref{eq:caer})})
-      %\ENDFOR
-      %\STATE $\Psi \leftarrow \{\Psi, \psi\}$
-    %\ENDFOR
-    %\STATE $[\Psi_{\uparrow}, \texttt{I}^{\ast}] \leftarrow \texttt{sort}(\Psi, \texttt{asc})$
-    %\STATE $\mathcal{H}_{\triangledown} \leftarrow \{\varnothing \}$
-    %\FOR {$h \leftarrow 0,1,\dots,k-1$}
-      %\STATE $\mathcal{H}_{\triangledown} \leftarrow \{\mathcal{H}_{\triangledown}, \mathcal{H}[\texttt{I}^{\ast}[h]]\}$
-    %\ENDFOR
-    %\RETURN $\mathcal{H}_{\triangledown}$
-  %\end{algorithmic}
-  %\end{spacing}
-  %\label{alg:bottom_k}
-%\end{algorithm}
+%% Bottom-n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\floatstyle{spaceruled}
+\restylefloat{algorithm}
+\begin{algorithm}[]
+  \caption{\texttt{bottom}\_$k$\_\texttt{poses}}
+  \begin{spacing}{1.0}
+  \begin{algorithmic}[1]
+    \REQUIRE $\mathcal{S}_R$, $\bm{M}$, $\mathcal{H}$, $k$
+    \ENSURE $\mathcal{H}_{\triangledown}$
+    \STATE $\Psi \leftarrow \{\varnothing \}$
+    \FOR {$h \leftarrow 0,1,\dots,|\mathcal{H}|-1$}
+      \STATE $\mathcal{S}_V^{\hspace{1pt} h} \leftarrow \texttt{scan\_map}(\bm{M}, \mathcal{H}[h])$
+      \STATE $\psi \leftarrow 0$
+      \FOR {$n \leftarrow 0,1,\dots,|\mathcal{S}_R|-1$}
+        \STATE $\psi \leftarrow \psi + \big|\mathcal{S}_R[n]-\mathcal{S}_V^{\hspace{1pt} h}[n]\big|$ \hfill {\small (Eq. (\ref{eq:caer})})
+      \ENDFOR
+      \STATE $\Psi \leftarrow \{\Psi, \psi\}$
+    \ENDFOR
+    \STATE $[\Psi_{\uparrow}, \texttt{I}^{\ast}] \leftarrow \texttt{sort}(\Psi, \texttt{asc})$
+    \STATE $\mathcal{H}_{\triangledown} \leftarrow \{\varnothing \}$
+    \FOR {$h \leftarrow 0,1,\dots,k-1$}
+      \STATE $\mathcal{H}_{\triangledown} \leftarrow \{\mathcal{H}_{\triangledown}, \mathcal{H}[\texttt{I}^{\ast}[h]]\}$
+    \ENDFOR
+    \RETURN $\mathcal{H}_{\triangledown}$
+  \end{algorithmic}
+  \end{spacing}
+  \label{alg:bottom_k}
+\end{algorithm}
 
-%%% sm2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\floatstyle{spaceruled}
-%\restylefloat{algorithm}
-%\begin{algorithm}[]
-  %\caption{\texttt{sm2}}
-  %\begin{spacing}{1.0}
-  %\begin{algorithmic}[1]
-    %\REQUIRE $\mathcal{S}_R$, $\bm{M}$, $\hat{\bm{p}}$
-    %%\ENSURE $\hat{\bm{p}}^\prime$
-    %\ENSURE $\hat{\bm{p}}$ $+$ correction that aligns $\mathcal{S}_V^{\bm{M}}(\hat{\bm{p}})$ to $\mathcal{S}_R$
-    %\STATE $\mathcal{S}_V \leftarrow \texttt{scan\_map}(\bm{M}, \hat{\bm{p}})$
-    %\STATE $\bm{\Delta p} \leftarrow \texttt{scan-match}(\mathcal{S}_R,\mathcal{S}_V)$ \hfill {\small (e.g. \texttt{ICP}\cite{Vizzo2023}, \texttt{FSM}\cite{Filotheou2022f}})
-    %%\STATE $\hat{\bm{p}}^\prime \leftarrow \hat{\bm{p}} + \bm{\Delta p}$
-    %%\RETURN $\hat{\bm{p}}^\prime$
-    %\RETURN $\hat{\bm{p}} + \bm{\Delta p}$
-  %\end{algorithmic}
-  %\end{spacing}
-  %\label{alg:sm2}
-%\end{algorithm}
+%% sm2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\floatstyle{spaceruled}
+\restylefloat{algorithm}
+\begin{algorithm}[]
+  \caption{\texttt{sm2}}
+  \begin{spacing}{1.0}
+  \begin{algorithmic}[1]
+    \REQUIRE $\mathcal{S}_R$, $\bm{M}$, $\hat{\bm{p}}$
+    %\ENSURE $\hat{\bm{p}}^\prime$
+    \ENSURE $\hat{\bm{p}}$ $+$ correction that aligns $\mathcal{S}_V^{\bm{M}}(\hat{\bm{p}})$ to $\mathcal{S}_R$
+    \STATE $\mathcal{S}_V \leftarrow \texttt{scan\_map}(\bm{M}, \hat{\bm{p}})$
+    \STATE $\bm{\Delta p} \leftarrow \texttt{scan-match}(\mathcal{S}_R,\mathcal{S}_V)$ \hfill {\small (e.g. \texttt{ICP}\cite{Vizzo2023}, \texttt{FSM}\cite{Filotheou2022f}})
+    %\STATE $\hat{\bm{p}}^\prime \leftarrow \hat{\bm{p}} + \bm{\Delta p}$
+    %\RETURN $\hat{\bm{p}}^\prime$
+    \RETURN $\hat{\bm{p}} + \bm{\Delta p}$
+  \end{algorithmic}
+  \end{spacing}
+  \label{alg:sm2}
+\end{algorithm}
