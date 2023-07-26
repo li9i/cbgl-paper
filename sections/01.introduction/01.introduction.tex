@@ -1,15 +1,15 @@
-In tasks involving navigation of a mobile robot, the knowledge of its initial
-pose is a prerequisite, especially in contexts where an observer is used for
+The knowledge of a mobile robot's initial pose is a prerequisite in tasks
+involving its navigation, especially in contexts where an observer is used for
 pose tracking. However, not in all conditions is the robot's pose predictable
 or settable in advance, which gives rise to the need for its ad hoc estimation
 without priors. Various sensor and map modalities have been investigated in the
 literature; from 2D and 3D LIDAR sensors \cite{als_eth,Cop2018a}, RGBD cameras
 \cite{Guo2016}, and RFID equipment \cite{Tzitzis2023b}, to keyframe-based
-submaps \cite{Lowry2016} and metric maps \cite{Rosen2021}. The latter combined
-with 2D LIDAR sensors have become the de facto means of mobile robot
-localisation and navigation due to the sensor's high measurement precision and
-frequency, almost no need for preprocessing, and low cost compared to 3D LIDAR
-sensors.
+submaps \cite{Lowry2016} and metric maps \cite{Rosen2021}. In practice the
+latter combined with 2D LIDAR sensors have become the de facto means of mobile
+robot localisation and navigation due to the sensor's high measurement
+precision and frequency, almost no need for preprocessing, and low cost
+compared to 3D LIDAR sensors.
 
 This article addresses the problem of Passive Global Localisation of a 2D LIDAR
 sensor in a metric map, i.e. the estimation of its location and orientation
@@ -70,12 +70,13 @@ sensor's environment or the sensor's characteristics,
 trade accuracy for execution time.
 The central contributions of the article are:
 \begin{itemize}
-  \item To the best of the author's knowledge the fastest and most accurate
-        Monte Carlo global localisation method that employs a 2D LIDAR
+  \item To the best of the author's knowledge the fastest Monte Carlo global
+        localisation method that employs a 2D LIDAR that achieves higher
+        pose discovery rates than state-of-the-art methods
   \item The extension and validation of the CAER metric's ability to infer
         pose error hierarchies solely from real and virtual range scans,
         extended from scan--to--map-scan matching (\texttt{sm2}) during
-        pose-tracking (where pose errors are ``small") to the context of
+        pose-tracking, where pose errors are ``small", to the context of
         global localisation, where hypotheses' errors may be arbitrarily large
   \item The thorough evaluation of the proposed method against (a) established
         state-of-the-art localisation methods, (b) real and publicly available
