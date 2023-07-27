@@ -171,16 +171,17 @@ A.~Filotheou, A.~L. Symeonidis, G.~D. Sergiadis, and A.~G. Dimitriou,
   ``{Correspondenceless scan-to-map-scan matching of 2D panoramic range
   scans},'' \emph{Array}, 2023.
 
+\bibitem{Filotheou2023c}
+\BIBentryALTinterwordspacing
+A.~Filotheou, ``{CBGL: Fast Monte Carlo Passive Global Localisation of 2D LIDAR
+  Sensor},'' jul 2023. [Online]. Available:
+  \url{http://arxiv.org/abs/2307.14247}
+\BIBentrySTDinterwordspacing
+
 \bibitem{Vasiljevic2016c}
 G.~Vasiljevi{\'{c}}, D.~Mikli{\'{c}}, I.~Draganjac, Z.~Kova{\v{c}}i{\'{c}}, and
   P.~Lista, ``{High-accuracy vehicle localization for autonomous
   warehousing},'' \emph{Robotics and Computer-Integrated Manufacturing}, 2016.
-
-\bibitem{Vizzo2023}
-I.~Vizzo, T.~Guadagnino, B.~Mersch, L.~Wiesmann, J.~Behley, and C.~Stachniss,
-  ``{KISS-ICP: In Defense of Point-to-Point ICP – Simple, Accurate, and
-  Robust Registration If Done the Right Way},'' \emph{IEEE Robotics and
-  Automation Letters}, 2023.
 
 \bibitem{als_jp}
 N.~Akai, ``Reliable monte carlo localization for mobile robots,''

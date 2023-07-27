@@ -49,6 +49,7 @@
 \newlabel{section:sota}{{III}{2}{Related Work}{section.3}{}}
 \citation{Filotheou2022g}
 \citation{Filotheou2022f,Filotheou2023a}
+\citation{Filotheou2023c}
 \@writefile{toc}{\contentsline {section}{\numberline {IV}The CBGL method}{3}{section.4}}
 \newlabel{section:the_proposed_method}{{IV}{3}{The CBGL method}{section.4}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {IV-A}Motivation}{3}{subsection.4.1}}
@@ -60,27 +61,13 @@
 \newlabel{rem:remark_1}{{I}{3}{}{remark.1}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {IV-B}The CBGL System}{3}{subsection.4.2}}
 \citation{Vasiljevic2016c,Filotheou2023a}
-\citation{Filotheou2023a}
-\citation{Vizzo2023}
-\citation{Filotheou2022f}
+\citation{Filotheou2023c}
+\citation{Filotheou2023c}
+\citation{Filotheou2023c}
+\citation{Filotheou2023c}
+\citation{Filotheou2023c}
 \citation{Filotheou2022g}
-\newlabel{fig:cbgl}{{3a}{4}{Subfigure 3a}{subfigure.3.1}{}}
-\newlabel{sub@fig:cbgl}{{(a)}{a}{Subfigure 3a\relax }{subfigure.3.1}{}}
-\newlabel{fig:bottom_k}{{3b}{4}{Subfigure 3b}{subfigure.3.2}{}}
-\newlabel{sub@fig:bottom_k}{{(b)}{b}{Subfigure 3b\relax }{subfigure.3.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces \relax \fontsize  {9}{10pt}\selectfont  CBGL in block diagram form. Left: Given a LIDAR's 2D measurement $\mathcal  {S}_R$ and a map $\bm  {M}$, CBGL generates a set of pose hypotheses $\mathcal  {H}$ and estimates the $k$ hypotheses with the least pose error (right; alg. \ref  {alg:bottom_k}). Then it scan--to--map-scan matches those to $\mathcal  {S}_R$ for finer estimation (\texttt  {sm2}; alg. \ref  {alg:sm2}). CBGL's output pose estimate is that with the least CAER among the $k$ matched estimates. Right: CBGL's core method. Given $\mathcal  {S}_R$, $\bm  {M}$, and pose estimates $\mathcal  {P}$, it (a) computes and ranks the CAER values between $\mathcal  {S}_R$ and map-scans captured from $\mathcal  {P}$ within $\bm  {M}$, and (b) outputs the hypotheses with the $k$ lowest CAER values\relax }}{4}{figure.caption.3}}
-\newlabel{fig:block_system}{{3}{4}{\small CBGL in block diagram form. Left: Given a LIDAR's 2D measurement $\mathcal {S}_R$ and a map $\bm {M}$, CBGL generates a set of pose hypotheses $\mathcal {H}$ and estimates the $k$ hypotheses with the least pose error (right; alg. \ref {alg:bottom_k}). Then it scan--to--map-scan matches those to $\mathcal {S}_R$ for finer estimation (\texttt {sm2}; alg. \ref {alg:sm2}). CBGL's output pose estimate is that with the least CAER among the $k$ matched estimates. Right: CBGL's core method. Given $\mathcal {S}_R$, $\bm {M}$, and pose estimates $\mathcal {P}$, it (a) computes and ranks the CAER values between $\mathcal {S}_R$ and map-scans captured from $\mathcal {P}$ within $\bm {M}$, and (b) outputs the hypotheses with the $k$ lowest CAER values\relax }{figure.caption.3}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {V}Experimental Evaluation}{4}{section.5}}
-\newlabel{section:results}{{V}{4}{Experimental Evaluation}{section.5}{}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {I}{\ignorespaces \texttt  {CBGL}\relax }}{4}{algorithm.1}}
-\newlabel{alg:cbgl:h}{{6}{4}{\texttt {CBGL}\relax }{ALC@unique.6}{}}
-\newlabel{alg:cbgl:h1}{{9}{4}{\texttt {CBGL}\relax }{ALC@unique.9}{}}
-\newlabel{alg:cbgl:h2}{{13}{4}{\texttt {CBGL}\relax }{ALC@unique.13}{}}
-\newlabel{alg:cbgl}{{I}{4}{\texttt {CBGL}\relax }{ALC@unique.15}{}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {II}{\ignorespaces \texttt  {bottom}\_$k$\_\texttt  {poses}\relax }}{4}{algorithm.2}}
-\newlabel{alg:bottom_k}{{II}{4}{\texttt {bottom}\_$k$\_\texttt {poses}\relax }{ALC@unique.30}{}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {III}{\ignorespaces \texttt  {sm2}\relax }}{4}{algorithm.3}}
-\newlabel{alg:sm2}{{III}{4}{\texttt {sm2}\relax }{ALC@unique.33}{}}
+\citation{Filotheou2023c}
 \citation{als_jp}
 \citation{als_eth}
 \citation{Censi2008c}
@@ -88,35 +75,43 @@
 \citation{mcl}
 \citation{gmcl}
 \citation{Filotheou2023a}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces \relax \fontsize  {9}{10pt}\selectfont  The map of the real environment CSAL (black), the trajectory of the sensor (blue), and CBGL's estimated positions of the sensor (green). Sensor poses for which CBGL's output exhibits position error larger than $\delta _{\bm  {l}} = 0.5$ m are marked with red, sources of great range noise with cyan, and regions around doors with purple. A total of $N_S = 6669$ pose estimations take place. Estimation is performed for each sensor pose independently of previous estimates and measurements\relax }}{5}{figure.caption.5}}
-\newlabel{fig:a:map_and_trajectory}{{5}{5}{\small The map of the real environment CSAL (black), the trajectory of the sensor (blue), and CBGL's estimated positions of the sensor (green). Sensor poses for which CBGL's output exhibits position error larger than $\delta _{\bm {l}} = 0.5$ m are marked with red, sources of great range noise with cyan, and regions around doors with purple. A total of $N_S = 6669$ pose estimations take place. Estimation is performed for each sensor pose independently of previous estimates and measurements\relax }{figure.caption.5}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {V-A}Experiments in real conditions}{5}{subsection.5.1}}
-\newlabel{subsec:exp_a}{{V-A}{5}{Experiments in real conditions}{subsection.5.1}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces \relax \fontsize  {9}{10pt}\selectfont  Top row and right column: histograms of the number of times when exactly $n \in [0,k] = [0,10]$ pose estimates belonging to set $\mathcal  {H}_1$ exhibited pose errors lower than $\delta = (\delta _{\bm  {l}}^2 + \delta _{\theta }^2)^{1/2} = (0.3^2 + 0.4^2)^{1/2} = 0.5$ (m$^2$ + rad$^2$)$^{1/2}$. For densities $(d_{\bm  {l}},d_{\alpha }) = (40, 2^5)$ this number is strictly increasing with $n$. Middle block: percent proportion of pose estimates whose pose error is lower than $\delta $ for varying field densities. Bottom block: the distribution of corresponding execution times\relax }}{5}{figure.caption.4}}
-\newlabel{fig:a:determine_40_32}{{4}{5}{\small Top row and right column: histograms of the number of times when exactly $n \in [0,k] = [0,10]$ pose estimates belonging to set $\mathcal {H}_1$ exhibited pose errors lower than $\delta = (\delta _{\bm {l}}^2 + \delta _{\theta }^2)^{1/2} = (0.3^2 + 0.4^2)^{1/2} = 0.5$ (m$^2$ + rad$^2$)$^{1/2}$. For densities $(d_{\bm {l}},d_{\alpha }) = (40, 2^5)$ this number is strictly increasing with $n$. Middle block: percent proportion of pose estimates whose pose error is lower than $\delta $ for varying field densities. Bottom block: the distribution of corresponding execution times\relax }{figure.caption.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {V-B}Simulations against sources of uncertainty}{5}{subsection.5.2}}
-\newlabel{subsec:exp_b}{{V-B}{5}{Simulations against sources of uncertainty}{subsection.5.2}{}}
+\newlabel{fig:cbgl}{{3a}{4}{Subfigure 3a}{subfigure.3.1}{}}
+\newlabel{sub@fig:cbgl}{{(a)}{a}{Subfigure 3a\relax }{subfigure.3.1}{}}
+\newlabel{fig:bottom_k}{{3b}{4}{Subfigure 3b}{subfigure.3.2}{}}
+\newlabel{sub@fig:bottom_k}{{(b)}{b}{Subfigure 3b\relax }{subfigure.3.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces \relax \fontsize  {9}{10pt}\selectfont  CBGL in block diagram form. Left: Given a LIDAR's 2D measurement $\mathcal  {S}_R$ and a map $\bm  {M}$, CBGL generates a set of pose hypotheses $\mathcal  {H}$ and estimates the $k$ hypotheses with the least pose error (right; alg. II \cite  {Filotheou2023c}). Then it scan--to--map-scan matches those to $\mathcal  {S}_R$ for finer estimation (\texttt  {sm2}; alg. III \cite  {Filotheou2023c}). CBGL's output pose estimate is that with the least CAER among the $k$ matched estimates. Right: CBGL's core method. Given $\mathcal  {S}_R$, $\bm  {M}$, and pose estimates $\mathcal  {P}$, it (a) computes and ranks the CAER values between $\mathcal  {S}_R$ and map-scans captured from $\mathcal  {P}$ within $\bm  {M}$, and (b) outputs the hypotheses with the $k$ lowest CAER values\relax }}{4}{figure.caption.3}}
+\newlabel{fig:block_system}{{3}{4}{\small CBGL in block diagram form. Left: Given a LIDAR's 2D measurement $\mathcal {S}_R$ and a map $\bm {M}$, CBGL generates a set of pose hypotheses $\mathcal {H}$ and estimates the $k$ hypotheses with the least pose error (right; alg. II \cite {Filotheou2023c}). Then it scan--to--map-scan matches those to $\mathcal {S}_R$ for finer estimation (\texttt {sm2}; alg. III \cite {Filotheou2023c}). CBGL's output pose estimate is that with the least CAER among the $k$ matched estimates. Right: CBGL's core method. Given $\mathcal {S}_R$, $\bm {M}$, and pose estimates $\mathcal {P}$, it (a) computes and ranks the CAER values between $\mathcal {S}_R$ and map-scans captured from $\mathcal {P}$ within $\bm {M}$, and (b) outputs the hypotheses with the $k$ lowest CAER values\relax }{figure.caption.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {V}Experimental Evaluation}{4}{section.5}}
+\newlabel{section:results}{{V}{4}{Experimental Evaluation}{section.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {V-A}Experiments in real conditions}{4}{subsection.5.1}}
+\newlabel{subsec:exp_a}{{V-A}{4}{Experiments in real conditions}{subsection.5.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {V-B}Simulations against sources of uncertainty}{4}{subsection.5.2}}
+\newlabel{subsec:exp_b}{{V-B}{4}{Simulations against sources of uncertainty}{subsection.5.2}{}}
 \citation{Filotheou2023a}
 \citation{datasets_link}
 \citation{ndt}
 \citation{fgi}
 \citation{fvg}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces \relax \fontsize  {9}{10pt}\selectfont  Proportions of pose estimates whose position and orientation error is lower than corresponding thresholds $\delta _{\bm  {l}}$ and $\delta _{\theta }$. Top: ALS vs CBGL. Bottom: CBGL and internal pose estimate sets. Approximately $77\%$ of all bottom-$k$ pose estimates---the contents of $\mathcal  {H}_1$ sets, populated via rank fields as described in sections \ref  {section:definitions} and \ref  {section:the_proposed_method}---exhibit position errors lower than $\delta _{\bm  {l}} = 0.5$ m for $k=10$, and so do over $99\%$ of CBGL's final pose estimates. The improvement in position and orientation induced by scan--to--map-scan matching is captured by the difference between the output (i.e. $\mathcal  {H}_2[\qopname  \relax o{arg}\qopname  \relax m{min}f_{\psi }^{\bm  {M}}(\mathcal  {H}_2)]$) and $\mathcal  {H}_1[\qopname  \relax o{arg}\qopname  \relax m{min}f_{\psi }^{\bm  {M}}(\mathcal  {H}_2)]$\relax }}{6}{figure.caption.6}}
-\newlabel{fig:a:awesomeness}{{6}{6}{\small Proportions of pose estimates whose position and orientation error is lower than corresponding thresholds $\delta _{\bm {l}}$ and $\delta _{\theta }$. Top: ALS vs CBGL. Bottom: CBGL and internal pose estimate sets. Approximately $77\%$ of all bottom-$k$ pose estimates---the contents of $\mathcal {H}_1$ sets, populated via rank fields as described in sections \ref {section:definitions} and \ref {section:the_proposed_method}---exhibit position errors lower than $\delta _{\bm {l}} = 0.5$ m for $k=10$, and so do over $99\%$ of CBGL's final pose estimates. The improvement in position and orientation induced by scan--to--map-scan matching is captured by the difference between the output (i.e. $\mathcal {H}_2[\arg \min f_{\psi }^{\bm {M}}(\mathcal {H}_2)]$) and $\mathcal {H}_1[\arg \min f_{\psi }^{\bm {M}}(\mathcal {H}_2)]$\relax }{figure.caption.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces \relax \fontsize  {9}{10pt}\selectfont  Top row and right column: histograms of the number of times when exactly $n \in [0,k] = [0,10]$ pose estimates belonging to set $\mathcal  {H}_1$ exhibited pose errors lower than $\delta = (\delta _{\bm  {l}}^2 + \delta _{\theta }^2)^{1/2} = (0.3^2 + 0.4^2)^{1/2} = 0.5$ (m$^2$ + rad$^2$)$^{1/2}$. For densities $(d_{\bm  {l}},d_{\alpha }) = (40, 2^5)$ this number is strictly increasing with $n$. Middle block: percent proportion of pose estimates whose pose error is lower than $\delta $ for varying field densities. Bottom block: the distribution of corresponding execution times\relax }}{5}{figure.caption.4}}
+\newlabel{fig:a:determine_40_32}{{4}{5}{\small Top row and right column: histograms of the number of times when exactly $n \in [0,k] = [0,10]$ pose estimates belonging to set $\mathcal {H}_1$ exhibited pose errors lower than $\delta = (\delta _{\bm {l}}^2 + \delta _{\theta }^2)^{1/2} = (0.3^2 + 0.4^2)^{1/2} = 0.5$ (m$^2$ + rad$^2$)$^{1/2}$. For densities $(d_{\bm {l}},d_{\alpha }) = (40, 2^5)$ this number is strictly increasing with $n$. Middle block: percent proportion of pose estimates whose pose error is lower than $\delta $ for varying field densities. Bottom block: the distribution of corresponding execution times\relax }{figure.caption.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces \relax \fontsize  {9}{10pt}\selectfont  The map of the real environment CSAL (black), the trajectory of the sensor (blue), and CBGL's estimated positions of the sensor (green). Sensor poses for which CBGL's output exhibits position error larger than $\delta _{\bm  {l}} = 0.5$ m are marked with red, sources of great range noise with cyan, and regions around doors with purple. A total of $N_S = 6669$ pose estimations take place. Estimation is performed for each sensor pose independently of previous estimates and measurements\relax }}{5}{figure.caption.5}}
+\newlabel{fig:a:map_and_trajectory}{{5}{5}{\small The map of the real environment CSAL (black), the trajectory of the sensor (blue), and CBGL's estimated positions of the sensor (green). Sensor poses for which CBGL's output exhibits position error larger than $\delta _{\bm {l}} = 0.5$ m are marked with red, sources of great range noise with cyan, and regions around doors with purple. A total of $N_S = 6669$ pose estimations take place. Estimation is performed for each sensor pose independently of previous estimates and measurements\relax }{figure.caption.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces \relax \fontsize  {9}{10pt}\selectfont  Proportions of pose estimates whose position and orientation error is lower than corresponding thresholds $\delta _{\bm  {l}}$ and $\delta _{\theta }$. Top: ALS vs CBGL. Bottom: CBGL and internal pose estimate sets. Approximately $77\%$ of all bottom-$k$ pose estimates---the contents of $\mathcal  {H}_1$ sets, populated via rank fields as described in sections \ref  {section:definitions} and \ref  {section:the_proposed_method}---exhibit position errors lower than $\delta _{\bm  {l}} = 0.5$ m for $k=10$, and so do over $99\%$ of CBGL's final pose estimates. The improvement in position and orientation induced by scan--to--map-scan matching is captured by the difference between the output (i.e. $\mathcal  {H}_2[\qopname  \relax o{arg}\qopname  \relax m{min}f_{\psi }^{\bm  {M}}(\mathcal  {H}_2)]$) and $\mathcal  {H}_1[\qopname  \relax o{arg}\qopname  \relax m{min}f_{\psi }^{\bm  {M}}(\mathcal  {H}_2)]$\relax }}{5}{figure.caption.6}}
+\newlabel{fig:a:awesomeness}{{6}{5}{\small Proportions of pose estimates whose position and orientation error is lower than corresponding thresholds $\delta _{\bm {l}}$ and $\delta _{\theta }$. Top: ALS vs CBGL. Bottom: CBGL and internal pose estimate sets. Approximately $77\%$ of all bottom-$k$ pose estimates---the contents of $\mathcal {H}_1$ sets, populated via rank fields as described in sections \ref {section:definitions} and \ref {section:the_proposed_method}---exhibit position errors lower than $\delta _{\bm {l}} = 0.5$ m for $k=10$, and so do over $99\%$ of CBGL's final pose estimates. The improvement in position and orientation induced by scan--to--map-scan matching is captured by the difference between the output (i.e. $\mathcal {H}_2[\arg \min f_{\psi }^{\bm {M}}(\mathcal {H}_2)]$) and $\mathcal {H}_1[\arg \min f_{\psi }^{\bm {M}}(\mathcal {H}_2)]$\relax }{figure.caption.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {V-C}Simulations against environmental and \texttt  {sm2} algorithmic disparity}{5}{subsection.5.3}}
+\newlabel{subsec:exp_c}{{V-C}{5}{Simulations against environmental and \texttt {sm2} algorithmic disparity}{subsection.5.3}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces \relax \fontsize  {9}{10pt}\selectfont  Percent proportions of pose outputs whose position error is lower than $\delta _{\bm  {l}} = 0.5$ m per tested environment, pose, and method. Overall CBGL (green) features the highest number of inlier poses\relax }}{6}{figure.caption.7}}
 \newlabel{fig:b:inliers_per_pose}{{7}{6}{\small Percent proportions of pose outputs whose position error is lower than $\delta _{\bm {l}} = 0.5$ m per tested environment, pose, and method. Overall CBGL (green) features the highest number of inlier poses\relax }{figure.caption.7}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces \relax \fontsize  {9}{10pt}\selectfont  Distribution of execution times per tested environment and algorithm in seconds for $N_s = 360$ rays. CBGL's execution time is at least eighteen times lower than other Monte Carlo approaches in WILLOWGARAGE and four times lower in WAREHOUSE\relax }}{6}{figure.caption.8}}
 \newlabel{fig:b:execution_times}{{8}{6}{\small Distribution of execution times per tested environment and algorithm in seconds for $N_s = 360$ rays. CBGL's execution time is at least eighteen times lower than other Monte Carlo approaches in WILLOWGARAGE and four times lower in WAREHOUSE\relax }{figure.caption.8}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {V-C}Simulations against environmental and \texttt  {sm2} algorithmic disparity}{6}{subsection.5.3}}
-\newlabel{subsec:exp_c}{{V-C}{6}{Simulations against environmental and \texttt {sm2} algorithmic disparity}{subsection.5.3}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces \relax \fontsize  {9}{10pt}\selectfont  Distributions of positional and orientational errors and of execution time of CBGL for varying choices of scan--to--map-scan matching methods. The errors of CBGL's internal $\mathcal  {H}_1$ set are virtually unaffected by the decrease in angular range $\lambda $ ($\lambda _{\text  {NDT}} = \lambda _{\text  {FastGICP}} = \lambda _{\text  {FastVGICP}} = 3\pi /2 \not =\lambda _{\texttt  {x1}} = 2\pi $) \relax }}{7}{figure.caption.9}}
-\newlabel{fig:c:errors_and_time}{{9}{7}{\small Distributions of positional and orientational errors and of execution time of CBGL for varying choices of scan--to--map-scan matching methods. The errors of CBGL's internal $\mathcal {H}_1$ set are virtually unaffected by the decrease in angular range $\lambda $ ($\lambda _{\text {NDT}} = \lambda _{\text {FastGICP}} = \lambda _{\text {FastVGICP}} = 3\pi /2 \neq \lambda _{\texttt {x1}} = 2\pi $) \relax }{figure.caption.9}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces \relax \fontsize  {9}{10pt}\selectfont  Left: CBGL's execution time with respect to environment area for two choices of overlying scan--to--map-scan matching methods. In rough terms $\mu _t^{\text  {CBGL}} \text  { [sec]} \simeq 10^{-2}\cdot area \text  { [} \text  {m}^2 \text  {]}$ for areas larger than 200 m$^2$. Right: Proportion of CBGL $\circ $ \texttt  {x1}'s total execution time spent on (a) all operations up to and except for matching, and (b) computing map-scans, with respect to area\relax }}{7}{figure.caption.10}}
-\newlabel{fig:c:time_analysis}{{10}{7}{\small Left: CBGL's execution time with respect to environment area for two choices of overlying scan--to--map-scan matching methods. In rough terms $\mu _t^{\text {CBGL}} \text { [sec]} \simeq 10^{-2}\cdot area \text { [} \text {m}^2 \text {]}$ for areas larger than 200 m$^2$. Right: Proportion of CBGL $\circ $ \texttt {x1}'s total execution time spent on (a) all operations up to and except for matching, and (b) computing map-scans, with respect to area\relax }{figure.caption.10}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {VI}Characterisation \& Limitations}{7}{section.6}}
-\newlabel{section:characterisation}{{VI}{7}{Characterisation \& Limitations}{section.6}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {VII}Conclusions and Future Steps}{7}{section.7}}
-\newlabel{section:finale}{{VII}{7}{Conclusions and Future Steps}{section.7}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {VI}Characterisation \& Limitations}{6}{section.6}}
+\newlabel{section:characterisation}{{VI}{6}{Characterisation \& Limitations}{section.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces \relax \fontsize  {9}{10pt}\selectfont  Distributions of positional and orientational errors and of execution time of CBGL for varying choices of scan--to--map-scan matching methods. The errors of CBGL's internal $\mathcal  {H}_1$ set are virtually unaffected by the decrease in angular range $\lambda $ ($\lambda _{\text  {NDT}} = \lambda _{\text  {FastGICP}} = \lambda _{\text  {FastVGICP}} = 3\pi /2 \not =\lambda _{\texttt  {x1}} = 2\pi $) \relax }}{6}{figure.caption.9}}
+\newlabel{fig:c:errors_and_time}{{9}{6}{\small Distributions of positional and orientational errors and of execution time of CBGL for varying choices of scan--to--map-scan matching methods. The errors of CBGL's internal $\mathcal {H}_1$ set are virtually unaffected by the decrease in angular range $\lambda $ ($\lambda _{\text {NDT}} = \lambda _{\text {FastGICP}} = \lambda _{\text {FastVGICP}} = 3\pi /2 \neq \lambda _{\texttt {x1}} = 2\pi $) \relax }{figure.caption.9}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces \relax \fontsize  {9}{10pt}\selectfont  Left: CBGL's execution time with respect to environment area for two choices of overlying scan--to--map-scan matching methods. In rough terms $\mu _t^{\text  {CBGL}} \text  { [sec]} \simeq 10^{-2}\cdot area \text  { [} \text  {m}^2 \text  {]}$ for areas larger than 200 m$^2$. Right: Proportion of CBGL $\circ $ \texttt  {x1}'s total execution time spent on (a) all operations up to and except for matching, and (b) computing map-scans, with respect to area\relax }}{6}{figure.caption.10}}
+\newlabel{fig:c:time_analysis}{{10}{6}{\small Left: CBGL's execution time with respect to environment area for two choices of overlying scan--to--map-scan matching methods. In rough terms $\mu _t^{\text {CBGL}} \text { [sec]} \simeq 10^{-2}\cdot area \text { [} \text {m}^2 \text {]}$ for areas larger than 200 m$^2$. Right: Proportion of CBGL $\circ $ \texttt {x1}'s total execution time spent on (a) all operations up to and except for matching, and (b) computing map-scans, with respect to area\relax }{figure.caption.10}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {VII}Conclusions and Future Steps}{6}{section.7}}
+\newlabel{section:finale}{{VII}{6}{Conclusions and Future Steps}{section.7}{}}
 \bibstyle{ieeetran}
 \bibdata{./sections/bibliography_ieee}
 \bibcite{als_eth}{1}
@@ -145,12 +140,12 @@
 \bibcite{Filotheou2022g}{24}
 \bibcite{Filotheou2022f}{25}
 \bibcite{Filotheou2023a}{26}
-\bibcite{Vasiljevic2016c}{27}
-\bibcite{Vizzo2023}{28}
+\bibcite{Filotheou2023c}{27}
+\bibcite{Vasiljevic2016c}{28}
 \bibcite{als_jp}{29}
 \bibcite{Censi2008c}{30}
 \bibcite{datasets_link}{31}
 \bibcite{ndt}{32}
 \bibcite{fgi}{33}
 \bibcite{fvg}{34}
-\@writefile{toc}{\contentsline {section}{References}{8}{section*.11}}
+\@writefile{toc}{\contentsline {section}{References}{7}{section*.11}}
