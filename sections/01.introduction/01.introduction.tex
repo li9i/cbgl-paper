@@ -73,11 +73,12 @@ The central contributions of the article are:
   \item To the best of the author's knowledge the fastest Monte Carlo global
         localisation method that employs a 2D LIDAR that achieves higher
         pose discovery rates than state-of-the-art methods
-  \item The extension and validation of the CAER metric's ability to infer
+  \item The extension and validation of the CAER metric's ability to estimate
         pose error hierarchies solely from real and virtual range scans,
         extended from scan--to--map-scan matching (\texttt{sm2}) during
-        pose-tracking, where pose errors are ``small", to the context of
-        global localisation, where hypotheses' errors may be arbitrarily large
+        pose-tracking, where pose estimates are ``few" ($\leq$$2^5$) and
+        their errors are ``small", to the context of global localisation, where
+        the set of hypotheses and their errors may be arbitrarily large
   \item The thorough evaluation of the proposed method against (a) established
         state-of-the-art localisation methods, (b) real and publicly available
         benchmark conditions, and (c) varying characteristics of environments
