@@ -1,21 +1,20 @@
 The knowledge of a mobile robot's initial pose is a prerequisite in tasks
 involving its navigation, especially in contexts where an observer is used for
-pose tracking. However, not in all conditions is the robot's pose predictable
-or settable in advance, which gives rise to the need for its ad hoc estimation
-without priors. Various sensor and map modalities have been investigated in the
-literature; from 2D and 3D LIDAR sensors \cite{als_eth,Cop2018a}, RGBD cameras
-\cite{Guo2016}, and RFID equipment \cite{Tzitzis2023b}, to keyframe-based
-submaps \cite{Lowry2016} and metric maps \cite{Rosen2021}. In practice the
-latter combined with 2D LIDAR sensors have become the de facto means of mobile
-robot localisation and navigation due to the sensor's high measurement
-precision and frequency, almost no need for preprocessing, and low cost
-compared to 3D LIDAR sensors.
+pose tracking. However, the robot's pose is not predictable or pre-settable in
+all conditions. This lack of predictability necessitates ad hoc estimation
+without prior information. Various sensor and map modalities have been
+investigated in the literature; from 2D and 3D LIDAR sensors
+\cite{als_eth,Cop2018a}, RGBD cameras \cite{Guo2016}, and RFID equipment
+\cite{Tzitzis2023b}, to keyframe-based submaps \cite{Lowry2016} and metric maps
+\cite{Rosen2021}. In practice the latter combined with 2D LIDAR sensors have
+become the de facto means of mobile robot localisation and navigation due to
+the sensor's high measurement precision and frequency, almost no need for
+preprocessing, and low cost compared to 3D LIDAR sensors.
 
 This article addresses the problem of Passive Global Localisation of a 2D LIDAR
 sensor in a metric map, i.e. the estimation of its location and orientation
 within the map, under complete locational and orientational uncertainty,
 without prescribing robot motion commands
-%(to the mobile robot that the sensor is assumed mounted to)
 for further knowledge acquisition. The problem is
 formalised in Problem \ref{prob:the_problem}:
 
@@ -23,9 +22,9 @@ formalised in Problem \ref{prob:the_problem}:
 \begin{customprb}{P}
   \label{prob:the_problem}
   Let the unknown pose of an immobile 2D range sensor whose angular range is
-  $\lambda$ be $\bm{p}(x,y,\theta)$, with respect to the
-  reference frame of map $\bm{M}$. Let the range sensor measure range scan
-  $\mathcal{S}_R$. The objective is the estimation of $\bm{p}$ given $\bm{M}$,
+  $\lambda$ be $\bm{p}(x,y,\theta)$ with respect to the
+  reference frame of map $\bm{M}$. Let the sensor measure range scan
+  $\mathcal{S}_R$. The objective is estimation of $\bm{p}$ given $\bm{M}$,
   $\lambda$, and $\mathcal{S}_R$.
 \end{customprb}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

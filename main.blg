@@ -10,11 +10,6 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: ./sections/bibliography_ieee.bib
 Warning--entry type for "datasets_link" isn't style-file defined
 --line 171 of file ./sections/bibliography_ieee.bib
-You're missing a field name---line 359 of file ./sections/bibliography_ieee.bib
- : 
- : %archivePrefix = {arXiv},
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
 -- IEEEtran.bst version 1.12 (2007/01/11) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
@@ -62,4 +57,4 @@ warning$ -- 1
 while$ -- 122
 width$ -- 36
 write$ -- 342
-(There was 1 error message)
+(There were 2 warnings)

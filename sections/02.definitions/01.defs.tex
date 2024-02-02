@@ -24,12 +24,12 @@ $\mathcal{A}_{k:l}= \{\mathcal{A}[k], \mathcal{A}[k+1], \dots, \mathcal{A}[l]\}$
   \label{def:definition_2} \textit{Map-scan}.---A map-scan is a virtual scan
   that encapsulates the same pieces of information as a scan derived from a
   physical sensor (Def. \ref{def:definition_1}). Contrary to the latter it
-  refers to distances within a map $\bm{M}$ rather than within a real
-  environment; the latter is represented by $\bm{M}$ usually in Occupancy Grid
-  or ordered Point Cloud form. A map-scan
+  refers to distances within a map $\bm{M}$ of an environment rather than within
+  the environment itself; the latter is represented by $\bm{M}$ usually in
+  Occupancy Grid or ordered Point Cloud form. A map-scan
   $\mathcal{S}_V^{\bm{M}}(\hat{\bm{p}})$ is derived by locating intersections
-  of rays emanating from a sensor's pose estimate
-  $\hat{\bm{p}}$ and the boundaries of $\bm{M}$.
+  of rays emanating from a sensor's pose estimate $\hat{\bm{p}}$ and the
+  boundaries of $\bm{M}$.
 \end{definition}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -76,7 +76,7 @@ $\mathcal{A}_{k:l}= \{\mathcal{A}[k], \mathcal{A}[k+1], \dots, \mathcal{A}[l]\}$
   $f_{\texttt{r}}^{\bm{M}}(\mathcal{P}[\texttt{I}^\ast]) = \texttt{I}$.
   %(equivalently:
   %$f_{\texttt{r}}^{\bm{M}}(\mathcal{P}) = \texttt{I}^\ast$)
-  A rank field maps the elements of
+  In other words a rank field maps the elements of
   %pose estimate
   set $\{\hat{\bm{p}}_i\}$
   to the ranks $\texttt{I}^\ast$ of their corresponding CAER values in
@@ -86,10 +86,9 @@ $\mathcal{A}_{k:l}= \{\mathcal{A}[k], \mathcal{A}[k+1], \dots, \mathcal{A}[l]\}$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{definition}
   \label{def:definition_6} \textit{Field densities}.---The locational and
-  angular density, $d_{\bm{l}}$ and $d_{\alpha}$ respectively, of a
-  $\psi$- or $r$-field express, correspondingly, the number of pose estimates
-  per unit area of space and per angular cycle, where
-  $d_{\bm{l}}, d_{\alpha} \in \mathbb{N}$.
+  angular density, $d_{\bm{l}}, d_{\alpha} \in \mathbb{N}$, of a $\psi$- or
+  $r$-field respectively denote the number of pose estimates dispersed on a
+  given map $\bm{M}$ per unit area of space and per angular cycle.
 \end{definition}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
