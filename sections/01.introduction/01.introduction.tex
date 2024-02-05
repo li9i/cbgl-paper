@@ -12,7 +12,7 @@ the sensor's high measurement precision and frequency, almost no need for
 preprocessing, and low cost compared to 3D LIDAR sensors.
 
 This article addresses the problem of Passive Global Localisation of a 2D LIDAR
-sensor in a metric map, i.e. the estimation of its location and orientation
+sensor in a 2D metric map, i.e. the estimation of its location and orientation
 within the map, under complete locational and orientational uncertainty,
 without prescribing robot motion commands
 for further knowledge acquisition. The problem is
@@ -22,41 +22,28 @@ formalised in Problem \ref{prob:the_problem}:
 \begin{customprb}{P}
   \label{prob:the_problem}
   Let the unknown pose of an immobile 2D range sensor whose angular range is
-  $\lambda$ be $\bm{p}(x,y,\theta)$ with respect to the
-  reference frame of map $\bm{M}$. Let the sensor measure range scan
-  $\mathcal{S}_R$. The objective is estimation of $\bm{p}$ given $\bm{M}$,
+  $\lambda$ be $\bm{p}(\bm{l},\theta)$, $\bm{l} = (x,y)$, with respect to the
+  reference frame of map $\bm{M}$. Let the range sensor measure range scan
+  $\mathcal{S}_R$. The objective is the estimation of $\bm{p}$ given $\bm{M}$,
   $\lambda$, and $\mathcal{S}_R$.
 \end{customprb}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{figure}\vspace{0.4em}
-  \subfloat{\input{./figures/face_top.tex}    \label{fig:a}} \vspace{-1.7cm}\\
-  \subfloat{\hspace{-0.3cm}\input{./figures/face_bottom.tex} \label{fig:b}}
-  \caption{\small
-           Given a LIDAR sensor's 2D measurement, at its core, CBGL disperses
-           pose hypotheses within the map and ranks them ascendingly according
-           to the value of the Cumulative Absolute Error per Ray (CAER) metric.
-           %The latter's inputs comprise the input measurement and the map-scan
-           %captured from each hypothesis.
-           This produces a
-           \texttt{r}(ank)-field which may be used to estimate the pose of the
-           sensor (a) quickly due to the metric's low computational complexity,
-           and (b) accurately due to (i) proportionality between the pose
-           estimate error and the value of the metric for pose estimates in a
-           neighbourhood of the sensor's pose, and (ii) lack of
-           disproportionality outside of that neighbourhood.  Top: a map of an
-           environment, the pose of a panoramic 2D LIDAR sensor (magenta), and
-           the corresponding CAER rank field below them. Bottom: distribution
-           of CAER values by location $\Delta \hat{\bm{l}}$ and orientation
-           error $\Delta \hat{\theta}$ of all sensor pose hypotheses
-           corresponding to the rank field above, for estimate position errors
-           up to $2.0$ m
-           %In this example $10^6$ hypotheses are dispersed
-           %randomly in the free space of the map whose area is $735$ m$^2$, for
-           %$100$ independent trials; CBGL's maximum location error and maximum
-           %execution time are, respectively, $0.062$ m and $8.8$ sec
+  \input{./figures/face_top.tex}
+  \vspace{-1.65cm}
+  \caption{\small Top: the map of an environment and the pose of a panoramic 2D
+           LIDAR sensor (magenta). Given a LIDAR sensor's 2D measurement, at its
+           core, CBGL disperses pose hypotheses within the map and ranks them
+           ascendingly (bottom) according to the value of the Cumulative
+           Absolute Error per Ray metric (CAER; Eq. (\ref{eq:caer})). This
+           ranking may estimate the pose of the sensor (a) quickly due to the
+           metric's low computational complexity, and (b) accurately due to (i)
+           proportionality between the pose estimate error and the value of the
+           metric for pose estimates in a neighbourhood of the sensor's pose,
+           and (ii) lack of disproportionality outside of that neighbourhood
+           (Fig. \ref{fig:motivation_caer})
            }
-  \vspace{-0.65cm}
   \label{fig:face}
 \end{figure}
 

@@ -2,79 +2,37 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Motivation}
 
-The proposed method's motivation lies in the simple but powerful fact that is,
-in general, exhibited through figure \ref{fig:face}: Assume a pose estimate
-residing in a neighbourhood of a 2D LIDAR sensor's pose within a given map;
-then the value of the CAER metric between the scan measured by the sensor and
-the map-scan captured from the estimate within the map is simultaneously
-proportional to both the estimate's location error and orientation error.
-Formally the proposed method's foundations rest on Observation
-\ref{obs:observation_o}:
+The proposed method's motivation lies in the simple but powerful fact that, is
+in general, exhibited through fig. \ref{fig:motivation_caer}: Let a pose
+estimate be in a neighbourhood of a 2D LIDAR sensor's pose within a given map
+(Def. \ref{def:definition_0}); then the value of the CAER metric (Def.
+\ref{def:definition_3}) between the scan measured by the sensor (Def.
+\ref{def:definition_1}) and the map-scan captured from the estimate within the
+map (Def. \ref{def:definition_2}) is simultaneously proportional to both the
+estimate's location error and orientation error. In other words comparing any
+two pose estimates residing in a neighbourhood of the sensor's true pose in
+terms of a scalar computable value that is associated with them is enough to
+establish a pose error hierarchy between them. This relationship of
+proportionality has been discovered and successfully exploited in the context
+of non-global localisation, i.e. production of lidar odometry
+\cite{Filotheou2022f} and pose tracking \cite{Filotheou2023a}.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{customobs}{O}
-  \label{obs:observation_o} It may be observed that there are conditions such
-  that Hypothesis \ref{hpt:hypothesis_h} stands true.
-\end{customobs}
+\begin{figure}\vspace{-1.5cm}
+  \subfloat{\hspace{0.5cm}\input{./figures/caer_all.tex}}\vspace{-1.5cm}\\
+  \subfloat{\hspace{-0.3cm}\input{./figures/face_bottom.tex}}
+  \caption{\small Top: without loss o generality, a typical plot of the
+           Cumulative Absolute Error per Ray metric (Eq. (\ref{eq:caer})) of
+           $10^6$ hypotheses on environment WAREHOUSE (Fig. \ref{fig:face} and
+           section \ref{subsec:exp_b}). Bottom: focused view on
+           hypotheses with location error close to the origin}
+  \vspace{-0.5cm}
+  \label{fig:motivation_caer}
+\end{figure}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{customhpt}{H}
-  \label{hpt:hypothesis_h}
-  There exists $\hat{\bm{p}} \in  \mathbb{R}^2 \times [-\pi,+\pi)$ such that
-  $\hat{\bm{p}} \in \mathcal{V}: \|\bm{p}-\hat{\bm{p}}\|_2 \leq \delta \leq \delta_0$
-  is an admissible pose estimate solution to Problem \ref{prob:the_problem}
-  (Def. \ref{def:definition_7}), where set $\mathcal{V}$ and $\delta_0$ are
-  defined by Conjecture
-  \ref{cnj:conjecture_c}.
-\end{customhpt}
+%THE HYPOTHESIS IS ... (we say that in a neighbourhood all is well. the hyp. is the generalisation)
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{customcnj}{C}
-  \label{cnj:conjecture_c}
-  Let the unknown pose of a 2D range sensor measuring range scan $\mathcal{S}_R$
-  (Def. \ref{def:definition_1}) be $\bm{p}(x,y,\theta)$ with respect to the
-  reference frame of map $\bm{M}$.
-  Let $\mathcal{H}$ be a set of pose hypotheses within the free (i.e.
-  traversable) space of $\bm{M}$:
-  $\mathcal{H} = \{\hat{\bm{p}}_i(\hat{x}_i,\hat{y}_i,\hat{\theta}_i)\} \subseteq \texttt{free}(\bm{M})$,
-  $i \in \texttt{I} = \langle 0,1,\dots,|\mathcal{H}|-1\rangle$.
-  Let $f_{\psi}^{\bm{M}}$ be the $\psi$-field on $\bm{M}$
-  (Def. \ref{def:definition_4}) such that $f_{\psi}^{\bm{M}}(\mathcal{H})= \Psi$.
-  Let the field's locational and orientational densities be
-  $d_{\bm{l}}$ and $d_{\alpha}$.
-  Let $\hat{\bm{p}}_\omega \in \mathcal{H}$ and $\psi_0,\delta_0 \in \mathbb{R}_{>0}$
-  such that $f_{\psi}^{\bm{M}}(\hat{\bm{p}}_\omega ) = \psi_0$ and
-  $\|\bm{p}-\hat{\bm{p}}_j\|_2 \leq \delta_0$ for all
-  $\hat{\bm{p}}_j \in \mathcal{H}: f_{\psi}^{\bm{M}}(\hat{\bm{p}}_j) \leq \psi_0$.
-  Let now $\mathcal{V} = \{\hat{\bm{p}}_i \in \mathcal{H}: f_{\psi}^{\bm{M}}(\hat{\bm{p}}_i) \leq \psi_0,
-  \|\bm{p}-\hat{\bm{p}}_i\|_2 \leq \delta_0\}$.
-  Without loss of generality there exist $d_{\bm{l}}, d_{\alpha}$, and
-  $\psi_0,\delta_0$ such that for all
-  $\hat{\bm{p}}_\mathcal{V} \in \mathcal{V}$:
-  \begin{align}
-    f_{\psi}^{\bm{M}}(\hat{\bm{p}}_\mathcal{V}) < f_{\psi}^{\bm{M}}(\hat{\bm{p}}) \ \ \Leftrightarrow \ \
-    \|\bm{p}-\hat{\bm{p}}_\mathcal{V}\|_2 < \|\bm{p}-\hat{\bm{p}}_{}\|_2 \nonumber
-  \end{align}
-  for any $\hat{\bm{p}}_{} \in \mathcal{X} = \mathcal{H} \setminus  \mathcal{V}: \|\bm{p}-\hat{\bm{p}}_{}\|_2 > \delta_0$.
-\end{customcnj}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{remark}
-  \label{rem:remark_1}
-  The composition of
-  $\mathcal{H} = \mathcal{V} \cup \mathcal{X} \cup \mathcal{W}$, where
-  $\mathcal{W} = \hat{\bm{p}} \in {\mathcal{H} \setminus \mathcal{V}}: \|\bm{p}-\hat{\bm{p}}\|_2 \leq \delta_0$.
-  With regard to the elements of set $\mathcal{W}$: if a global localisation
-  system's output was pose
-  $\hat{\bm{p}}_{\mathcal{W}} \in \mathcal{W}$, then
-  %then, in the language of classification,
-  $\hat{\bm{p}}_{\mathcal{W}}$ would constitute a false
-  negative: it may be that
-  $f_{\psi}^{\bm{M}}(\hat{\bm{p}}_{\mathcal{W}}) > f_{\psi}^{\bm{M}}(\hat{\bm{p}}_{\mathcal{X}})$
-  but with regard to the pose error:
-  $\|\bm{p}-\hat{\bm{p}}_{\mathcal{X}}\|_2 \leq \delta_0$ and
-  $\|\bm{p}-\hat{\bm{p}}_{\mathcal{W}}\|_2 \leq \delta_0$.
-\end{remark}
+%an arbitrary number of
+%pose estimates. % ara...with enough estimates we can find out the sensor's pose
 
 In simple terms Conjecture \ref{cnj:conjecture_c} states that, in general,
 given a dense enough set of pose hypotheses $\mathcal{H}$ over a map $\bm{M}$,
@@ -110,19 +68,8 @@ stands true for some $ \delta \leq \delta_0 = 0.50 \ (\text{m}^2 + \text{rad}^2)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{The CBGL System}
 
-In the same vein as Hypothesis \ref{hpt:hypothesis_h} assume the \texttt{r}-field
-$f_{\texttt{r}}^{\bm{M}}(\mathcal{H})$ corresponding to the $\psi$-field
-$f_{\psi}^{\bm{M}}(\mathcal{H})$ on a given map $\bm{M}$ (Def.
-\ref{def:definition_5}) such that $\Psi[\texttt{I}^{\ast}] = \Psi_\uparrow$,
-and $f_{\texttt{r}}^{\bm{M}}(\mathcal{H}[\texttt{I}^{\ast}]) = \texttt{I}$.
-Then the top $k \ll |\mathcal{H}|$ ranked pose hypotheses
-$\mathcal{H}[\texttt{I}^{\ast}]_{0:k-1}$ define set $\mathcal{V}$ such that
-$\psi_0 = \max f_{\psi}^{\bm{M}}(\mathcal{H}[\texttt{I}^{\ast}]_{0:k-1})$,
-and for all $\hat{\bm{p}}_\mathcal{V} \in \mathcal{V}$
-and any $\hat{\bm{p}}_{\mathcal{X}} \in \mathcal{X}$:
-$ f_{\texttt{r}}^{\bm{M}}(\hat{\bm{p}}_\mathcal{V}) < f_{\texttt{r}}^{\bm{M}}(\hat{\bm{p}}_{\mathcal{X}}) \Leftrightarrow
-f_{\psi}^{\bm{M}}(\hat{\bm{p}}_\mathcal{V}) < f_{\psi}^{\bm{M}}(\hat{\bm{p}}_\mathcal{X}) \Leftrightarrow
-\|\bm{p}-\hat{\bm{p}}_\mathcal{V}\|_2 < \|\bm{p}-\hat{\bm{p}}_{\mathcal{X}}\|_2$.
+
+
 By identifying the pose estimates that correspond to the bottom $k$ CAER
 values, this rationale attempts to recover the identity of the pose hypotheses
 with the bottom $k$ pose errors across $\mathcal{H}$. It constitutes the core
