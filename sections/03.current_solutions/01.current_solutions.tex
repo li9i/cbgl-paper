@@ -56,8 +56,10 @@ methods in \cite{Filotheou2022g}: all three are single-shot 2D LIDAR-based
 Monte Carlo approaches, but CBGL computes a measure of the alignment of the
 measurement to the virtual scan captured from each hypothesis
 \textit{before} scan--to--map-scan matching, which occurs subsequently and only
-for a small subset of the most-aligned virtual scans to the measurement. So far
-this alignment measure (Def. \ref{def:definition_3}) has only been tested
-against the context of \texttt{sm2} in pose tracking, i.e. for pose hypotheses
-in a neighbourhood of the sensor's true pose%, and its computational complexity is low
+for a small subset of the most-aligned virtual scans to the measurement. This,
+along with the low computational complexity of the alignment measure that CBGL
+utilises, greatly diminish its execution time. So far this alignment measure
+(Def.  \ref{def:definition_3}) has only been tested against the context of
+\texttt{sm2} in pose tracking, i.e. for pose hypotheses in a neighbourhood of
+the sensor's true pose%, and its computational complexity is low
 \cite{Filotheou2022f,Filotheou2023a}.

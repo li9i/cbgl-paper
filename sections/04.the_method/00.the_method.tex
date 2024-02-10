@@ -2,49 +2,51 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Motivation}
 
-The proposed method's motivation lies in the simple but powerful fact that, is
-in general, exhibited through fig. \ref{fig:motivation_caer}: Let a pose
-estimate be in a neighbourhood of a 2D LIDAR sensor's pose within a given map
-(Def. \ref{def:definition_0}); then the value of the CAER metric (Def.
-\ref{def:definition_3}) between the scan measured by the sensor (Def.
+The proposed method's motivation lies in the simple but powerful fact that in
+general is exhibited through fig. \ref{fig:motivation_caer}: Let a pose
+estimate of a 2D LIDAR sensor be in a neighbourhood of its true pose within a
+given map (Def. \ref{def:definition_0}); then the value of the CAER metric
+(Def.  \ref{def:definition_3}) between the scan measured by the sensor (Def.
 \ref{def:definition_1}) and the map-scan captured from the estimate within the
-map (Def. \ref{def:definition_2}) is simultaneously proportional to both the
-estimate's location error and orientation error. In other words comparing any
-two pose estimates residing in a neighbourhood of the sensor's true pose in
-terms of a scalar computable value that is associated with them is enough to
-establish a pose error hierarchy between them. This relationship of
-proportionality has been discovered and successfully exploited in the context
-of non-global localisation, i.e. production of lidar odometry
-\cite{Filotheou2022f} and pose tracking \cite{Filotheou2023a}.
+map (Def. \ref{def:definition_2}) is proportional to both the estimate's
+location error and orientation error. In other words comparing any two pose
+estimates residing in a neighbourhood of the sensor's pose in terms of a scalar
+value is enough to establish a pose error hierarchy between them. Moreover,
+this scalar locus metric is directly derivable and calculable from the
+assumptions of Problem \ref{prob:the_problem}, with low computational
+complexity ($\mathcal{O}(N_s)$).
 
-\begin{figure}\vspace{-1.5cm}
+The relationship of proportionality between the CAER metric of a pose
+estimate and its location and orientation errors has been discovered and
+successfully exploited in the context of non-global localisation, and
+specifically in pose-tracking, for the production of lidar odometry
+\cite{Filotheou2022f} and the reduction of localisation's pose estimate error
+\cite{Filotheou2023a}. In this context, estimate errors are close to the origin,
+i.e. in contrast to the arbitrary distribution of hypotheses' errors in Monte
+Carlo global localisation methods.
+
+
+\begin{figure}\vspace{-2.0cm}
   \subfloat{\hspace{0.5cm}\input{./figures/caer_all.tex}}\vspace{-1.5cm}\\
   \subfloat{\hspace{-0.3cm}\input{./figures/face_bottom.tex}}
   \caption{\small Top: without loss o generality, a typical plot of the
            Cumulative Absolute Error per Ray metric (Eq. (\ref{eq:caer})) of
-           $10^6$ hypotheses on environment WAREHOUSE (Fig. \ref{fig:face} and
-           section \ref{subsec:exp_b}). Bottom: focused view on
-           hypotheses with location error close to the origin}
+           $10^6$ hypotheses disperesed in the map of environment WAREHOUSE
+           (Fig. \ref{fig:face} and section \ref{subsec:exp_b}). Bottom:
+           focused view on hypotheses with location error close to the origin}
   \vspace{-0.5cm}
   \label{fig:motivation_caer}
 \end{figure}
 
-%THE HYPOTHESIS IS ... (we say that in a neighbourhood all is well. the hyp. is the generalisation)
 
-%an arbitrary number of
-%pose estimates. % ara...with enough estimates we can find out the sensor's pose
-
-In simple terms Conjecture \ref{cnj:conjecture_c} states that, in general,
-given a dense enough set of pose hypotheses $\mathcal{H}$ over a map $\bm{M}$,
-it is possible to partition $\mathcal{H}$ into such (non-empty) sets
-$\mathcal{V}$, $\mathcal{X}$, and $\mathcal{W}$ that the error of pose
-estimates in set $\mathcal{V}$ and their corresponding CAER values are
-simultaneously lower than those of estimates in set $\mathcal{X}$. Hypothesis
-\ref{hpt:hypothesis_h} restrictingly states that $\mathcal{V}$ contains
-a pose estimate whose error is such that it is deemed an admissible solution to
-Problem \ref{prob:the_problem}. Figure \ref{fig:h_and_h_not_fig} (top) shows
-an example configuration where Hypothesis \ref{hpt:hypothesis_h}
-stands true for some $ \delta \leq \delta_0 = 0.50 \ (\text{m}^2 + \text{rad}^2)^{1/2}$.
+The above motivate investigation on whether the CAER metric could prove equally
+beneficial in settings more uncertain than pose-tracking, that is, where the
+location and orientation of pose estimates extend farther away from the
+sensor's true location and orientation. Fig. \ref{fig:h_and_h_not_fig} (top)
+shows the relations between the total errors of hypotheses and
+their (a) CAER values (left) and (b) resulting ranks (right),
+that resulted from an experimental procedure similar to that which produced fig.
+\ref{fig:motivation_caer}.
 
 \begin{figure}\vspace{-0.2cm}
   \input{./figures/h_and_h_not_fig.tex}

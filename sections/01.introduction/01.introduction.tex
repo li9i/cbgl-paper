@@ -24,8 +24,8 @@ formalised in Problem \ref{prob:the_problem}:
   Let the unknown pose of an immobile 2D range sensor whose angular range is
   $\lambda$ be $\bm{p}(\bm{l},\theta)$, $\bm{l} = (x,y)$, with respect to the
   reference frame of map $\bm{M}$. Let the range sensor measure range scan
-  $\mathcal{S}_R$. The objective is the estimation of $\bm{p}$ given $\bm{M}$,
-  $\lambda$, and $\mathcal{S}_R$.
+  $\mathcal{S}_R$. The objective is the estimation of $\bm{p}$ given
+  $\mathcal{S}_R$, $\bm{M}$, and $\lambda$.
 \end{customprb}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -36,7 +36,7 @@ formalised in Problem \ref{prob:the_problem}:
            LIDAR sensor (magenta). Given a LIDAR sensor's 2D measurement, at its
            core, CBGL disperses pose hypotheses within the map and ranks them
            ascendingly (bottom) according to the value of the Cumulative
-           Absolute Error per Ray metric (CAER; Eq. (\ref{eq:caer})). This
+           Absolute Error per Ray metric (Eq. (\ref{eq:caer})). This
            ranking may estimate the pose of the sensor (a) quickly due to the
            metric's low computational complexity, and (b) accurately due to (i)
            proportionality between the pose estimate error and the value of the
@@ -59,12 +59,13 @@ The central contributions of the article are:
   \item To the best of the author's knowledge the fastest Monte Carlo global
         localisation method that employs a 2D LIDAR that achieves higher
         pose discovery rates than state-of-the-art methods
-  \item The extension and validation of the CAER metric's ability to estimate
-        pose error hierarchies solely from real and virtual range scans,
-        extended from scan--to--map-scan matching (\texttt{sm2}) during
-        pose-tracking, where pose estimates are ``few" ($\leq$$2^5$) and
-        their errors are ``small", to the context of global localisation, where
-        the set of hypotheses and their errors may be arbitrarily large
+  \item The extension and validation of the Cumulative Absolute Error per Ray
+        metric's ability to estimate pose error hierarchies solely from real
+        and virtual range scans, extended from scan--to--map-scan matching
+        (\texttt{sm2}) during pose-tracking, where pose estimates are ``few"
+        ($\leq$$2^5$) and their errors are ``small", to the context of global
+        localisation, where the set of hypotheses and their errors may be
+        arbitrarily large
   \item The thorough evaluation of the proposed method against (a) established
         state-of-the-art localisation methods, (b) real and publicly available
         benchmark conditions, and (c) varying characteristics of environments
