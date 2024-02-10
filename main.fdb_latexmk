@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex main"] 1707564428 "main.aux" "main.bbl" "main" 1707564937
+["bibtex main"] 1707572589 "main.aux" "main.bbl" "main" 1707572639
   "./ieeetran.bst" 1686231098 59147 b77491233300aaa15ba653115e44964a ""
-  "./sections/bibliography_ieee.bib" 1706906190 12900 cfd0ede7208610ed1e3e137ef37db811 ""
-  "main.aux" 1707564937 20552 6127cc32fbde0ddc392219887171ad86 ""
+  "./sections/bibliography_ieee.bib" 1707572157 13148 7eb126cf41c70cc9da7bb84b28dcc2c7 ""
+  "main.aux" 1707572638 19697 50959ce3b16598f2fc27b172cad74190 ""
   "main.bcf" 0 -1 0 ""
   (generated)
   "main.bbl"
   "main.blg"
-["pdflatex"] 1707564936 "main.tex" "main.pdf" "main" 1707564937
+["pdflatex"] 1707572637 "main.tex" "main.pdf" "main" 1707572639
   "/etc/texmf/web2c/texmf.cnf" 1552154870 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
@@ -279,7 +279,7 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1532261225 1518184 8953ea75c21370b1e9d9072912d86ebb ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1552154914 806443 76449a60a2886d84e237414e675be988 ""
   "figures/caer_all.eps" 1690756175 592986 f935b449868415e1c8be8ef81386ea32 ""
-  "figures/caer_all.tex" 1707239044 5924 fa84c2e2aebeda77e6e3c01f2a6d78e7 ""
+  "figures/caer_all.tex" 1707572320 5924 840fc3e696c0af4bd28105c18dc39e18 ""
   "figures/cbgl_system_tiny.tikz" 1690561846 5999 e4aeefe835412437843178fbc7bfc50a ""
   "figures/experiments/a/awesomeness.eps" 1689691508 224281 6fde0ed7cc610484775afc7937960ba0 ""
   "figures/experiments/a/awesomeness.tex" 1706732864 8599 93798a2e3d52da76626d00c22f15616a ""
@@ -303,19 +303,19 @@
   "figures/h_and_h_not_fig.tex" 1690219054 9109 2f04c44b30dd2eb02feef70aea501759 ""
   "figures/inner_ranking_system2_tiny.tikz" 1690562250 5838 4a29de9a6541be82aed4d27a9b1f099c ""
   "ieeeconf.cls" 1686231098 202167 7b37f8353df61c9733ed46143eff807a ""
-  "main.aux" 1707564937 20552 6127cc32fbde0ddc392219887171ad86 ""
-  "main.bbl" 1707564428 9856 81c5e96d7d583ac0fa4f5e1faf8c8aee "bibtex main"
-  "main.out" 1707564937 848 b11125ec3c5600acf27299083ae494be ""
+  "main.aux" 1707572638 19697 50959ce3b16598f2fc27b172cad74190 ""
+  "main.bbl" 1707572589 10157 05d37bbe504378836ba60721b885ccfe "bibtex main"
+  "main.out" 1707572638 848 b11125ec3c5600acf27299083ae494be ""
   "main.tex" 1707240384 2790 48860cb62e7f1f0101831c727bada974 ""
   "sections/00.abstract/abstract.tex" 1690535270 1164 0e1353922a85638d4a09336801a79085 ""
   "sections/01.introduction/01.introduction.tex" 1707564129 4856 2b40663bb2a7bbeb422a44c20168b2b2 ""
   "sections/02.definitions/01.defs.tex" 1707238905 6365 14dd149962480297dbee8d53e48c3515 ""
   "sections/03.current_solutions/01.current_solutions.tex" 1707246532 4381 b1efb0112e17a847d6c1bc406051c36e ""
-  "sections/04.the_method/00.the_method.tex" 1707564935 11332 3095962e6c338d169ea909bf07942976 ""
+  "sections/04.the_method/00.the_method.tex" 1707572636 10410 d5708ebffd2ae9ad23d3ddd0e0724ca7 ""
   "sections/05.results/00.results.tex" 1706731782 15951 032193e70d0f0b4bab05564bfc50b000 ""
-  "sections/06.characterisation/00.characterisation.tex" 1690363374 1897 ecdc573f7d280ea2a86cb6f651ef383d ""
+  "sections/06.characterisation/00.characterisation.tex" 1707572202 1919 23e3fe80572255be5e5108fa4bf620a2 ""
   "sections/07.finale/00.finale.tex" 1690446615 972 ed416c27a2e995c1c8cda21c3aa6c16c ""
-  "sections/pre_document.tex" 1706724054 3975 f8cd11db7d8c23a835660abe644e4673 ""
+  "sections/pre_document.tex" 1707571811 4077 7ec366ffb587911cdc8385cd08228b9c ""
   (generated)
   "main.aux"
   "main.out"

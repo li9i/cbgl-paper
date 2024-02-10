@@ -1,6 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Motivation}
+\label{subsec:motivation}
 
 The proposed method's motivation lies in the simple but powerful fact that in
 general is exhibited through fig. \ref{fig:motivation_caer}: Let a pose
@@ -14,19 +15,19 @@ estimates residing in a neighbourhood of the sensor's pose in terms of a scalar
 value is enough to establish a pose error hierarchy between them. Moreover,
 this scalar locus metric is directly derivable and calculable from the
 assumptions of Problem \ref{prob:the_problem}, with low computational
-complexity ($\mathcal{O}(N_s)$).
+complexity $\mathcal{O}(N_s)$.
 
-The relationship of proportionality between the CAER metric of a pose
-estimate and its location and orientation errors has been discovered and
+The relationships of proportionality between the CAER metric of a pose
+estimate and its location and orientation errors have been discovered and
 successfully exploited in the context of non-global localisation, and
 specifically in pose-tracking, for the production of lidar odometry
 \cite{Filotheou2022f} and the reduction of localisation's pose estimate error
-\cite{Filotheou2023a}. In this context, estimate errors are close to the origin,
-i.e. in contrast to the arbitrary distribution of hypotheses' errors in Monte
-Carlo global localisation methods.
+\cite{Filotheou2023a}. In this context, estimate errors are close to the
+origin, i.e. in contrast to the arbitrary distribution of hypotheses' errors in
+Monte Carlo global localisation methods.
 
 
-\begin{figure}\vspace{-2.0cm}
+\begin{figure}
   \subfloat{\hspace{0.5cm}\input{./figures/caer_all.tex}}\vspace{-1.5cm}\\
   \subfloat{\hspace{-0.3cm}\input{./figures/face_bottom.tex}}
   \caption{\small Top: without loss o generality, a typical plot of the
@@ -45,55 +46,42 @@ location and orientation of pose estimates extend farther away from the
 sensor's true location and orientation. Fig. \ref{fig:h_and_h_not_fig} (top)
 shows the relations between the total errors of hypotheses and
 their (a) CAER values (left) and (b) resulting ranks (right),
-that resulted from an experimental procedure similar to that which produced fig.
+which resulted from an experimental procedure similar to that which produced fig.
 \ref{fig:motivation_caer}.
-
-\begin{figure}\vspace{-0.2cm}
-  \input{./figures/h_and_h_not_fig.tex}
-  \vspace{0.3cm}
-  \caption{\small The $\psi$-field (left) and \texttt{r}-field (right) of a
-           configuration where Observation \ref{obs:observation_o} may (top)
-           and may not (bottom) be made for $\delta \leq \delta_0$. Bottom:
-           in contrast to the top row, set $\mathcal{V}$ is empty of admissible
-           pose estimates for $\delta < 4.5 \ (\text{m}^2 +
-           \text{rad}^2)^{1/2}$. The effect is produced in environment
-           WILLOWGARAGE (pose $\bm{p}_{i}^G$; subsection \ref{subsec:exp_b})
-           due to (a) the repetition of the immediate environment of the sensor
-           more than once in the given map, and (b) the non-panoramic angular
-           range of the sensor}
-  \vspace{-0.5cm}
-  \label{fig:h_and_h_not_fig}
-\end{figure}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{The CBGL System}
 
+In order to test the efficacy of the CAER metric in aiding the solution of
+Problem \ref{prob:the_problem}, we introduce the CAER-Based Global Localisation
+system (CBGL).\footnote{For a rigorous mathematical formulation of the
+hypothesis underpinning CBGL see \cite{cbglarxiv}.} Given map $\bm{M}$, CBGL
+first generates a set of pose hypotheses $\mathcal{H}$ (Def.
+\ref{def:definition_0}). Their positions are randomly generated
+uniformly within the map's traversable space, while orientations within
+$[-\pi,\pi)$ rad. Then from these poses it computes map-scans (Def.
+\ref{def:definition_2}). Given these map-scans and a LIDAR's 2D measurement
+$\mathcal{S}_R$ (Def. \ref{def:definition_1}), CBGL subsequently computes the
+CAER value (Def. \ref{def:definition_3}) associated with each pose hypothesis.
+It then ranks them in ascending order and selects the $k$ estimates with the
+least CAER values in an attempt to estimate the $k$ hypotheses with the least
+pose error (Alg. \ref{alg:bottom_k}). Estimation in this sense rests on the
+motivation of subsection \ref{subsec:motivation}.
 
+One challenge is choosing such $k$, $d_{\bm{l}}$, and $d_\alpha$ (Def.
+\ref{def:definition_6}) that, given pose estimate error requirements
+$\delta_{\bm{l}}$, $\delta_{\theta}$, CBGL produces admissible pose estimates
+(Def. \ref{def:definition_7}) while being executed in timely manner.  Given the
+rank field's Monte Carlo nature, optimistically, the only option for increasing
+the accuracy of the final pose estimate by a factor of two would be to double
+the densities of the \texttt{r}-field; instead of doing that---and thereby
+doubling the method's execution time---subsequent to the estimation of the pose
+estimates with the $k$ lowest CAER values, CBGL utilises scan--to--map-scan
+matching \cite{Vasiljevic2016c,Filotheou2023a}, followed by the estimation of
+the one pose estimate with the lowest CAER value within the group of $k$
+matched estimates.
 
-By identifying the pose estimates that correspond to the bottom $k$ CAER
-values, this rationale attempts to recover the identity of the pose hypotheses
-with the bottom $k$ pose errors across $\mathcal{H}$. It constitutes the core
-of the proposed passive global localisation method, termed CBGL, and is
-described in block diagram form in figure \ref{fig:block_system} (right) and in
-pseudocode in Algorithm
-\ref{alg:bottom_k}.
-%II \cite{Filotheou2023c}.
-
-Assuming the satisfaction of Observation \ref{obs:observation_o}, the challenge
-is choosing such $k$, $d_{\bm{l}}$, and $d_\alpha$ that, given pose estimate
-error requirements $\delta_{\bm{l}}$, $\delta_{\theta}$ (Def.
-\ref{def:definition_7}; Hyp.  \ref{hpt:hypothesis_h}), CBGL produces admissible
-pose estimates while being executed in timely manner.  Given the rank field's
-Monte Carlo nature, optimistically, the only option for increasing the accuracy
-of the final pose estimate by a factor of two is doubling the densities of the
-\texttt{r}-field; instead of doing that---and thereby doubling the method's
-execution time---subsequent to the estimation of the pose estimates with the
-$k$ lowest CAER values, CBGL utilises scan--to--map-scan matching
-\cite{Vasiljevic2016c,Filotheou2023a}, followed by the estimation of the one
-pose estimate with the lowest CAER value within the group of $k$ matched
-estimates.
 Matching allows for (a) the correction of the pose of true positive estimates
 by scan-matching the map-scan captured from a pose estimate against the range
 scan measured by the real sensor, (b) by the same token the potential
@@ -101,37 +89,28 @@ divergence of spurious, false positive, pose estimates, and hence their
 elimination as pose estimate candidates, (c) the production of finer pose
 estimates without excessive increase in execution time, and (d) the decoupling
 of the final pose estimate's error from the field's densities.
-%Selecting among all matched estimates the one with the minimum CAER allows for
-%the system's delivery of one pose estimate response.
-Figure \ref{fig:block_system} (left) and Algorithm
-\ref{alg:cbgl}
-%I \cite{Filotheou2023c}
-present the proposed method of CBGL in block diagram and algorithmic forms
-respectively.
+
+CBGL's output pose estimate is that with the least CAER among the $k$ matched
+estimates. CBGL is described in block diagram form in figure
+\ref{fig:block_system} (left) and in pseudocode in Algorithm \ref{alg:cbgl}.
+
 
 \begin{figure}\vspace{-0.4cm}
   \subfloat{\label{fig:cbgl}     \input{./figures/cbgl_system_tiny.tikz}}
   \subfloat{\label{fig:bottom_k} \input{./figures/inner_ranking_system2_tiny.tikz}}
   \caption{\small CBGL in block diagram form. Left: Given map $\bm{M}$, CBGL
-           first generates a set of pose hypotheses $\mathcal{H}$. Hypotheses'
-           positions are randomly generated uniformly within the map's
-           traversable space and orientations within $[-\pi,\pi)$ rad. Then,
-           given a LIDAR's 2D measurement $\mathcal{S}_R$, CBGL
+           first generates a set of pose hypotheses $\mathcal{H}$. Then it
            estimates the $k$ hypotheses with the least pose error (right; Alg.
            \ref{alg:bottom_k}).
            %II \cite{Filotheou2023c}
            As a final step, it scan--to--map-scan
-           matches $\mathcal{H}$ to $\mathcal{S}_R$ for finer estimation
+           matches these to $\mathcal{S}_R$ for finer estimation
            (\texttt{sm2}; Alg.
            \ref{alg:sm2}).
            %III \cite{Filotheou2023c}
            CBGL's output pose estimate is that with
-           the least CAER among the $k$ matched estimates.  Right: CBGL's core
-           method. Given $\mathcal{S}_R$, $\bm{M}$, and pose estimates
-           $\mathcal{P}$, it (a) computes and ranks the CAER values between
-           $\mathcal{S}_R$ and map-scans captured from $\mathcal{P}$ within
-           $\bm{M}$, and (b) outputs the hypotheses with the $k$ lowest CAER
-           values}
+           the minimum CAER among the $k$ matched estimates
+           }
 \vspace{-0.5cm}
   \label{fig:block_system}
 \end{figure}
@@ -155,7 +134,7 @@ respectively.
     \STATE $\mathcal{H}_1 \leftarrow$ \texttt{bottom}$\_k\_\texttt{poses}(\mathcal{S}_R, \bm{M}, \mathcal{H}, k)$ \hfill {\small (Alg. \ref{alg:bottom_k}}) \label{alg:cbgl:h1}
     \STATE $\mathcal{H}_2 \leftarrow \{\varnothing \}$
     \FOR {$k \leftarrow 0,1,\dots,|\mathcal{H}_1|-1$}
-      \STATE $\hat{\bm{h}}^\prime \leftarrow \texttt{sm2}(\mathcal{S}_R, \lambda, \bm{M}, \mathcal{H}_1[k])$ \hfill {\small (Alg. \ref{alg:sm2} or e.g. \texttt{x1} \cite{Filotheou2023a}})
+      \STATE $\hat{\bm{h}}^\prime \leftarrow \texttt{sm2}(\mathcal{S}_R, \lambda, \bm{M}, \mathcal{H}_1[k])$ \hfill {\small (Alg. \ref{alg:sm2}---e.g. \texttt{x1} \cite{Filotheou2023a}})
       \STATE $\mathcal{H}_2 \leftarrow \{\mathcal{H}_2, \hat{\bm{h}}^\prime\}$  \label{alg:cbgl:h2}
     \ENDFOR
     \RETURN \texttt{bottom}$\_k\_\texttt{poses}(\mathcal{S}_R, \bm{M}, \mathcal{H}_2, 1)$

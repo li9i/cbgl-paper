@@ -12,7 +12,13 @@
 \setcounter{secnumdepth}{3}
 \usepackage{listings}
 \usepackage{color}
+
+% https://tex.stackexchange.com/a/160144/127505
+\makeatletter
+\let\NAT@parse\undefined
+\makeatother
 \usepackage[hidelinks]{hyperref}
+
 \let\proof\relax
 \let\endproof\relax
 \usepackage{amsmath}

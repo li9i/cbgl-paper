@@ -171,6 +171,13 @@ A.~Filotheou, A.~L. Symeonidis, G.~D. Sergiadis, and A.~G. Dimitriou,
   ``{Correspondenceless scan-to-map-scan matching of 2D panoramic range
   scans},'' \emph{Array}, 2023.
 
+\bibitem{cbglarxiv}
+\BIBentryALTinterwordspacing
+A.~Filotheou, ``Cbgl: Fast monte carlo passive global localisation of 2d lidar
+  sensor---mathematically-rigorous version,'' \emph{arXiv:2307.14247}, 2023.
+  [Online]. Available: \url{https://arxiv.org/pdf/2307.14247.pdf}
+\BIBentrySTDinterwordspacing
+
 \bibitem{Vasiljevic2016c}
 G.~Vasiljevi{\'{c}}, D.~Mikli{\'{c}}, I.~Draganjac, Z.~Kova{\v{c}}i{\'{c}}, and
   P.~Lista, ``{High-accuracy vehicle localization for autonomous
