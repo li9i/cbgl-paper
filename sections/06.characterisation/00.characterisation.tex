@@ -1,18 +1,25 @@
-Range scans with panoramic angular ranges induce fewer pose ambiguities in
-rank-fields than those with non-panoramic field of view. In the latter case
-this means that, given the evidence of subsections \ref{subsec:exp_a} and
+Range scans with panoramic angular ranges induce fewer pose ambiguities in pose
+estimate rankings than those with non-panoramic field of view. In the latter
+case this means that, given the evidence of subsections \ref{subsec:exp_a} and
 \ref{subsec:exp_c} where $\lambda = 3\pi/2$ rad, the choice of $k=10$ largely
 inhibits the propagation of ambiguities to the output (fig.
-\ref{fig:c:errors_and_time}).  However, non-panoramic sensors coupled
-with repeated environment structures may give rise to the conditions of figure
+\ref{fig:c:errors_and_time}).  However, non-panoramic sensors coupled with
+repeated environment structures may give rise to the conditions of figure
 \ref{fig:h_and_h_not_fig} (bottom). Other sources of potential, large pose
-errors for CBGL are portrayed in figure \ref{fig:a:map_and_trajectory}: (a)
-regions coloured with cyan indicate closed glass doors, wherein high range
-errors result in discrepancy with map-derived virtual ranges, which is
-subsequently propagated to $\psi$-fields and hence $\texttt{r}$-fields, and (b)
-regions coloured purple indicate vicinities around doors, wherein
-higher locational density or values of $k$ may be required to suppress pose
-ambiguities propagated to $\texttt{r}$-fields.
+errors for CBGL are portrayed in figure \ref{fig:a:map_and_trajectory}:
+Regions coloured with cyan indicate closed glass doors, wherein high range
+errors in $\mathcal{S}_R$---which result from premature and arbitrary
+reflections of the LIDAR's light on glass---form major discrepancies with
+regard to map-derived virtual ranges; these subsequently propagate to CAER
+values and ultimately corrupt the estimation of pose error hierarchies derived
+from these values.  Discrepancies of this kind arise also in regions coloured
+purple, which indicate vicinities around doors. In these areas the non-linear
+contour of ranges, combined with the fact that from different position
+estimates different parts of the environment become visible (and therefore
+small changes in position may result in large discrepancies between real and
+virtual scans)---these factors may cause to require higher values of locational
+density $d_{\bm{l}}$ or values of $k$ in order to suppress highly erroneous
+pose estimates propagated to the output.
 
 \begin{figure}
   \input{./figures/h_and_h_not_fig.tex}
