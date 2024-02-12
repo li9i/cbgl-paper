@@ -43,8 +43,8 @@
 
 % Text Node
 \draw (225,54) node [anchor=north west][inner sep=0.75pt]   [align=left] {\tiny Estimate bottom-$k$ of pose errors};
-\draw (285,77) node [anchor=north west][inner sep=0.75pt]   [align=left] {\tiny compute \texttt{r}-field};
-\draw (264,97) node [anchor=north west][inner sep=0.75pt]   [align=left] {\tiny compute $\psi$-field};
+\draw (285,77) node [anchor=north west][inner sep=0.75pt]   [align=left] {\tiny compute ranks};
+\draw (264,97) node [anchor=north west][inner sep=0.75pt]   [align=left] {\tiny compute CAERs};
 % Text Node
 \draw (137,27) node     [align=left] {\tiny $\mathcal{S}_R$};
 \draw (226.5,27) node   [align=left] {\tiny $\bm{M}$};
@@ -53,7 +53,7 @@
 \draw    (212.5,119.33) -- (338.5,119.33) -- (338.5,144.33) -- (212.5,144.33) -- cycle  ;
 \draw (275.5,133) node   [align=left] {\tiny  \ \ \ \ \ \texttt{scan\_map} \ \ \ \ \ };
 % Text Node
-\draw (300,156.83) node   [align=left] {\tiny $\{\mathcal{S}_V\}$};
+\draw (303,157.83) node   [align=left] {\tiny $\{\mathcal{S}_V\}$};
 % Text Node
 \draw    (219.5,172.67) -- (331.5,172.67) -- (331.5,197.67) -- (219.5,197.67) -- cycle  ;
 \draw (275.5,185.17) node   [align=left] {\tiny  \ \ \ \ \ \ \ $\psi$ \ \ \ \ \ \ };

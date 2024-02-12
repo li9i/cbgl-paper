@@ -73,9 +73,9 @@ One challenge is choosing such $k$, $d_{\bm{l}}$, and $d_\alpha$ (Def.
 \ref{def:definition_6}) that, given pose estimate error requirements
 $\delta_{\bm{l}}$, $\delta_{\theta}$, CBGL produces admissible pose estimates
 (Def. \ref{def:definition_7}) while being executed in timely manner.  Given the
-rank field's Monte Carlo nature, optimistically, the only option for increasing
+method's Monte Carlo nature, optimistically, the only option for increasing
 the accuracy of the final pose estimate by a factor of two would be to double
-the densities of the \texttt{r}-field; instead of doing that---and thereby
+locational density $d_{\bm{l}}$; instead of doing that---and thereby
 doubling the method's execution time---subsequent to the estimation of the pose
 estimates with the $k$ lowest CAER values, CBGL utilises scan--to--map-scan
 matching (\texttt{sm2}) \cite{Vasiljevic2016c,Filotheou2023a}, followed by the
@@ -88,11 +88,11 @@ scan measured by the real sensor, (b) by the same token the potential
 divergence of spurious, false positive, pose estimates, and hence their
 elimination as pose estimate candidates, (c) the production of finer pose
 estimates without excessive increase in execution time, and (d) the decoupling
-of the final pose estimate's error from the field's densities. The principle
-of \texttt{sm2} is depicted in figure \ref{fig:sm2_evolution}.
+of the final pose estimate's error from the method's chosen densities. The
+principle of \texttt{sm2} is depicted in fig. \ref{fig:sm2_evolution}.
 
 CBGL's output pose estimate is that with the least CAER among the $k$ matched
-estimates. CBGL is described in block diagram form in figure
+estimates. CBGL is described in block diagram form in fig.
 \ref{fig:block_system} and in pseudocode in Algorithm \ref{alg:cbgl}.
 
 

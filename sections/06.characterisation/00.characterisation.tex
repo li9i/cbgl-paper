@@ -4,9 +4,9 @@ case this means that, given the evidence of subsections \ref{subsec:exp_a} and
 \ref{subsec:exp_c} where $\lambda = 3\pi/2$ rad, the choice of $k=10$ largely
 inhibits the propagation of ambiguities to the output (fig.
 \ref{fig:c:errors_and_time}).  However, non-panoramic sensors coupled with
-repeated environment structures may give rise to the conditions of figure
+repeated environment structures may give rise to the conditions of fig.
 \ref{fig:h_and_h_not_fig} (bottom). Other sources of potential, large pose
-errors for CBGL are portrayed in figure \ref{fig:a:map_and_trajectory}:
+errors for CBGL are portrayed in fig. \ref{fig:a:map_and_trajectory}:
 Regions coloured with cyan indicate closed glass doors, wherein high range
 errors in $\mathcal{S}_R$---which result from premature and arbitrary
 reflections of the LIDAR's light on glass---form major discrepancies with
@@ -24,16 +24,19 @@ pose estimates propagated to the output.
 \begin{figure}
   \input{./figures/h_and_h_not_fig.tex}
   \vspace{0.3cm}
-  \caption{\small The $\psi$-field (left) and \texttt{r}-field (right) of a
-           configuration where Observation \ref{obs:observation_o} may (top)
-           and may not (bottom) be made for $\delta \leq \delta_0$. Bottom:
-           in contrast to the top row, set $\mathcal{V}$ is empty of admissible
-           pose estimates for $\delta < 4.5 \ (\text{m}^2 +
-           \text{rad}^2)^{1/2}$. The effect is produced in environment
-           WILLOWGARAGE (pose $\bm{p}_{i}^G$; subsection \ref{subsec:exp_b})
-           due to (a) the repetition of the immediate environment of the sensor
-           more than once in the given map, and (b) the non-panoramic angular
-           range of the sensor}
-  \vspace{-0.5cm}
+  \caption{\small Top: In principle there is at least one admissible pose
+           estimate ($\delta \leq \delta_0$) for any choice of $k$ (Alg.
+           \ref{alg:bottom_k}) in $\mathcal{H}$. However, $k$ sets threshold
+           $\psi_0$ on the CAER of estimates in $\mathcal{H}$, and therefore it
+           sets $\mathcal{V}$: $\mathcal{V} \cup \mathcal{X} \cup \mathcal{W} =
+           \mathcal{H}$.  In case of (a) repetitions of the immediate
+           environment of the sensor more than once in a given map, and (b)
+           non-panoramic angular range of a sensor, as witnessed in environment
+           WILLOWGARAGE (pose $\bm{p}_{i}^G$; subsection \ref{subsec:exp_b}),
+           it is possible that a choice of $k$ may starve $\mathcal{V}$ of
+           admissible poses. See \cite{cbglarxiv} for details on $\mathcal{V}$,
+           $\mathcal{X}$, and $\mathcal{W}$
+        }
+        \vspace{-0.5cm}
   \label{fig:h_and_h_not_fig}
 \end{figure}

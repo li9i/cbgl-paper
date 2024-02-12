@@ -95,7 +95,7 @@ $\mathcal{A}_{k:l}= \{\mathcal{A}[k], \mathcal{A}[k+1], \dots, \mathcal{A}[l]\}$
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{definition}
-  \label{def:definition_6} \textit{Field densities}.---The locational and
+  \label{def:definition_6} \textit{Pose densities}.---The locational and
   angular density, $d_{\bm{l}}, d_{\alpha} \in \mathbb{N}$, of a pose set
   $\mathcal{H} = \{\hat{\bm{p}}_i\}$ respectively denote the mean number of
   pose estimates dispersed on a given map $\bm{M}$ per unit area of space and
@@ -107,9 +107,9 @@ $\mathcal{A}_{k:l}= \{\mathcal{A}[k], \mathcal{A}[k+1], \dots, \mathcal{A}[l]\}$
   \label{def:definition_7} \textit{Admissibility of solution}.---A pose estimate
   $\hat{\bm{p}}(\hat{\bm{l}},\hat{\theta}) \in \mathbb{R}^2 \times [-\pi,+\pi)$,
   may be deemed an admissible solution to Problem \ref{prob:the_problem} iff
-  $\|\bm{p}-\hat{\bm{p}}\|_2 \leq \delta$ and
+  $\|\bm{p}-\hat{\bm{p}}\|_2 \leq \delta_0$ and
   $\|\bm{l}-\hat{\bm{l}}\|_2 \leq \delta_{\bm{l}}$ and
   $|\theta-\hat{\theta}| \leq \delta_\theta$, where
-  $\delta_{\bm{l}}, \delta_\theta, \delta \in \mathbb{R}_{> 0}$:
-  $\delta_{\bm{l}}^2 + \delta_{\theta}^2 = \delta^2$.
+  $\delta_{\bm{l}}, \delta_\theta, \delta_0 \in \mathbb{R}_{> 0}$:
+  $\delta_{\bm{l}}^2 + \delta_{\theta}^2 = \delta_0^2$.
 \end{definition}
