@@ -1,0 +1,217 @@
+\definecolor{magenta}{RGB}{255 0 255}
+\definecolor{red}{RGB}{255 0 0}
+\definecolor{a}{RGB}{253 231 37}
+\definecolor{b}{RGB}{31 150 139}
+\definecolor{c}{RGB}{68 1 84}
+\definecolor{k}{RGB}{0 0 0}
+
+
+
+% GNUPLOT: LaTeX picture with Postscript
+\begingroup
+  \makeatletter
+  \providecommand\color[2][]{%
+    \GenericError{(gnuplot) \space\space\space\@spaces}{%
+      Package color not loaded in conjunction with
+      terminal option `colourtext'%
+    }{See the gnuplot documentation for explanation.%
+    }{Either use 'blacktext' in gnuplot or load the package
+      color.sty in LaTeX.}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\includegraphics[2][]{%
+    \GenericError{(gnuplot) \space\space\space\@spaces}{%
+      Package graphicx or graphics not loaded%
+    }{See the gnuplot documentation for explanation.%
+    }{The gnuplot epslatex terminal needs graphicx.sty or graphics.sty.}%
+    \renewcommand\includegraphics[2][]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \@ifundefined{ifGPcolor}{%
+    \newif\ifGPcolor
+    \GPcolorfalse
+  }{}%
+  \@ifundefined{ifGPblacktext}{%
+    \newif\ifGPblacktext
+    \GPblacktexttrue
+  }{}%
+  % define a \g@addto@macro without @ in the name:
+  \let\gplgaddtomacro\g@addto@macro
+  % define empty templates for all commands taking text:
+  \gdef\gplfronttext{}%
+  \gdef\gplfronttext{}%
+  \makeatother
+  \ifGPblacktext
+    % no textcolor at all
+    \def\colorrgb#1{}%
+    \def\colorgray#1{}%
+  \else
+    % gray or color?
+    \ifGPcolor
+      \def\colorrgb#1{\color[rgb]{#1}}%
+      \def\colorgray#1{\color[gray]{#1}}%
+      \expandafter\def\csname LTw\endcsname{\color{white}}%
+      \expandafter\def\csname LTb\endcsname{\color{black}}%
+      \expandafter\def\csname LTa\endcsname{\color{black}}%
+      \expandafter\def\csname LT0\endcsname{\color[rgb]{1,0,0}}%
+      \expandafter\def\csname LT1\endcsname{\color[rgb]{0,1,0}}%
+      \expandafter\def\csname LT2\endcsname{\color[rgb]{0,0,1}}%
+      \expandafter\def\csname LT3\endcsname{\color[rgb]{1,0,1}}%
+      \expandafter\def\csname LT4\endcsname{\color[rgb]{0,1,1}}%
+      \expandafter\def\csname LT5\endcsname{\color[rgb]{1,1,0}}%
+      \expandafter\def\csname LT6\endcsname{\color[rgb]{0,0,0}}%
+      \expandafter\def\csname LT7\endcsname{\color[rgb]{1,0.3,0}}%
+      \expandafter\def\csname LT8\endcsname{\color[rgb]{0.5,0.5,0.5}}%
+    \else
+      % gray
+      \def\colorrgb#1{\color{black}}%
+      \def\colorgray#1{\color[gray]{#1}}%
+      \expandafter\def\csname LTw\endcsname{\color{white}}%
+      \expandafter\def\csname LTb\endcsname{\color{black}}%
+      \expandafter\def\csname LTa\endcsname{\color{black}}%
+      \expandafter\def\csname LT0\endcsname{\color{black}}%
+      \expandafter\def\csname LT1\endcsname{\color{black}}%
+      \expandafter\def\csname LT2\endcsname{\color{black}}%
+      \expandafter\def\csname LT3\endcsname{\color{black}}%
+      \expandafter\def\csname LT4\endcsname{\color{black}}%
+      \expandafter\def\csname LT5\endcsname{\color{black}}%
+      \expandafter\def\csname LT6\endcsname{\color{black}}%
+      \expandafter\def\csname LT7\endcsname{\color{black}}%
+      \expandafter\def\csname LT8\endcsname{\color{black}}%
+    \fi
+  \fi
+    \setlength{\unitlength}{0.0500bp}%
+    \ifx\gptboxheight\undefined%
+      \newlength{\gptboxheight}%
+      \newlength{\gptboxwidth}%
+      \newsavebox{\gptboxtext}%
+    \fi%
+    \setlength{\fboxrule}{0.5pt}%
+    \setlength{\fboxsep}{1pt}%
+\begin{picture}(5000.00,3000.00)%
+    \gplgaddtomacro\gplfronttext{%
+    }%
+    \gplgaddtomacro\gplfronttext{%
+    }%
+    \gplgaddtomacro\gplfronttext{%
+      \put(380,3300){\makebox(0,0){\makebox(0,0){\strut{}{\color{k}{\rule[0.6mm]{15px}{0.75mm}}} \scriptsize Map}}}%
+      \put(1400,3300){\makebox(0,0){\makebox(0,0){\strut{}{\color{magenta}{\rule[0.6mm]{15px}{0.75mm}}} \scriptsize True pose $\bm{p}$}}}%
+      \put(150,3100){\makebox(0,0){\makebox(0,0){\strut{}{\color{a}{\rule[0.6mm]{5px}{0.75mm}}} }}}%
+      \put(250,3100){\makebox(0,0){\makebox(0,0){\strut{}{\color{b}{\rule[0.6mm]{5px}{0.75mm}}} }}}%
+      \put(890,3100){\makebox(0,0){\makebox(0,0){\strut{}{\color{c}{\rule[0.6mm]{5px}{0.75mm}}} \scriptsize Pose estimate $\hat{\bm{p}}[s]$}}}%
+
+      \put(3450,3300){\makebox(0,0){\makebox(0,0){\strut{}{\color{magenta}{\rule[0.6mm]{15px}{0.75mm}}} \scriptsize Real scan $\mathcal{S}_R$}}}%
+      \put(2950,3100){\makebox(0,0){\makebox(0,0){\strut{}{\color{a}{\rule[0.6mm]{5px}{0.75mm}}} }}}%
+      \put(3050,3100){\makebox(0,0){\makebox(0,0){\strut{}{\color{b}{\rule[0.6mm]{5px}{0.75mm}}} }}}%
+      \put(3845,3100){\makebox(0,0){\makebox(0,0){\strut{}{\color{c}{\rule[0.6mm]{5px}{0.75mm}}} \scriptsize Virtual scan $\mathcal{S}_V^{\bm{M}}(\hat{\bm{p}}[s])$}}}%
+
+      \put(1300,990){\makebox(0,0){\makebox(0,0){\strut{}{\color{red}{\rule[0.6mm]{15px}{0.75mm}}} \scriptsize Pose error [$(\text{m}^2 + \text{rad}^2)^{1/2}$]}}}%
+      \put(2950,990){\makebox(0,0){\makebox(0,0){\strut{}{\color{a}{\rule[0.6mm]{5px}{0.75mm}}} }}}%
+      \put(3050,990){\makebox(0,0){\makebox(0,0){\strut{}{\color{b}{\rule[0.6mm]{5px}{0.75mm}}} }}}%
+      \put(3860,990){\makebox(0,0){\makebox(0,0){\strut{}{\color{c}{\rule[0.6mm]{5px}{0.75mm}}} \scriptsize $\psi(\mathcal{S}_R, \mathcal{S}_V^{\bm{M}}(\hat{\bm{p}}[s]))$ [m]}}}%
+    }%
+    \gplgaddtomacro\gplfronttext{%
+      \colorrgb{0.15,0.15,0.15}%
+      \put(280,123){\makebox(0,0){\strut{}\scriptsize step $s$}}%
+      \put(280,243){\makebox(0,0){\strut{}\scriptsize \texttt{sm2}}}%
+    }%
+    \gplgaddtomacro\gplfronttext{%
+      \colorrgb{0.15,0.15,0.15}%
+      \put(867,1464){\makebox(0,0)[r]{\strut{}\scriptsize $1.0$}}%
+      \colorrgb{0.15,0.15,0.15}%
+      \put(867,1894){\makebox(0,0)[r]{\strut{}\scriptsize $2.0$}}%
+      \colorrgb{0.15,0.15,0.15}%
+      \put(867,2324){\makebox(0,0)[r]{\strut{}\scriptsize $3.0$}}%
+      \colorrgb{0.15,0.15,0.15}%
+      \put(867,2754){\makebox(0,0)[r]{\strut{}\scriptsize $4.0$}}%
+      \colorrgb{0.15,0.15,0.15}%
+      %\put(899, 1344){\makebox(0,0){\strut{}\scriptsize $-1.5$}}%
+      \colorrgb{0.15,0.15,0.15}%
+      \put(1114,1344){\makebox(0,0){\strut{}\scriptsize $-1.0$}}%
+      \colorrgb{0.15,0.15,0.15}%
+      %\put(1329,1344){\makebox(0,0){\strut{}\scriptsize $-0.5$}}%
+      \colorrgb{0.15,0.15,0.15}%
+      \put(1544,1344){\makebox(0,0){\strut{}\scriptsize $0.0$}}%
+      \colorrgb{0.15,0.15,0.15}%
+      %\put(1759,1344){\makebox(0,0){\strut{}\scriptsize $0.5$}}%
+      \colorrgb{0.15,0.15,0.15}%
+      \put(1974,1344){\makebox(0,0){\strut{}\scriptsize $1.0$}}%
+    }%
+    \gplgaddtomacro\gplfronttext{%
+      \colorrgb{0.00,0.00,0.00}%
+      \put(3561,3530){\makebox(0,0){\strut{}\footnotesize Measurement space}}%
+      \put(1436,3530){\makebox(0,0){\strut{}\footnotesize Cartesian space}}%
+    }
+    \gplgaddtomacro\gplfronttext{%
+      \colorrgb{0.15,0.15,0.15}%
+      \put(2751,1723){\makebox(0,0)[r]{\strut{}\scriptsize $-2.0$}}%
+      \colorrgb{0.15,0.15,0.15}%
+      \put(2751,2069){\makebox(0,0)[r]{\strut{}\scriptsize $-1.0$}}%
+      \colorrgb{0.15,0.15,0.15}%
+      \put(2751,2415){\makebox(0,0)[r]{\strut{}\scriptsize $0.0$}}%
+      \colorrgb{0.15,0.15,0.15}%
+      \put(2751,2761){\makebox(0,0)[r]{\strut{}\scriptsize $1.0$}}%
+      \colorrgb{0.15,0.15,0.15}%
+      \put(2956,1344){\makebox(0,0){\strut{}\scriptsize $-2.0$}}%
+      \colorrgb{0.15,0.15,0.15}%
+      %\put(3302,1344){\makebox(0,0){\strut{}\scriptsize $-1.0$}}%
+      \colorrgb{0.15,0.15,0.15}%
+      \put(3648,1344){\makebox(0,0){\strut{}\scriptsize $0.0$}}%
+      \colorrgb{0.15,0.15,0.15}%
+      %\put(3994,1344){\makebox(0,0){\strut{}\scriptsize $1.0$}}%
+      \colorrgb{0.15,0.15,0.15}%
+      \put(4340,1344){\makebox(0,0){\strut{}\scriptsize $2.0$}}%
+    }%
+    \gplgaddtomacro\gplfronttext{%
+      \colorrgb{0.00,0.00,0.00}%
+    }%
+    \gplgaddtomacro\gplfronttext{%
+      \colorrgb{1.00,0.00,0.00}%
+      \put(368,462){\makebox(0,0)[r]{\strut{}\color{red}{\scriptsize $0.0$}}}%
+      \colorrgb{1.00,0.00,0.00}%
+      %\put(368,519){\makebox(0,0)[r]{\strut{}\scriptsize $0.2$}}%
+      \colorrgb{1.00,0.00,0.00}%
+      \put(368,577){\makebox(0,0)[r]{\strut{}\color{red}{\scriptsize $0.4$}}}%
+      \colorrgb{1.00,0.00,0.00}%
+      %\put(368,634){\makebox(0,0)[r]{\strut{}\scriptsize $0.6$}}%
+      \colorrgb{1.00,0.00,0.00}%
+      \put(368,691){\makebox(0,0)[r]{\strut{}\color{red}{\scriptsize $0.8$}}}%
+      \colorrgb{1.00,0.00,0.00}%
+      %\put(368,748){\makebox(0,0)[r]{\strut{}\scriptsize $1.0$}}%
+      \colorrgb{1.00,0.00,0.00}%
+      \put(368,806){\makebox(0,0)[r]{\strut{}\color{red}{\scriptsize $1.2$}}}%
+      \colorrgb{1.00,0.00,0.00}%
+      %\put(368,863){\makebox(0,0)[r]{\strut{}\scriptsize $1.4$}}%
+      \colorrgb{0.15,0.15,0.15}%
+      \put(500, 342){\makebox(0,0){\strut{}\scriptsize $1$}}%
+      \colorrgb{0.15,0.15,0.15}%
+      \put(1423,342){\makebox(0,0){\strut{}\scriptsize $10$}}%
+      \colorrgb{0.15,0.15,0.15}%
+      \put(2448,342){\makebox(0,0){\strut{}\scriptsize $20$}}%
+      \colorrgb{0.15,0.15,0.15}%
+      \put(3474,342){\makebox(0,0){\strut{}\scriptsize $30$}}%
+      \colorrgb{0.15,0.15,0.15}%
+      \put(4499,342){\makebox(0,0){\strut{}\scriptsize $40$}}%
+    }%
+    \gplgaddtomacro\gplfronttext{%
+      \colorrgb{0.00,0.00,0.00}%
+      %\put(2499,1083){\makebox(0,0){\strut{}\scriptsize Metrics}}%
+    }%
+    \gplgaddtomacro\gplfronttext{%
+      \colorrgb{0.00,0.00,0.00}%
+      \put(4631,462){\makebox(0,0)[l]{\strut{}\scriptsize $0$}}%
+      \colorrgb{0.00,0.00,0.00}%
+      %\put(4631,542){\makebox(0,0)[l]{\strut{}\scriptsize $50$}}%
+      \colorrgb{0.00,0.00,0.00}%
+      \put(4631,622){\makebox(0,0)[l]{\strut{}\scriptsize $100$}}%
+      \colorrgb{0.00,0.00,0.00}%
+      %\put(4631,703){\makebox(0,0)[l]{\strut{}\scriptsize $150$}}%
+      \colorrgb{0.00,0.00,0.00}%
+      \put(4631,783){\makebox(0,0)[l]{\strut{}\scriptsize $200$}}%
+    }%
+    \gplgaddtomacro\gplfronttext{%
+    }%
+    \put(0,0){\includegraphics{./figures/characterisation/sm2_evolution}}%
+    \gplfronttext
+  \end{picture}%
+\endgroup
