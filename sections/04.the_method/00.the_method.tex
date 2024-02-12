@@ -78,9 +78,9 @@ the accuracy of the final pose estimate by a factor of two would be to double
 the densities of the \texttt{r}-field; instead of doing that---and thereby
 doubling the method's execution time---subsequent to the estimation of the pose
 estimates with the $k$ lowest CAER values, CBGL utilises scan--to--map-scan
-matching \cite{Vasiljevic2016c,Filotheou2023a}, followed by the estimation of
-the one pose estimate with the lowest CAER value within the group of $k$
-matched estimates.
+matching (\texttt{sm2}) \cite{Vasiljevic2016c,Filotheou2023a}, followed by the
+estimation of the one pose estimate with the lowest CAER value within the group
+of $k$ matched estimates.
 
 Matching allows for (a) the correction of the pose of true positive estimates
 by scan-matching the map-scan captured from a pose estimate against the range
@@ -88,11 +88,12 @@ scan measured by the real sensor, (b) by the same token the potential
 divergence of spurious, false positive, pose estimates, and hence their
 elimination as pose estimate candidates, (c) the production of finer pose
 estimates without excessive increase in execution time, and (d) the decoupling
-of the final pose estimate's error from the field's densities.
+of the final pose estimate's error from the field's densities. The principle
+of \texttt{sm2} is depicted in figure \ref{fig:sm2_evolution}.
 
 CBGL's output pose estimate is that with the least CAER among the $k$ matched
 estimates. CBGL is described in block diagram form in figure
-\ref{fig:block_system} (left) and in pseudocode in Algorithm \ref{alg:cbgl}.
+\ref{fig:block_system} and in pseudocode in Algorithm \ref{alg:cbgl}.
 
 
 \begin{figure}\vspace{-0.4cm}
@@ -115,11 +116,7 @@ estimates. CBGL is described in block diagram form in figure
   \label{fig:block_system}
 \end{figure}
 
-\begin{figure}\vspace{1cm}
-  \input{./figures/characterisation/sm2_evolution.tex}
-  \caption{}
-  \label{fig:sm2_evolution}
-\end{figure}
+
 
 
 %%% CBGL %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
