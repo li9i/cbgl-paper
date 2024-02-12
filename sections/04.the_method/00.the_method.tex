@@ -134,13 +134,13 @@ estimates. CBGL is described in block diagram form in figure
         \STATE $\mathcal{H} \leftarrow \{\mathcal{H}, (\hat{x}, \hat{y}, \hat{\theta} + j \cdot 2\pi / d_{\alpha})\}$     \label{alg:cbgl:h}
       \ENDFOR
     \ENDFOR
-    \STATE $\mathcal{H}_1 \leftarrow$ \texttt{bottom}$\_k\_\texttt{poses}(\mathcal{S}_R, \bm{M}, \mathcal{H}, k)$ \hfill {\small (Alg. \ref{alg:bottom_k}}) \label{alg:cbgl:h1}
+    \STATE $\mathcal{H}_1 \leftarrow$ \texttt{bottom}$\_k\_\texttt{poses}(\mathcal{S}_R, \bm{M}, \mathcal{H}, k, \lambda)$ \hfill {\small (Alg. \ref{alg:bottom_k}}) \label{alg:cbgl:h1}
     \STATE $\mathcal{H}_2 \leftarrow \{\varnothing \}$
     \FOR {$k \leftarrow 0,1,\dots,|\mathcal{H}_1|-1$}
       \STATE $\hat{\bm{h}}^\prime \leftarrow \texttt{sm2}(\mathcal{S}_R, \lambda, \bm{M}, \mathcal{H}_1[k])$ \hfill {\small (Alg. \ref{alg:sm2}---e.g. \texttt{x1} \cite{Filotheou2023a}})
       \STATE $\mathcal{H}_2 \leftarrow \{\mathcal{H}_2, \hat{\bm{h}}^\prime\}$  \label{alg:cbgl:h2}
     \ENDFOR
-    \RETURN \texttt{bottom}$\_k\_\texttt{poses}(\mathcal{S}_R, \bm{M}, \mathcal{H}_2, 1)$
+    \RETURN \texttt{bottom}$\_k\_\texttt{poses}(\mathcal{S}_R, \bm{M}, \mathcal{H}_2, 1, \lambda)$
   \end{algorithmic}
   \end{spacing}
   \label{alg:cbgl}
@@ -151,11 +151,11 @@ estimates. CBGL is described in block diagram form in figure
   \caption{\texttt{bottom}\_$k$\_\texttt{poses}}
   \begin{spacing}{1.0}
   \begin{algorithmic}[1]
-    \REQUIRE $\mathcal{S}_R$, $\bm{M}$, $\mathcal{H}$, $k$
+    \REQUIRE $\mathcal{S}_R$, $\bm{M}$, $\mathcal{H}$, $k$, $\lambda$
     \ENSURE Set of $k$ poses of $\mathcal{H}$ with least CAER values, $\mathcal{H}_{\triangledown}$
     \STATE $\Psi \leftarrow \{\varnothing \}$
     \FOR {$h \leftarrow 0,1,\dots,|\mathcal{H}|-1$}
-      \STATE $\mathcal{S}_V^{\hspace{1pt} h} \leftarrow \texttt{scan\_map}(\bm{M}, \mathcal{H}[h])$
+      \STATE $\mathcal{S}_V^{\hspace{1pt} h} \leftarrow \texttt{scan\_map}(\bm{M}, \mathcal{H}[h], \lambda)$
       \STATE $\psi \leftarrow 0$
       \FOR {$n \leftarrow 0,1,\dots,|\mathcal{S}_R|-1$}
         \STATE $\psi \leftarrow \psi + \big|\mathcal{S}_R[n]-\mathcal{S}_V^{\hspace{1pt} h}[n]\big|$ \hfill {\small (Eq. (\ref{eq:caer})})
