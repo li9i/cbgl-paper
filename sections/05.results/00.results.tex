@@ -1,16 +1,3 @@
-\begin{figure}\vspace{1cm}
-  \input{./figures/characterisation/sm2_evolution.tex}
-  \caption{\small Depiction of the process of scan--to--map-scan matching
-           (\texttt{sm2}) in principle, which takes place for all $\hat{\bm{p}}
-           = \mathcal{H}_1[k] \in \mathcal{H}_1$. The registration of map-scan
-           $\mathcal{S}_V^{\bm{M}}(\hat{\bm{p}}[s])$ to $\mathcal{S}_R$ at step
-           $s$ results in pose $\hat{\bm{p}}[s$$+$$1]$. Its error is, in
-           principle, reduced compared to $\hat{\bm{p}}[s]$, and the next
-           map-scan is captured from it. The process is iterative and completes
-           upon estimate convergence}
-  \label{fig:sm2_evolution}
-\end{figure}
-
 This section serves the testing of the performance of state of the global
 localisation art methods and CBGL with regard to solving Problem
 \ref{prob:the_problem} in static environments, varying environmental
@@ -88,9 +75,9 @@ time.
 
 
 \begin{figure}
-  \vspace{-0.3cm}
+  \vspace{-0.4cm}
   \input{./figures/experiments/a/determine_40_32.tex}
-  \vspace{-0.3cm}
+  \vspace{-0.4cm}
   \caption{\small Top row and right column: histograms of the number of times
            out of $N_E = 6669$ CBGL global localisation attempts
            when exactly $n \in [0,k] = [0,10]$ pose estimates belonging to set
@@ -107,13 +94,12 @@ time.
            $\delta_0$ for varying pose densities. Bottom block: the resulting
            distribution of corresponding execution times
            }
-  \vspace{-0.5cm}
   \label{fig:a:determine_40_32}
 \end{figure}
 
 
 \begin{figure}
-  \vspace{-1.2cm}
+  \vspace{-0.7cm}
   \input{./figures/experiments/a/trajectory.tex}
   \vspace{-0.7cm}
   \caption{\small The map of the real environment CSAL (black), the trajectory
@@ -135,7 +121,7 @@ time.
 \end{figure}
 
 \begin{figure}
-  %\vspace{-0.8cm}
+  \vspace{-0.3cm}
   \input{./figures/experiments/a/awesomeness.tex}
   \vspace{0.01cm}
   \caption{\small Proportions of pose estimates whose position and orientation
@@ -150,7 +136,7 @@ time.
            captured by the difference between the output (i.e.
            $\mathcal{H}_2[\arg \min f_{\psi}^{\bm{M}}(\mathcal{H}_2)]$) and
            $\mathcal{H}_1[\arg \min f_{\psi}^{\bm{M}}(\mathcal{H}_2)]$}
-  %\vspace{-0.5cm}
+  \vspace{-0.7cm}
   \label{fig:a:awesomeness}
 \end{figure}
 
@@ -250,8 +236,8 @@ position error is below $\delta_{\bm{l}} = 0.5$ m.
            seconds for $N_s = 360$ rays. CBGL's execution time is at least
            eighteen times lower than other Monte Carlo approaches in
            WILLOWGARAGE and four times lower in WAREHOUSE
-           %\vspace{-0.6cm}
            }
+  \vspace{-0.5cm}
 \end{figure}
 
 
@@ -291,7 +277,7 @@ map-scans, as proportions of total execution time.
 \begin{figure}
   \vspace{0.3cm}
   \input{./figures/experiments/c/errors.tex}
-  \vspace{0.1cm}
+  \vspace{0.01cm}
   \caption{\small Distributions of positional and orientational errors and of
            execution time of CBGL for varying choices of scan--to--map-scan
            matching methods. The errors of CBGL's internal $\mathcal{H}_1$ set
@@ -300,6 +286,7 @@ map-scans, as proportions of total execution time.
            \lambda_{\text{FastVGICP}} = 3\pi/2 \neq \lambda_{\texttt{x1}} = 2\pi$)
            }
   \label{fig:c:errors_and_time}
+  \vspace{0.2cm}
 \end{figure}
 
 \begin{figure}
@@ -313,6 +300,6 @@ map-scans, as proportions of total execution time.
            Right: Proportion of CBGL $\circ$ \texttt{x1}'s total execution time
            spent on (a) all operations up to and except for matching, and (b)
            computing map-scans, with respect to area}
-  \vspace{-0.2cm}
+  \vspace{-0.4cm}
   \label{fig:c:time_analysis}
 \end{figure}
