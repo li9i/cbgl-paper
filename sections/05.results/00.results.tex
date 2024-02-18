@@ -82,7 +82,7 @@ time.
            out of $N_E = 6669$ CBGL global localisation attempts
            when exactly $n \in [0,k] = [0,10]$ pose estimates belonging to set
            $\mathcal{H}_1$ (fig. \ref{fig:block_system} and line
-           \ref{alg:cbgl:h1} of alg. \ref{alg:cbgl}) exhibited pose errors
+           \ref{alg:cbgl:h1} of Alg. \ref{alg:cbgl}) exhibited pose errors
            lower than $\delta_0 = (\delta_{\bm{l}}^2 + \delta_{\theta}^2)^{1/2} =
            (0.3^2 + 0.4^2)^{1/2} = 0.5$ (m$^2$ + rad$^2$)$^{1/2}$. For
            densities $(d_{\bm{l}},d_{\alpha}) = (40, 2^5)$ (top right) this
@@ -171,7 +171,7 @@ Monte Carlo approaches MCL and GMCL the number of initial hypotheses is also
 set to $3$\texttt{e}+04.
 
 The maximum range of the sensor is such that the geometry of environment
-WAREHOUSE causes (disorderly) extended lack of sampling of the sensor's
+WAREHOUSE causes disorderly and extended lack of sampling of the sensor's
 surrounding environment, which limits available information and may therefore
 produce spurious measurements and increase ambiguities between the ranks of
 candidate estimates. In WILLOWGARAGE, on the other hand, almost all sensor
@@ -269,7 +269,7 @@ combination with \texttt{x1} exhibits a mean error of approximately $0.5$ m.
 The evidence illustrate that CBGL is robust to sensor angular range, as the
 distributions of errors between bottom-$k$ ($\mathcal{H}_1$) sets are virtually
 indistinguishable for $k=10$. Figure \ref{fig:c:time_analysis} (left) shows the
-execution time of CBGL combined with FastVGICP and \texttt{x1} as a function of
+execution time of CBGL combined with FastVGICP or \texttt{x1} as a function of
 environmental area, and the timing breakdown of the combination of CBGL with
 \texttt{x1} (right) with respect to (a) CBGL's total time minus \texttt{sm2}
 time and (b) computing map-scans, as proportions of total execution time.

@@ -13,10 +13,10 @@ map (Def. \ref{def:definition_2}) is proportional to both the estimate's
 location error and orientation error. In other words comparing any two pose
 estimates residing in a neighbourhood of the sensor's pose in terms of the CAER
 metric, which is a scalar value, is enough to establish a pose error hierarchy
-between them---a ranking.
+between them: a ranking.
 This is significant because: while the error of a
 single pose estimate is unknowable, the top of a hierarchy of dense-enough pose
-estimates, according to a metric that is proportional to their errors, may
+estimates, ordered by a metric that is proportional to their errors, may
 provide the neighbourhood of the desired pose, and hence an estimate of the
 pose itself. Moreover, this locus metric is directly derivable and calculable
 from the assumptions of Problem \ref{prob:the_problem}, with low computational
@@ -44,15 +44,15 @@ Monte Carlo global localisation methods.
   \label{fig:motivation_caer}
 \end{figure}
 
-
-The above motivate investigation on whether the CAER metric could prove equally
+Fig. \ref{fig:h_and_h_not_fig} (top) shows the relations between the total
+errors of hypotheses and their (a) CAER values (left) and (b) ranks when sorted
+by CAER ascending (right), which resulted from an experimental procedure
+similar to that which produced fig.  \ref{fig:motivation_caer}.  The above
+motivate investigation on whether the CAER metric could prove equally
 beneficial in settings more uncertain than pose-tracking, that is, where the
 location and orientation of pose estimates extend farther away from the
-sensor's true location and orientation. Fig. \ref{fig:h_and_h_not_fig} (top)
-shows the relations between the total errors of hypotheses and
-their (a) CAER values (left) and (b) ranks when sorted by CAER ascending (right),
-which resulted from an experimental procedure similar to that which produced fig.
-\ref{fig:motivation_caer}.
+sensor's true location and orientation.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -84,10 +84,8 @@ accuracy of the final pose estimate by a factor of two would be to double
 locational density $d_{\bm{l}}$; instead of doing that---and thereby doubling
 the method's execution time---subsequent to the estimation of the pose
 estimates with the $k$ lowest CAER values, CBGL scan--to--map-scan matches
-(\texttt{sm2}) \cite{Vasiljevic2016c,Filotheou2023a} the map-scans captured
-from them against the range scan measured by the real sensor.  The last step is
-the estimation of the one pose estimate with the lowest CAER value within the
-group of $k$ matched estimates.
+the map-scans captured from them against the range scan measured by the real
+sensor (\texttt{sm2}) \cite{Vasiljevic2016c,Filotheou2023a}.
 
 Matching allows for (a) the correction of the pose of true positive estimates,
 (b) by the same token the potential divergence of spurious, false positive,
@@ -97,9 +95,10 @@ densities, and (d) the production of finer pose estimates without excessive
 increase in execution time. The principle of \texttt{sm2} is depicted in fig.
 \ref{fig:sm2_evolution}.
 
-CBGL's output pose estimate is that with the least CAER among the $k$ matched
-estimates. CBGL is described in block diagram form in fig.
-\ref{fig:block_system} and in pseudocode in Algorithm \ref{alg:cbgl}.
+The last step is the estimation of the one pose estimate with the least CAER
+value within the group of $k$ matched estimates: CBGL's output. CBGL is
+described in block diagram form in fig.  \ref{fig:block_system} and in
+pseudocode in Algorithm \ref{alg:cbgl}.
 
 \begin{figure}[]\vspace{1.5cm}
   \input{./figures/characterisation/sm2_evolution.tex}
@@ -109,10 +108,10 @@ estimates. CBGL is described in block diagram form in fig.
            \ref{alg:cbgl}). The registration of map-scan
            $\mathcal{S}_V^{\bm{M}}(\hat{\bm{p}}[s])$ to $\mathcal{S}_R$ at step
            $s$ results in pose $\hat{\bm{p}}[s$$+$$1]$, where
-           $\hat{\bm{p}}_i[0] = \mathcal{H}_1[i]$. Its error is, in principle,
-           reduced compared to $\hat{\bm{p}}[s]$, and the next map-scan is
-           captured from it. The process is iterative and completes upon
-           estimate convergence}
+           $\hat{\bm{p}}_i[0] = \mathcal{H}_1[i]$. The error of
+           $\hat{\bm{p}}[s$$+$$1]$ is, in principle, reduced compared to
+           $\hat{\bm{p}}[s]$, and the next map-scan is captured from it. The
+           process is iterative and completes upon estimate convergence}
   \label{fig:sm2_evolution}
 \end{figure}
 
@@ -176,16 +175,16 @@ estimates. CBGL is described in block diagram form in fig.
   \caption{\texttt{bottom}\_$k$\_\texttt{poses}}
   \begin{spacing}{1.0}
   \begin{algorithmic}[1]
-    \REQUIRE $\mathcal{S}_R$, $\bm{M}$, $\mathcal{H}$, $k$, $\lambda$
-    \ENSURE Set of $k$ poses of $\mathcal{H}$ with least CAER values, $\mathcal{H}_{\triangledown}$
+    \REQUIRE $\mathcal{S}_R$, $\bm{M}$, $\mathcal{P}$, $k$, $\lambda$
+    \ENSURE Set of $k$ poses of $\mathcal{P}$ with least CAER values, $\mathcal{P}_{\triangledown}$
     \STATE $\Psi \leftarrow \{\varnothing \}$
-    \FOR {$h \leftarrow 0,1,\dots,|\mathcal{H}|-1$}
-      \STATE $\mathcal{S}_V^{\hspace{1pt} h} \leftarrow \mathcal{S}_V^{\bm{M}}(\mathcal{H}[h]) = \texttt{scan\_map}(\bm{M}, \mathcal{H}[h], \lambda)$
-      \STATE $\Psi \leftarrow \{\Psi, \texttt{CAER}(\mathcal{S}_R, \mathcal{S}_V^{\hspace{1pt} h}) \}$ \hfill {\small (Eq. (\ref{eq:caer})})
+    \FOR {$q \leftarrow 0,1,\dots,|\mathcal{P}|-1$}
+      \STATE $\mathcal{S}_V^{\hspace{1pt} q} \leftarrow \mathcal{S}_V^{\bm{M}}(\mathcal{P}[q]) = \texttt{scan\_map}(\bm{M}, \mathcal{P}[q], \lambda)$
+      \STATE $\Psi \leftarrow \{\Psi, \texttt{CAER}(\mathcal{S}_R, \mathcal{S}_V^{\hspace{1pt} q}) \}$ \hfill {\small (Eq. (\ref{eq:caer})})
     \ENDFOR
     \STATE $[\Psi_{\uparrow}, \texttt{I}^{\ast}] \leftarrow \texttt{sort}(\Psi, \texttt{asc})$, such that $\Psi[\texttt{I}^{\ast}] = \Psi_{\uparrow}$
-    \RETURN $\mathcal{H}_{\triangledown} = \{\mathcal{H}[\texttt{I}^{\ast}[0]], \mathcal{H}[\texttt{I}^{\ast}[1]], \dots, \mathcal{H}[\texttt{I}^{\ast}[k-1]]\}$
-    %\RETURN $\mathcal{H}_{\triangledown}$
+    \RETURN $\mathcal{P}_{\triangledown} = \{\mathcal{P}[\texttt{I}^{\ast}[0]], \mathcal{P}[\texttt{I}^{\ast}[1]], \dots, \mathcal{P}[\texttt{I}^{\ast}[k-1]]\}$
+    %\RETURN $\mathcal{P}_{\triangledown}$
   \end{algorithmic}
   \end{spacing}
   \label{alg:bottom_k}
