@@ -79,7 +79,7 @@
 \draw (397,302.71) node [anchor=north west][inner sep=0.75pt]   [align=left] {\tiny $k$$=$$1$};
 % Text Node
 \draw (280,232) node   [align=left] {\tiny $\mathcal{H}_1 \subseteq \mathcal{H}$};
-\draw (280,284) node   [align=left] {\tiny $\mathcal{H}_2 \not\subseteq \mathcal{H}$};
+\draw (324,284) node   [align=left] {\tiny $\mathcal{H}_2 \not\subseteq \mathcal{H}$; $\mathcal{H}_2 \neq \mathcal{H}_1$};
 % Text Node
 \draw (241,366) node   [align=left] {\tiny $\hat{\bm{p}}$};
 

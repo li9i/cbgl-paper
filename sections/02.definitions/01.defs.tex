@@ -9,11 +9,11 @@ $\mathcal{A}_{k:l}= \{\mathcal{A}[k], \mathcal{A}[k+1], \dots, \mathcal{A}[l]\}$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{definition}
   \label{def:definition_0} \textit{Pose and pose estimate}.---The object of
-  localisation is the estimation of the---fundamentally-unknown---3DoF pose
+  localisation is the estimation of the---fundamentally unknown---3DoF pose
   $\bm{p}$ of a sensor or robot: $\hat{\bm{p}} = (\hat{\bm{l}}, \hat{\theta})$,
-  where $\hat{\bm{l}} = (x,y) \in \mathbb{R}^2$ is its location on the 2D plane
-  and $\hat{\theta} \in [-\pi, \pi)$ rad its orientation relative to the
-  positive $x$ axis.
+  where $\hat{\bm{l}} = (\hat{x},\hat{y}) \in \mathbb{R}^2$ is its location on
+  the 2D plane and $\hat{\theta} \in [-\pi, \pi)$ rad its orientation relative
+  to the positive $x$ axis.
 \end{definition}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -45,10 +45,11 @@ $\mathcal{A}_{k:l}= \{\mathcal{A}[k], \mathcal{A}[k+1], \dots, \mathcal{A}[l]\}$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{definition}
   \label{def:definition_3} \textit{The Cumulative Absolute Error per Ray metric}.---Let
-  $\mathcal{S}_p$ and $\mathcal{S}_q$ be two range scans (Def.
-  \ref{def:definition_1}), equal in angular range $\lambda$ and size $N_s$. The
-  value of the Cumulative Absolute Error per Ray (CAER) metric $\psi \in
-  \mathbb{R}_{\geq 0}$ between $\mathcal{S}_p$ and $\mathcal{S}_q$ is given by
+  $\mathcal{S}_p$ and $\mathcal{S}_q$ be two range scans (Defs.
+  \ref{def:definition_1}, \ref{def:definition_2}), equal in angular range
+  $\lambda$ and size $N_s$. The value of the Cumulative Absolute Error per Ray
+  (CAER) metric $\psi \in \mathbb{R}_{\geq 0}$ between $\mathcal{S}_p$ and
+  $\mathcal{S}_q$ is given by
   \begin{align}
     \psi(\mathcal{S}_p,\mathcal{S}_q) \triangleq \sum\limits_{n=0}^{N_s-1} \Big| \mathcal{S}_p[n]-\mathcal{S}_q[n]\Big| \label{eq:caer}
   \end{align}

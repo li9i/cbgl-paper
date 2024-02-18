@@ -58,8 +58,8 @@
 \draw    (219.5,172.67) -- (331.5,172.67) -- (331.5,197.67) -- (219.5,197.67) -- cycle  ;
 \draw (275.5,185.17) node   [align=left] {\tiny  \ \ \ \ \ \ \ $\psi$ \ \ \ \ \ \ };
 % Text Node
-\draw    (229.5,237) -- (319.5,237) -- (319.5,262) -- (229.5,262) -- cycle  ;
-\draw (274.5,249.5) node   [align=left] {\tiny $\texttt{sort}(\Psi,\text{asc})$};
+\draw    (224.5,237) -- (324.5,237) -- (324.5,262) -- (224.5,262) -- cycle  ;
+\draw (274.5,249.5) node   [align=left] {\tiny $\texttt{sort}(\Psi,\texttt{asc})$};
 % Text Node
 \draw (288,224) node   [align=left] {\tiny $\Psi$};
 % Text Node
@@ -73,8 +73,7 @@
 
 \draw (276.75,315) node   [align=left] {\tiny  $\mathcal{P}[\texttt{I}^{\ast}]_{1:k} $};
 \draw (121,307) node [anchor=north west][inner sep=0.75pt]   [align=left] {\tiny $k$};
-\draw (275.5,376.5) node   [align=left] {\tiny $\mathcal{Q} = \mathcal{P}[\texttt{I}^{\ast}]_{1:k} \subseteq \mathcal{P}$:
-  $f_{\texttt{r}}(\mathcal{Q}) = \langle 0,1,\dots,k$--$1 \rangle$};
+\draw (275.5,376.5) node   [align=left] {\tiny $\mathcal{P}_{\triangledown} = \{\mathcal{P}[\texttt{I}^{\ast}[0]], \mathcal{P}[\texttt{I}^{\ast}[1]], \dots, \mathcal{P}[\texttt{I}^{\ast}[k$$-$$1]]\}$};
 
 \end{tikzpicture}
 

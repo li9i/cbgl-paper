@@ -12,16 +12,16 @@ Bayesian Monte Carlo fashion, i.e. by dispersing hypotheses within the map and
 updating the belief of the robot's pose by incorporating new measurements as it
 moves until estimate convergence
 \cite{mcl,Wang2018d,Yilmaz2019a,gmcl,Chen2021a}.
-Although motion may be assistive---or even required---in conditions of
-repetitive map structures, the requirement of motion (a) may give
-rise to safety concerns (the robot may not even be visible), and (b) increases
-estimation time. The Monte Carlo method proposed in this article operates
-directly in measurement space as well but, in contrast, is not iterative, and
-does not require motion or more than one measurement. As a result CBGL is a
-single-shot global localisation approach that is able to process more
-hypotheses in less time, resulting in an improvement in the number of correctly
-estimated locations, and making it able to compete against (traditionally
-faster) feature-based approaches in terms of execution time.
+Although motion may be assistive---or even required---in certain conditions,
+such as those of repetitive map structures, the requirement of motion (a) may
+give rise to safety concerns (the robot may not even be visible), and (b)
+increases estimation time. The Monte Carlo method proposed in this article
+operates directly in measurement space as well but, in contrast, is not
+iterative, and does not require motion or more than one measurement. As a
+result CBGL is a single-shot global localisation approach that is able to
+process more hypotheses in less time, resulting in an improvement in the number
+of correctly estimated locations, and making it able to compete against
+(traditionally faster) feature-based approaches in terms of execution time.
 
 Research on the feature-based approaches has been more extensive due to the
 richness, adaptability, and efficacy of methods originated in the computer
