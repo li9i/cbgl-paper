@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex main"] 1708283926 "main.aux" "main.bbl" "main" 1708283994
+["bibtex main"] 1708288544 "main.aux" "main.bbl" "main" 1708288799
   "./ieeetran.bst" 1686231098 59147 b77491233300aaa15ba653115e44964a ""
   "./sections/bibliography_ieee.bib" 1707572157 13148 7eb126cf41c70cc9da7bb84b28dcc2c7 ""
-  "main.aux" 1708283994 22909 80b605f6e48c2b4048f4ac4ed39d46ec ""
+  "main.aux" 1708288799 22878 bde6008bdf9bd253fcc3c5c0a6515333 ""
   "main.bcf" 0 -1 0 ""
   (generated)
   "main.bbl"
   "main.blg"
-["pdflatex"] 1708283993 "main.tex" "main.pdf" "main" 1708283994
+["pdflatex"] 1708288798 "main.tex" "main.pdf" "main" 1708288799
   "/etc/texmf/web2c/texmf.cnf" 1552154870 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
@@ -306,21 +306,21 @@
   "figures/h_and_h_not_fig.tex" 1707762127 9108 c776576dc27621bdff1c4321df0255c8 ""
   "figures/inner_ranking_system2_tiny.tikz" 1708211753 5832 c25326268a732833d961e74b1c8f48c0 ""
   "ieeeconf.cls" 1686231098 202167 7b37f8353df61c9733ed46143eff807a ""
-  "main.aux" 1708283994 22909 80b605f6e48c2b4048f4ac4ed39d46ec ""
-  "main.bbl" 1708283926 10157 05d37bbe504378836ba60721b885ccfe "bibtex main"
-  "main.out" 1708283994 848 d5978f4eabd2f4bea0f05951d5f0bdde ""
+  "main.aux" 1708288799 22878 bde6008bdf9bd253fcc3c5c0a6515333 ""
+  "main.bbl" 1708288544 10157 05d37bbe504378836ba60721b885ccfe "bibtex main"
+  "main.out" 1708288799 848 d5978f4eabd2f4bea0f05951d5f0bdde ""
   "main.tex" 1708213208 2790 48860cb62e7f1f0101831c727bada974 ""
   "sections/00.abstract/abstract.tex" 1707850537 1164 0e1353922a85638d4a09336801a79085 ""
   "sections/01.introduction/01.introduction.tex" 1707764695 4856 87f3691caf3f8c850d20e8607bae3457 ""
   "sections/02.definitions/01.defs.tex" 1708207645 6439 f7f6cd8fbb878f6a8119895449926a31 ""
   "sections/03.current_solutions/01.current_solutions.tex" 1708282849 4507 c3ed90770c0da18dc6e5e357ecf966ad ""
-  "sections/04.the_method/00.the_method.tex" 1708283868 11841 00fb7e35abfe439b70df4122a8a83aa2 ""
-  "sections/05.results/00.results.tex" 1708283992 16738 e71d4ef7a01b7bd8aa523d9ebb8ce69c ""
+  "sections/04.the_method/00.the_method.tex" 1708288798 11812 8820e87e8223252ae30e737b8645b0ed ""
+  "sections/05.results/00.results.tex" 1708286757 16641 528ee621a2af1e8738cc66b8b6b91269 ""
   "sections/06.characterisation/00.characterisation.tex" 1708210554 2666 fb8cfa224f66aa2c4779ab7612260984 ""
   "sections/07.finale/00.finale.tex" 1708210630 1178 855ee8884ffdda148a527c2f778c17b6 ""
   "sections/pre_document.tex" 1707577152 4077 7ec366ffb587911cdc8385cd08228b9c ""
   (generated)
   "main.aux"
-  "main.out"
-  "main.pdf"
   "main.log"
+  "main.pdf"
+  "main.out"

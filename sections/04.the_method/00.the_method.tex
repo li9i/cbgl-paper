@@ -3,33 +3,42 @@
 \subsection{Motivation}
 \label{subsec:motivation}
 
-The proposed method's motivation lies in the simple but powerful fact that is
+The proposed method's motivation lies in the simple but powerful facts that are
 in general exhibited through fig. \ref{fig:motivation_caer}: Let a pose
-estimate of a 2D LIDAR sensor be in a neighbourhood of its true pose within a
-given map (Def. \ref{def:definition_0}); then the value of the CAER metric
-(Def.  \ref{def:definition_3}) between the scan measured by the sensor (Def.
-\ref{def:definition_1}) and the map-scan captured from the estimate within the
-map (Def. \ref{def:definition_2}) is proportional to both the estimate's
-location error and orientation error. In other words comparing any two pose
-estimates residing in a neighbourhood of the sensor's pose in terms of the CAER
-metric, which is a scalar value, is enough to establish a pose error hierarchy
-between them: a ranking.
-This is significant because: while the error of a
-single pose estimate is unknowable, the top of a hierarchy of dense-enough pose
-estimates, ordered by a metric that is proportional to their errors, may
-provide the neighbourhood of the desired pose, and hence an estimate of the
-pose itself. Moreover, this locus metric is directly derivable and calculable
+estimate of a 2D LIDAR sensor be within the given map (Def.
+\ref{def:definition_0}); then the value of the CAER metric (Def.
+\ref{def:definition_3}) between the scan measured by the sensor (Def.
+\ref{def:definition_1}) and the map-scan captured from the estimate (Def.
+\ref{def:definition_2}) is (a) proportional to both the estimate's location
+error and orientation error in a neighbourhood of the sensor's true pose, and
+(b) not inversely proportional to them outside of it. In other words comparing
+any two pose estimates of the sensor's pose in terms of the CAER metric is
+enough to establish a pose error hierarchy between them: a ranking.  This is
+significant because: while the error of a single pose estimate is unknowable,
+the top of a hierarchy of dense-enough pose estimates (Def.
+\ref{def:definition_6}), ordered by CAER values, may provide the neighbourhood
+of the desired pose, and hence an admissible estimate of the pose itself (Def.
+\ref{def:definition_7}).  Moreover, the CAER metric is directly calculable
 from the assumptions of Problem \ref{prob:the_problem}, with low computational
 complexity $\mathcal{O}(N_s)$.
+The relationships of proportionality between the CAER
+metric of a pose estimate and its location and orientation errors have been
+discovered and successfully exploited in the context of non-global
+localisation, and specifically in pose-tracking, for the production of lidar
+odometry \cite{Filotheou2022f} and the reduction of localisation's pose
+estimate error \cite{Filotheou2023a}. In this context, estimate errors are
+close to the origin, i.e. in contrast to the distribution of hypotheses' errors
+in Monte Carlo methods.
 
-The relationships of proportionality between the CAER metric of a pose
-estimate and its location and orientation errors have been discovered and
-successfully exploited in the context of non-global localisation, and
-specifically in pose-tracking, for the production of lidar odometry
-\cite{Filotheou2022f} and the reduction of localisation's pose estimate error
-\cite{Filotheou2023a}. In this context, estimate errors are close to the
-origin, i.e. in contrast to the arbitrary distribution of hypotheses' errors in
-Monte Carlo global localisation methods.
+Fig. \ref{fig:h_and_h_not_fig} (top) shows the relations between the total
+errors of hypotheses and their (a) CAER values (left) and (b) ranks when ordered
+by CAER ascending (right), which resulted from an experimental procedure
+similar to that which produced fig. \ref{fig:motivation_caer}. The above
+motivate investigation on whether the CAER metric could prove equally
+beneficial in settings more uncertain than pose-tracking, that is, where the
+location and orientation of pose estimates extend farther away from the
+sensor's true location and orientation.
+
 
 
 \begin{figure}\vspace{-1.5cm}
@@ -43,16 +52,6 @@ Monte Carlo global localisation methods.
   \vspace{-0.5cm}
   \label{fig:motivation_caer}
 \end{figure}
-
-Fig. \ref{fig:h_and_h_not_fig} (top) shows the relations between the total
-errors of hypotheses and their (a) CAER values (left) and (b) ranks when sorted
-by CAER ascending (right), which resulted from an experimental procedure
-similar to that which produced fig.  \ref{fig:motivation_caer}.  The above
-motivate investigation on whether the CAER metric could prove equally
-beneficial in settings more uncertain than pose-tracking, that is, where the
-location and orientation of pose estimates extend farther away from the
-sensor's true location and orientation.
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -156,8 +155,7 @@ pseudocode in Algorithm \ref{alg:cbgl}.
            %II \cite{Filotheou2023c}
            As a final step, it scan--to--map-scan
            matches these to $\mathcal{S}_R$ for finer estimation
-           (\texttt{sm2}; Alg.
-           \ref{alg:sm2}).
+           (Alg. \ref{alg:sm2}).
            %III \cite{Filotheou2023c}
            CBGL's output pose estimate is that with
            the minimum CAER among the $k$ matched estimates. See Algs.
