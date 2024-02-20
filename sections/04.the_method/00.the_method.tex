@@ -10,34 +10,32 @@ estimate of a 2D LIDAR sensor be within the given map (Def.
 \ref{def:definition_3}) between the scan measured by the sensor (Def.
 \ref{def:definition_1}) and the map-scan captured from the estimate (Def.
 \ref{def:definition_2}) is (a) proportional to both the estimate's location
-error and orientation error in a neighbourhood of the sensor's true pose, and
-(b) not inversely proportional to them outside of it. In other words comparing
-any two pose estimates of the sensor's pose in terms of the CAER metric is
-enough to establish a pose error hierarchy between them: a ranking.  This is
-significant because: while the error of a single pose estimate is unknowable,
-the top of a hierarchy of dense-enough pose estimates (Def.
-\ref{def:definition_6}), ordered by CAER values, may provide the neighbourhood
-of the desired pose, and hence an admissible estimate of the pose itself (Def.
-\ref{def:definition_7}).  Moreover, the CAER metric is directly calculable
-from the assumptions of Problem \ref{prob:the_problem}, with low computational
-complexity $\mathcal{O}(N_s)$.
-The relationships of proportionality between the CAER
-metric of a pose estimate and its location and orientation errors have been
-discovered and successfully exploited in the context of non-global
+error and orientation error in a neighbourhood of the sensor's true pose, (b)
+not inversely proportional to them outside of it, and (c) greater in value
+outside than inside of it. In other words comparing any two estimates of
+the sensor's pose in terms of the CAER metric, where at least one is in a
+neighbourhood of it, is enough to establish a pose error hierarchy between
+them.  This is significant because: while the error of a single pose estimate
+is unknowable, the top of a hierarchy of dense-enough pose estimates (Def.
+\ref{def:definition_6}) ordered by CAER values may provide the neighbourhood of
+the sensor's pose, and hence an admissible estimate of the pose itself (Def.
+\ref{def:definition_7}).  Moreover, the CAER metric is directly calculable from
+the assumptions of Problem \ref{prob:the_problem}, with low computational
+complexity $\mathcal{O}(N_s)$.  The relationships of proportionality between
+the CAER metric of a pose estimate and its location and orientation errors have
+been discovered and successfully exploited in the context of non-global
 localisation, and specifically in pose-tracking, for the production of lidar
 odometry \cite{Filotheou2022f} and the reduction of localisation's pose
-estimate error \cite{Filotheou2023a}. In this context, estimate errors are
-close to the origin, i.e. in contrast to the distribution of hypotheses' errors
-in Monte Carlo methods.
-
-Fig. \ref{fig:h_and_h_not_fig} (top) shows the relations between the total
-errors of hypotheses and their (a) CAER values (left) and (b) ranks when ordered
-by CAER ascending (right), which resulted from an experimental procedure
-similar to that which produced fig. \ref{fig:motivation_caer}. The above
-motivate investigation on whether the CAER metric could prove equally
-beneficial in settings more uncertain than pose-tracking, that is, where the
-location and orientation of pose estimates extend farther away from the
-sensor's true location and orientation.
+estimate error \cite{Filotheou2023a}. In that context estimate errors are close
+to the origin, in contrast to the distribution of hypotheses' errors in global
+localisation methods.  Fig. \ref{fig:h_and_h_not_fig} (top) shows the relations
+between the total errors of hypotheses and their (a) CAER values (left) and (b)
+ranks when ordered by CAER ascending (right), which resulted from an
+experimental procedure similar to that which produced fig.
+\ref{fig:motivation_caer}. The above motivate investigation on whether the CAER
+metric could prove equally beneficial in settings more uncertain than
+pose-tracking, that is, where the location and orientation of pose estimates
+extend farther away from the sensor's true location and orientation.
 
 
 
