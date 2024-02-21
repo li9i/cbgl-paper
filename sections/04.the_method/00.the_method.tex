@@ -19,7 +19,7 @@ them.  This is significant because: while the error of a single pose estimate
 is unknowable, the top of a hierarchy of dense-enough pose estimates (Def.
 \ref{def:definition_6}) ordered by CAER values may provide the neighbourhood of
 the sensor's pose, and hence an admissible estimate of the pose itself (Def.
-\ref{def:definition_7}).  Moreover, the CAER metric is directly calculable from
+\ref{def:definition_7}).  Moreover, the CAER metric is calculable from
 the assumptions of Problem \ref{prob:the_problem}, with low computational
 complexity $\mathcal{O}(N_s)$.  The relationships of proportionality between
 the CAER metric of a pose estimate and its location and orientation errors have
@@ -97,7 +97,7 @@ value within the group of $k$ matched estimates: CBGL's output. CBGL is
 described in block diagram form in fig.  \ref{fig:block_system} and in
 pseudocode in Algorithm \ref{alg:cbgl}.
 
-\begin{figure}[]\vspace{1.5cm}
+\begin{figure}[H]\vspace{1.5cm}
   \input{./figures/characterisation/sm2_evolution.tex}
   \caption{\small Depiction of the process of scan--to--map-scan matching
            (\texttt{sm2}) in principle, which takes place for all
@@ -113,8 +113,29 @@ pseudocode in Algorithm \ref{alg:cbgl}.
 \end{figure}
 
 
+
+\begin{figure}[H]\vspace{-0.4cm}
+  \subfloat{\label{fig:cbgl}     \input{./figures/cbgl_system_tiny.tikz}}
+  \subfloat{\label{fig:bottom_k} \input{./figures/inner_ranking_system2_tiny.tikz}}
+  \caption{\small CBGL in block diagram form. Left: Given map $\bm{M}$, CBGL
+           first generates a set of pose hypotheses $\mathcal{H}$. Then it
+           estimates the $k$ hypotheses with the least pose error (right; Alg.
+           \ref{alg:bottom_k}).
+           %II \cite{Filotheou2023c}
+           As a final step, it scan--to--map-scan
+           matches these to $\mathcal{S}_R$ for finer estimation
+           (Alg. \ref{alg:sm2}).
+           %III \cite{Filotheou2023c}
+           CBGL's output pose estimate is that with
+           the minimum CAER among the $k$ matched estimates. See Algs.
+           \ref{alg:cbgl}, \ref{alg:bottom_k}, \ref{alg:sm2} for notation
+           }
+  \label{fig:block_system}
+\end{figure}
+
+
 %%% CBGL %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{algorithm}[]
+\begin{algorithm}[H]
   \caption{\texttt{CBGL}}
   \begin{spacing}{1.0}
   \begin{algorithmic}[1]
@@ -140,34 +161,8 @@ pseudocode in Algorithm \ref{alg:cbgl}.
   \label{alg:cbgl}
 \end{algorithm}
 
-
-
-
-\begin{figure}\vspace{-0.4cm}
-  \subfloat{\label{fig:cbgl}     \input{./figures/cbgl_system_tiny.tikz}}
-  \subfloat{\label{fig:bottom_k} \input{./figures/inner_ranking_system2_tiny.tikz}}
-  \caption{\small CBGL in block diagram form. Left: Given map $\bm{M}$, CBGL
-           first generates a set of pose hypotheses $\mathcal{H}$. Then it
-           estimates the $k$ hypotheses with the least pose error (right; Alg.
-           \ref{alg:bottom_k}).
-           %II \cite{Filotheou2023c}
-           As a final step, it scan--to--map-scan
-           matches these to $\mathcal{S}_R$ for finer estimation
-           (Alg. \ref{alg:sm2}).
-           %III \cite{Filotheou2023c}
-           CBGL's output pose estimate is that with
-           the minimum CAER among the $k$ matched estimates. See Algs.
-           \ref{alg:cbgl}, \ref{alg:bottom_k}, \ref{alg:sm2} for notation
-           }
-  \label{fig:block_system}
-\end{figure}
-
-
-
-
-
 %% Bottom-n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{algorithm}[]
+\begin{algorithm}[H]
   \caption{\texttt{bottom}\_$k$\_\texttt{poses}}
   \begin{spacing}{1.0}
   \begin{algorithmic}[1]
@@ -187,7 +182,7 @@ pseudocode in Algorithm \ref{alg:cbgl}.
 \end{algorithm}
 
 %% sm2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{algorithm}[]
+\begin{algorithm}[H]
   \caption{\texttt{sm2}}
   \begin{spacing}{1.0}
   \begin{algorithmic}[1]
