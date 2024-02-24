@@ -53,24 +53,26 @@ extend farther away from the sensor's true location and orientation.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{The CBGL System}
+\subsection{The CBGL Algorithm}
 
 In order to test the efficacy of the CAER metric in aiding the solution of
 Problem \ref{prob:the_problem}, we introduce the CAER-Based Global Localisation
-system (CBGL).\footnote{For a rigorous mathematical formulation of the
+algorithm (CBGL), described in block diagram form in fig.
+\ref{fig:block_system} and in pseudocode in Algorithm
+\ref{alg:cbgl}.\footnote{For a rigorous mathematical formulation of the
 hypothesis underpinning CBGL see \cite{cbglarxiv}.} Given map $\bm{M}$, CBGL
 first generates a set of pose hypotheses $\mathcal{H}$ (Def.
-\ref{def:definition_0}). Their positions are randomly generated
-uniformly within the map's traversable space; their orientations within
-$[-\pi,\pi)$ rad. Then from these poses CBGL computes map-scans (Def.
-\ref{def:definition_2}). Given these map-scans and a LIDAR's 2D measurement
-$\mathcal{S}_R$ (Def. \ref{def:definition_1}), CBGL subsequently computes the
-CAER value (Def. \ref{def:definition_3}) associated with each pose hypothesis.
-It then ranks them in ascending order and selects the $k$ estimates with the
-least CAER values in an attempt to estimate the $k$ hypotheses with the least
-pose error (Alg. \ref{alg:bottom_k}). Estimation in this sense rests on the
-motivation of subsection \ref{subsec:motivation}. Fig. \ref{fig:face} (bottom)
-indicatively depicts such a pose hierarchy.
+\ref{def:definition_0}). Their positions are randomly generated uniformly
+within the map's traversable space; their orientations within $[-\pi,\pi)$ rad.
+Then from these poses CBGL computes map-scans (Def.  \ref{def:definition_2}).
+Given these map-scans and a LIDAR's 2D measurement $\mathcal{S}_R$ (Def.
+\ref{def:definition_1}), CBGL subsequently computes the CAER value (Def.
+\ref{def:definition_3}) associated with each pose hypothesis.  It then ranks
+them in ascending order and selects the $k$ estimates with the least CAER
+values in an attempt to estimate the $k$ hypotheses with the least pose error,
+producing set $\mathcal{H}_1$ (Alg. \ref{alg:bottom_k}). Estimation in this
+sense rests on the motivation of subsection \ref{subsec:motivation}. Fig.
+\ref{fig:face} (bottom) indicatively depicts such a pose hierarchy.
 
 One challenge is choosing such $k$, $d_{\bm{l}}$, and $d_\alpha$ (Def.
 \ref{def:definition_6}) that, given pose estimate error requirements
@@ -79,10 +81,11 @@ $\delta_{\bm{l}}$, $\delta_{\theta}$, CBGL produces admissible pose estimates
 method's Monte Carlo nature, optimistically, the only option for increasing the
 accuracy of the final pose estimate by a factor of two would be to double
 locational density $d_{\bm{l}}$; instead of doing that---and thereby doubling
-the method's execution time---subsequent to the estimation of the pose
-estimates with the $k$ lowest CAER values, CBGL scan--to--map-scan matches
-the map-scans captured from them against the range scan measured by the real
-sensor (\texttt{sm2}) \cite{Vasiljevic2016c,Filotheou2023a}.
+the method's execution time---subsequent to the calculation of set
+$\mathcal{H}_1$, CBGL scan--to--map-scan matches the map-scans captured from
+the pose estimates of $\mathcal{H}_1$ against the range scan measured by the
+real sensor (\texttt{sm2}) \cite{Vasiljevic2016c,Filotheou2023a}, producing
+pose set $\mathcal{H}_2$ (Alg. \ref{alg:sm2}).
 
 Matching allows for (a) the correction of the pose of true positive estimates,
 (b) by the same token the potential divergence of spurious, false positive,
@@ -92,17 +95,16 @@ densities, and (d) the production of finer pose estimates without excessive
 increase in execution time. The principle of \texttt{sm2} is depicted in fig.
 \ref{fig:sm2_evolution}.
 
-The last step is the estimation of the one pose estimate with the least CAER
-value within the group of $k$ matched estimates: CBGL's output. CBGL is
-described in block diagram form in fig.  \ref{fig:block_system} and in
-pseudocode in Algorithm \ref{alg:cbgl}.
+CBGL's output is the pose estimate with the least CAER value within the
+group of $k$ matched estimates.
 
-\begin{figure}[H]\vspace{1.5cm}
+
+\begin{figure}[H]\vspace{1.3cm}
   \input{./figures/characterisation/sm2_evolution.tex}
   \caption{\small Depiction of the process of scan--to--map-scan matching
            (\texttt{sm2}) in principle, which takes place for all
-           $\hat{\bm{p}}_i = \mathcal{H}_1[i]$, $i=0,1,\dots,k$$-$$1$ (Alg.
-           \ref{alg:cbgl}). The registration of map-scan
+           $\hat{\bm{p}}_i = \mathcal{H}_1[i]$ (Alg.
+           \ref{alg:cbgl}, line \ref{alg:cbgl:h2}), $i=0,1,\dots,k$$-$$1$. The registration of map-scan
            $\mathcal{S}_V^{\bm{M}}(\hat{\bm{p}}[s])$ to $\mathcal{S}_R$ at step
            $s$ results in pose $\hat{\bm{p}}[s$$+$$1]$, where
            $\hat{\bm{p}}_i[0] = \mathcal{H}_1[i]$. The error of
@@ -114,7 +116,7 @@ pseudocode in Algorithm \ref{alg:cbgl}.
 
 
 
-\begin{figure}[H]\vspace{-0.4cm}
+\begin{figure}[H]%\vspace{-0.4cm}
   \subfloat{\label{fig:cbgl}     \input{./figures/cbgl_system_tiny.tikz}}
   \subfloat{\label{fig:bottom_k} \input{./figures/inner_ranking_system2_tiny.tikz}}
   \caption{\small CBGL in block diagram form. Left: Given map $\bm{M}$, CBGL
@@ -150,10 +152,10 @@ pseudocode in Algorithm \ref{alg:cbgl}.
       \ENDFOR
     \ENDFOR
     \STATE $\mathcal{H}_1 \leftarrow$ \texttt{bottom}$\_k\_\texttt{poses}(\mathcal{S}_R, \bm{M}, \mathcal{H}, k, \lambda)$ \hfill {\small (Alg. \ref{alg:bottom_k}}) \label{alg:cbgl:h1}
-    \FOR {$k \leftarrow 0,1,\dots,|\mathcal{H}_1|-1$}
-      %\STATE $\hat{\bm{h}}^\prime \leftarrow \texttt{sm2}(\mathcal{S}_R, \lambda, \bm{M}, \mathcal{H}_1[k])$ \hfill {\small (Alg. \ref{alg:sm2}---e.g. \texttt{x1} \cite{Filotheou2023a}})
+    \FOR {$i \leftarrow 0,1,\dots,|\mathcal{H}_1|-1$}
+      %\STATE $\hat{\bm{h}}^\prime \leftarrow \texttt{sm2}(\mathcal{S}_R, \lambda, \bm{M}, \mathcal{H}_1[i])$ \hfill {\small (Alg. \ref{alg:sm2}---e.g. \texttt{x1} \cite{Filotheou2023a}})
       %\STATE $\mathcal{H}_2 \leftarrow \{\mathcal{H}_2, \hat{\bm{h}}^\prime\}$  \label{alg:cbgl:h2}
-      \STATE \footnotesize $\mathcal{H}_2 \leftarrow \{\mathcal{H}_2, \texttt{sm2}(\mathcal{S}_R, \lambda, \bm{M}, \mathcal{H}_1[k])\}$ \hfill {(Alg. \ref{alg:sm2}---e.g. \texttt{x1} \cite{Filotheou2023a})}\label{alg:cbgl:h2}
+      \STATE \footnotesize $\mathcal{H}_2 \leftarrow \{\mathcal{H}_2, \texttt{sm2}(\mathcal{S}_R, \lambda, \bm{M}, \mathcal{H}_1[i])\}$ \hfill {(Alg. \ref{alg:sm2}---e.g. \texttt{x1} \cite{Filotheou2023a})}\label{alg:cbgl:h2}
     \ENDFOR
     \RETURN \texttt{bottom}$\_k\_\texttt{poses}(\mathcal{S}_R, \bm{M}, \mathcal{H}_2, 1, \lambda)$
   \end{algorithmic}

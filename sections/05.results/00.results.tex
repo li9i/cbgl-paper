@@ -15,8 +15,9 @@ determined through experimental procedure with a YDLIDAR TG30 sensor (footnote
 %(due to the application of scan--to--map-scan matching on $k$ pose estimates).
 References to sets $\mathcal{H}_{\ast}$ are made to fig. \ref{fig:block_system}
 and lines
-%\ref{alg:cbgl:h}, \ref{alg:cbgl:h1}, and \ref{alg:cbgl:h2} of
-6, 9, and 13 of Alg.  \ref{alg:cbgl}.
+\ref{alg:cbgl:h}, \ref{alg:cbgl:h1}, and \ref{alg:cbgl:h2} of
+%6, 9, and 11 of
+Alg.  \ref{alg:cbgl}.
 %I \cite{Filotheou2023c}.
 Tests are performed with a processor of $12$ threads and clock speed $4.00$ GHz.
 
@@ -49,7 +50,15 @@ bottom they are depicted exclusively for CBGL's outputs and its internal pose
 sets. Table \ref{tbl:a} provides a summary of the errors and
 execution times of the two methods.
 
-\begin{table}[]\footnotesize
+From the experimental evidence it is clear that (a) CBGL manages to produce
+admissible solutions to Problem \ref{prob:the_problem} $991$ times out of a
+thousand for an outliers' locational threshold $\delta_{\bm{l}} = 0.5$ m when
+an angular threshold $\delta_{\theta}$ is not considered, and (b) CBGL
+outperforms ALS in terms of (i) position and orientation errors, (ii) number of
+pose estimates within all locational and angular thresholds, and (iii) execution
+time.
+
+\begin{table}[H]\footnotesize
 \begin{tabular}{@{}lcccccc@{}}
 %\toprule
      & \multicolumn{2}{l}{Position Err. {[}m{]}} & \multicolumn{2}{l}{Orientation Err. {[}rad{]}} & \multicolumn{2}{l}{Exec. Time {[}sec{]}} \\
@@ -63,13 +72,7 @@ CBGL & $0.041 $          & $0.045 $         & $0.011 $            & $0.019 $    
 \label{tbl:a}
 \end{table}
 
-From the experimental evidence it is clear that (a) CBGL manages to produce
-admissible solutions to Problem \ref{prob:the_problem} $991$ times out of a
-thousand for an outliers' locational threshold $\delta_{\bm{l}} = 0.5$ m when
-an angular threshold $\delta_{\theta}$ is not considered, and (b) CBGL
-outperforms ALS in terms of (i) position and orientation errors, (ii) number of
-pose estimates within all locational and angular thresholds, and (iii) execution
-time.
+
 
 
 \begin{figure}
@@ -129,7 +132,7 @@ time.
            estimates---the contents of $\mathcal{H}_1$ sets,
            as described in section \ref{section:the_proposed_method}---exhibit
            position errors lower than $\delta_{\bm{l}} = 0.5$ m for $k=10$, and
-           so do over $99\%$ of CBGL's final pose estimates. The improvement in
+           so do over $99\%$ of CBGL's output pose estimates. The improvement in
            position and orientation induced by scan--to--map-scan matching is
            captured by the difference between the output (i.e.
            $\mathcal{H}_2[\arg \min \psi(\mathcal{S}_R, \mathcal{S}_V^{\bm{M}}(\mathcal{H}_2)]$) and
@@ -176,15 +179,15 @@ candidate estimates. In WILLOWGARAGE, on the other hand, almost all sensor
 placements result in complete sampling of its surroundings, but the sensor is
 purposefully posed in such conditions as to challenge the localisation methods'
 ability to perform fine distinctions between similar surroundings. Figure
-\ref{fig:b:inliers_per_pose} depicts the percentage of outputs whose position
-error is lower than $\delta_{\bm{l}} = 0.5$ m per tested pose, and fig.
-\ref{fig:b:boxplots} depicts the overall distribution of position errors,
-orientation errors, and execution times per tested environment and algorithm.
+\ref{fig:b:inliers_per_pose} depicts the overall distribution of position
+errors, orientation errors, and execution times per tested environment and
+algorithm, and fig. \ref{fig:b:boxplots} depicts the percentage of outputs
+whose position error is lower than $\delta_{\bm{l}} = 0.5$ m per tested pose.
 Although the cardinality of set $\mathcal{H}$ is equal in both environments,
 CBGL's execution times are uneven due to \texttt{x1}'s increased execution time
 when dealing with scans with missing range information. ALS is more robust
 against missing information than against repeated surroundings, while PGL-PLICP
-exhibits the inverse tendency. Notwithstanding the aforementioned sources of
+exhibits the inverse tendency. Despite the aforementioned sources of
 uncertainty, CBGL manages to exhibit the overall highest number of poses whose
 position error is below $\delta_{\bm{l}} = 0.5$ m and the lowest mean position
 error.
@@ -213,29 +216,29 @@ error.
 
 \begin{figure}[tbp]
 \centering
-  \vspace{-0.1cm}
+  \vspace{-0.5cm}
 \raisebox{0cm}{%
   \begin{tabular}{@{}c@{}}
   \subfloat[]{%
-    {\hspace{-1.5cm}
-    \input{./figures/experiments/b/inliers_per_pose.tex}}
+    {\hspace{-0.7cm}
+    \input{./figures/experiments/b/xyte.tex}}
     \label{fig:b:inliers_per_pose}%
-    } \vspace{-0.5cm}\\
+    } \vspace{-0.0cm}\\
     \subfloat[\vspace{-0.1cm}]{%
-    {\hspace{-0.7cm}}
-    \input{./figures/experiments/b/xyte.tex}
+    {\hspace{-1.5cm}}
+    \input{./figures/experiments/b/inliers_per_pose.tex}
     \label{fig:b:boxplots}%
   }
   \end{tabular}%
   }
-  \caption{\small (a) Percent proportions of pose outputs whose position error is
-           lower than $\delta_{\bm{l}} = 0.5$ m per tested environment, pose,
-           and method. Overall CBGL (green) features the highest number of
-           inlier poses. (b) \small Distribution of position errors, orientation
+  \caption{\small (a) \small Distribution of position errors, orientation
            errors, and execution times per tested environment and algorithm in
            seconds for $N_s = 360$ rays. CBGL's execution time is at least
            eighteen times lower than other Monte Carlo approaches in
-           WILLOWGARAGE and four times lower in WAREHOUSE
+           WILLOWGARAGE and four times lower in WAREHOUSE. (b) Percent
+           proportions of pose outputs whose position error is lower than
+           $\delta_{\bm{l}} = 0.5$ m per tested environment, pose, and method.
+           Overall CBGL (green) features the highest number of inlier poses.
            }
   \vspace{-0.5cm}
 \end{figure}
@@ -272,8 +275,7 @@ environmental area, and the timing breakdown of the combination of CBGL with
 \texttt{x1} (right) with respect to (a) CBGL's total time minus \texttt{sm2}
 time and (b) computing map-scans, as proportions of total execution time.
 
-\begin{figure}
-  \vspace{0.3cm}
+\begin{figure}[H]
   \input{./figures/experiments/c/errors.tex}
   \vspace{0.01cm}
   \caption{\small Distributions of positional and orientational errors and of
@@ -287,8 +289,7 @@ time and (b) computing map-scans, as proportions of total execution time.
   \vspace{0.2cm}
 \end{figure}
 
-\begin{figure}
-  \vspace{0.5cm}
+\begin{figure}[H]
   \input{./figures/experiments/c/time_analysis.tex}
   \vspace{0.6cm}
   \caption{\small Left: CBGL's execution time with respect to environment area
@@ -298,6 +299,5 @@ time and (b) computing map-scans, as proportions of total execution time.
            Right: Proportion of CBGL $\circ$ \texttt{x1}'s total execution time
            spent on (a) all operations up to and except for matching, and (b)
            computing map-scans, with respect to area}
-  \vspace{-0.4cm}
   \label{fig:c:time_analysis}
 \end{figure}
