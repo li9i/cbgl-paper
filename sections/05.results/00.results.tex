@@ -1,6 +1,6 @@
-This section serves the testing of the performance of state of the global
-localisation art methods and CBGL with regard to solving Problem
-\ref{prob:the_problem} in static environments, varying environmental
+This section focuses on evaluating the performance of state of the art methods
+in global localization and CBGL in addressing Problem \ref{prob:the_problem} in
+static environments, varying environmental
 conditions, sensor configurations, and map representations. CBGL's
 parameters are set to $(d_{\bm{l}},d_{\alpha},k) = (40, 2^5, 10)$
 after initial tests with the real dataset used in subsection
@@ -31,24 +31,26 @@ angular range $\lambda = 3\pi/2$ rad and radial range $r_{\max} = 30.0$ m,
 in the  Electrical and Computer Engineering Department's Laboratory of Computer
 Systems Architecture (CSAL), of the Aristotle University of Thessaloniki, an
 Occupancy Grid map of which is depicted in fig.
-\ref{fig:a:map_and_trajectory}. The sensor was mounted on a Robotnik RB1 robot,
-which was teleoperated within the environment while scans were being recorded.
-This resulted in $N_E = 6669$ range scans, whose number of rays are downsampled
-by a factor of four before being inputted to CBGL and Advanced Localization
-System (ALS) \cite{als_jp}. The latter implements Free-Space Features
-\cite{als_eth} and, contrary to CBGL, is not a single-shot method;
-however, it is selected for comparison against CBGL due to the fact that it is
-the only state of the art global localisation method which exhibits feasible
-execution times with respect to the collected range dataset's volume (see
-bottom of fig.  \ref{fig:b:boxplots} for indicative execution times of state of
-the art methods). CBGL's internal \texttt{sm2} method is chosen to be PLICP
-\cite{Censi2008c} due to its low execution time and the sensor's non-panoramic
-field of view. The top of fig. \ref{fig:a:awesomeness} depicts the proportion
-of output pose estimates from each method whose position and orientation error
-is lower than outlier thresholds $\delta_{\bm{l}}$, $\delta_{\theta}$; at the
-bottom they are depicted exclusively for CBGL's outputs and its internal pose
-sets. Table \ref{tbl:a} provides a summary of the errors and
-execution times of the two methods.
+\ref{fig:a:map_and_trajectory}. The map's resolution is $0.01$ m / pixel, and
+it was constructed via ROS package \texttt{open\_karto}. The sensor was mounted
+on a Robotnik RB1 robot, which was teleoperated within the environment while
+scans were being recorded.  This resulted in $N_E = 6669$ range scans, whose
+number of rays are downsampled by a factor of four before being inputted to
+CBGL and Advanced Localization System (ALS) \cite{als_jp}. The latter
+implements Free-Space Features \cite{als_eth} and, contrary to CBGL, is not a
+single-shot method; however, it is selected for comparison against CBGL due to
+the fact that it is the only state of the art global localisation method which
+exhibits feasible execution times with respect to the collected range dataset's
+volume (see bottom of fig.  \ref{fig:b:inliers_per_pose} for indicative
+execution times of state of the art methods). CBGL's internal \texttt{sm2}
+method is chosen to be PLICP \cite{Censi2008c} due to its low execution time
+and the sensor's non-panoramic field of view. The top of fig.
+\ref{fig:a:awesomeness} depicts the proportion of output pose estimates from
+each method whose position and orientation error is lower than outlier
+thresholds $\delta_{\bm{l}}$, $\delta_{\theta}$; at the bottom they are
+depicted exclusively for CBGL's outputs and its internal pose sets. Table
+\ref{tbl:a} provides a summary of the errors and execution times of the two
+methods.
 
 From the experimental evidence it is clear that (a) CBGL manages to produce
 admissible solutions to Problem \ref{prob:the_problem} $991$ times out of a
@@ -80,18 +82,17 @@ CBGL & $0.041 $          & $0.045 $         & $0.011 $            & $0.019 $    
   \input{./figures/experiments/a/determine_40_32.tex}
   \vspace{-0.4cm}
   \caption{\small Top row and right column: histograms of the number of times
-           out of $N_E = 6669$ CBGL global localisation attempts
+           out of $N_E = 6669$ attempts of CBGL at global localisation
            when exactly $n \in [0,k] = [0,10]$ pose estimates belonging to set
-           $\mathcal{H}_1$ (fig. \ref{fig:block_system} and line
-           \ref{alg:cbgl:h1} of Alg. \ref{alg:cbgl}) exhibited pose errors
-           lower than $\delta_0 = (\delta_{\bm{l}}^2 + \delta_{\theta}^2)^{1/2} =
-           (0.3^2 + 0.4^2)^{1/2} = 0.5$ (m$^2$ + rad$^2$)$^{1/2}$. For
-           densities $(d_{\bm{l}},d_{\alpha}) = (40, 2^5)$ (top right) this
-           number is strictly increasing with $n$, which would be
-           an aspect to be retrospectively expected of a global localisation
-           method. Denser configurations adhere to the same pattern as well but
-           would require more execution resources. Middle block: the resulting
-           percent proportion of pose estimates whose pose error is lower than
+           $\mathcal{H}_1$ exhibited pose errors lower than
+           $\delta_0 = 0.5$ (m$^2$ + rad$^2$)$^{1/2}$ (e.g. for
+           ($\delta_{\bm{l}}, \delta_{\theta}) = (0.3,0.4)$). For densities
+           $(d_{\bm{l}},d_{\alpha}) = (40, 2^5)$ (top right) this number is
+           strictly increasing with $n$, which would be an aspect to be
+           retrospectively expected of a global localisation method. Denser
+           configurations adhere to the same pattern as well but would require
+           more execution resources. Middle block: the resulting percent
+           proportion of pose estimates whose pose error is lower than
            $\delta_0$ for varying pose densities. Bottom block: the resulting
            distribution of corresponding execution times
            }
@@ -129,8 +130,7 @@ CBGL & $0.041 $          & $0.045 $         & $0.011 $            & $0.019 $    
            error is lower than corresponding thresholds $\delta_{\bm{l}}$ and
            $\delta_{\theta}$. Top: ALS vs CBGL. Bottom: CBGL and internal pose
            estimate sets.  Approximately $77\%$ of all bottom-$k$ pose
-           estimates---the contents of $\mathcal{H}_1$ sets,
-           as described in section \ref{section:the_proposed_method}---exhibit
+           estimates---the contents of $\mathcal{H}_1$ sets---exhibit
            position errors lower than $\delta_{\bm{l}} = 0.5$ m for $k=10$, and
            so do over $99\%$ of CBGL's output pose estimates. The improvement in
            position and orientation induced by scan--to--map-scan matching is
@@ -162,14 +162,14 @@ $\bm{p}_{\ast}^{G}$, for $N = 100$ independent attempts at global localisation
 per pose. The tests are conducted with the use of a sensor whose number of rays
 $N_s = 360$, maximum range $r_{\max} = 10.0$ m, and noise $\sim \mathcal{N}(0,
 0.05^2)$ [m,m$^2$].  CBGL's internal \texttt{sm2} method is chosen to be
-\texttt{x1} due to the periodicity of the range signal, \texttt{x1}'s robust
-pose errors compared to \texttt{sm2} state of the art methods, and its greater
-ability in matching scans captured from greater initial displacements than ICP
-alternatives \cite{Filotheou2023a}.  The latter translates to the need for
-smaller initial hypotheses sets: for each environment the locational density is
-set to $3$\texttt{e}+04 divided by the free space area of each environment. For
-Monte Carlo approaches MCL and GMCL the number of initial hypotheses is also
-set to $3$\texttt{e}+04.
+\texttt{x1} \cite{Filotheou2023a} due to the periodicity of the range signal,
+\texttt{x1}'s robust pose errors compared to \texttt{sm2} state of the art
+methods, and its greater ability in matching scans captured from greater
+initial displacements than ICP alternatives \cite{Filotheou2023a}.  The latter
+translates to the need for smaller initial hypotheses sets: for each
+environment the locational density is set to $3$\texttt{e}+04 divided by the
+free space area of each environment. For Monte Carlo approaches MCL and GMCL
+the number of initial hypotheses is also set to $3$\texttt{e}+04.
 
 The maximum range of the sensor is such that the geometry of environment
 WAREHOUSE causes disorderly and extended lack of sampling of the sensor's
@@ -255,17 +255,18 @@ overlying \texttt{sm2} method. CBGL is tested once in each of $N_E =
 45402$ environments, generated via the evaluation procedure of
 \cite{Filotheou2023a}, which utilises five established and publicly available
 benchmark datasets provided courtesy of the Department of Computer Science,
-University of Freiburg \cite{datasets_link}. Each coordinate of the Point Cloud
-map of each environment is corrupted by noise $\sim\mathcal{N}(0,0.05^2)$ [m,
-m$^2$].  The angular range of the range sensor varies according to the
-overlying \texttt{sm2} method used: for the Normal Distribution Transform (NDT)
-\cite{ndt}, Fast Generalised ICP (FastGICP) \cite{fgi}, and Fast Voxelised
-Generalised ICP (FastVGICP) \cite{fvg}: $\lambda = 3\pi/2$ rad; for
-\texttt{x1}: $\lambda = 2\pi$ rad. Measurement noise is $\sim
-\mathcal{N}(0,0.03^2)$ [m,m$^2$].
+University of Freiburg \cite{datasets_link}. The environments' sizes vary
+according to fig. \ref{fig:c:time_analysis} (left). Each coordinate of the
+Point Cloud map of each environment is corrupted by noise
+$\sim\mathcal{N}(0,0.05^2)$ [m, m$^2$].  The angular range of the range sensor
+varies according to the overlying \texttt{sm2} method used: for the Normal
+Distribution Transform (NDT) \cite{ndt}, Fast Generalised ICP (FastGICP)
+\cite{fgi}, and Fast Voxelised Generalised ICP (FastVGICP) \cite{fvg}: $\lambda
+= 3\pi/2$ rad; for \texttt{x1}: $\lambda = 2\pi$ rad. Measurement noise is
+$\sim \mathcal{N}(0,0.03^2)$ [m,m$^2$].
 
 Figure \ref{fig:c:errors_and_time} illustrates that, with the exception of NDT,
-all versions of CBGL exhibit mean positional errors less than $1.0$ m; its
+all versions of CBGL exhibit mean positional errors less than $1.0$ m; CBGL's
 combination with \texttt{x1} exhibits a mean error of approximately $0.5$ m.
 The evidence illustrate that CBGL is robust to sensor angular range, as the
 distributions of errors between bottom-$k$ ($\mathcal{H}_1$) sets are virtually

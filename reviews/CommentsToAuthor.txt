@@ -1,0 +1,37 @@
+Comments to author (Associate Editor)
+=====================================
+
+# Contributions
+- The paper introduces CBGL, an efficient 2D Lidar and
+Monte-Carlo (MC) based global localization system that
+extends the CAER (cumulative absolute error per ray) loss
+and uses scan-to-map matching for pose refinement.
+
+# Summary of strengths
+-  Backed by extensive analysis, the approach demonstrates
+improvements (runtime, pose discovery rate) over existing
+global localization methods.
+- The source code of the proposed CBGL method is made
+publicly available which is useful for reproducibility
+purposes.
+- The limitation section is appreciated.
+
+# Summary of weaknesses
+- Claims: Please ensure that the claims are reasonable and
+do not overpromise. For instance, reduce the claim of true
+global localization to the assumed conditions under which
+the claim is true (e.g., limited-size scene).
+- Consider defining CBGL earlier in the paper (e.g.,
+Abstract).
+- Clarifications: There are some unclear points and the
+reviewers suggest restructuring the experiment section.
+Please see the reviewers' feedback for details and consider
+incorporating the suggestions.
+
+
+
+----------------------------------------
+Comments on Video Attachment:
+
+The video summarizes the work well and the narration is
+useful. The authors abide by the 1min IROS limit.

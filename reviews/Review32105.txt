@@ -1,0 +1,69 @@
+Reviewer 4 of IROS 2024 submission 101
+
+Comments to the author
+======================
+
+This paper presents a method for efficiently global
+localization based on a particle filter using a 2D lidar.
+The method incorporates the Cumulative Absolute Error per
+Ray as a loss function for MCL and uses scan matching as a
+pose refinement method on a subset of the most probable
+particles. In general, the paper's core ideas appear to be
+a relatively simple extension of the particle filter, but
+the extensive analysis and well thought out text make the
+paper a suitable candidate for IROS. The text could benefit
+from added clarity and more concise structuring (such as
+separating core ideas from extra in the weeds details)
+which at times becomes distracting. Specific comments are
+as follows:
+
+The claim of true global localization is a bit questionable
+since the method seems to assume that particles can be
+spaced dense enough such that a subset of the particles
+will be close enough to the true pose such that the CAER is
+proportional to the pose error. This scales quickly with
+scene size and thus in practice global localization can
+only be performed on a limited size scene. The paper may
+consider specifying global localization on bounded or on
+small scale scene.
+
+The paper’s claim of being the “fastest Monte Carlo global
+localisation method that employs a 2D LIDAR” seems a bit
+questionable without added assumptions and mention of
+recent fast methods in global localization for 2D lidar.
+
+The limitation section is greatly appreciated and is a
+section more papers should include. The one included in
+this paper would benefit from being more concisely written
+- for example, be more standalone and state the key ideas
+instead of relying on cross referencing multiple figures.
+
+Some sentences structures need proof reading such as “This
+section serves the testing of the performance of state of
+the global localisation art methods ” and “In
+observer-based localisation configurations its initial pose
+may not be knowable in advance, leading to the need of its
+estimation. ”which are distracting from some parts of the
+paper.
+
+The reviewer appreciates the extensive figures and analysis
+shown. However, a more concise structuring of the
+experiments section would have make the section stronger
+and much easier to read. For example, the caption in figure
+5 is quite distracting with the equations included and
+would be better if it did not require references to other
+figures and algorithms. In general, unless unavoidable, a
+concise standalone caption makes for a much clearer
+message. Table 1 is the most clear and to the point figure,
+the other figures such as figure 7, 8, 11 are a bit too
+crowded and would either benefit from being simplified,
+better labeling, or keeping a roughly consistent style of
+figure throughout so the reader doesn’t have to re-learn
+the figure style for each figure. 
+
+Comments on the Video Attachment
+================================
+
+Only a 1 minute audio file downloaded, perhaps a mistaken
+upload. The Youtube file linked to the paper's github is
+well done. 

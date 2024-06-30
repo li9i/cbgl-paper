@@ -1,0 +1,46 @@
+Reviewer 2 of IROS 2024 submission 101
+
+Comments to the author
+======================
+
+In this article, the author presents a method for global
+localization using a 2D LIDAR sensor. The structure and
+language of the article are good.
+The presented CBGL method is based on the CAER (cummulative
+absolute error per ray) metric, which is used in Monte
+Carlo localization in combination with scan matching. The
+presented results show an improvement over the existing
+global localization methods, but there are also some
+unclear points.
+
+There are several points in the paper that should be
+improved:
+- In section V-A it is not clear how the environment map
+was created and how accurate it is
+- Section V-A states: "see bottom of &#64257;g. 8b for
+indicative execution times of state of the art methods",
+but Fig. 8b does not show any execution times
+- in Sction V-B x1 is not defined
+- Comparing section V-A and V-B, why wasn't the same sm2
+method used in both sections? Does this mean that the use
+of sm2 depends on the environment?
+- Section V-C mentions 45402 environments. Even if this is
+a public data set, a further sentence should be inserted
+about the range of these environments.
+- Why does the angular range of the range sensor in section
+V-C vary depending on the sm2 method? Why is the same
+angular range not used for all experiments? This should be
+explained in more detail.
+- In Section V-C, the sentence "Figure 9 illustrates that,
+with the exception of NDT, all versions of CBGL exhibit
+mean positional errors less than 1.0 m; its combination
+with x1 exhibits a mean error of approximately 0.5 m." not
+clear. Is x1 independent of the sm2 method or is it
+combined with NDT. Which result is shown in Figure 9?
+- Figure 11 should be further explained and made clearer.
+
+
+Comments on the Video Attachment
+================================
+
+The video summarises the work presented in the paper
