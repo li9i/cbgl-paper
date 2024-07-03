@@ -48,20 +48,18 @@ In sum the proposed method retains most of the positive qualities of the two
 main approaches to global localisation and avoids their pitfalls: it uses
 multiple hypotheses for robustness against uncertainty, assumes no motion,
 environmental structure, or parameter tuning in a per-environment or sensor
-basis, and is robust against noise.
-The motivation of CBGL originates from seeking to achieve a
-greater degree of universality, reliability, and portability across multiple
-and disparate environments, by aiming to economise on the use of resources
-(environmental assumptions; number, type, and cost of sensors; number of
-measurements; time). The proposed method is most akin to the two tested
-methods in \cite{Filotheou2022g}: all three are single-shot 2D LIDAR-based
-Monte Carlo approaches, but CBGL computes a measure of the alignment of the
-measurement to the virtual scan captured from each hypothesis
+basis, and is robust against noise.  The motivation of CBGL originates from
+seeking to achieve a greater degree of universality, reliability, and
+portability across multiple and disparate environments, by aiming to economise
+on the use of resources (environmental assumptions; number, type, and cost of
+sensors; number of measurements; time). The proposed method is most akin to the
+two tested methods in \cite{Filotheou2022g}: all three are single-shot 2D
+LIDAR-based Monte Carlo approaches, but CBGL computes a measure of the
+alignment of the measurement to the virtual scan captured from each hypothesis
 \textit{before} scan--to--map-scan matching, which occurs subsequently and only
-for a small subset of the most-aligned virtual scans to the measurement. This,
-along with the low computational complexity of the alignment measure that CBGL
-utilises, greatly diminish its execution time. So far this alignment measure
-(Def.  \ref{def:definition_3}) has only been tested against the context of
-\texttt{sm2} in pose tracking, i.e. for pose hypotheses in a neighbourhood of
-the sensor's true pose%, and its computational complexity is low
-\cite{Filotheou2022f,Filotheou2023a}.
+for a small subset of the virtual scans most aligned to the
+measurement. This, along with the low computational complexity of the alignment
+measure that CBGL utilises (Def. \ref{def:definition_3}), greatly diminish its
+execution time. So far this alignment measure has only been tested against the
+context of \texttt{sm2} in pose tracking, i.e. for pose hypotheses in a
+neighbourhood of the sensor's true pose \cite{Filotheou2022f,Filotheou2023a}.

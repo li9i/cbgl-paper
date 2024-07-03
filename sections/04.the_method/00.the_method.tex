@@ -80,7 +80,7 @@ $\delta_{\bm{l}}$, $\delta_{\theta}$, CBGL produces admissible pose estimates
 (Def. \ref{def:definition_7}) while being executed in timely manner.  Given the
 method's Monte Carlo nature, optimistically, the only option for increasing the
 accuracy of the final pose estimate by a factor of two would be to double
-locational density $d_{\bm{l}}$; instead of doing that---and thereby doubling
+locational density $d_{\bm{l}}$. Instead of doing that---and thereby doubling
 the method's execution time---subsequent to the calculation of set
 $\mathcal{H}_1$, CBGL scan--to--map-scan matches the map-scans captured from
 the pose estimates of $\mathcal{H}_1$ against the range scan measured by the
@@ -88,7 +88,7 @@ real sensor (\texttt{sm2}) \cite{Vasiljevic2016c,Filotheou2023a}, producing
 pose set $\mathcal{H}_2$ (Alg. \ref{alg:sm2}).
 
 Matching allows for (a) the correction of the pose of true positive estimates,
-(b) by the same token the potential divergence of spurious, false positive,
+(b) by the same token the potential divergence of spurious, false positive
 pose estimates, and hence their elimination as pose estimate candidates, (c)
 the decoupling of the final pose estimate's error from the method's chosen
 densities, and (d) the production of finer pose estimates without excessive

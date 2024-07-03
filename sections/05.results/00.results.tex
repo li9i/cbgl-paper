@@ -5,7 +5,7 @@ conditions, sensor configurations, and map representations. CBGL's
 parameters are set to $(d_{\bm{l}},d_{\alpha},k) = (40, 2^5, 10)$
 after initial tests with the real dataset used in subsection
 \ref{subsec:exp_a}. The rationale of choosing appropriate
-$d_{\bm{l}},d_{\alpha}$ is depicted in fig. \ref{fig:a:determine_40_32};
+$d_{\bm{l}}$ and $d_{\alpha}$ is depicted in fig. \ref{fig:a:determine_40_32};
 $k$ is chosen as such in order to retain a high-enough true positive discovery
 rate without significant increase in execution time. The locational threshold
 $\delta_{\bm{l}} = 0.5$ m is used as a tighter solution admissibility criterion
@@ -86,13 +86,13 @@ CBGL & $0.041 $          & $0.045 $         & $0.011 $            & $0.019 $    
            when exactly $n \in [0,k] = [0,10]$ pose estimates belonging to set
            $\mathcal{H}_1$ exhibited pose errors lower than
            $\delta_0 = 0.5$ (m$^2$ + rad$^2$)$^{1/2}$ (e.g. for
-           ($\delta_{\bm{l}}, \delta_{\theta}) = (0.3,0.4)$). For densities
-           $(d_{\bm{l}},d_{\alpha}) = (40, 2^5)$ (top right) this number is
-           strictly increasing with $n$, which would be an aspect to be
-           retrospectively expected of a global localisation method. Denser
-           configurations adhere to the same pattern as well but would require
-           more execution resources. Middle block: the resulting percent
-           proportion of pose estimates whose pose error is lower than
+           ($\delta_{\bm{l}}, \delta_{\theta}) = (0.3,0.4) [\text{m},
+           \text{rad}]$). For densities $(d_{\bm{l}},d_{\alpha}) = (40, 2^5)$
+           (top right) this number is strictly increasing with $n$, which would
+           be an aspect to be retrospectively expected of a global localisation
+           method. Denser configurations adhere to the same pattern as well but
+           would require more execution resources. Middle block: the resulting
+           percent proportion of pose estimates whose pose error is lower than
            $\delta_0$ for varying pose densities. Bottom block: the resulting
            distribution of corresponding execution times
            }
@@ -115,7 +115,7 @@ CBGL & $0.041 $          & $0.045 $         & $0.011 $            & $0.019 $    
            Estimation is performed for each sensor
            pose independently of previous estimates and measurements. Sensor
            poses for which CBGL's output exhibits position error larger than
-           $\delta_{\bm{l}}$ are marked with red, sources of great
+           $\delta_{\bm{l}} = 0.5$ m are marked with red, sources of great
            range noise with cyan, and regions around doors with purple
            }
   \label{fig:a:map_and_trajectory}
